@@ -11,10 +11,22 @@ In order to make LLVM adapt to generate efficient EVM instruction code, we propo
 ## Register-based Instructions
 If we consider the stack space as a register file address space, we can see that:
 * the instruction set are operating solely on registers
-* `PUSH` and `POP` instructions can load/remove immediate numbers to/from registers.
+* `PUSH` and `POP` instructions can instantiate/remove immediate numbers to/from registers.
 * `MSTORE` and `MLOAD` are used for interacting with memory address space.
 * each register operands become invalid after a use. In order to make a register be able to be used in more than one instruction, the operand has to be rematerialized for a second instruction by:
     * using `PUSH` (if is immediate)
     * duplicating using `DUP`, or
     * use `MSTORE` and `MLOAD` to spill it to memory
 * Storage space manipulation and other operations such as `SHA3`, `PC`, etc can be implemented as intrinsic calls in the backend.
+
+With above mentioned properties, we can derive the following register-based instruction set properties (more to be added):
+* there is only one addressing mode: reg
+* data layout -- data alignment: 256 bits
+* only one natively supported data type: 256-bit integers
+    * no floating point or vector data type support
+* there are two address spaces: 1. memory space and, 2. storage space.
+
+## Stackification
+Eventually the register-based instructions will have to be mapped to EVM stack-based instructions. 
+* should happen after instruction scheduling
+* EVM backend do not need a register allocation pass
