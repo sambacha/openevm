@@ -26,6 +26,9 @@ With above mentioned properties, we can derive the following register-based inst
     * no floating point or vector data type support
 * there are two address spaces: 1. memory space and, 2. storage space.
 
+## Stack pointer and frame pointer
+Stack pointer and frame pointer are mostly placeholders in the EVM backend. 
+
 ## Stackification
 Eventually the register-based instructions will have to be mapped to EVM stack-based instructions. 
 * should happen after instruction scheduling
