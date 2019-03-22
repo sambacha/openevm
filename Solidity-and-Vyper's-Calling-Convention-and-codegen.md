@@ -45,3 +45,5 @@ label_end
 * `placeholder` is a new memory time slot calculated statically
 * `static_pos` is the end position of the static arguments
  
+The static section of the arguments are generated using `mload`s.
+
