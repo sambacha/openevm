@@ -25,7 +25,6 @@ A call body is consists of the following (as extracted from `self_call.py:call_s
 
 If there is dynamic section in the variables, those arguments will be stored in memory. Here is the following code generated to for storing variables in memory space:
 ```
-#
 mstore placeholder (argument_start_pos + argument_size)
 label_start
 
@@ -47,3 +46,21 @@ label_end
  
 The static section of the arguments are generated using `mload`s.
 
+### control flows
+#### `if x : y else z`
+```
+(session x)
+(jumpi (iszero x) mid_symbol)
+(session y)
+(jump end_symbol)
+(jumpdest mid_symbol)
+(session z)
+(jumpdest end_symbol)
+```
+
+#### `if x : y`
+```
+(session x)
+(jumpi (iszero x) end_symbol)
+(session y)
+(jumpdest end_symbol)
