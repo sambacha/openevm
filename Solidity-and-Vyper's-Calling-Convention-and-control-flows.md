@@ -1,6 +1,20 @@
 ## Vyper
-### Internal (private) calls
 
+### Dynamic memory allocation
+Memory address `0x00 ~ 0x200` (`0 ~ 320`) are reserved by Vyper compiler. new dynamic memory allocation uses memory locations starting from `0x200` (`320`).
+
+### Internal public calls
+This refers to calls that are public and within a same contract.
+
+An `call` instruction is generated:
+* gas price (3rd argument) is set to zero.
+* Input arguments are packed and stored in memory. Its pointer is the 4th argument.
+
+#### Packing arguments
+TODO
+
+### Internal private calls
+This refers to calls that are declared private and within a same contract.
 #### calling into a function
 Codegen Steps (inside `self_call.py`):
 1. push current local variables
@@ -28,7 +42,7 @@ A call body is consists of the following (as extracted from `self_call.py:call_s
 6. `pop_local_vars` : bunch of `mstore`s.
 
 ##### dynamic section of arguments
-Arguments in dynamic section are stored in memory.
+Arguments in dynamic section are packed and stored in memory.
 Here is the following code generated to for storing variables in memory space:
 ```
 mstore placeholder (argument_start_pos + argument_size)
