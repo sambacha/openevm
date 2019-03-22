@@ -11,7 +11,33 @@ An `call` instruction is generated:
 * Input arguments are packed and stored in memory. Its pointer is the 4th argument.
 
 #### Packing arguments
+
+
+#### Unpacking arguments
+static arguments:
+* `i_placeholder` : temporary memory space used as counter
+* `begin_pos` : the beginning position of the packed arguments
+stack arguments:
 TODO
+```
+(mstore begin_pos stacktop_value)
+(mstore i_placeholder 0)
+(jumpdest start_label)
+(if
+  (ge
+     (mload i_placeholder)
+     (ceil32 (mload begin_pos))
+  )
+  (jump end_label)
+)
+(mstore
+   (add (add begin_pos 32) (mload i_placeholder))
+   stacktop_value_minus_1
+)
+(mstore i_placeholder (add 32 (mload i_place_holder)) # incrementing i
+(jump start_label)
+(jumpdest end_label)
+```
 
 ### Internal private calls
 This refers to calls that are declared private and within a same contract.
