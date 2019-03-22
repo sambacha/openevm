@@ -1,5 +1,7 @@
 ## Vyper
 ### Internal (private) calls
+
+#### calling into a function
 Codegen Steps (inside `self_call.py`):
 1. push current local variables
 2. push arguments
@@ -8,6 +10,7 @@ Codegen Steps (inside `self_call.py`):
 5. pop return values
 6. pop local variables
 
+##### Function invocation
 A function invocation is generated using this stub:
 ```
 add (pc) 6
@@ -15,15 +18,18 @@ goto func_label
 jumpdest
 ``` 
 
+##### Sequence of a function call
 A call body is consists of the following (as extracted from `self_call.py:call_self_private`):
-1. pre_init
+1. `pre_init` : it is an empty code stub
 2. `push_local_vars`: if there are local variables
 3. `push_args`
-4. `jump_to_func`
-5. `pop_return_values`
-6. `pop_local_vars`
+4. `jump_to_func` : see section "Function invocation" above.
+5. `pop_return_values` : see section "returning from a function" below.
+6. `pop_local_vars` : bunch of `mstore`s.
 
-If there is dynamic section in the variables, those arguments will be stored in memory. Here is the following code generated to for storing variables in memory space:
+##### dynamic section of arguments
+Arguments in dynamic section are stored in memory.
+Here is the following code generated to for storing variables in memory space:
 ```
 mstore placeholder (argument_start_pos + argument_size)
 label_start
@@ -46,7 +52,11 @@ label_end
  
 The static section of the arguments are generated using `mload`s.
 
-### control flows
+#### Returning from a function
+The callee will generate an additional `pop` if the function's return type is `None`.
+
+
+## Control Flows
 #### `if x : y else z`
 ```
 (session x)
