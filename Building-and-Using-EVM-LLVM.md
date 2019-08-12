@@ -9,7 +9,24 @@ cmake -DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=EVM ..
 make -j8
 ```
 
-In order to use the backend to generate EVM code, you have to specify `-mtriple=evm` when you call `llc`. An example is as follows:
+Let's try to use a simple C file to test our compiler:
 ```
-./build/bin/llc -mtriple=evm -debug a.ll
+unsigned x;
+int abc(unsigned a, unsigned b, unsigned c) {
+  if (c > 0) {
+    return a + x;
+  } else {
+    return a + b;
+  }
+}
 ```
+You have to generate LLVM IR first:
+```
+clang -S -emit-llvm test.c
+```
+This will generate 
+In order to use the backend to generate EVM code, you have to specify `-mtriple=evm` when calling `llc`. An example is as follows:
+```
+./build/bin/llc -mtriple=evm -debug test.ll -o test.s
+```
+
