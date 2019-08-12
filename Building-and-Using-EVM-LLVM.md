@@ -38,7 +38,8 @@ You can also get the binary code of the function body by outputting an ELF objec
 ```
 ./build/bin/llc -mtriple=evm -filetype=obj test.ll -o test.o
 ```
-This will dump an ELF format object file `test.o`, which contains the EVM bytecode in its text section. We need to extract the binary somehow:
+This will dump an ELF format object file `test.o`, which contains the EVM bytecode in its text section. 
+Before The EVM binary object file writer is ready, we can only dump function body code in some container such as ELF. We can extract the binary somehow:
 ```
 ./build/bin/llvm-objdump --triple=evm --disassemble -s test.o
 ```
@@ -75,3 +76,16 @@ Disassembly of section .text:
       2b: 03 52                        	SUB
       2d: 90 56                        	SWAP1
 ```
+For some reason there is something wrong with the disassembled code, as it sometimes parses 16 bits instead of 8 bits, it is a bug we need to fix.
+
+You can also disassemble some random instructions by:
+```
+echo "0x60 0x45" | ./build/bin/llvm-mc --disassemble -triple=evm
+```
+And it will output something like:
+```
+	.text
+	PUSH1 	69
+```
+
+
