@@ -2,11 +2,11 @@
 
 This defines the gas cost calculation module for EVM.
 
-## Import
+## Imports
 
-The gasometer has access to the following information:
+The gasometer has access to the following information. Note that each
+opcode cost module may require access to additional information.
 
-* **Stack**: The EVM's stack.
 * **Memory effective length**: The effective length of memory, defined
   in EVM Core.
   
@@ -14,6 +14,9 @@ The gasometer has access to the following information:
 
 * `G_MEMORY`: Used to calculate memory gas from memory effective
   length.
+* **Opcode Cost Modules**: With gasometer in place, each valid opcode
+  is assigned with an opcode cost module. This constant is a mapping
+  of opcode to its opcode cost module.
 
 ## Data Structures
 
@@ -48,6 +51,10 @@ Calculate memory gas, with the formular `G_MEMORY * a + a * a // 512`,
 where `a` is the memory effective length. Return memory gas plus used
 gas counter.
 
+### `gasometer.gas_left()`
+
+Return *gas limit* minus `gasometer.total_used_gas()`.
+
 ### `gasometer.effective_used_gas()`
 
 Calculate the effective used gas for a transaction, based on total
@@ -58,3 +65,11 @@ the effective refund gas is 0. Otherwise, cap the refund gas at half
 of the total used gas.
 
 Return total used gas minus effective refund gas.
+
+### `gasometer.record_opcode(opcode)`
+
+Use the corresponding opcode cost module of the given opcode to
+calculate the gas cost and gas refund. Call the result `gas` with
+`gasometer.record_used`. Call the result `refund` with
+`gasometer.record_refund`.
+
