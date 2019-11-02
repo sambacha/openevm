@@ -20,7 +20,51 @@ assumptions about the environment. Many layers, including EVM Core,
 does not contain the gasometer, which means it's suitable to be used
 in general-purpose environments and is much easier to be implemented.
 
-## EVM Core
+## Philosophy
+
+The current EIP and ECIP process basically composes of
+"changelogs". We define, as informal specifications, about what is
+changed when the EIP is applied. This works well for simple changes
+such as gas cost modification and opcode addition, because the change
+is only at a single point and assumed not to affect the rest of the
+system.
+
+However, totally relying on changelog format has its expressiveness
+limit. For pressing issues on Ethereum we're facing nowadays, many
+structual and potentially complex changes of the EVM are required. When
+writing them under EIP "changelog" format, it's both hard for authors
+to express themselves, and for readers to understand the
+specification. This has led to confusions and implementation consensus
+issues in the past. What's more, some of the previously-thought single
+point changes turned out to affect a larger part of the EVM, such as
+EIP-1283 and EIP-1884, relying on changelog format solely made it
+harder for readers to review those effects.
+
+The Core Paper Project of EVM is an attempt to address those
+issues. Instead of one-step "changelog" process as in EIP and ECIP,
+here feature upgrades are defined under a two-step process:
+
+* **Refactoring**: Any new feature upgrades is identified as a "module
+  change". We first refactor the *whole EVM* specification to get a
+  *functionally equivalent* specification.
+* **Module change**: We then add the module change, and write the
+  "changelog" simply as the actual module change.
+  
+As an example, to add new EVM features that require additional
+validation step in the beginning, we first refactor the whole EVM
+specification to have a no-op validation step, which is functionallly
+equivalent to what we have now. After that, the new feature can simply
+be added as an additional module. This process is much more clear
+compared with the changelog process.
+
+At the same time, we hope the modular design and specification allow
+reusibility outside of the context of Ethereum and Ethereum Classic,
+and can encourage better standardization, for EVM features that are
+not designed for Ethereum or Ethereum Classic mainnet.
+
+## Modules
+
+### EVM Core
 
 EVM Core defines the base layer of execution. The VM has access to the
 following information:
@@ -47,7 +91,7 @@ Valid instructions of EVM Core are:
   `MLOAD`, `MSTORE`, `MSTORE8`, `JUMP`, `JUMPI`, `PC`, `MSIZE`,
   `JUMPDEST`, `RETURN`, `REVERT`, `INVALID`.
   
-## EVM ROM
+### EVM ROM
 
 The EVM ROM layer can be built on top of EVM Core to provide access to
 a range of read-only memory. We define the following structure:
@@ -71,7 +115,7 @@ memory. Here we define read-only memory to have index every 32 bytes.
 - `CHAINID` (`0x46`): `READROM 0xb` Push index `10` of read-only memory onto stack.
 - `SELFBALANCE` (`0x47`): `READROM 0xc` Push index `11` of read-only memory onto stack.
 
-## EVM Storage
+### EVM Storage
 
 The EVM Storage layer provides opcodes for access of a persistent
 storage:
@@ -81,7 +125,7 @@ storage:
   
 Opcodes `SLOAD` and `SSTORE` are defined in this layer.
 
-## EVM Log
+### EVM Log
 
 The EVM Log layer provides opcodes for logging:
 
@@ -90,7 +134,7 @@ The EVM Log layer provides opcodes for logging:
   
 Opcodes `LOGn` are defined in this layer.
 
-## EVM Ethereum
+### EVM Ethereum
 
 We define all Ethereum specific opcodes in this layer. This includes:
 
@@ -101,3 +145,8 @@ We define all Ethereum specific opcodes in this layer. This includes:
 - **Gasometer**: `GAS`
 - **System Operations**: `CREATE`, `CREATE2`, `CALL`, `CALLCODE`,
   `DELEGATECALL`, `STATICCALL`
+
+## License
+
+This work is licensed under [Apache License, Version
+2.0](http://www.apache.org/licenses/).
