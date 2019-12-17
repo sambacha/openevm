@@ -39,3 +39,5 @@ Finally:
 ```
 
 Notice that we cannot know the contract deploy size (%deploy_size variable) until binary generation is completed. So we will have to use a place holder for the IR representation. 
+
+To fix up `deploy.size` variable, we can specify the option `-filetype=obj` in `llc`. Alternately, generate assembly using `-filetype=asm` and then use a slightly changed version of `pyevmasm` at https://github.com/lialan/pyevmasm to generate hex binary. In both cases the binary will have `deploy.size` fixed.
