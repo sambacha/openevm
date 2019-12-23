@@ -2,8 +2,8 @@ It is the frontend's responsibility to do the smart contract's plumbing, includi
 
 ### The Contract constructor function
 * The constructor should be the first function in the generated LLVM IR.
-* The constructor should be named "solidity.main" (will change to a more general name in the future).
-* The constructor should not take any arguments. There is a special pass to transform the constructor function differently than other functions.
+* The constructor should be named "solidity.main" or "main" (will change to a more general name in the future). The backend recognizes these specific names and will generate different call codes.
+* The constructor should not take any arguments.
 
 ### Skeleton example of a very small constructor function
 Here is an illustration of the skeleton of a small smart contract. In order to initialize the smart contract environment, we will initialize the free memory pointer (at address 0x40) at the very beginning. The frontend is expected to use intrinsic functions as the following 
@@ -38,6 +38,11 @@ Finally:
 }
 ```
 
-Notice that we cannot know the contract deploy size (%deploy_size variable) until binary generation is completed. So we will have to use a place holder for the IR representation. 
+Notice that we cannot know the contract deploy size (%deploy_size variable) until binary generation is completed. So we will have to use a place holder for the assembly representation. To fix up `deploy.size` variable, we can specify the option `-filetype=obj` in `llc`. Alternately, generate assembly using `-filetype=asm` and then use a slightly changed version of `pyevmasm` at https://github.com/lialan/pyevmasm to generate hex binary. In both cases the binary will have `deploy.size` fixed.
 
-To fix up `deploy.size` variable, we can specify the option `-filetype=obj` in `llc`. Alternately, generate assembly using `-filetype=asm` and then use a slightly changed version of `pyevmasm` at https://github.com/lialan/pyevmasm to generate hex binary. In both cases the binary will have `deploy.size` fixed.
+### Running the contract
+A generated `.o` file is in binary format. To see its content in hex, try to use `xxd`, for example:
+```
+xxd -p -cols 65536 generated_output.o
+```
+The `xxd` will emit a hex string, you can copy and paste it to execute it using geth's evm or any other EVM engine.
