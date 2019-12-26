@@ -1,7 +1,8 @@
-It is the frontend's responsibility to do the smart contract's plumbing, including the contract's constructor function. 
+
+
 
 ### The Contract constructor function
-Because EVM's execution always start from the beginning of the code (`pc = 0`), there must be a way to handle more complicated contract behaviors. In EVM LLVM, we use a function to describe the function handling. It is called contract constructor function. To implement the function, developers are expected to respect the following contract constructor properties:
+Because EVM's execution always start from the beginning of the code (`pc = 0`), there must be a way to handle more complicated contract behaviours. In EVM LLVM, we use a function to describe the function handling. It is called contract constructor function. To implement the function, developers are expected to respect the following contract constructor properties:
 * The constructor should be the first function in the generated LLVM IR.
 * The constructor should be named `solidity.main` or `main` (could change in the future). The backend recognizes these specific names and will generate different call codes.
 * The constructor should not take any arguments.
@@ -35,6 +36,8 @@ define i256 @add(i256, i256) #0 {
   ret i256 %7
 }
 ```
+
+**Usually, it is the frontend's responsibility to do the smart contract's plumbing, including the contract's constructor function. ** We need the language frontends to generate corresponding LLVM IR code.
 
 This smart contract does the following things;
 * Initialize the `free memory pointer` to 128
