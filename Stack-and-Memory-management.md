@@ -13,4 +13,33 @@ Part of the memory is used as a stack for function calls and variable spills. Th
     * **spilled variables**. Variable that are unable to be fully stackified will reside on the memory stack. In codegen, each spilled variable will have an index, and each index refers to a memory slot. A spilled variable that bears index `y`, will reside at location `$fp + (number_of_frame_objects * 32) + (y * 32)`.
     * **subroutine context**. Like a regular register machine, the memory stack is used to store subroutine context so as to support function calls. Two slots are allocated at the end of current frame for a) the existing frame pointer, and b) return `PC` address. 
 
- 
+ Here is an example showing a stack frame right before we jump into a subroutine:
+```
+  Stack top                                    Higher address
+ +-----------> +----------------------------+ <----------------+
+               |                            |
+               |     Return Address         |
+               |                            |
+               +----------------------------+
+               |                            |
+               |    Saved frame pointer     |
+               |     (Start of frame)       |
+               +----------------------------+
+               |                            |
+               |     Stack Object 2         |
+               |                            |
+               +----------------------------+
+               |                            |
+               |     Stack Object 1         |
+               |                            |
+               +----------------------------+
+               |                            |
+               |     Frame Object 2         |
+               |                            |
+               +----------------------------+
+               |                            |
+               |     Frame Object 1         |
+Start of frame |                            |   Lower address
++------------> +----------------------------+ <----------------+
+
+```
