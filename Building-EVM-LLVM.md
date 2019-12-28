@@ -27,8 +27,7 @@ Prerequisite: You have to install `clang` and use it to generate LLVM IR first:
 clang -S -emit-llvm test.c
 ```
 
-This will generate 
-In order to use the backend to generate EVM assembly, you have to specify `-mtriple=evm` when calling `llc`. An example is as follows:
+This will generate a `test.ll` file which should be the LLVM IR equivalent of our `test.c` file. Then we can generate EVM binary or assembly from it. In order to use the backend to generate EVM assembly, you have to specify `-mtriple=evm` when calling `llc`. An example is as follows:
 ```
 ./build/bin/llc -mtriple=evm test.ll -o test.s
 ```
