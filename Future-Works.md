@@ -1,5 +1,8 @@
 # Functionalities
-
+## Experimental support of landing pad
+## Experimental support of Heap allocation
+## Constant symbol table
+## Metadata export
 
 
 # Optimizations
