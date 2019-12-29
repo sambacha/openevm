@@ -48,3 +48,6 @@ If the function returns nothing, simply jump to return address.
 After jumping back to caller, we have to resume the execution:
 1. restore caller's frame pointer by storing the value at location `$fp - 32` to `0x40`.
 
+## External calls
+External calls are implemented using intrinsic calls.
+*TODO*
