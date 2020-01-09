@@ -9,10 +9,10 @@ The `function dispatcher` function (usually called `main` function in some conte
  Start of address
 +---------------->  +-------------------------+
                     | Function dispatcher     |
-                    |   Jump Table (          |
-                    |     Func1,              |
+                    |   Jump Table            |
+                    |    (Func1,              |
                     |     Func2,              |
-                    |     Func3}              |
+                    |     Func3)              |
                     +-------------------------+
                     |                         |
                     |      Func1              |
