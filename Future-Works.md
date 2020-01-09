@@ -1,7 +1,12 @@
 # Functionalities
 ## Experimental support of landing pad
+Landingpad is used to support exception handling.
+
 ## Experimental support of Heap allocation
-## Constant symbol table
+EVM does not have a heap space, so we cannot use heap allocations. We might be able to do around it.
+
+## Constant symbol table support
+
 ## Metadata export
 
 
