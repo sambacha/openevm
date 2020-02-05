@@ -2,3 +2,7 @@
 
 
 Welcome to the evm_llvm wiki!
+
+## Technical Discussion
+
+[Technical Paper](files/Generating_stack_machine_code_using_LLVM.pdf "Technical Paper")
