@@ -27,3 +27,16 @@ The `function dispatcher` function (usually called `main` function in some conte
                     |                         |
                     +-------------------------+
 ```
+
+## Moving the function dispatcher to front of the LLVM IR function list
+
+At this moment it is up to the frontend developer to move the LLVM IR function to the beginning of the function list. You can do something like this when creating function dispatcher:
+```
+// Let's say you have a dispatcher function named "dispatcher"
+
+// You should include "llvm/IR/SymbolTableListTraits.h" here
+using FunctionListType = SymbolTableList<Function>;
+FunctionListType &FuncList = TheModule->getFunctionList();
+FuncList.remove(dispatcher);
+FuncList.insert(FuncList.begin(), dispatcher);
+```
