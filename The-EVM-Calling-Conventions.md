@@ -33,10 +33,9 @@ Up to ETH 1.5, there is no link and jump EVM opcode for easy handling of subrout
 ## Procedure of a subroutine call
 To illustrate the procedure for a subroutine call, we need to do the following to save the context of current function execution:
 1. calculate the current frame size. The frame size should be the size sum of: a) slots occupied by frame objects, b) slots occupied by spilled variables, and c) one more slot for storing current frame pointer. let's assume the frame size is calculated to be `%frame_size`.
-2. save existing frame pointer. The frame pointer resides at `0x40`.
 3. bump the frame pointer to: `$fp = $fp + %frame_size`. After that, we can easily restore the old frame pointer by looking at location `$fp - 32`.
 4. push all subroutine arguments in order on to stack.
-5. push return address onto stack.
+5. push return address onto stack. (At this moment, the return address is `PC + 6`). 
 6. push the beginning address of subroutine and jump.
 
 Right before we return from a subroutine, the stack should be empty and the return address should be at the top of the stack. When returning from a subroutine call, we should do the following:
@@ -48,6 +47,24 @@ If the function returns nothing, simply jump to return address.
 After jumping back to caller, we have to resume the execution:
 1. restore caller's frame pointer by storing the value at location `$fp - 32` to `0x40`.
 
+## [EIP2315](https://eips.ethereum.org/EIPS/eip-2315) Support: Subroutine calls
+
+The support of subroutines inside EVM enables compiler to generate better performance code. To be more specific: With EIP235, it is up to EVM to maintain the stack:
+1. the return address stack is only accessible to VM
+2. the stack is invisible to users and compilers
+
+A better calling convention is made with the support of EIP2315:
+
+### To generate a call procedure
+1. calculate the current frame size. The frame size should be the size sum of: a) slots occupied by frame objects, b) slots occupied by spilled variables, and c) one more slot for storing current frame pointer. let's assume the frame size is calculated to be `%frame_size`.
+2. save existing frame pointer at memory location `$fp + %frame_size - 32`. The frame pointer is maintained at `0x40`.
+3. bump the frame pointer to: `$fp = $fp + %frame_size`. After that, we can easily restore the old frame pointer by looking at location `$fp - 32`.
+4. push all subroutine arguments in order on to stack.
+5. push the beginning address of subroutine and call `JUMPSUB`
+
+### To generate the return 
+1. push return value on to top of stack.
+3. call `RETURNSUB` to resume execution of caller function.
+
 ## External calls
 External calls are implemented using intrinsic calls.
-*TODO*
