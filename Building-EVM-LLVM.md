@@ -11,7 +11,8 @@ make -j8
 ```
 
 Let's try to use a simple C file to test our compiler:
-```
+```sh
+cat <<EOF > test.c
 unsigned x;
 int abc(unsigned a, unsigned b, unsigned c) {
   if (c > 0) {
@@ -20,6 +21,7 @@ int abc(unsigned a, unsigned b, unsigned c) {
     return a + b;
   }
 }
+EOF
 ```
 
 Prerequisite: You have to install `clang` and use it to generate LLVM IR first:
