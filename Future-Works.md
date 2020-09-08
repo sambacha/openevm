@@ -2,13 +2,15 @@
 ## Experimental support of landing pad
 Landingpad is used to support exception handling.
 
-## Experimental support of Heap allocation
+## Experimental support of simulating heap allocations
 EVM does not have a heap space, so we cannot use heap allocations. We might be able to do around it.
 
-## Constant symbol table support
+## Constant table support
+Having a constant table in the smart contract could potentially save some code size if the elements in the table are reused.
+
 
 ## Metadata export
-
+We could export more metadata for debugging, analyzing, and so on.
 
 # Optimizations
 ## Support more than 16 local variables
