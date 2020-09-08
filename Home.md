@@ -5,3 +5,4 @@ Welcome to the `evm_llvm` wiki! This project aims at bringing LLVM infrastructur
 
 EVM LLVM is an EVM architecture backend for LLVM. With EVM LLVM you can generate EVM binary code with LLVM-based compilers. The backend does not assume a language frontend, so you should be able to plug in a new smart contract language frontend to generate EVM binary.
 
+The goal of this project is to make it able to for various of platforms, tools and smart contract programming language projects be able to quickly adapt a high-performance EVM backend. 
