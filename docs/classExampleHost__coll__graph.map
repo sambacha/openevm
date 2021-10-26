@@ -1,0 +1,8 @@
+<map id="ExampleHost" name="ExampleHost">
+<area shape="rect" id="node1" title=" " alt="" coords="98,228,199,255"/>
+<area shape="rect" id="node2" href="$classevmc_1_1Host.html" title="Abstract class to be used by Host implementations." alt="" coords="40,139,129,165"/>
+<area shape="rect" id="node3" href="$classevmc_1_1HostInterface.html" title="The EVMC Host interface." alt="" coords="5,5,145,32"/>
+<area shape="rect" id="node4" href="$structevmc__tx__context.html" title="The transaction and block data for execution." alt="" coords="162,139,285,165"/>
+<area shape="rect" id="node5" href="$structevmc__bytes32.html" title="The fixed size array of 32 bytes." alt="" coords="169,5,277,32"/>
+<area shape="rect" id="node6" href="$structevmc__address.html" title="Big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="302,5,411,32"/>
+</map>

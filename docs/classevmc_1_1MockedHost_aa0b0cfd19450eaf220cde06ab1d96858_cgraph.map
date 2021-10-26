@@ -1,0 +1,4 @@
+<map id="evmc::MockedHost::selfdestruct" name="evmc::MockedHost::selfdestruct">
+<area shape="rect" id="node1" title="Selfdestruct the account (EVMC host method)." alt="" coords="5,13,216,39"/>
+<area shape="rect" id="node2" href="$classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1" title="Record an account access." alt="" coords="264,5,444,47"/>
+</map>

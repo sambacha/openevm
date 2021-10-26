@@ -1,0 +1,222 @@
+\hypertarget{instructions_8h}{}\doxysection{include/evmc/instructions.h File Reference}
+\label{instructions_8h}\index{include/evmc/instructions.h@{include/evmc/instructions.h}}
+
+
+EVM Instruction Tables.  
+
+
+{\ttfamily \#include $<$evmc/evmc.\+h$>$}\newline
+{\ttfamily \#include $<$evmc/utils.\+h$>$}\newline
+Include dependency graph for instructions.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{instructions_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structevmc__instruction__metrics}{evmc\+\_\+instruction\+\_\+metrics}}
+\begin{DoxyCompactList}\small\item\em Metrics for an EVM 1 instruction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__instructions_gae35f7b05b714e4dac7242a37154d48cc}{evmc\+\_\+opcode}} \{ \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca38847747ac27359b1fc49febe6ed24df}{OP\+\_\+\+STOP}} = 0x00
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca96186829480e5b34b1373288e956b1c8}{OP\+\_\+\+ADD}} = 0x01
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaa0e08a6f94350f03d29e4a55d543ba2f}{OP\+\_\+\+MUL}} = 0x02
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca6c224b456bd394d4d8bad0631ca8e2b7}{OP\+\_\+\+SUB}} = 0x03
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca719aeab2140dd5f575d1559b95bf74e1}{OP\+\_\+\+DIV}} = 0x04
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca90c1a0e676aae47f0e4d9fa753f4d08f}{OP\+\_\+\+SDIV}} = 0x05
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca39c596fc7eae450b7218bd97126e37c9}{OP\+\_\+\+MOD}} = 0x06
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccae201fae593ede6c2dd89194b48aaea74}{OP\+\_\+\+SMOD}} = 0x07
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaf030959d4ced7b5d2453b1d5c8c120f4}{OP\+\_\+\+ADDMOD}} = 0x08
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccae89cd7fe6b2a15c3bd9c1830ccd94a76}{OP\+\_\+\+MULMOD}} = 0x09
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaf593ceb4035d3535879a1f031f0b5f0a}{OP\+\_\+\+EXP}} = 0x0a
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaf956ccd44718973c9932bd782bb59177}{OP\+\_\+\+SIGNEXTEND}} = 0x0b
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca7d5ed006824d331041dad8486e52df50}{OP\+\_\+\+LT}} = 0x10
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccac15bc31f8120c2dd6379564f0c163028}{OP\+\_\+\+GT}} = 0x11
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca1697a6dce24b3c2b10857582ea2e12f4}{OP\+\_\+\+SLT}} = 0x12
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccada1e4d1bf85326e3d9fd777bca07e4f5}{OP\+\_\+\+SGT}} = 0x13
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca1634898deb6e4d1bcb15416034c641c5}{OP\+\_\+\+EQ}} = 0x14
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca8ced153b2cc921c5bf756eb640559cb5}{OP\+\_\+\+ISZERO}} = 0x15
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccae2310d00f26e94b32317ecd168fb7e18}{OP\+\_\+\+AND}} = 0x16
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaf317be3def89f5f66558bbc402291176}{OP\+\_\+\+OR}} = 0x17
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaa0587506ce6da96de3a95a97d84b0fc4}{OP\+\_\+\+XOR}} = 0x18
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca36a6b73cc4823f54891a013e2cc760d1}{OP\+\_\+\+NOT}} = 0x19
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca089b958bd407a9108159c7b914a8888f}{OP\+\_\+\+BYTE}} = 0x1a
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca845012132d1f5f2d1cd125326476c25b}{OP\+\_\+\+SHL}} = 0x1b
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca789f5e2846cb039c0273aff134011fd4}{OP\+\_\+\+SHR}} = 0x1c
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca9dfb2c5bcc063b86581e48b2cc7a08ec}{OP\+\_\+\+SAR}} = 0x1d
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaabcd11f55bacab1640e656473e38a40b}{OP\+\_\+\+KECCAK256}} = 0x20
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccad6488047c2a34a0f2e288925c400c335}{OP\+\_\+\+ADDRESS}} = 0x30
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccafd718cf0e4dec72338585b01ab1ebc6e}{OP\+\_\+\+BALANCE}} = 0x31
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca79f6bea57f6249dc70256836406916f0}{OP\+\_\+\+ORIGIN}} = 0x32
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaba979f6172176aa3bb3375d4ce62d1c7}{OP\+\_\+\+CALLER}} = 0x33
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca8266e821e33dca46749782984eb17a7f}{OP\+\_\+\+CALLVALUE}} = 0x34
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca1f6de130cc87ba648ff21927c8600757}{OP\+\_\+\+CALLDATALOAD}} = 0x35
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca78aa9a60ee30d6f614f97f58827f8461}{OP\+\_\+\+CALLDATASIZE}} = 0x36
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca4442a993f701f47227a7aeeb5c7a478c}{OP\+\_\+\+CALLDATACOPY}} = 0x37
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca25d135b6d82a6a96726f38a997d2926b}{OP\+\_\+\+CODESIZE}} = 0x38
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccafdc2b4ef61cfa7ba2be8134c55b1112b}{OP\+\_\+\+CODECOPY}} = 0x39
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccab05cb4e5e58dacea78b5c3084126c056}{OP\+\_\+\+GASPRICE}} = 0x3a
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca35e084ebafec53af5f9debe7a66c3b0d}{OP\+\_\+\+EXTCODESIZE}} = 0x3b
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca5047957431bb3a37ea082921e6c08629}{OP\+\_\+\+EXTCODECOPY}} = 0x3c
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca801847f279b8b2f94f78a395192da0a7}{OP\+\_\+\+RETURNDATASIZE}} = 0x3d
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca0f4788a9a2810e22788870af6caa93dc}{OP\+\_\+\+RETURNDATACOPY}} = 0x3e
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccad2a732393443be805f9820bd4282057b}{OP\+\_\+\+EXTCODEHASH}} = 0x3f
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccac12c192482908955f6fc21d398650c5e}{OP\+\_\+\+BLOCKHASH}} = 0x40
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaa91d6acad8d880ebdc1dd44730680810}{OP\+\_\+\+COINBASE}} = 0x41
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca9a92839e1e98973f670bc58c8132a392}{OP\+\_\+\+TIMESTAMP}} = 0x42
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca938c79e00e21ab6a1e95dd901142dded}{OP\+\_\+\+NUMBER}} = 0x43
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca0052d0fc39a2060a2eecc8df66531021}{OP\+\_\+\+DIFFICULTY}} = 0x44
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca102406e5726ca2cd4df068bf6ea5085a}{OP\+\_\+\+GASLIMIT}} = 0x45
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca4a2cf591e34da64d02f6a524e39a2680}{OP\+\_\+\+CHAINID}} = 0x46
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca9992aa6c24ed1ff282f7ac66287b3032}{OP\+\_\+\+SELFBALANCE}} = 0x47
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccac47df25124d861336d76f14e1ededa87}{OP\+\_\+\+BASEFEE}} = 0x48
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccafb3c2d934da3bfb01e4fd56338324e21}{OP\+\_\+\+POP}} = 0x50
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca84e8048162510b02a7857f6758ac895f}{OP\+\_\+\+MLOAD}} = 0x51
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccac4286984f33c76ad9b8ed5f5a5d7e8cf}{OP\+\_\+\+MSTORE}} = 0x52
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca4026e3128077ec4a2722a7e7092560f0}{OP\+\_\+\+MSTORE8}} = 0x53
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca0b6a1db42a78d39d1e6f17d773803b1e}{OP\+\_\+\+SLOAD}} = 0x54
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca36235a5d6eb253561fa5a6fb1b1c5d69}{OP\+\_\+\+SSTORE}} = 0x55
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca702651101fc28a886970546cf992ce3b}{OP\+\_\+\+JUMP}} = 0x56
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccab794c328676a11836ae4766532defa61}{OP\+\_\+\+JUMPI}} = 0x57
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca005764d30aef8f6d5eb62edcf0f4ec6b}{OP\+\_\+\+PC}} = 0x58
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca828397bb1c4c01e698dbf261d1bc441f}{OP\+\_\+\+MSIZE}} = 0x59
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca0ca6d389494f52d4015ca328cd5ce625}{OP\+\_\+\+GAS}} = 0x5a
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccacab080b9be351cfa775188b60c70f78b}{OP\+\_\+\+JUMPDEST}} = 0x5b
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca49b7e546326d363705b105e70d56e90d}{OP\+\_\+\+PUSH1}} = 0x60
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca9fc9f2d00c00eaa2976797604981bd62}{OP\+\_\+\+PUSH2}} = 0x61
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca7e55402bae8cdd0158c39cc7a79fdff1}{OP\+\_\+\+PUSH3}} = 0x62
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaad7e7914a7532c8db95bd0b34483979a}{OP\+\_\+\+PUSH4}} = 0x63
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca8129d5086c906b93d342d8778f071a37}{OP\+\_\+\+PUSH5}} = 0x64
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccae8ae07219178afe086c9a039501f4da6}{OP\+\_\+\+PUSH6}} = 0x65
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca321764a2335df6cd3653a17e78ade689}{OP\+\_\+\+PUSH7}} = 0x66
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca5054d0b80e36499600ed6f6048d20e02}{OP\+\_\+\+PUSH8}} = 0x67
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca1a807444225d892f43960c35f4a81103}{OP\+\_\+\+PUSH9}} = 0x68
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca93b1b5716363f6ffd9067162f548f4f8}{OP\+\_\+\+PUSH10}} = 0x69
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccadca61d8633a1d8fe1829cd7f34b47eb5}{OP\+\_\+\+PUSH11}} = 0x6a
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaa60a18be0c4d1fc53c0fd75d44fec336}{OP\+\_\+\+PUSH12}} = 0x6b
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca83996afe162910db938e156fc892811f}{OP\+\_\+\+PUSH13}} = 0x6c
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca546e9dbc00de03220a7a823501cf2887}{OP\+\_\+\+PUSH14}} = 0x6d
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaabaf1a1fe4f0419429815f03a7df2797}{OP\+\_\+\+PUSH15}} = 0x6e
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca91178a1220c1de851f294ffe1e751039}{OP\+\_\+\+PUSH16}} = 0x6f
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca9987fc94d8d87816a0aca23c38a11828}{OP\+\_\+\+PUSH17}} = 0x70
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccac39c242c8594a3d83cc5906ac1bff8ab}{OP\+\_\+\+PUSH18}} = 0x71
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca1f75873a4f5f36527fc5d0ae771db317}{OP\+\_\+\+PUSH19}} = 0x72
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca8556b7b909285100886b177c94fd8ad8}{OP\+\_\+\+PUSH20}} = 0x73
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca260fbc35996776c19b2f64e06b05e09f}{OP\+\_\+\+PUSH21}} = 0x74
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaa3e2c8cf5922d6b0ee93a4c9f9eff883}{OP\+\_\+\+PUSH22}} = 0x75
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca90637ec4823af261b7338df849476eff}{OP\+\_\+\+PUSH23}} = 0x76
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca3a55949bef986e46fc24a63f8bff55b5}{OP\+\_\+\+PUSH24}} = 0x77
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaf6dd72ee707ba1e475e164c7f4202c50}{OP\+\_\+\+PUSH25}} = 0x78
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaaaaf3d45221d757f896cb3d300975571}{OP\+\_\+\+PUSH26}} = 0x79
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaec20f2332c67a2edb243805a3b63dd52}{OP\+\_\+\+PUSH27}} = 0x7a
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca7f5bf0fb5be839066d76c532c9686ed8}{OP\+\_\+\+PUSH28}} = 0x7b
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca2136b65f54f10f50733f50c28b6b4309}{OP\+\_\+\+PUSH29}} = 0x7c
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca9fa4efe48ccceb21123ce938ed0164ff}{OP\+\_\+\+PUSH30}} = 0x7d
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaba1986e4030a3152125c6b599669cbd1}{OP\+\_\+\+PUSH31}} = 0x7e
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca4b6b8d96e5cd2c018772e842ca3fecb7}{OP\+\_\+\+PUSH32}} = 0x7f
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca0b57bec1e27409d193fcabd91db87dcb}{OP\+\_\+\+DUP1}} = 0x80
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca09d0850a54b000a0d78e7fb6b65355d9}{OP\+\_\+\+DUP2}} = 0x81
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca7b7e57d42318829ac56e8419417313d9}{OP\+\_\+\+DUP3}} = 0x82
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccae192735fdc8a71bda807c98350c990a7}{OP\+\_\+\+DUP4}} = 0x83
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaa28301c5036b538a80a17b6739df77d2}{OP\+\_\+\+DUP5}} = 0x84
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca9e07295b8e5c526029115bffb47b0106}{OP\+\_\+\+DUP6}} = 0x85
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca9005d93b1f2da213c8ce9f95cda9b5dd}{OP\+\_\+\+DUP7}} = 0x86
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca14185f74875b81ca02eca736427c198f}{OP\+\_\+\+DUP8}} = 0x87
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccabef111264c3d3ab4c1e12e47ef90c53b}{OP\+\_\+\+DUP9}} = 0x88
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaa17009d0eb15442f960b3880ece74591}{OP\+\_\+\+DUP10}} = 0x89
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccad19e21a425cc38a9af3de7cd72b4bd59}{OP\+\_\+\+DUP11}} = 0x8a
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca2739bb5f5b8df746c74e7b8651a965de}{OP\+\_\+\+DUP12}} = 0x8b
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaa30d552ad6993a824f757d95ebcc4bbb}{OP\+\_\+\+DUP13}} = 0x8c
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca2668f0f8314aa432db3e3e6448d0e2ba}{OP\+\_\+\+DUP14}} = 0x8d
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca5f5877262e5258de1be366c51ec6b7d6}{OP\+\_\+\+DUP15}} = 0x8e
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca8b633c43bcd477965adb5b278fe183fa}{OP\+\_\+\+DUP16}} = 0x8f
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca40aa9555f12e2c55568cb787f77774aa}{OP\+\_\+\+SWAP1}} = 0x90
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccae598d5aecb266e6e36a15974fd83bc7e}{OP\+\_\+\+SWAP2}} = 0x91
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca5514c19ee8e4e7abc8c8ee378d9269f8}{OP\+\_\+\+SWAP3}} = 0x92
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaa1277baf93eda5f7ed8b396e77bc49a6}{OP\+\_\+\+SWAP4}} = 0x93
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca4f397a738f1a8dda95d4b87b3355329c}{OP\+\_\+\+SWAP5}} = 0x94
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccad18ea92abe0b1aae662fdaa20b7c25fc}{OP\+\_\+\+SWAP6}} = 0x95
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca6157641e13228f0f66a47d62ccca8f9b}{OP\+\_\+\+SWAP7}} = 0x96
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca1c35be94c4de9331a0d835ca528d752b}{OP\+\_\+\+SWAP8}} = 0x97
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccafe181634ed3488a8581fcce6ce83a0ed}{OP\+\_\+\+SWAP9}} = 0x98
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca4de91d50f93dc2339dccf34c8d88ccbf}{OP\+\_\+\+SWAP10}} = 0x99
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca1bf97e31741d0c1196eb880e1ec77f7b}{OP\+\_\+\+SWAP11}} = 0x9a
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca09b8ca54263da27f338038d71f20f81c}{OP\+\_\+\+SWAP12}} = 0x9b
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca3ce55fda4a072b08c32d5952f845fe24}{OP\+\_\+\+SWAP13}} = 0x9c
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaea5db95efab71e857581cfbe1adc3584}{OP\+\_\+\+SWAP14}} = 0x9d
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca75bf18f2dd624cdfc92de5dc14d1609a}{OP\+\_\+\+SWAP15}} = 0x9e
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaf111261cde76ecc2c00c9320999a992f}{OP\+\_\+\+SWAP16}} = 0x9f
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca20530ff71ea7fca0d7982ae91ce9f364}{OP\+\_\+\+LOG0}} = 0xa0
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccabf8b44467ea1afbb8274b1189da8db54}{OP\+\_\+\+LOG1}} = 0xa1
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca437c89a8da5483b705ed2d8a6ef2ef0d}{OP\+\_\+\+LOG2}} = 0xa2
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca5b27747c4d4b787b494d56fdde829369}{OP\+\_\+\+LOG3}} = 0xa3
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccacddd8e10355f7ec76903051327e0df8e}{OP\+\_\+\+LOG4}} = 0xa4
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccab18e27cfdd22f7943cf54e149988ed77}{OP\+\_\+\+CREATE}} = 0xf0
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca098bbeea13096667b102f7fd90cbe38f}{OP\+\_\+\+CALL}} = 0xf1
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccadaa7f5ef1c0227b6ae3d2393bab2b88f}{OP\+\_\+\+CALLCODE}} = 0xf2
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccad436c18b194473f5ec64c28b774e41b3}{OP\+\_\+\+RETURN}} = 0xf3
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaaf7cd304793626277ac535955de23bad}{OP\+\_\+\+DELEGATECALL}} = 0xf4
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaa91b0deb7b94466978f0b3b23082d3f9}{OP\+\_\+\+CREATE2}} = 0xf5
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccae4c3209ce03509827ba394fec3de79e7}{OP\+\_\+\+STATICCALL}} = 0xfa
+, \newline
+\mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48ccaebb7bd58f27aa4c730bfcaf05db77b2f}{OP\+\_\+\+REVERT}} = 0xfd
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca310dc72dd94edcb09d2c681abdd80a4e}{OP\+\_\+\+INVALID}} = 0xfe
+, \mbox{\hyperlink{group__instructions_ggae35f7b05b714e4dac7242a37154d48cca612051c0b30f11b598e9443f0effd2a4}{OP\+\_\+\+SELFDESTRUCT}} = 0xff
+ \}
+\begin{DoxyCompactList}\small\item\em The list of EVM 1 opcodes from every EVM revision. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__helpers_gaad1a8fca9b52410cdc8f73739883cb93}{EVMC\+\_\+\+EXPORT}} const struct \mbox{\hyperlink{structevmc__instruction__metrics}{evmc\+\_\+instruction\+\_\+metrics}} $\ast$ \mbox{\hyperlink{group__instructions_ga5872e8484591ba3de0960c70e856f29a}{evmc\+\_\+get\+\_\+instruction\+\_\+metrics\+\_\+table}} (enum \mbox{\hyperlink{group__EVMC_gae5759b1590071966ccf6a505b52a0ef7}{evmc\+\_\+revision}} revision)
+\begin{DoxyCompactList}\small\item\em Get the table of the EVM 1 instructions metrics. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__helpers_gaad1a8fca9b52410cdc8f73739883cb93}{EVMC\+\_\+\+EXPORT}} const char $\ast$const $\ast$ \mbox{\hyperlink{group__instructions_gab560ce330ba86ae3a568399ce68074ee}{evmc\+\_\+get\+\_\+instruction\+\_\+names\+\_\+table}} (enum \mbox{\hyperlink{group__EVMC_gae5759b1590071966ccf6a505b52a0ef7}{evmc\+\_\+revision}} revision)
+\begin{DoxyCompactList}\small\item\em Get the table of the EVM 1 instruction names. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+EVM Instruction Tables. 
+
+A collection of metrics for EVM1 instruction set. 
+
+Definition in file \mbox{\hyperlink{instructions_8h_source}{instructions.\+h}}.
+

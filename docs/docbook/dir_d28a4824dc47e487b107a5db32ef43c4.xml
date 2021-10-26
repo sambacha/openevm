@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_d28a4824dc47e487b107a5db32ef43c4" xml:lang="en-US">
+<title>examples Directory Reference</title>
+<indexterm><primary>examples Directory Reference</primary></indexterm>
+Directory dependency graph for examples:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_d28a4824dc47e487b107a5db32ef43c4_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_example_8c">example.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_example__host_8cpp">example_host.cpp</link></para>
+
+<para>Example implementation of an EVMC Host. </para>
+</listitem>
+            <listitem><para>file <link linkend="_example__host_8h">example_host.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

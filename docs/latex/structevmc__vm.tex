@@ -1,0 +1,159 @@
+\hypertarget{structevmc__vm}{}\doxysection{evmc\+\_\+vm Struct Reference}
+\label{structevmc__vm}\index{evmc\_vm@{evmc\_vm}}
+
+
+The VM instance.  
+
+
+
+
+{\ttfamily \#include $<$evmc.\+h$>$}
+
+
+
+Collaboration diagram for evmc\+\_\+vm\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{structevmc__vm__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{structevmc__vm_acccbdf95110faffb4dc85624bb1d99b6}{abi\+\_\+version}}
+\begin{DoxyCompactList}\small\item\em EVMC ABI version implemented by the VM instance. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{structevmc__vm_ac29ccc98e89c8cab3ffc5bd51a2afaa8}{name}}
+\begin{DoxyCompactList}\small\item\em The name of the EVMC VM implementation. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{structevmc__vm_af98936c214ed16f5da05ba3d6a619faa}{version}}
+\begin{DoxyCompactList}\small\item\em The version of the EVMC VM implementation, e.\+g. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__EVMC_ga1f54475fc7dc20a0c4d370272e39d755}{evmc\+\_\+destroy\+\_\+fn}} \mbox{\hyperlink{structevmc__vm_ac78933134b4e14ca3dd4139ee061cc6b}{destroy}}
+\begin{DoxyCompactList}\small\item\em Pointer to function destroying the VM instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__EVMC_gaed9a4ab5609b55c5e3272d6d37d84ff7}{evmc\+\_\+execute\+\_\+fn}} \mbox{\hyperlink{structevmc__vm_a8384d28338f2287a9f9e1508699c53f0}{execute}}
+\begin{DoxyCompactList}\small\item\em Pointer to function executing a code by the VM instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__EVMC_ga9bac25459c5a09d42606e7bd9320445c}{evmc\+\_\+get\+\_\+capabilities\+\_\+fn}} \mbox{\hyperlink{structevmc__vm_a505d4e584a858c2eea7a026f3a94188b}{get\+\_\+capabilities}}
+\begin{DoxyCompactList}\small\item\em A method returning capabilities supported by the VM instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__EVMC_ga5531cee5b83d76c71b06475454f4633b}{evmc\+\_\+set\+\_\+option\+\_\+fn}} \mbox{\hyperlink{structevmc__vm_a20fd85c822ba5f3296206fc8fe3e90b2}{set\+\_\+option}}
+\begin{DoxyCompactList}\small\item\em Optional pointer to function modifying VM\textquotesingle{}s options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The VM instance. 
+
+Defines the base struct of the VM implementation. 
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00979}{979}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structevmc__vm_acccbdf95110faffb4dc85624bb1d99b6}\label{structevmc__vm_acccbdf95110faffb4dc85624bb1d99b6}} 
+\index{evmc\_vm@{evmc\_vm}!abi\_version@{abi\_version}}
+\index{abi\_version@{abi\_version}!evmc\_vm@{evmc\_vm}}
+\doxysubsubsection{\texorpdfstring{abi\_version}{abi\_version}}
+{\footnotesize\ttfamily const int evmc\+\_\+vm\+::abi\+\_\+version}
+
+
+
+EVMC ABI version implemented by the VM instance. 
+
+Can be used to detect ABI incompatibilities. The EVMC ABI version represented by this file is in \mbox{\hyperlink{group__EVMC_gga06fc87d81c62e9abb8790b6e5713c55ba1db9144f8af4e62865f0c003c07a02bc}{EVMC\+\_\+\+ABI\+\_\+\+VERSION}}. 
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00987}{987}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{structevmc__vm_ac78933134b4e14ca3dd4139ee061cc6b}\label{structevmc__vm_ac78933134b4e14ca3dd4139ee061cc6b}} 
+\index{evmc\_vm@{evmc\_vm}!destroy@{destroy}}
+\index{destroy@{destroy}!evmc\_vm@{evmc\_vm}}
+\doxysubsubsection{\texorpdfstring{destroy}{destroy}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__EVMC_ga1f54475fc7dc20a0c4d370272e39d755}{evmc\+\_\+destroy\+\_\+fn}} evmc\+\_\+vm\+::destroy}
+
+
+
+Pointer to function destroying the VM instance. 
+
+This is a mandatory method and MUST NOT be set to NULL. 
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l01010}{1010}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{structevmc__vm_a8384d28338f2287a9f9e1508699c53f0}\label{structevmc__vm_a8384d28338f2287a9f9e1508699c53f0}} 
+\index{evmc\_vm@{evmc\_vm}!execute@{execute}}
+\index{execute@{execute}!evmc\_vm@{evmc\_vm}}
+\doxysubsubsection{\texorpdfstring{execute}{execute}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__EVMC_gaed9a4ab5609b55c5e3272d6d37d84ff7}{evmc\+\_\+execute\+\_\+fn}} evmc\+\_\+vm\+::execute}
+
+
+
+Pointer to function executing a code by the VM instance. 
+
+This is a mandatory method and MUST NOT be set to NULL. 
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l01017}{1017}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{structevmc__vm_a505d4e584a858c2eea7a026f3a94188b}\label{structevmc__vm_a505d4e584a858c2eea7a026f3a94188b}} 
+\index{evmc\_vm@{evmc\_vm}!get\_capabilities@{get\_capabilities}}
+\index{get\_capabilities@{get\_capabilities}!evmc\_vm@{evmc\_vm}}
+\doxysubsubsection{\texorpdfstring{get\_capabilities}{get\_capabilities}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__EVMC_ga9bac25459c5a09d42606e7bd9320445c}{evmc\+\_\+get\+\_\+capabilities\+\_\+fn}} evmc\+\_\+vm\+::get\+\_\+capabilities}
+
+
+
+A method returning capabilities supported by the VM instance. 
+
+The value returned MAY change when different options are set via the \mbox{\hyperlink{structevmc__vm_a20fd85c822ba5f3296206fc8fe3e90b2}{set\+\_\+option()}} method.
+
+A Client SHOULD only rely on the value returned if it has queried it after it has called the \mbox{\hyperlink{structevmc__vm_a20fd85c822ba5f3296206fc8fe3e90b2}{set\+\_\+option()}}.
+
+This is a mandatory method and MUST NOT be set to NULL. 
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l01029}{1029}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{structevmc__vm_ac29ccc98e89c8cab3ffc5bd51a2afaa8}\label{structevmc__vm_ac29ccc98e89c8cab3ffc5bd51a2afaa8}} 
+\index{evmc\_vm@{evmc\_vm}!name@{name}}
+\index{name@{name}!evmc\_vm@{evmc\_vm}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily const char$\ast$ evmc\+\_\+vm\+::name}
+
+
+
+The name of the EVMC VM implementation. 
+
+It MUST be a NULL-\/terminated not empty string. The content MUST be UTF-\/8 encoded (this implies ASCII encoding is also allowed). 
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00995}{995}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{structevmc__vm_a20fd85c822ba5f3296206fc8fe3e90b2}\label{structevmc__vm_a20fd85c822ba5f3296206fc8fe3e90b2}} 
+\index{evmc\_vm@{evmc\_vm}!set\_option@{set\_option}}
+\index{set\_option@{set\_option}!evmc\_vm@{evmc\_vm}}
+\doxysubsubsection{\texorpdfstring{set\_option}{set\_option}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__EVMC_ga5531cee5b83d76c71b06475454f4633b}{evmc\+\_\+set\+\_\+option\+\_\+fn}} evmc\+\_\+vm\+::set\+\_\+option}
+
+
+
+Optional pointer to function modifying VM\textquotesingle{}s options. 
+
+If the VM does not support this feature the pointer can be NULL. 
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l01036}{1036}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{structevmc__vm_af98936c214ed16f5da05ba3d6a619faa}\label{structevmc__vm_af98936c214ed16f5da05ba3d6a619faa}} 
+\index{evmc\_vm@{evmc\_vm}!version@{version}}
+\index{version@{version}!evmc\_vm@{evmc\_vm}}
+\doxysubsubsection{\texorpdfstring{version}{version}}
+{\footnotesize\ttfamily const char$\ast$ evmc\+\_\+vm\+::version}
+
+
+
+The version of the EVMC VM implementation, e.\+g. 
+
+\char`\"{}1.\+2.\+3b4\char`\"{}.
+
+It MUST be a NULL-\/terminated not empty string. The content MUST be UTF-\/8 encoded (this implies ASCII encoding is also allowed). 
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l01003}{1003}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/evmc/\mbox{\hyperlink{evmc_8h}{evmc.\+h}}\end{DoxyCompactItemize}

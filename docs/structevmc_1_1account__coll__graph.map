@@ -1,0 +1,5 @@
+<map id="evmc::account" name="evmc::account">
+<area shape="rect" id="node1" title=" " alt="" coords="5,171,113,197"/>
+<area shape="rect" id="node2" href="$structevmc_1_1bytes32.html" title="The fixed size array of 32 bytes for storing 256&#45;bit EVM values." alt="" coords="5,81,113,108"/>
+<area shape="rect" id="node3" href="$structevmc__bytes32.html" title="The fixed size array of 32 bytes." alt="" coords="5,5,113,32"/>
+</map>

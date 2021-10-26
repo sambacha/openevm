@@ -1,0 +1,118 @@
+\hypertarget{example__host_8cpp}{}\doxysection{examples/example\+\_\+host.cpp File Reference}
+\label{example__host_8cpp}\index{examples/example\_host.cpp@{examples/example\_host.cpp}}
+
+
+Example implementation of an EVMC Host.  
+
+
+{\ttfamily \#include \char`\"{}example\+\_\+host.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$evmc/evmc.\+hpp$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for example\+\_\+host.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{example__host_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structevmc_1_1account}{evmc\+::account}}
+\item 
+class \mbox{\hyperlink{classExampleHost}{Example\+Host}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceevmc}{evmc}}
+\begin{DoxyCompactList}\small\item\em EVMC C++ API -\/ wrappers and bindings for C++. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceevmc_a85ff0436efd1c2e8b065f73b361269e1}{evmc\+::accounts}} = std\+::map$<$ \mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}}, account $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{structevmc__host__interface}{evmc\+\_\+host\+\_\+interface}} $\ast$ \mbox{\hyperlink{example__host_8cpp_a1aa8c09de78471976959763a62bf069c}{example\+\_\+host\+\_\+get\+\_\+interface}} ()
+\item 
+\mbox{\hyperlink{structevmc__host__context}{evmc\+\_\+host\+\_\+context}} $\ast$ \mbox{\hyperlink{example__host_8cpp_a8009572826ed8abb88284e79cefb4987}{example\+\_\+host\+\_\+create\+\_\+context}} (\mbox{\hyperlink{structevmc__tx__context}{evmc\+\_\+tx\+\_\+context}} tx\+\_\+context)
+\item 
+void \mbox{\hyperlink{example__host_8cpp_a9ff72df98da6045af155bb8b9697da23}{example\+\_\+host\+\_\+destroy\+\_\+context}} (\mbox{\hyperlink{structevmc__host__context}{evmc\+\_\+host\+\_\+context}} $\ast$context)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Example implementation of an EVMC Host. 
+
+
+
+Definition in file \mbox{\hyperlink{example__host_8cpp_source}{example\+\_\+host.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{example__host_8cpp_a8009572826ed8abb88284e79cefb4987}\label{example__host_8cpp_a8009572826ed8abb88284e79cefb4987}} 
+\index{example\_host.cpp@{example\_host.cpp}!example\_host\_create\_context@{example\_host\_create\_context}}
+\index{example\_host\_create\_context@{example\_host\_create\_context}!example\_host.cpp@{example\_host.cpp}}
+\doxysubsubsection{\texorpdfstring{example\_host\_create\_context()}{example\_host\_create\_context()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc__host__context}{evmc\+\_\+host\+\_\+context}} $\ast$ example\+\_\+host\+\_\+create\+\_\+context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structevmc__tx__context}{evmc\+\_\+tx\+\_\+context}}}]{tx\+\_\+context }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{example__host_8cpp_source_l00190}{190}} of file \mbox{\hyperlink{example__host_8cpp_source}{example\+\_\+host.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_l00191}00191 \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_l00192}00192     \textcolor{keyword}{auto} host = \textcolor{keyword}{new} \mbox{\hyperlink{classExampleHost}{ExampleHost}}\{tx\_context\};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_l00193}00193     \textcolor{keywordflow}{return} host-\/>to\_context();}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_l00194}00194 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{example__host_8cpp_a9ff72df98da6045af155bb8b9697da23}\label{example__host_8cpp_a9ff72df98da6045af155bb8b9697da23}} 
+\index{example\_host.cpp@{example\_host.cpp}!example\_host\_destroy\_context@{example\_host\_destroy\_context}}
+\index{example\_host\_destroy\_context@{example\_host\_destroy\_context}!example\_host.cpp@{example\_host.cpp}}
+\doxysubsubsection{\texorpdfstring{example\_host\_destroy\_context()}{example\_host\_destroy\_context()}}
+{\footnotesize\ttfamily void example\+\_\+host\+\_\+destroy\+\_\+context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structevmc__host__context}{evmc\+\_\+host\+\_\+context}} $\ast$}]{context }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{example__host_8cpp_source_l00196}{196}} of file \mbox{\hyperlink{example__host_8cpp_source}{example\+\_\+host.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_l00197}00197 \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_l00198}00198     \textcolor{keyword}{delete} evmc::Host::from\_context<ExampleHost>(context);}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_l00199}00199 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{example__host_8cpp_a1aa8c09de78471976959763a62bf069c}\label{example__host_8cpp_a1aa8c09de78471976959763a62bf069c}} 
+\index{example\_host.cpp@{example\_host.cpp}!example\_host\_get\_interface@{example\_host\_get\_interface}}
+\index{example\_host\_get\_interface@{example\_host\_get\_interface}!example\_host.cpp@{example\_host.cpp}}
+\doxysubsubsection{\texorpdfstring{example\_host\_get\_interface()}{example\_host\_get\_interface()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structevmc__host__interface}{evmc\+\_\+host\+\_\+interface}} $\ast$ example\+\_\+host\+\_\+get\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{example__host_8cpp_source_l00185}{185}} of file \mbox{\hyperlink{example__host_8cpp_source}{example\+\_\+host.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_l00186}00186 \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_l00187}00187     \textcolor{keywordflow}{return} \&\mbox{\hyperlink{classevmc_1_1Host_afb96540fea288f02d83f01e185a78374}{evmc::Host::get\_interface}}();}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_l00188}00188 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{example__host_8cpp_a1aa8c09de78471976959763a62bf069c_cgraph}
+\end{center}
+\end{figure}

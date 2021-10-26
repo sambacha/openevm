@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_utils_8h" xml:lang="en-US">
+<title>include/evmc/utils.h File Reference</title>
+<indexterm><primary>include/evmc/utils.h</primary></indexterm>
+<para>
+
+<para>A collection of helper macros to handle some non-portable features of C/C++ compilers. </para>
+ 
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="utils_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group__helpers_1gaad1a8fca9b52410cdc8f73739883cb93">EVMC_EXPORT</link>   __attribute__((visibility(&quot;default&quot;)))</para>
+
+<para>Marks a function to be exported from a shared library. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__helpers_1ga73d425fddf1083ef70d1ffd9a29522d4">EVMC_NOEXCEPT</link></para>
+
+<para>Safe way of marking a function with <computeroutput>noexcept</computeroutput> C++ specifier. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>A collection of helper macros to handle some non-portable features of C/C++ compilers. </para>
+<para>
+Definition in file <link linkend="_utils_8h_source">utils.h</link>.</para>
+</section>
+</section>

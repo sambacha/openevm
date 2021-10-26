@@ -1,0 +1,204 @@
+\hypertarget{example__host_8cpp_source}{}\doxysection{example\+\_\+host.\+cpp}
+\label{example__host_8cpp_source}\index{examples/example\_host.cpp@{examples/example\_host.cpp}}
+\mbox{\hyperlink{example__host_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00001}00001 \textcolor{comment}{/* EVMC: Ethereum Client-\/VM Connector API.}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00002}00002 \textcolor{comment}{ * Copyright 2016-\/2019 The EVMC Authors.}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00003}00003 \textcolor{comment}{ * Licensed under the Apache License, Version 2.0.}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00004}00004 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00009}00009 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{example__host_8h}{example\_host.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00011}00011 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{evmc_8hpp}{evmc/evmc.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00013}00013 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00014}00014 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00015}00015 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00017}00017 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespaceevmc_1_1literals}{evmc::literals}};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00019}\mbox{\hyperlink{namespaceevmc}{00019}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceevmc}{evmc}}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00020}00020 \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00021}\mbox{\hyperlink{structevmc_1_1account}{00021}} \textcolor{keyword}{struct }\mbox{\hyperlink{structevmc_1_1account}{account}}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00022}00022 \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00023}\mbox{\hyperlink{structevmc_1_1account_a419f7e4d674c88eecc3a9609fc1fe00a}{00023}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{structevmc_1_1account_a419f7e4d674c88eecc3a9609fc1fe00a}{\string~account}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00025}\mbox{\hyperlink{structevmc_1_1account_ac704efb6f4a9b06be6269771fa4380d1}{00025}}     \mbox{\hyperlink{structevmc_1_1bytes32}{evmc::uint256be}} \mbox{\hyperlink{structevmc_1_1account_ac704efb6f4a9b06be6269771fa4380d1}{balance}} = \{\};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00026}\mbox{\hyperlink{structevmc_1_1account_ada1c49993310d42d490999e33d59ebb9}{00026}}     std::vector<uint8\_t> \mbox{\hyperlink{structevmc_1_1account_ada1c49993310d42d490999e33d59ebb9}{code}};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00027}\mbox{\hyperlink{structevmc_1_1account_ac13e5e95a22eae369694c456f9d3b1ba}{00027}}     std::map<evmc::bytes32, evmc::bytes32> \mbox{\hyperlink{structevmc_1_1account_ac13e5e95a22eae369694c456f9d3b1ba}{storage}};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00029}\mbox{\hyperlink{structevmc_1_1account_aae28bc8e04d8a916574eff99a69560ef}{00029}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{structevmc_1_1bytes32}{evmc::bytes32}} \mbox{\hyperlink{structevmc_1_1account_aae28bc8e04d8a916574eff99a69560ef}{code\_hash}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00030}00030 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00031}00031         \textcolor{comment}{// Extremely dumb "{}hash"{} function.}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00032}00032         \mbox{\hyperlink{structevmc_1_1bytes32}{evmc::bytes32}} ret\{\};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00033}00033         \textcolor{keywordflow}{for} (std::vector<uint8\_t>::size\_type i = 0; i != \mbox{\hyperlink{structevmc_1_1account_ada1c49993310d42d490999e33d59ebb9}{code}}.size(); i++)}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00034}00034         \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00035}00035             \textcolor{keyword}{auto} v = \mbox{\hyperlink{structevmc_1_1account_ada1c49993310d42d490999e33d59ebb9}{code}}[i];}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00036}00036             ret.bytes[v \% \textcolor{keyword}{sizeof}(ret.bytes)] \string^= v;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00037}00037         \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00038}00038         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00039}00039     \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00040}00040 \};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00042}\mbox{\hyperlink{namespaceevmc_a85ff0436efd1c2e8b065f73b361269e1}{00042}} \textcolor{keyword}{using} \mbox{\hyperlink{namespaceevmc_a85ff0436efd1c2e8b065f73b361269e1}{accounts}} = std::map<evmc::address, account>;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00044}00044 \}  \textcolor{comment}{// namespace evmc}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00046}\mbox{\hyperlink{classExampleHost}{00046}} \textcolor{keyword}{class }\mbox{\hyperlink{classExampleHost}{ExampleHost}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevmc_1_1Host}{evmc::Host}}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00047}00047 \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00048}\mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{00048}}     \mbox{\hyperlink{namespaceevmc_a85ff0436efd1c2e8b065f73b361269e1}{evmc::accounts}} \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00049}\mbox{\hyperlink{classExampleHost_a0945262a8d233b8d45b2479432b3d792}{00049}}     \mbox{\hyperlink{structevmc__tx__context}{evmc\_tx\_context}} \mbox{\hyperlink{classExampleHost_a0945262a8d233b8d45b2479432b3d792}{tx\_context}}\{\};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00051}00051 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00052}\mbox{\hyperlink{classExampleHost_a53770f0a3ca09715b0306bdc9f0304b7}{00052}}     \mbox{\hyperlink{classExampleHost_a53770f0a3ca09715b0306bdc9f0304b7}{ExampleHost}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00053}\mbox{\hyperlink{classExampleHost_a6d2f475d7f9dde90a8a0bc18d13d8e3e}{00053}}     \textcolor{keyword}{explicit} \mbox{\hyperlink{classExampleHost_a6d2f475d7f9dde90a8a0bc18d13d8e3e}{ExampleHost}}(\mbox{\hyperlink{structevmc__tx__context}{evmc\_tx\_context}}\& \_tx\_context) noexcept : \mbox{\hyperlink{classExampleHost_a0945262a8d233b8d45b2479432b3d792}{tx\_context}}\{\_tx\_context\} \{\}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00054}\mbox{\hyperlink{classExampleHost_a92bfbfcc308a397e27dbc34520030614}{00054}}     \mbox{\hyperlink{classExampleHost_a92bfbfcc308a397e27dbc34520030614}{ExampleHost}}(\mbox{\hyperlink{structevmc__tx__context}{evmc\_tx\_context}}\& \_tx\_context, \mbox{\hyperlink{namespaceevmc_a85ff0436efd1c2e8b065f73b361269e1}{evmc::accounts}}\& \_accounts) noexcept}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00055}00055       : \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}}\{\_accounts\}, \mbox{\hyperlink{classExampleHost_a0945262a8d233b8d45b2479432b3d792}{tx\_context}}\{\_tx\_context\}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00056}00056     \{\}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00058}\mbox{\hyperlink{classExampleHost_ac37de9a8465e23879f64c8ada27b1285}{00058}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classExampleHost_ac37de9a8465e23879f64c8ada27b1285}{account\_exists}}(\textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1address}{evmc::address}}\& addr) \textcolor{keyword}{const} \textcolor{keyword}{noexcept} \textcolor{keyword}{final}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00059}00059     \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00060}00060         \textcolor{keywordflow}{return} \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}}.find(addr) != \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}}.end();}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00061}00061     \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00063}\mbox{\hyperlink{classExampleHost_afeed7489e0128d0df0f398744c57b14a}{00063}}     \mbox{\hyperlink{structevmc_1_1bytes32}{evmc::bytes32}} \mbox{\hyperlink{classExampleHost_afeed7489e0128d0df0f398744c57b14a}{get\_storage}}(\textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1address}{evmc::address}}\& addr,}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00064}00064                               \textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1bytes32}{evmc::bytes32}}\& key) \textcolor{keyword}{const} \textcolor{keyword}{noexcept} \textcolor{keyword}{final}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00065}00065     \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00066}00066         \textcolor{keyword}{const} \textcolor{keyword}{auto} account\_iter = \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}}.find(addr);}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00067}00067         \textcolor{keywordflow}{if} (account\_iter == \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}}.end())}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00068}00068             \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00070}00070         \textcolor{keyword}{const} \textcolor{keyword}{auto} storage\_iter = account\_iter-\/>second.storage.find(key);}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00071}00071         \textcolor{keywordflow}{if} (storage\_iter != account\_iter-\/>second.storage.end())}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00072}00072             \textcolor{keywordflow}{return} storage\_iter-\/>second;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00073}00073         \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00074}00074     \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00076}\mbox{\hyperlink{classExampleHost_a2e2c1d74614e7c863b501e2e1e56e622}{00076}}     \mbox{\hyperlink{group__EVMC_gae012fd6b8e5c23806b507c2d3e9fb1aa}{evmc\_storage\_status}} \mbox{\hyperlink{classExampleHost_a2e2c1d74614e7c863b501e2e1e56e622}{set\_storage}}(\textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1address}{evmc::address}}\& addr,}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00077}00077                                     \textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1bytes32}{evmc::bytes32}}\& key,}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00078}00078                                     \textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1bytes32}{evmc::bytes32}}\& value) \textcolor{keyword}{noexcept} \textcolor{keyword}{final}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00079}00079     \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00080}00080         \textcolor{keyword}{auto}\& account = \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}}[addr];}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00081}00081         \textcolor{keyword}{auto} prev\_value = account.storage[key];}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00082}00082         account.storage[key] = value;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00084}00084         \textcolor{keywordflow}{return} (prev\_value == value) ? \mbox{\hyperlink{group__EVMC_ggae012fd6b8e5c23806b507c2d3e9fb1aaad6d527edcbe8a63edad5be80f252330c}{EVMC\_STORAGE\_UNCHANGED}} : \mbox{\hyperlink{group__EVMC_ggae012fd6b8e5c23806b507c2d3e9fb1aaaf102ce749767d5277923c221089da2c6}{EVMC\_STORAGE\_MODIFIED}};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00085}00085     \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00087}\mbox{\hyperlink{classExampleHost_affae69006394fc7c455cb629eb160df9}{00087}}     \mbox{\hyperlink{structevmc_1_1bytes32}{evmc::uint256be}} \mbox{\hyperlink{classExampleHost_affae69006394fc7c455cb629eb160df9}{get\_balance}}(\textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1address}{evmc::address}}\& addr) \textcolor{keyword}{const} \textcolor{keyword}{noexcept} \textcolor{keyword}{final}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00088}00088     \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00089}00089         \textcolor{keyword}{auto} it = \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}}.find(addr);}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00090}00090         \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}}.end())}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00091}00091             \textcolor{keywordflow}{return} it-\/>second.balance;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00092}00092         \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00093}00093     \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00095}\mbox{\hyperlink{classExampleHost_a7e5aacf59d0d072d8ebbce74ba3cf513}{00095}}     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classExampleHost_a7e5aacf59d0d072d8ebbce74ba3cf513}{get\_code\_size}}(\textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1address}{evmc::address}}\& addr) \textcolor{keyword}{const} \textcolor{keyword}{noexcept} \textcolor{keyword}{final}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00096}00096     \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00097}00097         \textcolor{keyword}{auto} it = \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}}.find(addr);}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00098}00098         \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}}.end())}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00099}00099             \textcolor{keywordflow}{return} it-\/>second.code.size();}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00100}00100         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00101}00101     \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00103}\mbox{\hyperlink{classExampleHost_a588763d53930877e2aac165fe8253bf2}{00103}}     \mbox{\hyperlink{structevmc_1_1bytes32}{evmc::bytes32}} \mbox{\hyperlink{classExampleHost_a588763d53930877e2aac165fe8253bf2}{get\_code\_hash}}(\textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1address}{evmc::address}}\& addr) \textcolor{keyword}{const} \textcolor{keyword}{noexcept} \textcolor{keyword}{final}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00104}00104     \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00105}00105         \textcolor{keyword}{auto} it = \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}}.find(addr);}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00106}00106         \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}}.end())}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00107}00107             \textcolor{keywordflow}{return} it-\/>second.code\_hash();}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00108}00108         \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00109}00109     \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00110}00110 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00111}\mbox{\hyperlink{classExampleHost_a9d20a3ad0ef146bd51b99a60c4aabc56}{00111}}     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classExampleHost_a9d20a3ad0ef146bd51b99a60c4aabc56}{copy\_code}}(\textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1address}{evmc::address}}\& addr,}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00112}00112                      \textcolor{keywordtype}{size\_t} code\_offset,}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00113}00113                      uint8\_t* buffer\_data,}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00114}00114                      \textcolor{keywordtype}{size\_t} buffer\_size) \textcolor{keyword}{const} \textcolor{keyword}{noexcept} \textcolor{keyword}{final}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00115}00115     \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00116}00116         \textcolor{keyword}{const} \textcolor{keyword}{auto} it = \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}}.find(addr);}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00117}00117         \textcolor{keywordflow}{if} (it == \mbox{\hyperlink{classExampleHost_a5d19048754dc825a85e97157f8db1409}{accounts}}.end())}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00118}00118             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00120}00120         \textcolor{keyword}{const} \textcolor{keyword}{auto}\& code = it-\/>second.code;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00121}00121 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00122}00122         \textcolor{keywordflow}{if} (code\_offset >= code.size())}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00123}00123             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00124}00124 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00125}00125         \textcolor{keyword}{const} \textcolor{keyword}{auto} n = std::min(buffer\_size, code.size() -\/ code\_offset);}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00127}00127         \textcolor{keywordflow}{if} (n > 0)}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00128}00128             std::copy\_n(\&code[code\_offset], n, buffer\_data);}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00129}00129         \textcolor{keywordflow}{return} n;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00130}00130     \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00131}00131 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00132}\mbox{\hyperlink{classExampleHost_a9d2ce6481950dfc3d30fdd9e80665c14}{00132}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{classExampleHost_a9d2ce6481950dfc3d30fdd9e80665c14}{selfdestruct}}(\textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1address}{evmc::address}}\& addr, \textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1address}{evmc::address}}\& beneficiary) \textcolor{keyword}{noexcept} \textcolor{keyword}{final}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00133}00133     \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00134}00134         (void)addr;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00135}00135         (void)beneficiary;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00136}00136     \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00137}00137 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00138}\mbox{\hyperlink{classExampleHost_ad76f578cc300dfb59e3f7eb561e7112e}{00138}}     \mbox{\hyperlink{classevmc_1_1result}{evmc::result}} \mbox{\hyperlink{classExampleHost_ad76f578cc300dfb59e3f7eb561e7112e}{call}}(\textcolor{keyword}{const} \mbox{\hyperlink{structevmc__message}{evmc\_message}}\& msg) \textcolor{keyword}{noexcept} \textcolor{keyword}{final}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00139}00139     \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00140}00140         \textcolor{keywordflow}{return} \{\mbox{\hyperlink{group__EVMC_gga4c0be97f333c050ff45321fcaa34d920aed708e84d49cc1270e54ec20b0ca0a05}{EVMC\_REVERT}}, msg.gas, msg.input\_data, msg.input\_size\};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00141}00141     \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00142}00142 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00143}\mbox{\hyperlink{classExampleHost_aa7acecd4846fda20be62fb724ed0075a}{00143}}     \mbox{\hyperlink{structevmc__tx__context}{evmc\_tx\_context}} \mbox{\hyperlink{classExampleHost_aa7acecd4846fda20be62fb724ed0075a}{get\_tx\_context}}() const noexcept final \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classExampleHost_a0945262a8d233b8d45b2479432b3d792}{tx\_context}}; \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00144}00144 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00145}\mbox{\hyperlink{classExampleHost_ab9061ad7baeb932aeb1e5e6c15eaccdc}{00145}}     \mbox{\hyperlink{structevmc_1_1bytes32}{evmc::bytes32}} \mbox{\hyperlink{classExampleHost_ab9061ad7baeb932aeb1e5e6c15eaccdc}{get\_block\_hash}}(int64\_t number) \textcolor{keyword}{const} \textcolor{keyword}{noexcept} \textcolor{keyword}{final}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00146}00146     \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00147}00147         \textcolor{keyword}{const} int64\_t current\_block\_number = \mbox{\hyperlink{classExampleHost_aa7acecd4846fda20be62fb724ed0075a}{get\_tx\_context}}().\mbox{\hyperlink{structevmc__tx__context_a1c3c0552db49b91358256c25643ba44a}{block\_number}};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00149}00149         \textcolor{keywordflow}{return} (number < current\_block\_number \&\& number >= current\_block\_number -\/ 256) ?}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00150}00150                    0xb10c8a5fb10c8a5fb10c8a5fb10c8a5fb10c8a5fb10c8a5fb10c8a5fb10c8a5f\_bytes32 :}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00151}00151                    0\_bytes32;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00152}00152     \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00153}00153 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00154}\mbox{\hyperlink{classExampleHost_ae095a66b77e3c69f1b111eddf88556e8}{00154}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{classExampleHost_ae095a66b77e3c69f1b111eddf88556e8}{emit\_log}}(\textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1address}{evmc::address}}\& addr,}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00155}00155                   \textcolor{keyword}{const} uint8\_t* data,}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00156}00156                   \textcolor{keywordtype}{size\_t} data\_size,}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00157}00157                   \textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1bytes32}{evmc::bytes32}} topics[],}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00158}00158                   \textcolor{keywordtype}{size\_t} topics\_count) \textcolor{keyword}{noexcept} \textcolor{keyword}{final}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00159}00159     \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00160}00160         (void)addr;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00161}00161         (void)data;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00162}00162         (void)data\_size;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00163}00163         (void)topics;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00164}00164         (void)topics\_count;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00165}00165     \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00166}00166 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00167}\mbox{\hyperlink{classExampleHost_a90efb185a1ad4f66c5ba404316c3497d}{00167}}     \mbox{\hyperlink{group__EVMC_ga9f71195f3873f9979d81d7a5e1b3aaf0}{evmc\_access\_status}} \mbox{\hyperlink{classExampleHost_a90efb185a1ad4f66c5ba404316c3497d}{access\_account}}(\textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1address}{evmc::address}}\& addr) \textcolor{keyword}{noexcept} \textcolor{keyword}{final}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00168}00168     \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00169}00169         (void)addr;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00170}00170         \textcolor{keywordflow}{return} \mbox{\hyperlink{group__EVMC_gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76}{EVMC\_ACCESS\_COLD}};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00171}00171     \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00172}00172 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00173}\mbox{\hyperlink{classExampleHost_a4c9e24f1177e2ecddac5b6959c19ec60}{00173}}     \mbox{\hyperlink{group__EVMC_ga9f71195f3873f9979d81d7a5e1b3aaf0}{evmc\_access\_status}} \mbox{\hyperlink{classExampleHost_a4c9e24f1177e2ecddac5b6959c19ec60}{access\_storage}}(\textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1address}{evmc::address}}\& addr,}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00174}00174                                       \textcolor{keyword}{const} \mbox{\hyperlink{structevmc_1_1bytes32}{evmc::bytes32}}\& key) \textcolor{keyword}{noexcept} \textcolor{keyword}{final}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00175}00175     \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00176}00176         (void)addr;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00177}00177         (void)key;}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00178}00178         \textcolor{keywordflow}{return} \mbox{\hyperlink{group__EVMC_gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76}{EVMC\_ACCESS\_COLD}};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00179}00179     \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00180}00180 \};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00181}00181 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00182}00182 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00183}00183 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00184}00184 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00185}\mbox{\hyperlink{example__host_8cpp_a1aa8c09de78471976959763a62bf069c}{00185}} \textcolor{keyword}{const} \mbox{\hyperlink{structevmc__host__interface}{evmc\_host\_interface}}* \mbox{\hyperlink{example__host_8cpp_a1aa8c09de78471976959763a62bf069c}{example\_host\_get\_interface}}()}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00186}00186 \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00187}00187     \textcolor{keywordflow}{return} \&\mbox{\hyperlink{classevmc_1_1Host_afb96540fea288f02d83f01e185a78374}{evmc::Host::get\_interface}}();}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00188}00188 \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00189}00189 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00190}\mbox{\hyperlink{example__host_8cpp_a8009572826ed8abb88284e79cefb4987}{00190}} \mbox{\hyperlink{structevmc__host__context}{evmc\_host\_context}}* \mbox{\hyperlink{example__host_8cpp_a8009572826ed8abb88284e79cefb4987}{example\_host\_create\_context}}(\mbox{\hyperlink{structevmc__tx__context}{evmc\_tx\_context}} tx\_context)}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00191}00191 \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00192}00192     \textcolor{keyword}{auto} host = \textcolor{keyword}{new} \mbox{\hyperlink{classExampleHost}{ExampleHost}}\{tx\_context\};}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00193}00193     \textcolor{keywordflow}{return} host-\/>to\_context();}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00194}00194 \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00195}00195 }
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00196}\mbox{\hyperlink{example__host_8cpp_a9ff72df98da6045af155bb8b9697da23}{00196}} \textcolor{keywordtype}{void} \mbox{\hyperlink{example__host_8cpp_a9ff72df98da6045af155bb8b9697da23}{example\_host\_destroy\_context}}(\mbox{\hyperlink{structevmc__host__context}{evmc\_host\_context}}* context)}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00197}00197 \{}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00198}00198     \textcolor{keyword}{delete} evmc::Host::from\_context<ExampleHost>(context);}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00199}00199 \}}
+\DoxyCodeLine{\Hypertarget{example__host_8cpp_source_l00200}00200 \}}
+
+\end{DoxyCode}

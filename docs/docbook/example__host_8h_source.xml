@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_example__host_8h_source" xml:lang="en-US">
+<title>example_host.h</title>
+<indexterm><primary>examples/example_host.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_example__host_8h_source_1l00001"/>00001 <emphasis role="comment">/*&#32;EVMC:&#32;Ethereum&#32;Client-VM&#32;Connector&#32;API.</emphasis>
+<anchor xml:id="_example__host_8h_source_1l00002"/>00002 <emphasis role="comment">&#32;*&#32;Copyright&#32;2016-2019&#32;The&#32;EVMC&#32;Authors.</emphasis>
+<anchor xml:id="_example__host_8h_source_1l00003"/>00003 <emphasis role="comment">&#32;*&#32;Licensed&#32;under&#32;the&#32;Apache&#32;License,&#32;Version&#32;2.0.</emphasis>
+<anchor xml:id="_example__host_8h_source_1l00004"/>00004 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_example__host_8h_source_1l00005"/>00005 
+<anchor xml:id="_example__host_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&lt;<link linkend="_evmc_8h">evmc/evmc.h</link>&gt;</emphasis>
+<anchor xml:id="_example__host_8h_source_1l00007"/>00007 
+<anchor xml:id="_example__host_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#if&#32;__cplusplus</emphasis>
+<anchor xml:id="_example__host_8h_source_1l00009"/>00009 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="stringliteral">&quot;C&quot;</emphasis>&#32;{
+<anchor xml:id="_example__host_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_example__host_8h_source_1l00011"/>00011 
+<anchor xml:id="_example__host_8h_source_1l00012"/>00012 <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc__host__interface">evmc_host_interface</link>*&#32;<link linkend="_example__host_8h_1a2b1d84d421e1681b6c7b88a443b64ad1">example_host_get_interface</link>();
+<anchor xml:id="_example__host_8h_source_1l00013"/>00013 
+<anchor xml:id="_example__host_8h_source_1l00014"/>00014 <emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;<link linkend="_example__host_8h_1afcd7c127e259a8c93ef093396ee06483">example_host_create_context</link>(<emphasis role="keyword">struct</emphasis>&#32;<link linkend="_structevmc__tx__context">evmc_tx_context</link>&#32;tx_context);
+<anchor xml:id="_example__host_8h_source_1l00015"/>00015 
+<anchor xml:id="_example__host_8h_source_1l00016"/>00016 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_example__host_8h_1ad15b98cff2636aad41bf3f2619827c32">example_host_destroy_context</link>(<emphasis role="keyword">struct</emphasis>&#32;<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;context);
+<anchor xml:id="_example__host_8h_source_1l00017"/>00017 
+<anchor xml:id="_example__host_8h_source_1l00018"/>00018 <emphasis role="preprocessor">#if&#32;__cplusplus</emphasis>
+<anchor xml:id="_example__host_8h_source_1l00019"/>00019 }
+<anchor xml:id="_example__host_8h_source_1l00020"/>00020 <emphasis role="preprocessor">#endif</emphasis>
+</programlisting></section>

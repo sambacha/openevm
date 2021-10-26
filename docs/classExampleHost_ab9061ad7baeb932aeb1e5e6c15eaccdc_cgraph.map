@@ -1,0 +1,4 @@
+<map id="ExampleHost::get_block_hash" name="ExampleHost::get_block_hash">
+<area shape="rect" id="node1" title="Get block hash callback function." alt="" coords="5,13,208,39"/>
+<area shape="rect" id="node2" href="$classExampleHost.html#aa7acecd4846fda20be62fb724ed0075a" title="Get transaction context callback function." alt="" coords="256,5,401,47"/>
+</map>

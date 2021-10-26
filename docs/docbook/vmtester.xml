@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_vmtester" xml:lang="en-US">
+
+<para><anchor xml:id="_vmtester_1md_docs_VM_Tester"/> The EVMC project contains a EVMC-compatibility testing tool for VM implementations.</para>
+
+<para>The tool is called <computeroutput>evmc-vmtester</computeroutput> and to include it in the EVMC build add <computeroutput>-DEVMC_TESTING=ON</computeroutput> CMake option to the project configuration step.</para>
+
+<para>Usage is simple as</para>
+
+<para><literallayout><computeroutput>evmc-vmtester&#32;[vm]
+</computeroutput></literallayout></para>
+
+<para>where <computeroutput>[vm]</computeroutput> is a path to a shared library with VM implementation.</para>
+
+<para>For more information check <computeroutput>evmc-vmtester --help</computeroutput>. </para>
+</section>

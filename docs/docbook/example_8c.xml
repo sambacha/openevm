@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_example_8c" xml:lang="en-US">
+<title>examples/example.c File Reference</title>
+<indexterm><primary>examples/example.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;example_host.h&quot;
+#include &lt;evmc/helpers.h&gt;
+#include &lt;evmc/loader.h&gt;
+#include &lt;inttypes.h&gt;
+#include &lt;stdio.h&gt;
+</programlisting>Include dependency graph for example.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="example_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_example_8c_1a0ddf1224851353fc92bfbff6f499fa97">main</link> (int argc, char *argv[])</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_example_8c_1a0ddf1224851353fc92bfbff6f499fa97"/><section>
+    <title>main()</title>
+<indexterm><primary>main</primary><secondary>example.c</secondary></indexterm>
+<indexterm><primary>example.c</primary><secondary>main</secondary></indexterm>
+<para><computeroutput>int main (int argc, char * argv[])</computeroutput></para><para>
+Definition at line <link linkend="_example_8c_source_1l00017">17</link> of file <link linkend="_example_8c_source">example.c</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_example_8c_1l00018"/>00018 {
+<anchor xml:id="_example_8c_1l00019"/>00019 <emphasis role="preprocessor">#ifdef&#32;STATICALLY_LINKED_EXAMPLE</emphasis>
+<anchor xml:id="_example_8c_1l00020"/>00020 &#32;&#32;&#32;&#32;(void)argc;
+<anchor xml:id="_example_8c_1l00021"/>00021 &#32;&#32;&#32;&#32;(void)argv;
+<anchor xml:id="_example_8c_1l00022"/>00022 &#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc__vm">evmc_vm</link>*&#32;vm&#32;=&#32;<link linkend="_group__EVMC_1ga4ba5aae5d0250d9c4f6987a78602e795">evmc_create_example_vm</link>();
+<anchor xml:id="_example_8c_1l00023"/>00023 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!vm)
+<anchor xml:id="_example_8c_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__loader_1ggadf193ed1d2d7e9053e9c592fc201bd7da504de7833560037be4d2c620345767f5">EVMC_LOADER_VM_CREATION_FAILURE</link>;
+<anchor xml:id="_example_8c_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_group__helpers_1ga7e9c2c68b366dda89dba56566aab111d">evmc_is_abi_compatible</link>(vm))
+<anchor xml:id="_example_8c_1l00026"/>00026 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__loader_1ggadf193ed1d2d7e9053e9c592fc201bd7da0d4eb3a48d3f8c500b96f43e1aa7c458">EVMC_LOADER_ABI_VERSION_MISMATCH</link>;
+<anchor xml:id="_example_8c_1l00027"/>00027 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_example_8c_1l00028"/>00028 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;config_string&#32;=&#32;(argc&#32;&gt;&#32;1)&#32;?&#32;argv[1]&#32;:&#32;<emphasis role="stringliteral">&quot;example-vm.so&quot;</emphasis>;
+<anchor xml:id="_example_8c_1l00029"/>00029 &#32;&#32;&#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_group__loader_1gadf193ed1d2d7e9053e9c592fc201bd7d">evmc_loader_error_code</link>&#32;error_code;
+<anchor xml:id="_example_8c_1l00030"/>00030 &#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc__vm">evmc_vm</link>*&#32;vm&#32;=&#32;<link linkend="_group__loader_1ga3e29ca285fe13db086daf0bf98b4a046">evmc_load_and_configure</link>(config_string,&#32;&amp;error_code);
+<anchor xml:id="_example_8c_1l00031"/>00031 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!vm)
+<anchor xml:id="_example_8c_1l00032"/>00032 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example_8c_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Loading&#32;error:&#32;%d\n&quot;</emphasis>,&#32;error_code);
+<anchor xml:id="_example_8c_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;NOTE:&#32;the&#32;values&#32;are&#32;small&#32;enough&#32;for&#32;casting</emphasis>
+<anchor xml:id="_example_8c_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>)error_code;
+<anchor xml:id="_example_8c_1l00036"/>00036 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example_8c_1l00037"/>00037 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_example_8c_1l00038"/>00038 
+<anchor xml:id="_example_8c_1l00039"/>00039 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;EVM&#32;bytecode&#32;goes&#32;here.&#32;This&#32;is&#32;one&#32;of&#32;the&#32;examples.</emphasis>
+<anchor xml:id="_example_8c_1l00040"/>00040 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;code[]&#32;=&#32;<emphasis role="stringliteral">&quot;\x43\x60\x00\x55\x43\x60\x00\x52\x59\x60\x00\xf3&quot;</emphasis>;
+<anchor xml:id="_example_8c_1l00041"/>00041 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;code_size&#32;=&#32;<emphasis role="keyword">sizeof</emphasis>(code)&#32;-&#32;1;
+<anchor xml:id="_example_8c_1l00042"/>00042 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;input[]&#32;=&#32;<emphasis role="stringliteral">&quot;Hello&#32;World!&quot;</emphasis>;
+<anchor xml:id="_example_8c_1l00043"/>00043 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__bytes32">evmc_uint256be</link>&#32;value&#32;=&#32;{{1,&#32;0}};
+<anchor xml:id="_example_8c_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__address">evmc_address</link>&#32;addr&#32;=&#32;{{0,&#32;1,&#32;2}};
+<anchor xml:id="_example_8c_1l00045"/>00045 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;int64_t&#32;gas&#32;=&#32;200000;
+<anchor xml:id="_example_8c_1l00046"/>00046 &#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc__tx__context">evmc_tx_context</link>&#32;tx_context;
+<anchor xml:id="_example_8c_1l00047"/>00047 &#32;&#32;&#32;&#32;memset(&amp;tx_context,&#32;0,&#32;<emphasis role="keyword">sizeof</emphasis>(tx_context));
+<anchor xml:id="_example_8c_1l00048"/>00048 &#32;&#32;&#32;&#32;tx_context.block_number&#32;=&#32;42;
+<anchor xml:id="_example_8c_1l00049"/>00049 &#32;&#32;&#32;&#32;tx_context.block_timestamp&#32;=&#32;66;
+<anchor xml:id="_example_8c_1l00050"/>00050 &#32;&#32;&#32;&#32;tx_context.block_gas_limit&#32;=&#32;gas&#32;*&#32;2;
+<anchor xml:id="_example_8c_1l00051"/>00051 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc__host__interface">evmc_host_interface</link>*&#32;host&#32;=&#32;<link linkend="_example__host_8cpp_1a1aa8c09de78471976959763a62bf069c">example_host_get_interface</link>();
+<anchor xml:id="_example_8c_1l00052"/>00052 &#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;ctx&#32;=&#32;<link linkend="_example__host_8cpp_1a8009572826ed8abb88284e79cefb4987">example_host_create_context</link>(tx_context);
+<anchor xml:id="_example_8c_1l00053"/>00053 &#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc__message">evmc_message</link>&#32;msg;
+<anchor xml:id="_example_8c_1l00054"/>00054 &#32;&#32;&#32;&#32;msg.<link linkend="_structevmc__message_1a691cb93e81d6dfd4fd7e2fa3d06a6bfa">kind</link>&#32;=&#32;<link linkend="_group__EVMC_1ggab2fa68a92a6828064a61e46060abc634abcf3ae29d9a88ff70b98374fc665694a">EVMC_CALL</link>;
+<anchor xml:id="_example_8c_1l00055"/>00055 &#32;&#32;&#32;&#32;msg.sender&#32;=&#32;addr;
+<anchor xml:id="_example_8c_1l00056"/>00056 &#32;&#32;&#32;&#32;msg.recipient&#32;=&#32;addr;
+<anchor xml:id="_example_8c_1l00057"/>00057 &#32;&#32;&#32;&#32;msg.value&#32;=&#32;<link linkend="_structevmc__message_1adc7e2442cb362417931524ee904ecb33">value</link>;
+<anchor xml:id="_example_8c_1l00058"/>00058 &#32;&#32;&#32;&#32;msg.input_data&#32;=&#32;input;
+<anchor xml:id="_example_8c_1l00059"/>00059 &#32;&#32;&#32;&#32;msg.input_size&#32;=&#32;<emphasis role="keyword">sizeof</emphasis>(input);
+<anchor xml:id="_example_8c_1l00060"/>00060 &#32;&#32;&#32;&#32;msg.gas&#32;=&#32;<link linkend="_structevmc__message_1ae8deff46588584fa27890e74c82db5e7">gas</link>;
+<anchor xml:id="_example_8c_1l00061"/>00061 &#32;&#32;&#32;&#32;msg.depth&#32;=&#32;0;
+<anchor xml:id="_example_8c_1l00062"/>00062 &#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc__result">evmc_result</link>&#32;result&#32;=&#32;<link linkend="_group__helpers_1ga82fb11f4b40ceec377bf0093ffc1d416">evmc_execute</link>(vm,&#32;host,&#32;ctx,&#32;<link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7a04f0bf686d2b1c50612f9a96480f70a9">EVMC_HOMESTEAD</link>,&#32;&amp;msg,&#32;code,&#32;code_size);
+<anchor xml:id="_example_8c_1l00063"/>00063 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Execution&#32;result:\n&quot;</emphasis>);
+<anchor xml:id="_example_8c_1l00064"/>00064 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;exit_code&#32;=&#32;0;
+<anchor xml:id="_example_8c_1l00065"/>00065 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(result.<link linkend="_structevmc__result_1a759c4aaa4a1c002f5a8be09ccb0b6a1c">status_code</link>&#32;!=&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a4bc3069fec2bab2a55355a72b7db68b7">EVMC_SUCCESS</link>)
+<anchor xml:id="_example_8c_1l00066"/>00066 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example_8c_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;&#32;&#32;EVM&#32;execution&#32;failure:&#32;%d\n&quot;</emphasis>,&#32;result.<link linkend="_structevmc__result_1a759c4aaa4a1c002f5a8be09ccb0b6a1c">status_code</link>);
+<anchor xml:id="_example_8c_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;exit_code&#32;=&#32;result.<link linkend="_structevmc__result_1a759c4aaa4a1c002f5a8be09ccb0b6a1c">status_code</link>;
+<anchor xml:id="_example_8c_1l00069"/>00069 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example_8c_1l00070"/>00070 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="_example_8c_1l00071"/>00071 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example_8c_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;&#32;&#32;Gas&#32;used:&#32;%&quot;</emphasis>&#32;PRId64&#32;<emphasis role="stringliteral">&quot;\n&quot;</emphasis>,&#32;gas&#32;-&#32;result.<link linkend="_structevmc__result_1af8478c93dbcc3cb2876037c5a5afd4c0">gas_left</link>);
+<anchor xml:id="_example_8c_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;&#32;&#32;Gas&#32;left:&#32;%&quot;</emphasis>&#32;PRId64&#32;<emphasis role="stringliteral">&quot;\n&quot;</emphasis>,&#32;result.<link linkend="_structevmc__result_1af8478c93dbcc3cb2876037c5a5afd4c0">gas_left</link>);
+<anchor xml:id="_example_8c_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;&#32;&#32;Output&#32;size:&#32;%zd\n&quot;</emphasis>,&#32;result.<link linkend="_structevmc__result_1a93bb7419aff492cdef754421c6d74e26">output_size</link>);
+<anchor xml:id="_example_8c_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;&#32;&#32;Output:&#32;&quot;</emphasis>);
+<anchor xml:id="_example_8c_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;
+<anchor xml:id="_example_8c_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(i&#32;=&#32;0;&#32;i&#32;&lt;&#32;result.<link linkend="_structevmc__result_1a93bb7419aff492cdef754421c6d74e26">output_size</link>;&#32;i++)
+<anchor xml:id="_example_8c_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;%02x&quot;</emphasis>,&#32;result.<link linkend="_structevmc__result_1a61978e85f9d795a7b9695b9cbf1748d6">output_data</link>[i]);
+<anchor xml:id="_example_8c_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\n&quot;</emphasis>);
+<anchor xml:id="_example_8c_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__bytes32">evmc_bytes32</link>&#32;storage_key&#32;=&#32;{{0}};
+<anchor xml:id="_example_8c_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structevmc__bytes32">evmc_bytes32</link>&#32;storage_value&#32;=&#32;host-&gt;<link linkend="_structevmc__host__interface_1a1cfd339e26ceaba522aece2e1a06c6ef">get_storage</link>(ctx,&#32;&amp;msg.recipient,&#32;&amp;storage_key);
+<anchor xml:id="_example_8c_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;&#32;&#32;Storage&#32;at&#32;0x00..00:&#32;&quot;</emphasis>);
+<anchor xml:id="_example_8c_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(i&#32;=&#32;0;&#32;i&#32;&lt;&#32;<emphasis role="keyword">sizeof</emphasis>(storage_value.<link linkend="_structevmc__bytes32_1a695eaf3c428daee54ce15c8252edc133">bytes</link>)&#32;/&#32;<emphasis role="keyword">sizeof</emphasis>(storage_value.<link linkend="_structevmc__bytes32_1a695eaf3c428daee54ce15c8252edc133">bytes</link>[0]);&#32;i++)
+<anchor xml:id="_example_8c_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;%02x&quot;</emphasis>,&#32;storage_value.<link linkend="_structevmc__bytes32_1a695eaf3c428daee54ce15c8252edc133">bytes</link>[i]);
+<anchor xml:id="_example_8c_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\n&quot;</emphasis>);
+<anchor xml:id="_example_8c_1l00086"/>00086 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example_8c_1l00087"/>00087 &#32;&#32;&#32;&#32;<link linkend="_group__helpers_1ga78a610e76b00c5868368bd915bdeffb8">evmc_release_result</link>(&amp;result);
+<anchor xml:id="_example_8c_1l00088"/>00088 &#32;&#32;&#32;&#32;<link linkend="_example__host_8cpp_1a9ff72df98da6045af155bb8b9697da23">example_host_destroy_context</link>(ctx);
+<anchor xml:id="_example_8c_1l00089"/>00089 &#32;&#32;&#32;&#32;<link linkend="_group__helpers_1ga6204e6ae26e07377b509b2953a8094b2">evmc_destroy</link>(vm);
+<anchor xml:id="_example_8c_1l00090"/>00090 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;exit_code;
+<anchor xml:id="_example_8c_1l00091"/>00091 }
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="example_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

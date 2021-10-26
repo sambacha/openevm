@@ -1,0 +1,4 @@
+<map id="evmc_make_result" name="evmc_make_result">
+<area shape="rect" id="node1" title="Creates the result from the provided arguments." alt="" coords="5,5,139,32"/>
+<area shape="rect" id="node2" href="$group__helpers.html#ga432ca3c26b4b03a175f2a0fbd0692dfa" title="The evmc_result release function using free() for releasing the memory." alt="" coords="187,5,367,32"/>
+</map>

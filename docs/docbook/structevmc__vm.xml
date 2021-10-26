@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structevmc__vm" xml:lang="en-US">
+<title>evmc_vm Struct Reference</title>
+<indexterm><primary>evmc_vm</primary></indexterm>
+<para>
+
+<para>The VM instance. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;evmc.h&gt;</computeroutput>
+</para>
+Collaboration diagram for evmc_vm:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="structevmc__vm__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>const int <link linkend="_structevmc__vm_1acccbdf95110faffb4dc85624bb1d99b6">abi_version</link></para>
+
+<para>EVMC ABI version implemented by the VM instance. </para>
+</listitem>
+            <listitem><para>const char * <link linkend="_structevmc__vm_1ac29ccc98e89c8cab3ffc5bd51a2afaa8">name</link></para>
+
+<para>The name of the EVMC VM implementation. </para>
+</listitem>
+            <listitem><para>const char * <link linkend="_structevmc__vm_1af98936c214ed16f5da05ba3d6a619faa">version</link></para>
+
+<para>The version of the EVMC VM implementation, e.g. </para>
+</listitem>
+            <listitem><para><link linkend="_group__EVMC_1ga1f54475fc7dc20a0c4d370272e39d755">evmc_destroy_fn</link> <link linkend="_structevmc__vm_1ac78933134b4e14ca3dd4139ee061cc6b">destroy</link></para>
+
+<para>Pointer to function destroying the VM instance. </para>
+</listitem>
+            <listitem><para><link linkend="_group__EVMC_1gaed9a4ab5609b55c5e3272d6d37d84ff7">evmc_execute_fn</link> <link linkend="_structevmc__vm_1a8384d28338f2287a9f9e1508699c53f0">execute</link></para>
+
+<para>Pointer to function executing a code by the VM instance. </para>
+</listitem>
+            <listitem><para><link linkend="_group__EVMC_1ga9bac25459c5a09d42606e7bd9320445c">evmc_get_capabilities_fn</link> <link linkend="_structevmc__vm_1a505d4e584a858c2eea7a026f3a94188b">get_capabilities</link></para>
+
+<para>A method returning capabilities supported by the VM instance. </para>
+</listitem>
+            <listitem><para><link linkend="_group__EVMC_1ga5531cee5b83d76c71b06475454f4633b">evmc_set_option_fn</link> <link linkend="_structevmc__vm_1a20fd85c822ba5f3296206fc8fe3e90b2">set_option</link></para>
+
+<para>Optional pointer to function modifying VM&apos;s options. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The VM instance. </para>
+
+
+
+<para>Defines the base struct of the VM implementation. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00979">979</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_structevmc__vm_1acccbdf95110faffb4dc85624bb1d99b6"/><section>
+    <title>abi_version</title>
+<indexterm><primary>abi_version</primary><secondary>evmc_vm</secondary></indexterm>
+<indexterm><primary>evmc_vm</primary><secondary>abi_version</secondary></indexterm>
+<para><computeroutput>const int evmc_vm::abi_version</computeroutput></para><para>
+
+<para>EVMC ABI version implemented by the VM instance. </para>
+</para>
+
+<para>Can be used to detect ABI incompatibilities. The EVMC ABI version represented by this file is in <link linkend="_group__EVMC_1gga06fc87d81c62e9abb8790b6e5713c55ba1db9144f8af4e62865f0c003c07a02bc">EVMC_ABI_VERSION</link>. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00987">987</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__vm_1ac78933134b4e14ca3dd4139ee061cc6b"/><section>
+    <title>destroy</title>
+<indexterm><primary>destroy</primary><secondary>evmc_vm</secondary></indexterm>
+<indexterm><primary>evmc_vm</primary><secondary>destroy</secondary></indexterm>
+<para><computeroutput><link linkend="_group__EVMC_1ga1f54475fc7dc20a0c4d370272e39d755">evmc_destroy_fn</link> evmc_vm::destroy</computeroutput></para><para>
+
+<para>Pointer to function destroying the VM instance. </para>
+</para>
+
+<para>This is a mandatory method and MUST NOT be set to NULL. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l01010">1010</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__vm_1a8384d28338f2287a9f9e1508699c53f0"/><section>
+    <title>execute</title>
+<indexterm><primary>execute</primary><secondary>evmc_vm</secondary></indexterm>
+<indexterm><primary>evmc_vm</primary><secondary>execute</secondary></indexterm>
+<para><computeroutput><link linkend="_group__EVMC_1gaed9a4ab5609b55c5e3272d6d37d84ff7">evmc_execute_fn</link> evmc_vm::execute</computeroutput></para><para>
+
+<para>Pointer to function executing a code by the VM instance. </para>
+</para>
+
+<para>This is a mandatory method and MUST NOT be set to NULL. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l01017">1017</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__vm_1a505d4e584a858c2eea7a026f3a94188b"/><section>
+    <title>get_capabilities</title>
+<indexterm><primary>get_capabilities</primary><secondary>evmc_vm</secondary></indexterm>
+<indexterm><primary>evmc_vm</primary><secondary>get_capabilities</secondary></indexterm>
+<para><computeroutput><link linkend="_group__EVMC_1ga9bac25459c5a09d42606e7bd9320445c">evmc_get_capabilities_fn</link> evmc_vm::get_capabilities</computeroutput></para><para>
+
+<para>A method returning capabilities supported by the VM instance. </para>
+</para>
+
+<para>The value returned MAY change when different options are set via the <link linkend="_structevmc__vm_1a20fd85c822ba5f3296206fc8fe3e90b2">set_option()</link> method.</para>
+
+<para>A Client SHOULD only rely on the value returned if it has queried it after it has called the <link linkend="_structevmc__vm_1a20fd85c822ba5f3296206fc8fe3e90b2">set_option()</link>.</para>
+
+<para>This is a mandatory method and MUST NOT be set to NULL. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l01029">1029</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__vm_1ac29ccc98e89c8cab3ffc5bd51a2afaa8"/><section>
+    <title>name</title>
+<indexterm><primary>name</primary><secondary>evmc_vm</secondary></indexterm>
+<indexterm><primary>evmc_vm</primary><secondary>name</secondary></indexterm>
+<para><computeroutput>const char* evmc_vm::name</computeroutput></para><para>
+
+<para>The name of the EVMC VM implementation. </para>
+</para>
+
+<para>It MUST be a NULL-terminated not empty string. The content MUST be UTF-8 encoded (this implies ASCII encoding is also allowed). </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00995">995</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__vm_1a20fd85c822ba5f3296206fc8fe3e90b2"/><section>
+    <title>set_option</title>
+<indexterm><primary>set_option</primary><secondary>evmc_vm</secondary></indexterm>
+<indexterm><primary>evmc_vm</primary><secondary>set_option</secondary></indexterm>
+<para><computeroutput><link linkend="_group__EVMC_1ga5531cee5b83d76c71b06475454f4633b">evmc_set_option_fn</link> evmc_vm::set_option</computeroutput></para><para>
+
+<para>Optional pointer to function modifying VM&apos;s options. </para>
+</para>
+
+<para>If the VM does not support this feature the pointer can be NULL. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l01036">1036</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__vm_1af98936c214ed16f5da05ba3d6a619faa"/><section>
+    <title>version</title>
+<indexterm><primary>version</primary><secondary>evmc_vm</secondary></indexterm>
+<indexterm><primary>evmc_vm</primary><secondary>version</secondary></indexterm>
+<para><computeroutput>const char* evmc_vm::version</computeroutput></para><para>
+
+<para>The version of the EVMC VM implementation, e.g. </para>
+</para>
+
+<para>&quot;1.2.3b4&quot;.</para>
+
+<para>It MUST be a NULL-terminated not empty string. The content MUST be UTF-8 encoded (this implies ASCII encoding is also allowed). </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l01003">1003</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+include/evmc/<link linkend="_evmc_8h">evmc.h</link></section>
+</section>

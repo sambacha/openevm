@@ -1,0 +1,4 @@
+<map id="evmc_result" name="evmc_result">
+<area shape="rect" id="node1" title="The EVM code execution result." alt="" coords="13,95,107,121"/>
+<area shape="rect" id="node2" href="$structevmc__address.html" title="Big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="5,5,115,32"/>
+</map>

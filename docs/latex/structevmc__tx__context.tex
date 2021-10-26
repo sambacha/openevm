@@ -1,0 +1,183 @@
+\hypertarget{structevmc__tx__context}{}\doxysection{evmc\+\_\+tx\+\_\+context Struct Reference}
+\label{structevmc__tx__context}\index{evmc\_tx\_context@{evmc\_tx\_context}}
+
+
+The transaction and block data for execution.  
+
+
+
+
+{\ttfamily \#include $<$evmc.\+h$>$}
+
+
+
+Collaboration diagram for evmc\+\_\+tx\+\_\+context\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{structevmc__tx__context__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__EVMC_ga260738d59f9a23d039dc7a290e0c0a3b}{evmc\+\_\+uint256be}} \mbox{\hyperlink{structevmc__tx__context_a4858c73d21efbd267ca4c2b084c9e8c0}{tx\+\_\+gas\+\_\+price}}
+\begin{DoxyCompactList}\small\item\em The transaction gas price. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structevmc__address}{evmc\+\_\+address}} \mbox{\hyperlink{structevmc__tx__context_a13072643da6e167daa209a305cd996db}{tx\+\_\+origin}}
+\begin{DoxyCompactList}\small\item\em The transaction origin account. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structevmc__address}{evmc\+\_\+address}} \mbox{\hyperlink{structevmc__tx__context_acdb1c3a579bcf1578bff68d1f88f18a4}{block\+\_\+coinbase}}
+\begin{DoxyCompactList}\small\item\em The miner of the block. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{structevmc__tx__context_a1c3c0552db49b91358256c25643ba44a}{block\+\_\+number}}
+\begin{DoxyCompactList}\small\item\em The block number. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{structevmc__tx__context_a2391863eab970821d67a08341d9d3440}{block\+\_\+timestamp}}
+\begin{DoxyCompactList}\small\item\em The block timestamp. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{structevmc__tx__context_af51d0246df23060d5e958ada3f25a676}{block\+\_\+gas\+\_\+limit}}
+\begin{DoxyCompactList}\small\item\em The block gas limit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__EVMC_ga260738d59f9a23d039dc7a290e0c0a3b}{evmc\+\_\+uint256be}} \mbox{\hyperlink{structevmc__tx__context_afacc9f907dd24a60a74f26c3fd0ded20}{block\+\_\+difficulty}}
+\begin{DoxyCompactList}\small\item\em The block difficulty. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__EVMC_ga260738d59f9a23d039dc7a290e0c0a3b}{evmc\+\_\+uint256be}} \mbox{\hyperlink{structevmc__tx__context_ac68b370866987a1a1785751e4c76702a}{chain\+\_\+id}}
+\begin{DoxyCompactList}\small\item\em The blockchain\textquotesingle{}s Chain\+ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__EVMC_ga260738d59f9a23d039dc7a290e0c0a3b}{evmc\+\_\+uint256be}} \mbox{\hyperlink{structevmc__tx__context_a172648b09b3ee20040466392a2a5f1d5}{block\+\_\+base\+\_\+fee}}
+\begin{DoxyCompactList}\small\item\em The block base fee per gas (EIP-\/1559, EIP-\/3198). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The transaction and block data for execution. 
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00194}{194}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structevmc__tx__context_a172648b09b3ee20040466392a2a5f1d5}\label{structevmc__tx__context_a172648b09b3ee20040466392a2a5f1d5}} 
+\index{evmc\_tx\_context@{evmc\_tx\_context}!block\_base\_fee@{block\_base\_fee}}
+\index{block\_base\_fee@{block\_base\_fee}!evmc\_tx\_context@{evmc\_tx\_context}}
+\doxysubsubsection{\texorpdfstring{block\_base\_fee}{block\_base\_fee}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__EVMC_ga260738d59f9a23d039dc7a290e0c0a3b}{evmc\+\_\+uint256be}} evmc\+\_\+tx\+\_\+context\+::block\+\_\+base\+\_\+fee}
+
+
+
+The block base fee per gas (EIP-\/1559, EIP-\/3198). 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00204}{204}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{structevmc__tx__context_acdb1c3a579bcf1578bff68d1f88f18a4}\label{structevmc__tx__context_acdb1c3a579bcf1578bff68d1f88f18a4}} 
+\index{evmc\_tx\_context@{evmc\_tx\_context}!block\_coinbase@{block\_coinbase}}
+\index{block\_coinbase@{block\_coinbase}!evmc\_tx\_context@{evmc\_tx\_context}}
+\doxysubsubsection{\texorpdfstring{block\_coinbase}{block\_coinbase}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc__address}{evmc\+\_\+address}} evmc\+\_\+tx\+\_\+context\+::block\+\_\+coinbase}
+
+
+
+The miner of the block. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00198}{198}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{structevmc__tx__context_afacc9f907dd24a60a74f26c3fd0ded20}\label{structevmc__tx__context_afacc9f907dd24a60a74f26c3fd0ded20}} 
+\index{evmc\_tx\_context@{evmc\_tx\_context}!block\_difficulty@{block\_difficulty}}
+\index{block\_difficulty@{block\_difficulty}!evmc\_tx\_context@{evmc\_tx\_context}}
+\doxysubsubsection{\texorpdfstring{block\_difficulty}{block\_difficulty}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__EVMC_ga260738d59f9a23d039dc7a290e0c0a3b}{evmc\+\_\+uint256be}} evmc\+\_\+tx\+\_\+context\+::block\+\_\+difficulty}
+
+
+
+The block difficulty. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00202}{202}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{structevmc__tx__context_af51d0246df23060d5e958ada3f25a676}\label{structevmc__tx__context_af51d0246df23060d5e958ada3f25a676}} 
+\index{evmc\_tx\_context@{evmc\_tx\_context}!block\_gas\_limit@{block\_gas\_limit}}
+\index{block\_gas\_limit@{block\_gas\_limit}!evmc\_tx\_context@{evmc\_tx\_context}}
+\doxysubsubsection{\texorpdfstring{block\_gas\_limit}{block\_gas\_limit}}
+{\footnotesize\ttfamily int64\+\_\+t evmc\+\_\+tx\+\_\+context\+::block\+\_\+gas\+\_\+limit}
+
+
+
+The block gas limit. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00201}{201}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{structevmc__tx__context_a1c3c0552db49b91358256c25643ba44a}\label{structevmc__tx__context_a1c3c0552db49b91358256c25643ba44a}} 
+\index{evmc\_tx\_context@{evmc\_tx\_context}!block\_number@{block\_number}}
+\index{block\_number@{block\_number}!evmc\_tx\_context@{evmc\_tx\_context}}
+\doxysubsubsection{\texorpdfstring{block\_number}{block\_number}}
+{\footnotesize\ttfamily int64\+\_\+t evmc\+\_\+tx\+\_\+context\+::block\+\_\+number}
+
+
+
+The block number. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00199}{199}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{structevmc__tx__context_a2391863eab970821d67a08341d9d3440}\label{structevmc__tx__context_a2391863eab970821d67a08341d9d3440}} 
+\index{evmc\_tx\_context@{evmc\_tx\_context}!block\_timestamp@{block\_timestamp}}
+\index{block\_timestamp@{block\_timestamp}!evmc\_tx\_context@{evmc\_tx\_context}}
+\doxysubsubsection{\texorpdfstring{block\_timestamp}{block\_timestamp}}
+{\footnotesize\ttfamily int64\+\_\+t evmc\+\_\+tx\+\_\+context\+::block\+\_\+timestamp}
+
+
+
+The block timestamp. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00200}{200}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{structevmc__tx__context_ac68b370866987a1a1785751e4c76702a}\label{structevmc__tx__context_ac68b370866987a1a1785751e4c76702a}} 
+\index{evmc\_tx\_context@{evmc\_tx\_context}!chain\_id@{chain\_id}}
+\index{chain\_id@{chain\_id}!evmc\_tx\_context@{evmc\_tx\_context}}
+\doxysubsubsection{\texorpdfstring{chain\_id}{chain\_id}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__EVMC_ga260738d59f9a23d039dc7a290e0c0a3b}{evmc\+\_\+uint256be}} evmc\+\_\+tx\+\_\+context\+::chain\+\_\+id}
+
+
+
+The blockchain\textquotesingle{}s Chain\+ID. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00203}{203}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{structevmc__tx__context_a4858c73d21efbd267ca4c2b084c9e8c0}\label{structevmc__tx__context_a4858c73d21efbd267ca4c2b084c9e8c0}} 
+\index{evmc\_tx\_context@{evmc\_tx\_context}!tx\_gas\_price@{tx\_gas\_price}}
+\index{tx\_gas\_price@{tx\_gas\_price}!evmc\_tx\_context@{evmc\_tx\_context}}
+\doxysubsubsection{\texorpdfstring{tx\_gas\_price}{tx\_gas\_price}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__EVMC_ga260738d59f9a23d039dc7a290e0c0a3b}{evmc\+\_\+uint256be}} evmc\+\_\+tx\+\_\+context\+::tx\+\_\+gas\+\_\+price}
+
+
+
+The transaction gas price. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00196}{196}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{structevmc__tx__context_a13072643da6e167daa209a305cd996db}\label{structevmc__tx__context_a13072643da6e167daa209a305cd996db}} 
+\index{evmc\_tx\_context@{evmc\_tx\_context}!tx\_origin@{tx\_origin}}
+\index{tx\_origin@{tx\_origin}!evmc\_tx\_context@{evmc\_tx\_context}}
+\doxysubsubsection{\texorpdfstring{tx\_origin}{tx\_origin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc__address}{evmc\+\_\+address}} evmc\+\_\+tx\+\_\+context\+::tx\+\_\+origin}
+
+
+
+The transaction origin account. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00197}{197}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/evmc/\mbox{\hyperlink{evmc_8h}{evmc.\+h}}\end{DoxyCompactItemize}

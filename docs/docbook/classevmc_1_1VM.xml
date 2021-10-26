@@ -1,0 +1,412 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classevmc_1_1VM" xml:lang="en-US">
+<title>evmc::VM Class Reference</title>
+<indexterm><primary>evmc::VM</primary></indexterm>
+<para>
+
+<para>The <link linkend="_classevmc_1_1VM">VM</link> instance. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;evmc.hpp&gt;</computeroutput>
+</para>
+Collaboration diagram for evmc::VM:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1VM__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classevmc_1_1VM_1a3746149adadf6eea98726ef56a4a2fac">VM</link> () noexcept=default</para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1VM_1af5cd9f6bcaced56a086d515b4f5faf69">VM</link> (<link linkend="_structevmc__vm">evmc_vm</link> *vm) noexcept</para>
+
+<para>Converting constructor from <link linkend="_structevmc__vm">evmc_vm</link>. </para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1VM_1a6e8e28e22d24f5d6a0c6c3a8eb1346c3">~VM</link> () noexcept</para>
+
+<para>Destructor responsible for automatically destroying the <link linkend="_classevmc_1_1VM">VM</link> instance. </para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1VM_1a18067facc2046fa65ee1b3a8285b4582">VM</link> (const <link linkend="_classevmc_1_1VM">VM</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1VM">VM</link> &amp; <link linkend="_classevmc_1_1VM_1a575a423d60619c9cb3d3f47eeec2b8cc">operator=</link> (const <link linkend="_classevmc_1_1VM">VM</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1VM_1a95954b9cd734a4d78a66e18457106c77">VM</link> (<link linkend="_classevmc_1_1VM">VM</link> &amp;&amp;other) noexcept</para>
+
+<para>Move constructor. </para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1VM">VM</link> &amp; <link linkend="_classevmc_1_1VM_1a2da09c30242ed78bbd724cc14d261ce8">operator=</link> (<link linkend="_classevmc_1_1VM">VM</link> &amp;&amp;other) noexcept</para>
+
+<para>Move assignment operator. </para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1VM_1a169703435108680a12c3ed4aeefed574">VM</link> (<link linkend="_structevmc__vm">evmc_vm</link> *vm, std::initializer_list&lt; std::pair&lt; const char *, const char * &gt; &gt; options) noexcept</para>
+
+<para>The constructor that captures a <link linkend="_classevmc_1_1VM">VM</link> instance and configures the instance with the provided list of options. </para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1VM_1a24c7c914fff957be50c1e664357c50dd">operator bool</link> () const noexcept</para>
+
+<para>Checks if contains a valid pointer to the <link linkend="_classevmc_1_1VM">VM</link> instance. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_classevmc_1_1VM_1a8cee9f8a5a406b52f2bdd99d6e534c08">is_abi_compatible</link> () const noexcept</para>
+
+<para>Checks whenever the <link linkend="_classevmc_1_1VM">VM</link> instance is ABI compatible with the current EVMC API. </para>
+</listitem>
+            <listitem><para>char const * <link linkend="_classevmc_1_1VM_1ab5f7c5bce52ba427093eeed24b9b7282">name</link> () const noexcept</para>
+
+<para>The name of the EVMC <link linkend="_classevmc_1_1VM">VM</link> implementation. </para>
+</listitem>
+            <listitem><para>char const * <link linkend="_classevmc_1_1VM_1acc45a833c7ae521726aaed2cc3626b5a">version</link> () const noexcept</para>
+
+<para>The version of the EVMC <link linkend="_classevmc_1_1VM">VM</link> implementation, e.g. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_classevmc_1_1VM_1a8ee88b1b96be2a2f47c8ecd7893b8511">has_capability</link> (<link linkend="_group__EVMC_1ga44f9ecb88cf6422a0072936494fd6ac7">evmc_capabilities</link> capability) const noexcept</para>
+
+<para>Checks if the <link linkend="_classevmc_1_1VM">VM</link> has the given capability. </para>
+</listitem>
+            <listitem><para><link linkend="_group__EVMC_1ga714bc8ca946adc759403fe072bdd2aa0">evmc_capabilities_flagset</link> <link linkend="_classevmc_1_1VM_1ad08fc10da254a640703044ed7b92a814">get_capabilities</link> () const noexcept</para>
+
+<para>A method returning capabilities supported by the <link linkend="_classevmc_1_1VM">VM</link> instance. </para>
+</listitem>
+            <listitem><para><link linkend="_group__EVMC_1ga28d9f527bda67277bccccc100e32260a">evmc_set_option_result</link> <link linkend="_classevmc_1_1VM_1a3e118af16cec04356833a6ce0e9e947f">set_option</link> (const char <link linkend="_classevmc_1_1VM_1ab5f7c5bce52ba427093eeed24b9b7282">name</link>[], const char value[]) noexcept</para>
+
+<para>Sets the option for the <link linkend="_classevmc_1_1VM">VM</link>, if the feature is supported by the <link linkend="_classevmc_1_1VM">VM</link>. </para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1result">result</link> <link linkend="_classevmc_1_1VM_1aca5b7630cdd84e7b37ade8a972536caa">execute</link> (const <link linkend="_structevmc__host__interface">evmc_host_interface</link> &amp;host, <link linkend="_structevmc__host__context">evmc_host_context</link> *ctx, <link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link> rev, const <link linkend="_structevmc__message">evmc_message</link> &amp;msg, const uint8_t *code, size_t code_size) noexcept</para>
+
+<para>Executes code in the <link linkend="_classevmc_1_1VM">VM</link> instance. </para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1result">result</link> <link linkend="_classevmc_1_1VM_1a3d3c358f94ce2f0099cb4258fc7567b9">execute</link> (<link linkend="_classevmc_1_1Host">Host</link> &amp;host, <link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link> rev, const <link linkend="_structevmc__message">evmc_message</link> &amp;msg, const uint8_t *code, size_t code_size) noexcept</para>
+
+<para>Convenient variant of the <link linkend="_classevmc_1_1VM_1aca5b7630cdd84e7b37ade8a972536caa">VM::execute()</link> that takes reference to <link linkend="_classevmc_1_1Host">evmc::Host</link> class. </para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1result">result</link> <link linkend="_classevmc_1_1VM_1a1ef134cf83d1f9f47d4ea05f905825d5">execute</link> (<link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link> rev, const <link linkend="_structevmc__message">evmc_message</link> &amp;msg, const uint8_t *code, size_t code_size) noexcept</para>
+
+<para>Executes code without the <link linkend="_classevmc_1_1Host">Host</link> context. </para>
+</listitem>
+            <listitem><para><link linkend="_structevmc__vm">evmc_vm</link> * <link linkend="_classevmc_1_1VM_1ab2c7d2d9f55863c5baba06505348d7c6">get_raw_pointer</link> () const noexcept</para>
+
+<para>Returns the pointer to C EVMC struct representing the <link linkend="_classevmc_1_1VM">VM</link>. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_structevmc__vm">evmc_vm</link> * <link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link> = nullptr</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The <link linkend="_classevmc_1_1VM">VM</link> instance. </para>
+
+
+
+<para>This is a RAII wrapper for <link linkend="_structevmc__vm">evmc_vm</link>, and object of this type automatically destroys the <link linkend="_classevmc_1_1VM">VM</link> instance. </para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00641">641</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classevmc_1_1VM_1a3746149adadf6eea98726ef56a4a2fac"/><section>
+    <title>VM()<computeroutput>[1/5]</computeroutput></title>
+<indexterm><primary>VM</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>VM</secondary></indexterm>
+<para><computeroutput>evmc::VM::VM ( )<computeroutput>[default]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classevmc_1_1VM_1af5cd9f6bcaced56a086d515b4f5faf69"/><section>
+    <title>VM()<computeroutput>[2/5]</computeroutput></title>
+<indexterm><primary>VM</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>VM</secondary></indexterm>
+<para><computeroutput>evmc::VM::VM (<link linkend="_structevmc__vm">evmc_vm</link> * vm)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Converting constructor from <link linkend="_structevmc__vm">evmc_vm</link>. </para>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00647">647</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00647"/>00647 :&#32;<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>{vm}&#32;{}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1VM_1a6e8e28e22d24f5d6a0c6c3a8eb1346c3"/><section>
+    <title>~VM()</title>
+<indexterm><primary>~VM</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>~VM</secondary></indexterm>
+<para><computeroutput>evmc::VM::~VM ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Destructor responsible for automatically destroying the <link linkend="_classevmc_1_1VM">VM</link> instance. </para>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00650">650</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00651"/>00651 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1VM_1l00652"/>00652 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="_classevmc_1_1VM_1l00653"/>00653 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>-&gt;<link linkend="_structevmc__vm_1ac78933134b4e14ca3dd4139ee061cc6b">destroy</link>(<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>);
+<anchor xml:id="_classevmc_1_1VM_1l00654"/>00654 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1VM_1a18067facc2046fa65ee1b3a8285b4582"/><section>
+    <title>VM()<computeroutput>[3/5]</computeroutput></title>
+<indexterm><primary>VM</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>VM</secondary></indexterm>
+<para><computeroutput>evmc::VM::VM (const <link linkend="_classevmc_1_1VM">VM</link> &amp; )<computeroutput>[delete]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classevmc_1_1VM_1a95954b9cd734a4d78a66e18457106c77"/><section>
+    <title>VM()<computeroutput>[4/5]</computeroutput></title>
+<indexterm><primary>VM</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>VM</secondary></indexterm>
+<para><computeroutput>evmc::VM::VM (<link linkend="_classevmc_1_1VM">VM</link> &amp;&amp; other)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Move constructor. </para>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00660">660</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00660"/>00660 :&#32;<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>{other.<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>}&#32;{&#32;other.<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1VM_1a169703435108680a12c3ed4aeefed574"/><section>
+    <title>VM()<computeroutput>[5/5]</computeroutput></title>
+<indexterm><primary>VM</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>VM</secondary></indexterm>
+<para><computeroutput>evmc::VM::VM (<link linkend="_structevmc__vm">evmc_vm</link> * vm, std::initializer_list&lt; std::pair&lt; const char *, const char * &gt; &gt; options)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>The constructor that captures a <link linkend="_classevmc_1_1VM">VM</link> instance and configures the instance with the provided list of options. </para>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00755">755</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00757"/>00757 &#32;&#32;:&#32;<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>{vm}
+<anchor xml:id="_classevmc_1_1VM_1l00758"/>00758 {
+<anchor xml:id="_classevmc_1_1VM_1l00759"/>00759 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;This&#32;constructor&#32;is&#32;implemented&#32;outside&#32;of&#32;the&#32;class&#32;definition&#32;to&#32;workaround&#32;a&#32;doxygen&#32;bug.</emphasis>
+<anchor xml:id="_classevmc_1_1VM_1l00760"/>00760 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;option&#32;:&#32;options)
+<anchor xml:id="_classevmc_1_1VM_1l00761"/>00761 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1VM_1a3e118af16cec04356833a6ce0e9e947f">set_option</link>(option.first,&#32;option.second);
+<anchor xml:id="_classevmc_1_1VM_1l00762"/>00762 }
+</programlisting></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classevmc_1_1VM_1aca5b7630cdd84e7b37ade8a972536caa"/><section>
+    <title>execute()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>execute</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>execute</secondary></indexterm>
+<para><computeroutput><link linkend="_classevmc_1_1result">result</link> evmc::VM::execute (const <link linkend="_structevmc__host__interface">evmc_host_interface</link> &amp; host, <link linkend="_structevmc__host__context">evmc_host_context</link> * ctx, <link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link> rev, const <link linkend="_structevmc__message">evmc_message</link> &amp; msg, const uint8_t * code, size_t code_size)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Executes code in the <link linkend="_classevmc_1_1VM">VM</link> instance. </para>
+</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_group__EVMC_1gaed9a4ab5609b55c5e3272d6d37d84ff7">evmc_execute_fn</link>. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00707">707</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00713"/>00713 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1VM_1l00714"/>00714 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1result">result</link>{<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>-&gt;<link linkend="_structevmc__vm_1a8384d28338f2287a9f9e1508699c53f0">execute</link>(<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>,&#32;&amp;host,&#32;ctx,&#32;rev,&#32;&amp;msg,&#32;code,&#32;code_size)};
+<anchor xml:id="_classevmc_1_1VM_1l00715"/>00715 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1VM_1a1ef134cf83d1f9f47d4ea05f905825d5"/><section>
+    <title>execute()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>execute</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>execute</secondary></indexterm>
+<para><computeroutput><link linkend="_classevmc_1_1result">result</link> evmc::VM::execute (<link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link> rev, const <link linkend="_structevmc__message">evmc_message</link> &amp; msg, const uint8_t * code, size_t code_size)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Executes code without the <link linkend="_classevmc_1_1Host">Host</link> context. </para>
+</para>
+
+<para>The same as execute(const <link linkend="_structevmc__host__interface">evmc_host_interface</link>&amp;, evmc_host_context*, evmc_revision, const <link linkend="_structevmc__message">evmc_message</link>&amp;, const uint8_t*, size_t), but without providing the <link linkend="_classevmc_1_1Host">Host</link> context and interface. This method is for experimental precompiles support where execution is guaranteed not to require any <link linkend="_classevmc_1_1Host">Host</link> access. </para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00735">735</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00739"/>00739 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1VM_1l00740"/>00740 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1result">result</link>{
+<anchor xml:id="_classevmc_1_1VM_1l00741"/>00741 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>-&gt;<link linkend="_structevmc__vm_1a8384d28338f2287a9f9e1508699c53f0">execute</link>(<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>,&#32;<emphasis role="keyword">nullptr</emphasis>,&#32;<emphasis role="keyword">nullptr</emphasis>,&#32;rev,&#32;&amp;msg,&#32;code,&#32;code_size)};
+<anchor xml:id="_classevmc_1_1VM_1l00742"/>00742 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1VM_1a3d3c358f94ce2f0099cb4258fc7567b9"/><section>
+    <title>execute()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>execute</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>execute</secondary></indexterm>
+<para><computeroutput><link linkend="_classevmc_1_1result">result</link> evmc::VM::execute (<link linkend="_classevmc_1_1Host">Host</link> &amp; host, <link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link> rev, const <link linkend="_structevmc__message">evmc_message</link> &amp; msg, const uint8_t * code, size_t code_size)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Convenient variant of the <link linkend="_classevmc_1_1VM_1aca5b7630cdd84e7b37ade8a972536caa">VM::execute()</link> that takes reference to <link linkend="_classevmc_1_1Host">evmc::Host</link> class. </para>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00718">718</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00723"/>00723 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1VM_1l00724"/>00724 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1VM_1aca5b7630cdd84e7b37ade8a972536caa">execute</link>(<link linkend="_classevmc_1_1Host_1afb96540fea288f02d83f01e185a78374">Host::get_interface</link>(),&#32;host.<link linkend="_classevmc_1_1Host_1abd96a61aa3b45d949cb41cf7778fdf6d">to_context</link>(),&#32;rev,&#32;msg,&#32;code,&#32;code_size);
+<anchor xml:id="_classevmc_1_1VM_1l00725"/>00725 &#32;&#32;&#32;&#32;}
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1VM_a3d3c358f94ce2f0099cb4258fc7567b9_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classevmc_1_1VM_1ad08fc10da254a640703044ed7b92a814"/><section>
+    <title>get_capabilities()</title>
+<indexterm><primary>get_capabilities</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>get_capabilities</secondary></indexterm>
+<para><computeroutput><link linkend="_group__EVMC_1ga714bc8ca946adc759403fe072bdd2aa0">evmc_capabilities_flagset</link> evmc::VM::get_capabilities ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>A method returning capabilities supported by the <link linkend="_classevmc_1_1VM">VM</link> instance. </para>
+</para>
+
+<para>The value returned MAY change when different options are set via the <link linkend="_classevmc_1_1VM_1a3e118af16cec04356833a6ce0e9e947f">set_option()</link> method.</para>
+
+<para>A Client SHOULD only rely on the value returned if it has queried it after it has called the <link linkend="_classevmc_1_1VM_1a3e118af16cec04356833a6ce0e9e947f">set_option()</link>.</para>
+
+<para>This is a mandatory method and MUST NOT be set to NULL. </para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00695">695</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00696"/>00696 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1VM_1l00697"/>00697 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>-&gt;<link linkend="_structevmc__vm_1a505d4e584a858c2eea7a026f3a94188b">get_capabilities</link>(<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>);
+<anchor xml:id="_classevmc_1_1VM_1l00698"/>00698 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1VM_1ab2c7d2d9f55863c5baba06505348d7c6"/><section>
+    <title>get_raw_pointer()</title>
+<indexterm><primary>get_raw_pointer</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>get_raw_pointer</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc__vm">evmc_vm</link> * evmc::VM::get_raw_pointer ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Returns the pointer to C EVMC struct representing the <link linkend="_classevmc_1_1VM">VM</link>. </para>
+</para>
+
+<para>Gives access to the C EVMC <link linkend="_classevmc_1_1VM">VM</link> struct to allow advanced interaction with the <link linkend="_classevmc_1_1VM">VM</link> not supported by the C++ interface. Use as the last resort. This object still owns the <link linkend="_classevmc_1_1VM">VM</link> after returning the pointer. The returned pointer MAY be null. </para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00749">749</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00749"/>00749 {&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1VM_1a8ee88b1b96be2a2f47c8ecd7893b8511"/><section>
+    <title>has_capability()</title>
+<indexterm><primary>has_capability</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>has_capability</secondary></indexterm>
+<para><computeroutput>bool evmc::VM::has_capability (<link linkend="_group__EVMC_1ga44f9ecb88cf6422a0072936494fd6ac7">evmc_capabilities</link> capability) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Checks if the <link linkend="_classevmc_1_1VM">VM</link> has the given capability. </para>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00689">689</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00690"/>00690 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1VM_1l00691"/>00691 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(<link linkend="_classevmc_1_1VM_1ad08fc10da254a640703044ed7b92a814">get_capabilities</link>()&#32;&amp;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><link linkend="_group__EVMC_1ga714bc8ca946adc759403fe072bdd2aa0">evmc_capabilities_flagset</link><emphasis role="keyword">&gt;</emphasis>(capability))&#32;!=&#32;0;
+<anchor xml:id="_classevmc_1_1VM_1l00692"/>00692 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1VM_1a8cee9f8a5a406b52f2bdd99d6e534c08"/><section>
+    <title>is_abi_compatible()</title>
+<indexterm><primary>is_abi_compatible</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>is_abi_compatible</secondary></indexterm>
+<para><computeroutput>bool evmc::VM::is_abi_compatible ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Checks whenever the <link linkend="_classevmc_1_1VM">VM</link> instance is ABI compatible with the current EVMC API. </para>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00680">680</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00680"/>00680 {&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>-&gt;<link linkend="_structevmc__vm_1acccbdf95110faffb4dc85624bb1d99b6">abi_version</link>&#32;==&#32;<link linkend="_group__EVMC_1gga06fc87d81c62e9abb8790b6e5713c55ba1db9144f8af4e62865f0c003c07a02bc">EVMC_ABI_VERSION</link>;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1VM_1ab5f7c5bce52ba427093eeed24b9b7282"/><section>
+    <title>name()</title>
+<indexterm><primary>name</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>name</secondary></indexterm>
+<para><computeroutput>char const  * evmc::VM::name ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>The name of the EVMC <link linkend="_classevmc_1_1VM">VM</link> implementation. </para>
+</para>
+
+<para>It MUST be a NULL-terminated not empty string. The content MUST be UTF-8 encoded (this implies ASCII encoding is also allowed). </para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00683">683</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00683"/>00683 {&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>-&gt;<link linkend="_structevmc__vm_1ac29ccc98e89c8cab3ffc5bd51a2afaa8">name</link>;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1VM_1a24c7c914fff957be50c1e664357c50dd"/><section>
+    <title>operator bool()</title>
+<indexterm><primary>operator bool</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>operator bool</secondary></indexterm>
+<para><computeroutput>evmc::VM::operator bool ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Checks if contains a valid pointer to the <link linkend="_classevmc_1_1VM">VM</link> instance. </para>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00677">677</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00677"/>00677 {&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1VM_1a575a423d60619c9cb3d3f47eeec2b8cc"/><section>
+    <title>operator=()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>operator=</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>operator=</secondary></indexterm>
+<para><computeroutput><link linkend="_classevmc_1_1VM">VM</link> &amp; evmc::VM::operator= (const <link linkend="_classevmc_1_1VM">VM</link> &amp; )<computeroutput>[delete]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classevmc_1_1VM_1a2da09c30242ed78bbd724cc14d261ce8"/><section>
+    <title>operator=()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>operator=</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>operator=</secondary></indexterm>
+<para><computeroutput><link linkend="_classevmc_1_1VM">VM</link> &amp; evmc::VM::operator= (<link linkend="_classevmc_1_1VM">VM</link> &amp;&amp; other)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Move assignment operator. </para>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00663">663</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00664"/>00664 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1VM_1l00665"/>00665 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this-&gt;<link linkend="_classevmc_1_1VM_1a6e8e28e22d24f5d6a0c6c3a8eb1346c3">~VM</link>();
+<anchor xml:id="_classevmc_1_1VM_1l00666"/>00666 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>&#32;=&#32;other.<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>;
+<anchor xml:id="_classevmc_1_1VM_1l00667"/>00667 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;other.<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_classevmc_1_1VM_1l00668"/>00668 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+<anchor xml:id="_classevmc_1_1VM_1l00669"/>00669 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1VM_1a3e118af16cec04356833a6ce0e9e947f"/><section>
+    <title>set_option()</title>
+<indexterm><primary>set_option</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>set_option</secondary></indexterm>
+<para><computeroutput><link linkend="_group__EVMC_1ga28d9f527bda67277bccccc100e32260a">evmc_set_option_result</link> evmc::VM::set_option (const char name[], const char value[])<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Sets the option for the <link linkend="_classevmc_1_1VM">VM</link>, if the feature is supported by the <link linkend="_classevmc_1_1VM">VM</link>. </para>
+</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_group__EVMC_1ga5531cee5b83d76c71b06475454f4633b">evmc_set_option_fn</link> </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00701">701</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00702"/>00702 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1VM_1l00703"/>00703 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__helpers_1gaee14c6797a91ae328e43b4f4916f6004">evmc_set_option</link>(<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>,&#32;<link linkend="_classevmc_1_1VM_1ab5f7c5bce52ba427093eeed24b9b7282">name</link>,&#32;value);
+<anchor xml:id="_classevmc_1_1VM_1l00704"/>00704 &#32;&#32;&#32;&#32;}
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1VM_a3e118af16cec04356833a6ce0e9e947f_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classevmc_1_1VM_1acc45a833c7ae521726aaed2cc3626b5a"/><section>
+    <title>version()</title>
+<indexterm><primary>version</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>version</secondary></indexterm>
+<para><computeroutput>char const  * evmc::VM::version ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>The version of the EVMC <link linkend="_classevmc_1_1VM">VM</link> implementation, e.g. </para>
+</para>
+
+<para>&quot;1.2.3b4&quot;.</para>
+
+<para>It MUST be a NULL-terminated not empty string. The content MUST be UTF-8 encoded (this implies ASCII encoding is also allowed). </para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00686">686</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1VM_1l00686"/>00686 {&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">m_instance</link>-&gt;<link linkend="_structevmc__vm_1af98936c214ed16f5da05ba3d6a619faa">version</link>;&#32;}
+</programlisting></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f"/><section>
+    <title>m_instance</title>
+<indexterm><primary>m_instance</primary><secondary>evmc::VM</secondary></indexterm>
+<indexterm><primary>evmc::VM</primary><secondary>m_instance</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc__vm">evmc_vm</link>* evmc::VM::m_instance = nullptr<computeroutput>[private]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00752">752</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+include/evmc/<link linkend="_evmc_8hpp">evmc.hpp</link></section>
+</section>

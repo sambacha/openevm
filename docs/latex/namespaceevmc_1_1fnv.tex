@@ -1,0 +1,69 @@
+\hypertarget{namespaceevmc_1_1fnv}{}\doxysection{evmc\+::fnv Namespace Reference}
+\label{namespaceevmc_1_1fnv}\index{evmc::fnv@{evmc::fnv}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr uint64\+\_\+t \mbox{\hyperlink{namespaceevmc_1_1fnv_abd837c95e6df5b1f485f429e3b75050f}{fnv1a\+\_\+by64}} (uint64\+\_\+t h, uint64\+\_\+t x) noexcept
+\begin{DoxyCompactList}\small\item\em The hashing transformation for 64-\/bit inputs based on the FNV-\/1a formula. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr auto \mbox{\hyperlink{namespaceevmc_1_1fnv_ae84e3cac71791be23e06c9a113f373d4}{prime}} = 0x100000001b3
+\begin{DoxyCompactList}\small\item\em The 64-\/bit FNV prime number. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceevmc_1_1fnv_a5e866562fb1d26d46ec0bb750e762237}{offset\+\_\+basis}} = 0xcbf29ce484222325
+\begin{DoxyCompactList}\small\item\em The 64-\/bit FNV offset basis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceevmc_1_1fnv_abd837c95e6df5b1f485f429e3b75050f}\label{namespaceevmc_1_1fnv_abd837c95e6df5b1f485f429e3b75050f}} 
+\index{evmc::fnv@{evmc::fnv}!fnv1a\_by64@{fnv1a\_by64}}
+\index{fnv1a\_by64@{fnv1a\_by64}!evmc::fnv@{evmc::fnv}}
+\doxysubsubsection{\texorpdfstring{fnv1a\_by64()}{fnv1a\_by64()}}
+{\footnotesize\ttfamily constexpr uint64\+\_\+t evmc\+::fnv\+::fnv1a\+\_\+by64 (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{h,  }\item[{uint64\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+The hashing transformation for 64-\/bit inputs based on the FNV-\/1a formula. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00156}{156}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_1_1fnv_l00157}00157 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_1_1fnv_l00158}00158     \textcolor{keywordflow}{return} (h \string^ x) * \mbox{\hyperlink{namespaceevmc_1_1fnv_ae84e3cac71791be23e06c9a113f373d4}{prime}};}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_1_1fnv_l00159}00159 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceevmc_1_1fnv_a5e866562fb1d26d46ec0bb750e762237}\label{namespaceevmc_1_1fnv_a5e866562fb1d26d46ec0bb750e762237}} 
+\index{evmc::fnv@{evmc::fnv}!offset\_basis@{offset\_basis}}
+\index{offset\_basis@{offset\_basis}!evmc::fnv@{evmc::fnv}}
+\doxysubsubsection{\texorpdfstring{offset\_basis}{offset\_basis}}
+{\footnotesize\ttfamily constexpr auto evmc\+::fnv\+::offset\+\_\+basis = 0xcbf29ce484222325\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+The 64-\/bit FNV offset basis. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00153}{153}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+\mbox{\Hypertarget{namespaceevmc_1_1fnv_ae84e3cac71791be23e06c9a113f373d4}\label{namespaceevmc_1_1fnv_ae84e3cac71791be23e06c9a113f373d4}} 
+\index{evmc::fnv@{evmc::fnv}!prime@{prime}}
+\index{prime@{prime}!evmc::fnv@{evmc::fnv}}
+\doxysubsubsection{\texorpdfstring{prime}{prime}}
+{\footnotesize\ttfamily constexpr auto evmc\+::fnv\+::prime = 0x100000001b3\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+The 64-\/bit FNV prime number. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00152}{152}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+

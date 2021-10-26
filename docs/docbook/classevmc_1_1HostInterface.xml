@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classevmc_1_1HostInterface" xml:lang="en-US">
+<title>evmc::HostInterface Class Reference</title>
+<indexterm><primary>evmc::HostInterface</primary></indexterm>
+<para>
+
+<para>The EVMC <link linkend="_classevmc_1_1Host">Host</link> interface. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;evmc.hpp&gt;</computeroutput>
+</para>
+Inheritance diagram for evmc::HostInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1HostInterface__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>virtual <link linkend="_classevmc_1_1HostInterface_1a665ab0274f11c55269c08dc8c056d061">~HostInterface</link> () noexcept=default</para>
+</listitem>
+            <listitem><para>virtual bool <link linkend="_classevmc_1_1HostInterface_1ae735474dc8425b49b3eb0ef12212fae7">account_exists</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr) const noexcept=0</para>
+
+<para>Check account existence callback function. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_structevmc_1_1bytes32">bytes32</link> <link linkend="_classevmc_1_1HostInterface_1a020f849f737fcd841681f73f74514b4d">get_storage</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp;key) const noexcept=0</para>
+
+<para>Get storage callback function. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_group__EVMC_1gae012fd6b8e5c23806b507c2d3e9fb1aa">evmc_storage_status</link> <link linkend="_classevmc_1_1HostInterface_1ab302ebc0c838560a6c4b8b1aec21815a">set_storage</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp;key, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp;value) noexcept=0</para>
+
+<para>Set storage callback function. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_namespaceevmc_1a92bc6b73f1ce3a2b2eea018cf902c4da">uint256be</link> <link linkend="_classevmc_1_1HostInterface_1ac30e7e938793a2c46e3d5d416e15c3f5">get_balance</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr) const noexcept=0</para>
+
+<para>Get balance callback function. </para>
+</listitem>
+            <listitem><para>virtual size_t <link linkend="_classevmc_1_1HostInterface_1a8cb4656ab4c478d5fe152b4f6c4b6dc4">get_code_size</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr) const noexcept=0</para>
+
+<para>Get code size callback function. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_structevmc_1_1bytes32">bytes32</link> <link linkend="_classevmc_1_1HostInterface_1a748a36bc934302492f54e3fc90cdca88">get_code_hash</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr) const noexcept=0</para>
+
+<para>Get code hash callback function. </para>
+</listitem>
+            <listitem><para>virtual size_t <link linkend="_classevmc_1_1HostInterface_1ace3dcf2b277c60cb422f3af1d63dd36b">copy_code</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr, size_t code_offset, uint8_t *buffer_data, size_t buffer_size) const noexcept=0</para>
+
+<para>Copy code callback function. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classevmc_1_1HostInterface_1afd78f82767a70ed1e4e68fce6007ad0b">selfdestruct</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr, const <link linkend="_structevmc_1_1address">address</link> &amp;beneficiary) noexcept=0</para>
+
+<para>Selfdestruct callback function. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_classevmc_1_1result">result</link> <link linkend="_classevmc_1_1HostInterface_1a392feba1f27c9352c85bf2559c1fbcb2">call</link> (const <link linkend="_structevmc__message">evmc_message</link> &amp;msg) noexcept=0</para>
+
+<para>Call callback function. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_structevmc__tx__context">evmc_tx_context</link> <link linkend="_classevmc_1_1HostInterface_1a2e958d4265e17048b817626f6fd3cdcc">get_tx_context</link> () const noexcept=0</para>
+
+<para>Get transaction context callback function. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_structevmc_1_1bytes32">bytes32</link> <link linkend="_classevmc_1_1HostInterface_1ab4fcbbe88b9490f78e0f99c7ce2b167f">get_block_hash</link> (int64_t block_number) const noexcept=0</para>
+
+<para>Get block hash callback function. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classevmc_1_1HostInterface_1a1f95317392e4615e29ad038fe4ff049d">emit_log</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr, const uint8_t *data, size_t data_size, const <link linkend="_structevmc_1_1bytes32">bytes32</link> topics[], size_t num_topics) noexcept=0</para>
+
+<para>Emit log callback function. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link> <link linkend="_classevmc_1_1HostInterface_1ab5ec93cb9fc439fd22cacecc468ed9f8">access_account</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr) noexcept=0</para>
+
+<para>Access account callback function. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link> <link linkend="_classevmc_1_1HostInterface_1ac0192ce7575fe86b7466405e93484ad8">access_storage</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp;key) noexcept=0</para>
+
+<para>Access storage callback function. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The EVMC <link linkend="_classevmc_1_1Host">Host</link> interface. </para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00438">438</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classevmc_1_1HostInterface_1a665ab0274f11c55269c08dc8c056d061"/><section>
+    <title>~HostInterface()</title>
+<indexterm><primary>~HostInterface</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>~HostInterface</secondary></indexterm>
+<para><computeroutput>virtual evmc::HostInterface::~HostInterface ( )<computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classevmc_1_1HostInterface_1ab5ec93cb9fc439fd22cacecc468ed9f8"/><section>
+    <title>access_account()</title>
+<indexterm><primary>access_account</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>access_account</secondary></indexterm>
+<para><computeroutput>virtual <link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link> evmc::HostInterface::access_account (const <link linkend="_structevmc_1_1address">address</link> &amp; addr)<computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Access account callback function. </para>
+</para>
+<para>
+Implemented in <link linkend="_classevmc_1_1MockedHost_1a51f9acf40acec535549d32c7ab079b9e">evmc::MockedHost</link>, <link linkend="_classevmc_1_1HostContext_1a703bce4ebfcec7bd8b804e30f7b0d965">evmc::HostContext</link>, and <link linkend="_classExampleHost_1a90efb185a1ad4f66c5ba404316c3497d">ExampleHost</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1HostInterface_1ac0192ce7575fe86b7466405e93484ad8"/><section>
+    <title>access_storage()</title>
+<indexterm><primary>access_storage</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>access_storage</secondary></indexterm>
+<para><computeroutput>virtual <link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link> evmc::HostInterface::access_storage (const <link linkend="_structevmc_1_1address">address</link> &amp; addr, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp; key)<computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Access storage callback function. </para>
+</para>
+<para>
+Implemented in <link linkend="_classevmc_1_1MockedHost_1a759d289a03d7ebeac0b727938d9ee521">evmc::MockedHost</link>, <link linkend="_classevmc_1_1HostContext_1a4132fc7dd93405c5c2fcd2729d7a2be8">evmc::HostContext</link>, and <link linkend="_classExampleHost_1a4c9e24f1177e2ecddac5b6959c19ec60">ExampleHost</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1HostInterface_1ae735474dc8425b49b3eb0ef12212fae7"/><section>
+    <title>account_exists()</title>
+<indexterm><primary>account_exists</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>account_exists</secondary></indexterm>
+<para><computeroutput>virtual bool evmc::HostInterface::account_exists (const <link linkend="_structevmc_1_1address">address</link> &amp; addr) const<computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Check account existence callback function. </para>
+</para>
+<para>
+Implemented in <link linkend="_classevmc_1_1MockedHost_1a53a463e19e4908022137ce53715c2dce">evmc::MockedHost</link>, <link linkend="_classevmc_1_1HostContext_1a08a0b1cc1f03aff697e9344865047e56">evmc::HostContext</link>, and <link linkend="_classExampleHost_1ac37de9a8465e23879f64c8ada27b1285">ExampleHost</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1HostInterface_1a392feba1f27c9352c85bf2559c1fbcb2"/><section>
+    <title>call()</title>
+<indexterm><primary>call</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>call</secondary></indexterm>
+<para><computeroutput>virtual <link linkend="_classevmc_1_1result">result</link> evmc::HostInterface::call (const <link linkend="_structevmc__message">evmc_message</link> &amp; msg)<computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Call callback function. </para>
+</para>
+<para>
+Implemented in <link linkend="_classevmc_1_1HostContext_1a47884bf60bd9f503300fae10bdc058f2">evmc::HostContext</link>, <link linkend="_classExampleHost_1ad76f578cc300dfb59e3f7eb561e7112e">ExampleHost</link>, and <link linkend="_classevmc_1_1MockedHost_1ad7f341e9bc49fe73286c65bfc3d56ec3">evmc::MockedHost</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1HostInterface_1ace3dcf2b277c60cb422f3af1d63dd36b"/><section>
+    <title>copy_code()</title>
+<indexterm><primary>copy_code</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>copy_code</secondary></indexterm>
+<para><computeroutput>virtual size_t evmc::HostInterface::copy_code (const <link linkend="_structevmc_1_1address">address</link> &amp; addr, size_t code_offset, uint8_t * buffer_data, size_t buffer_size) const<computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Copy code callback function. </para>
+</para>
+<para>
+Implemented in <link linkend="_classevmc_1_1MockedHost_1a2679f00109fab1c027fb789b83a25d20">evmc::MockedHost</link>, <link linkend="_classevmc_1_1HostContext_1a62742a0675d8675dd8ee155b5def02dc">evmc::HostContext</link>, and <link linkend="_classExampleHost_1a9d20a3ad0ef146bd51b99a60c4aabc56">ExampleHost</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1HostInterface_1a1f95317392e4615e29ad038fe4ff049d"/><section>
+    <title>emit_log()</title>
+<indexterm><primary>emit_log</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>emit_log</secondary></indexterm>
+<para><computeroutput>virtual void evmc::HostInterface::emit_log (const <link linkend="_structevmc_1_1address">address</link> &amp; addr, const uint8_t * data, size_t data_size, const <link linkend="_structevmc_1_1bytes32">bytes32</link> topics[], size_t num_topics)<computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Emit log callback function. </para>
+</para>
+<para>
+Implemented in <link linkend="_classevmc_1_1HostContext_1acb1f7dabab3134e4ac80f9f6ada590a9">evmc::HostContext</link>, <link linkend="_classevmc_1_1MockedHost_1a4263c29b321dbecfcbb4357a469a3bee">evmc::MockedHost</link>, and <link linkend="_classExampleHost_1ae095a66b77e3c69f1b111eddf88556e8">ExampleHost</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1HostInterface_1ac30e7e938793a2c46e3d5d416e15c3f5"/><section>
+    <title>get_balance()</title>
+<indexterm><primary>get_balance</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>get_balance</secondary></indexterm>
+<para><computeroutput>virtual <link linkend="_namespaceevmc_1a92bc6b73f1ce3a2b2eea018cf902c4da">uint256be</link> evmc::HostInterface::get_balance (const <link linkend="_structevmc_1_1address">address</link> &amp; addr) const<computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Get balance callback function. </para>
+</para>
+<para>
+Implemented in <link linkend="_classevmc_1_1MockedHost_1a401e74178baba9772638e6b4309e9bee">evmc::MockedHost</link>, <link linkend="_classevmc_1_1HostContext_1a2e50fd490162237ac04f26cbd8c9e916">evmc::HostContext</link>, and <link linkend="_classExampleHost_1affae69006394fc7c455cb629eb160df9">ExampleHost</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1HostInterface_1ab4fcbbe88b9490f78e0f99c7ce2b167f"/><section>
+    <title>get_block_hash()</title>
+<indexterm><primary>get_block_hash</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>get_block_hash</secondary></indexterm>
+<para><computeroutput>virtual <link linkend="_structevmc_1_1bytes32">bytes32</link> evmc::HostInterface::get_block_hash (int64_t block_number) const<computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Get block hash callback function. </para>
+</para>
+<para>
+Implemented in <link linkend="_classevmc_1_1MockedHost_1ace3ba78141acc06849d3b34382466e36">evmc::MockedHost</link>, <link linkend="_classExampleHost_1ab9061ad7baeb932aeb1e5e6c15eaccdc">ExampleHost</link>, and <link linkend="_classevmc_1_1HostContext_1ac7ce942550fee4d6e801af880484e271">evmc::HostContext</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1HostInterface_1a748a36bc934302492f54e3fc90cdca88"/><section>
+    <title>get_code_hash()</title>
+<indexterm><primary>get_code_hash</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>get_code_hash</secondary></indexterm>
+<para><computeroutput>virtual <link linkend="_structevmc_1_1bytes32">bytes32</link> evmc::HostInterface::get_code_hash (const <link linkend="_structevmc_1_1address">address</link> &amp; addr) const<computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Get code hash callback function. </para>
+</para>
+<para>
+Implemented in <link linkend="_classevmc_1_1MockedHost_1a776687379553c67540c8c16df9e8f226">evmc::MockedHost</link>, <link linkend="_classevmc_1_1HostContext_1a06c2f1a5f29be3384b4e48c70198b563">evmc::HostContext</link>, and <link linkend="_classExampleHost_1a588763d53930877e2aac165fe8253bf2">ExampleHost</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1HostInterface_1a8cb4656ab4c478d5fe152b4f6c4b6dc4"/><section>
+    <title>get_code_size()</title>
+<indexterm><primary>get_code_size</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>get_code_size</secondary></indexterm>
+<para><computeroutput>virtual size_t evmc::HostInterface::get_code_size (const <link linkend="_structevmc_1_1address">address</link> &amp; addr) const<computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Get code size callback function. </para>
+</para>
+<para>
+Implemented in <link linkend="_classevmc_1_1MockedHost_1a0ecf2503e3af4ed98cce8eff45385a33">evmc::MockedHost</link>, <link linkend="_classevmc_1_1HostContext_1a278e6c530fce8397b1dc2de07ba0b26d">evmc::HostContext</link>, and <link linkend="_classExampleHost_1a7e5aacf59d0d072d8ebbce74ba3cf513">ExampleHost</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1HostInterface_1a020f849f737fcd841681f73f74514b4d"/><section>
+    <title>get_storage()</title>
+<indexterm><primary>get_storage</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>get_storage</secondary></indexterm>
+<para><computeroutput>virtual <link linkend="_structevmc_1_1bytes32">bytes32</link> evmc::HostInterface::get_storage (const <link linkend="_structevmc_1_1address">address</link> &amp; addr, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp; key) const<computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Get storage callback function. </para>
+</para>
+<para>
+Implemented in <link linkend="_classevmc_1_1MockedHost_1a6336919efaf07ad1e9e4f725a86ebdca">evmc::MockedHost</link>, <link linkend="_classevmc_1_1HostContext_1afb6bc0d98a19cf760ef9e886366e4108">evmc::HostContext</link>, and <link linkend="_classExampleHost_1afeed7489e0128d0df0f398744c57b14a">ExampleHost</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1HostInterface_1a2e958d4265e17048b817626f6fd3cdcc"/><section>
+    <title>get_tx_context()</title>
+<indexterm><primary>get_tx_context</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>get_tx_context</secondary></indexterm>
+<para><computeroutput>virtual <link linkend="_structevmc__tx__context">evmc_tx_context</link> evmc::HostInterface::get_tx_context ( ) const<computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Get transaction context callback function. </para>
+</para>
+<para>
+Implemented in <link linkend="_classExampleHost_1aa7acecd4846fda20be62fb724ed0075a">ExampleHost</link>, <link linkend="_classevmc_1_1HostContext_1af51f231f8607e7a506a25d8b21874cd1">evmc::HostContext</link>, and <link linkend="_classevmc_1_1MockedHost_1a45187586bde530ca7beb157467c12733">evmc::MockedHost</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1HostInterface_1afd78f82767a70ed1e4e68fce6007ad0b"/><section>
+    <title>selfdestruct()</title>
+<indexterm><primary>selfdestruct</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>selfdestruct</secondary></indexterm>
+<para><computeroutput>virtual void evmc::HostInterface::selfdestruct (const <link linkend="_structevmc_1_1address">address</link> &amp; addr, const <link linkend="_structevmc_1_1address">address</link> &amp; beneficiary)<computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Selfdestruct callback function. </para>
+</para>
+<para>
+Implemented in <link linkend="_classevmc_1_1HostContext_1a150580ee3efd12661656c4e3ab350457">evmc::HostContext</link>, <link linkend="_classevmc_1_1MockedHost_1aa0b0cfd19450eaf220cde06ab1d96858">evmc::MockedHost</link>, and <link linkend="_classExampleHost_1a9d2ce6481950dfc3d30fdd9e80665c14">ExampleHost</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1HostInterface_1ab302ebc0c838560a6c4b8b1aec21815a"/><section>
+    <title>set_storage()</title>
+<indexterm><primary>set_storage</primary><secondary>evmc::HostInterface</secondary></indexterm>
+<indexterm><primary>evmc::HostInterface</primary><secondary>set_storage</secondary></indexterm>
+<para><computeroutput>virtual <link linkend="_group__EVMC_1gae012fd6b8e5c23806b507c2d3e9fb1aa">evmc_storage_status</link> evmc::HostInterface::set_storage (const <link linkend="_structevmc_1_1address">address</link> &amp; addr, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp; key, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp; value)<computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Set storage callback function. </para>
+</para>
+<para>
+Implemented in <link linkend="_classevmc_1_1MockedHost_1aad63cd61357052ab1fa87e6ff372b3d7">evmc::MockedHost</link>, <link linkend="_classevmc_1_1HostContext_1accce7c534c0f1e50f70d52a50d2ff659">evmc::HostContext</link>, and <link linkend="_classExampleHost_1a2e2c1d74614e7c863b501e2e1e56e622">ExampleHost</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+include/evmc/<link linkend="_evmc_8hpp">evmc.hpp</link></section>
+</section>

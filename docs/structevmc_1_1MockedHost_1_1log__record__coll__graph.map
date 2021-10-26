@@ -1,0 +1,5 @@
+<map id="evmc::MockedHost::log_record" name="evmc::MockedHost::log_record">
+<area shape="rect" id="node1" title="LOG record." alt="" coords="5,171,165,212"/>
+<area shape="rect" id="node2" href="$structevmc_1_1address.html" title="The big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="31,81,140,108"/>
+<area shape="rect" id="node3" href="$structevmc__address.html" title="Big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="31,5,140,32"/>
+</map>

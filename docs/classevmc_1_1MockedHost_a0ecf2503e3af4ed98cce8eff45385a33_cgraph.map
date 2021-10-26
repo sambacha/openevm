@@ -1,0 +1,4 @@
+<map id="evmc::MockedHost::get_code_size" name="evmc::MockedHost::get_code_size">
+<area shape="rect" id="node1" title="Get the account&#39;s code size (EVMC host method)." alt="" coords="5,5,167,47"/>
+<area shape="rect" id="node2" href="$classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1" title="Record an account access." alt="" coords="215,5,395,47"/>
+</map>

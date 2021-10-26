@@ -1,0 +1,4 @@
+<map id="evmc::HostContext" name="evmc::HostContext">
+<area shape="rect" id="node1" title="Wrapper around EVMC host context / host interface." alt="" coords="8,80,143,107"/>
+<area shape="rect" id="node2" href="$classevmc_1_1HostInterface.html" title="The EVMC Host interface." alt="" coords="5,5,145,32"/>
+</map>

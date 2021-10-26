@@ -1,0 +1,319 @@
+\hypertarget{classevmc_1_1result}{}\doxysection{evmc\+::result Class Reference}
+\label{classevmc_1_1result}\index{evmc::result@{evmc::result}}
+
+
+The EVM code execution result.  
+
+
+
+
+{\ttfamily \#include $<$evmc.\+hpp$>$}
+
+
+
+Inheritance diagram for evmc\+::result\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=150pt]{classevmc_1_1result__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for evmc\+::result\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{classevmc_1_1result__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classevmc_1_1result_add9ddebaace1c5d35784cfc6966d8aa8}{result}} (\mbox{\hyperlink{group__EVMC_ga4c0be97f333c050ff45321fcaa34d920}{evmc\+\_\+status\+\_\+code}} \+\_\+status\+\_\+code, int64\+\_\+t \+\_\+gas\+\_\+left, const uint8\+\_\+t $\ast$\+\_\+output\+\_\+data, size\+\_\+t \+\_\+output\+\_\+size) noexcept
+\begin{DoxyCompactList}\small\item\em Creates the result from the provided arguments. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevmc_1_1result_a4753030d0491d94c2b64b15f025d5055}{result}} (\mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}} const \&res) noexcept
+\begin{DoxyCompactList}\small\item\em Converting constructor from raw \mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevmc_1_1result_aee479c5093974fed2ec14f33bafcfd32}{$\sim$result}} () noexcept
+\begin{DoxyCompactList}\small\item\em Destructor responsible for automatically releasing attached resources. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevmc_1_1result_aeb05e759733ffba8140aef6b7a8dd550}{result}} (\mbox{\hyperlink{classevmc_1_1result}{result}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevmc_1_1result}{result}} \& \mbox{\hyperlink{classevmc_1_1result_a051c899a3492882b69cf70ebee0bd303}{operator=}} (\mbox{\hyperlink{classevmc_1_1result}{result}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Move assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}} \mbox{\hyperlink{classevmc_1_1result_a3b924b2e8ee361277753810ad65930c2}{release\+\_\+raw}} () noexcept
+\begin{DoxyCompactList}\small\item\em Releases the ownership and returns the raw copy of \mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structevmc__address}{evmc\+\_\+address}} \mbox{\hyperlink{classevmc_1_1result_ae7f37ff7c9cfa3b58af2c89f4d610522}{create\+\_\+address}}
+\begin{DoxyCompactList}\small\item\em The address of the contract created by create instructions. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{classevmc_1_1result_af8478c93dbcc3cb2876037c5a5afd4c0}{gas\+\_\+left}}
+\begin{DoxyCompactList}\small\item\em The amount of gas left after the execution. \end{DoxyCompactList}\item 
+const uint8\+\_\+t $\ast$ \mbox{\hyperlink{classevmc_1_1result_a61978e85f9d795a7b9695b9cbf1748d6}{output\+\_\+data}}
+\begin{DoxyCompactList}\small\item\em The reference to output data. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classevmc_1_1result_a93bb7419aff492cdef754421c6d74e26}{output\+\_\+size}}
+\begin{DoxyCompactList}\small\item\em The size of the output data. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group__EVMC_ga4c0be97f333c050ff45321fcaa34d920}{evmc\+\_\+status\+\_\+code}} \mbox{\hyperlink{classevmc_1_1result_a759c4aaa4a1c002f5a8be09ccb0b6a1c}{status\+\_\+code}}
+\begin{DoxyCompactList}\small\item\em The execution status code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The EVM code execution result. 
+
+This is a RAII wrapper for \mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}} and objects of this type automatically release attached resources. 
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00365}{365}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classevmc_1_1result_add9ddebaace1c5d35784cfc6966d8aa8}\label{classevmc_1_1result_add9ddebaace1c5d35784cfc6966d8aa8}} 
+\index{evmc::result@{evmc::result}!result@{result}}
+\index{result@{result}!evmc::result@{evmc::result}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily evmc\+::result\+::result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__EVMC_ga4c0be97f333c050ff45321fcaa34d920}{evmc\+\_\+status\+\_\+code}}}]{\+\_\+status\+\_\+code,  }\item[{int64\+\_\+t}]{\+\_\+gas\+\_\+left,  }\item[{const uint8\+\_\+t $\ast$}]{\+\_\+output\+\_\+data,  }\item[{size\+\_\+t}]{\+\_\+output\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Creates the result from the provided arguments. 
+
+The provided output is copied to memory allocated with malloc() and the \mbox{\hyperlink{structevmc__result_a8727ff83d372ab0067bcf6656d30b0ed}{evmc\+\_\+result\+::release}} function is set to one invoking free().
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+status\+\_\+code} & The status code. \\
+\hline
+{\em \+\_\+gas\+\_\+left} & The amount of gas left. \\
+\hline
+{\em \+\_\+output\+\_\+data} & The pointer to the output. \\
+\hline
+{\em \+\_\+output\+\_\+size} & The output size. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00383}{383}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00387}00387       : \mbox{\hyperlink{structevmc__result}{evmc\_result}}\{\mbox{\hyperlink{namespaceevmc_a9843b267dc279832b0ff9578b7dacdb7}{make\_result}}(\_status\_code, \_gas\_left, \_output\_data, \_output\_size)\}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00388}00388     \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1result_a4753030d0491d94c2b64b15f025d5055}\label{classevmc_1_1result_a4753030d0491d94c2b64b15f025d5055}} 
+\index{evmc::result@{evmc::result}!result@{result}}
+\index{result@{result}!evmc::result@{evmc::result}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily evmc\+::result\+::result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}} const \&}]{res }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Converting constructor from raw \mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}}. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00391}{391}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00391}00391 : \mbox{\hyperlink{structevmc__result}{evmc\_result}}\{res\} \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1result_aee479c5093974fed2ec14f33bafcfd32}\label{classevmc_1_1result_aee479c5093974fed2ec14f33bafcfd32}} 
+\index{evmc::result@{evmc::result}!````~result@{$\sim$result}}
+\index{````~result@{$\sim$result}!evmc::result@{evmc::result}}
+\doxysubsubsection{\texorpdfstring{$\sim$result()}{~result()}}
+{\footnotesize\ttfamily evmc\+::result\+::$\sim$result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Destructor responsible for automatically releasing attached resources. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00394}{394}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00395}00395     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00396}00396         \textcolor{keywordflow}{if} (\mbox{\hyperlink{structevmc__result_a8727ff83d372ab0067bcf6656d30b0ed}{release}} != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00397}00397             \mbox{\hyperlink{structevmc__result_a8727ff83d372ab0067bcf6656d30b0ed}{release}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00398}00398     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1result_aeb05e759733ffba8140aef6b7a8dd550}\label{classevmc_1_1result_aeb05e759733ffba8140aef6b7a8dd550}} 
+\index{evmc::result@{evmc::result}!result@{result}}
+\index{result@{result}!evmc::result@{evmc::result}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily evmc\+::result\+::result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevmc_1_1result}{result}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Move constructor. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00401}{401}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00401}00401                                     : \mbox{\hyperlink{structevmc__result}{evmc\_result}}\{other\}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00402}00402     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00403}00403         other.\mbox{\hyperlink{structevmc__result_a8727ff83d372ab0067bcf6656d30b0ed}{release}} = \textcolor{keyword}{nullptr};  \textcolor{comment}{// Disable releasing of the rvalue object.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00404}00404     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classevmc_1_1result_a051c899a3492882b69cf70ebee0bd303}\label{classevmc_1_1result_a051c899a3492882b69cf70ebee0bd303}} 
+\index{evmc::result@{evmc::result}!operator=@{operator=}}
+\index{operator=@{operator=}!evmc::result@{evmc::result}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classevmc_1_1result}{result}} \& evmc\+::result\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevmc_1_1result}{result}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Move assignment operator. 
+
+The self-\/assigment MUST never happen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other result object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The reference to the left-\/hand side object. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00412}{412}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00413}00413     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00414}00414         this-\/>\mbox{\hyperlink{classevmc_1_1result_aee479c5093974fed2ec14f33bafcfd32}{\string~result}}();                           \textcolor{comment}{// Release this object.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00415}00415         \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{structevmc__result}{evmc\_result}}\&\textcolor{keyword}{>}(*this) = other;  \textcolor{comment}{// Copy data.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00416}00416         other.\mbox{\hyperlink{structevmc__result_a8727ff83d372ab0067bcf6656d30b0ed}{release}} = \textcolor{keyword}{nullptr};                   \textcolor{comment}{// Disable releasing of the rvalue object.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00417}00417         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00418}00418     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1result_a3b924b2e8ee361277753810ad65930c2}\label{classevmc_1_1result_a3b924b2e8ee361277753810ad65930c2}} 
+\index{evmc::result@{evmc::result}!release\_raw@{release\_raw}}
+\index{release\_raw@{release\_raw}!evmc::result@{evmc::result}}
+\doxysubsubsection{\texorpdfstring{release\_raw()}{release\_raw()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}} evmc\+::result\+::release\+\_\+raw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Releases the ownership and returns the raw copy of \mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}}. 
+
+This method drops the ownership of the result (result\textquotesingle{}s resources are not going to be released when this object is destructed). It is the caller\textquotesingle{}s responsibility having the returned copy of the result to release it. This object MUST NOT be used after this method is invoked.
+
+\begin{DoxyReturn}{Returns}
+The copy of this object converted to raw \mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00428}{428}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00429}00429     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00430}00430         \textcolor{keyword}{const} \textcolor{keyword}{auto} out = \mbox{\hyperlink{structevmc__result}{evmc\_result}}\{*\textcolor{keyword}{this}\};  \textcolor{comment}{// Copy data.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00431}00431         this-\/>\mbox{\hyperlink{structevmc__result_a8727ff83d372ab0067bcf6656d30b0ed}{release}} = \textcolor{keyword}{nullptr};              \textcolor{comment}{// Disable releasing of this object.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00432}00432         \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1result_l00433}00433     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classevmc_1_1result_ae7f37ff7c9cfa3b58af2c89f4d610522}\label{classevmc_1_1result_ae7f37ff7c9cfa3b58af2c89f4d610522}} 
+\index{evmc::result@{evmc::result}!create\_address@{create\_address}}
+\index{create\_address@{create\_address}!evmc::result@{evmc::result}}
+\doxysubsubsection{\texorpdfstring{create\_address}{create\_address}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc__address}{evmc\+\_\+address}} evmc\+\_\+result\+::create\+\_\+address}
+
+
+
+The address of the contract created by create instructions. 
+
+This field has valid value only if\+:
+\begin{DoxyItemize}
+\item it is a result of the \mbox{\hyperlink{classevmc_1_1Host}{Host}} method \mbox{\hyperlink{structevmc__host__interface_a0acd6def9c08159acccfba9f9cbf9ca9}{evmc\+\_\+host\+\_\+interface\+::call}}
+\item and the result describes successful contract creation (\mbox{\hyperlink{structevmc__result_a759c4aaa4a1c002f5a8be09ccb0b6a1c}{evmc\+\_\+result\+::status\+\_\+code}} is \mbox{\hyperlink{group__EVMC_gga4c0be97f333c050ff45321fcaa34d920a4bc3069fec2bab2a55355a72b7db68b7}{EVMC\+\_\+\+SUCCESS}}). In all other cases the address MUST be null bytes. 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00454}{454}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{classevmc_1_1result_af8478c93dbcc3cb2876037c5a5afd4c0}\label{classevmc_1_1result_af8478c93dbcc3cb2876037c5a5afd4c0}} 
+\index{evmc::result@{evmc::result}!gas\_left@{gas\_left}}
+\index{gas\_left@{gas\_left}!evmc::result@{evmc::result}}
+\doxysubsubsection{\texorpdfstring{gas\_left}{gas\_left}}
+{\footnotesize\ttfamily int64\+\_\+t evmc\+\_\+result\+::gas\+\_\+left}
+
+
+
+The amount of gas left after the execution. 
+
+If \mbox{\hyperlink{structevmc__result_a759c4aaa4a1c002f5a8be09ccb0b6a1c}{evmc\+\_\+result\+::status\+\_\+code}} is neither \mbox{\hyperlink{group__EVMC_gga4c0be97f333c050ff45321fcaa34d920a4bc3069fec2bab2a55355a72b7db68b7}{EVMC\+\_\+\+SUCCESS}} nor \mbox{\hyperlink{group__EVMC_gga4c0be97f333c050ff45321fcaa34d920aed708e84d49cc1270e54ec20b0ca0a05}{EVMC\+\_\+\+REVERT}} the value MUST be 0. 
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00402}{402}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{classevmc_1_1result_a61978e85f9d795a7b9695b9cbf1748d6}\label{classevmc_1_1result_a61978e85f9d795a7b9695b9cbf1748d6}} 
+\index{evmc::result@{evmc::result}!output\_data@{output\_data}}
+\index{output\_data@{output\_data}!evmc::result@{evmc::result}}
+\doxysubsubsection{\texorpdfstring{output\_data}{output\_data}}
+{\footnotesize\ttfamily const uint8\+\_\+t$\ast$ evmc\+\_\+result\+::output\+\_\+data}
+
+
+
+The reference to output data. 
+
+The output contains data coming from RETURN opcode (iff evmc\+\_\+result\+::code field is \mbox{\hyperlink{group__EVMC_gga4c0be97f333c050ff45321fcaa34d920a4bc3069fec2bab2a55355a72b7db68b7}{EVMC\+\_\+\+SUCCESS}}) or from REVERT opcode.
+
+The memory containing the output data is owned by EVM and has to be freed with \mbox{\hyperlink{structevmc__result_a8727ff83d372ab0067bcf6656d30b0ed}{evmc\+\_\+result\+::release()}}.
+
+This MAY be NULL. 
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00415}{415}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{classevmc_1_1result_a93bb7419aff492cdef754421c6d74e26}\label{classevmc_1_1result_a93bb7419aff492cdef754421c6d74e26}} 
+\index{evmc::result@{evmc::result}!output\_size@{output\_size}}
+\index{output\_size@{output\_size}!evmc::result@{evmc::result}}
+\doxysubsubsection{\texorpdfstring{output\_size}{output\_size}}
+{\footnotesize\ttfamily size\+\_\+t evmc\+\_\+result\+::output\+\_\+size}
+
+
+
+The size of the output data. 
+
+If output\+\_\+data is NULL this MUST be 0. 
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00422}{422}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+\mbox{\Hypertarget{classevmc_1_1result_a759c4aaa4a1c002f5a8be09ccb0b6a1c}\label{classevmc_1_1result_a759c4aaa4a1c002f5a8be09ccb0b6a1c}} 
+\index{evmc::result@{evmc::result}!status\_code@{status\_code}}
+\index{status\_code@{status\_code}!evmc::result@{evmc::result}}
+\doxysubsubsection{\texorpdfstring{status\_code}{status\_code}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__EVMC_ga4c0be97f333c050ff45321fcaa34d920}{evmc\+\_\+status\+\_\+code}} evmc\+\_\+result\+::status\+\_\+code}
+
+
+
+The execution status code. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8h_source_l00394}{394}} of file \mbox{\hyperlink{evmc_8h_source}{evmc.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/evmc/\mbox{\hyperlink{evmc_8hpp}{evmc.\+hpp}}\end{DoxyCompactItemize}

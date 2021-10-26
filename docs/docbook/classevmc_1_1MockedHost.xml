@@ -1,0 +1,847 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classevmc_1_1MockedHost" xml:lang="en-US">
+<title>evmc::MockedHost Class Reference</title>
+<indexterm><primary>evmc::MockedHost</primary></indexterm>
+<para>
+
+<para>Mocked EVMC <link linkend="_classevmc_1_1Host">Host</link> implementation. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;mocked_host.hpp&gt;</computeroutput>
+</para>
+Inheritance diagram for evmc::MockedHost:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1MockedHost__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for evmc::MockedHost:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1MockedHost__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structevmc_1_1MockedHost_1_1log__record">log_record</link></para>
+
+<para>LOG record. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record">selfdestruct_record</link></para>
+
+<para>SELFDESTRUCT record. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_classevmc_1_1MockedHost_1a53a463e19e4908022137ce53715c2dce">account_exists</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr) const noexcept override</para>
+
+<para>Returns true if an account exists (EVMC <link linkend="_classevmc_1_1Host">Host</link> method). </para>
+</listitem>
+            <listitem><para><link linkend="_structevmc_1_1bytes32">bytes32</link> <link linkend="_classevmc_1_1MockedHost_1a6336919efaf07ad1e9e4f725a86ebdca">get_storage</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp;key) const noexcept override</para>
+
+<para>Get the account&apos;s storage value at the given key (EVMC <link linkend="_classevmc_1_1Host">Host</link> method). </para>
+</listitem>
+            <listitem><para><link linkend="_group__EVMC_1gae012fd6b8e5c23806b507c2d3e9fb1aa">evmc_storage_status</link> <link linkend="_classevmc_1_1MockedHost_1aad63cd61357052ab1fa87e6ff372b3d7">set_storage</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp;key, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp;value) noexcept override</para>
+
+<para>Set the account&apos;s storage value (EVMC <link linkend="_classevmc_1_1Host">Host</link> method). </para>
+</listitem>
+            <listitem><para><link linkend="_namespaceevmc_1a92bc6b73f1ce3a2b2eea018cf902c4da">uint256be</link> <link linkend="_classevmc_1_1MockedHost_1a401e74178baba9772638e6b4309e9bee">get_balance</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr) const noexcept override</para>
+
+<para>Get the account&apos;s balance (EVMC <link linkend="_classevmc_1_1Host">Host</link> method). </para>
+</listitem>
+            <listitem><para>size_t <link linkend="_classevmc_1_1MockedHost_1a0ecf2503e3af4ed98cce8eff45385a33">get_code_size</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr) const noexcept override</para>
+
+<para>Get the account&apos;s code size (EVMC host method). </para>
+</listitem>
+            <listitem><para><link linkend="_structevmc_1_1bytes32">bytes32</link> <link linkend="_classevmc_1_1MockedHost_1a776687379553c67540c8c16df9e8f226">get_code_hash</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr) const noexcept override</para>
+
+<para>Get the account&apos;s code hash (EVMC host method). </para>
+</listitem>
+            <listitem><para>size_t <link linkend="_classevmc_1_1MockedHost_1a2679f00109fab1c027fb789b83a25d20">copy_code</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr, size_t code_offset, uint8_t *buffer_data, size_t buffer_size) const noexcept override</para>
+
+<para>Copy the account&apos;s code to the given buffer (EVMC host method). </para>
+</listitem>
+            <listitem><para>void <link linkend="_classevmc_1_1MockedHost_1aa0b0cfd19450eaf220cde06ab1d96858">selfdestruct</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr, const <link linkend="_structevmc_1_1address">address</link> &amp;beneficiary) noexcept override</para>
+
+<para>Selfdestruct the account (EVMC host method). </para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1result">result</link> <link linkend="_classevmc_1_1MockedHost_1ad7f341e9bc49fe73286c65bfc3d56ec3">call</link> (const <link linkend="_structevmc__message">evmc_message</link> &amp;msg) noexcept override</para>
+
+<para>Call/create other contract (EVMC host method). </para>
+</listitem>
+            <listitem><para><link linkend="_structevmc__tx__context">evmc_tx_context</link> <link linkend="_classevmc_1_1MockedHost_1a45187586bde530ca7beb157467c12733">get_tx_context</link> () const noexcept override</para>
+
+<para>Get transaction context (EVMC host method). </para>
+</listitem>
+            <listitem><para><link linkend="_structevmc_1_1bytes32">bytes32</link> <link linkend="_classevmc_1_1MockedHost_1ace3ba78141acc06849d3b34382466e36">get_block_hash</link> (int64_t block_number) const noexcept override</para>
+
+<para>Get the block header hash (EVMC host method). </para>
+</listitem>
+            <listitem><para>void <link linkend="_classevmc_1_1MockedHost_1a4263c29b321dbecfcbb4357a469a3bee">emit_log</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr, const uint8_t *data, size_t data_size, const <link linkend="_structevmc_1_1bytes32">bytes32</link> topics[], size_t topics_count) noexcept override</para>
+
+<para>Emit LOG (EVMC host method). </para>
+</listitem>
+            <listitem><para><link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link> <link linkend="_classevmc_1_1MockedHost_1a51f9acf40acec535549d32c7ab079b9e">access_account</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr) noexcept override</para>
+
+<para>Record an account access. </para>
+</listitem>
+            <listitem><para><link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link> <link linkend="_classevmc_1_1MockedHost_1a759d289a03d7ebeac0b727938d9ee521">access_storage</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp;key) noexcept override</para>
+
+<para>Access the account&apos;s storage value at the given key. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>std::unordered_map&lt; <link linkend="_structevmc_1_1address">address</link>, <link linkend="_structevmc_1_1MockedAccount">MockedAccount</link> &gt; <link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link></para>
+
+<para>The set of all accounts in the <link linkend="_classevmc_1_1Host">Host</link>, organized by their addresses. </para>
+</listitem>
+            <listitem><para><link linkend="_structevmc__tx__context">evmc_tx_context</link> <link linkend="_classevmc_1_1MockedHost_1addf01838d4c15228e746caa0a645a3b1">tx_context</link> = {}</para>
+
+<para>The EVMC transaction context to be returned by <link linkend="_classevmc_1_1MockedHost_1a45187586bde530ca7beb157467c12733">get_tx_context()</link>. </para>
+</listitem>
+            <listitem><para><link linkend="_structevmc_1_1bytes32">bytes32</link> <link linkend="_classevmc_1_1MockedHost_1a4cdb6de6b81f9845eb6079f5729e0805">block_hash</link> = {}</para>
+
+<para>The block header hash value to be returned by <link linkend="_classevmc_1_1MockedHost_1ace3ba78141acc06849d3b34382466e36">get_block_hash()</link>. </para>
+</listitem>
+            <listitem><para><link linkend="_structevmc__result">evmc_result</link> <link linkend="_classevmc_1_1MockedHost_1a473ec63bcb8b786c5fb1b097cfcfb8c0">call_result</link> = {}</para>
+
+<para>The call result to be returned by the <link linkend="_classevmc_1_1MockedHost_1ad7f341e9bc49fe73286c65bfc3d56ec3">call()</link> method. </para>
+</listitem>
+            <listitem><para>std::vector&lt; int64_t &gt; <link linkend="_classevmc_1_1MockedHost_1ac4acf299c63beb5134fede0d0a5f7c1f">recorded_blockhashes</link></para>
+
+<para>The record of all block numbers for which <link linkend="_classevmc_1_1MockedHost_1ace3ba78141acc06849d3b34382466e36">get_block_hash()</link> was called. </para>
+</listitem>
+            <listitem><para>std::vector&lt; <link linkend="_structevmc_1_1address">address</link> &gt; <link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link></para>
+
+<para>The record of all account accesses. </para>
+</listitem>
+            <listitem><para>std::vector&lt; <link linkend="_structevmc__message">evmc_message</link> &gt; <link linkend="_classevmc_1_1MockedHost_1af4487c7cb827ef8ce54da187d109189a">recorded_calls</link></para>
+
+<para>The record of all call messages requested in the <link linkend="_classevmc_1_1MockedHost_1ad7f341e9bc49fe73286c65bfc3d56ec3">call()</link> method. </para>
+</listitem>
+            <listitem><para>std::vector&lt; <link linkend="_structevmc_1_1MockedHost_1_1log__record">log_record</link> &gt; <link linkend="_classevmc_1_1MockedHost_1a6f6b51ddda349341a158456a180f7d9e">recorded_logs</link></para>
+
+<para>The record of all LOGs passed to the <link linkend="_classevmc_1_1MockedHost_1a4263c29b321dbecfcbb4357a469a3bee">emit_log()</link> method. </para>
+</listitem>
+            <listitem><para>std::vector&lt; <link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record">selfdestruct_record</link> &gt; <link linkend="_classevmc_1_1MockedHost_1a0456263e1326f91a27c0e3a0381d967f">recorded_selfdestructs</link></para>
+
+<para>The record of all SELFDESTRUCTs from the <link linkend="_classevmc_1_1MockedHost_1aa0b0cfd19450eaf220cde06ab1d96858">selfdestruct()</link> method. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static constexpr auto <link linkend="_classevmc_1_1MockedHost_1a5ab49cfd8bc76f9dab117946a5c12efa">max_recorded_account_accesses</link> = 200</para>
+
+<para>The maximum number of entries in recorded_account_accesses record. </para>
+</listitem>
+            <listitem><para>static constexpr auto <link linkend="_classevmc_1_1MockedHost_1a78ad202959aa8d416faf715ab6f7f687">max_recorded_calls</link> = 100</para>
+
+<para>The maximum number of entries in recorded_calls record. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link> (const <link linkend="_structevmc_1_1address">address</link> &amp;addr) const</para>
+
+<para>Record an account access. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para>std::vector&lt; <link linkend="_namespaceevmc_1a092c09f674d9cb5f0ba31d0f86537f4a">bytes</link> &gt; <link linkend="_classevmc_1_1MockedHost_1a07d9cb06c3f78bbb2323467271709467">m_recorded_calls_inputs</link></para>
+
+<para>The copy of call inputs for the recorded_calls record. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Mocked EVMC <link linkend="_classevmc_1_1Host">Host</link> implementation. </para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00071">71</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classevmc_1_1MockedHost_1a51f9acf40acec535549d32c7ab079b9e"/><section>
+    <title>access_account()</title>
+<indexterm><primary>access_account</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>access_account</secondary></indexterm>
+<para><computeroutput><link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link> evmc::MockedHost::access_account (const <link linkend="_structevmc_1_1address">address</link> &amp; addr)<computeroutput>[inline]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Record an account access. </para>
+</para>
+
+<para>This method is required by EIP-2929 introduced in <link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7af53e0cb0d793d60b5fb07c6b4c3c6ab7">EVMC_BERLIN</link>. It will record the account access in <link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">MockedHost::recorded_account_accesses</link> and return previous access status. This methods returns <link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994">EVMC_ACCESS_WARM</link> for known addresses of precompiles. The EIP-2929 specifies that <link linkend="_structevmc__message_1ae7f64ab994f49d9a5f028d56e80fd468">evmc_message::sender</link> and <link linkend="_structevmc__message_1a63643daa5f3a30df28d42360a20e39e2">evmc_message::recipient</link> are always <link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994">EVMC_ACCESS_WARM</link>. Therefore, you should init the <link linkend="_classevmc_1_1MockedHost">MockedHost</link> with: <literallayout><computeroutput>mocked_host.access_account(msg.sender);
+mocked_host.access_account(msg.recipient);
+</computeroutput></literallayout> The same way you can mock transaction access list (EIP-2930) for account addresses.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>addr</entry><entry>
+<para>The address of the accessed account. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The <link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994">EVMC_ACCESS_WARM</link> if the account has been accessed before, the <link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76">EVMC_ACCESS_COLD</link> otherwise. </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_classevmc_1_1HostInterface_1ab5ec93cb9fc439fd22cacecc468ed9f8">evmc::HostInterface</link>.</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00341">341</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00342"/>00342 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00343"/>00343 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Check&#32;if&#32;the&#32;address&#32;have&#32;been&#32;already&#32;accessed.</emphasis>
+<anchor xml:id="_classevmc_1_1MockedHost_1l00344"/>00344 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;already_accessed&#32;=
+<anchor xml:id="_classevmc_1_1MockedHost_1l00345"/>00345 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::find(<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>.begin(),&#32;<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>.end(),&#32;addr)&#32;!=
+<anchor xml:id="_classevmc_1_1MockedHost_1l00346"/>00346 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>.end();
+<anchor xml:id="_classevmc_1_1MockedHost_1l00347"/>00347 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00348"/>00348 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00349"/>00349 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00350"/>00350 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Accessing&#32;precompiled&#32;contracts&#32;is&#32;always&#32;warm.</emphasis>
+<anchor xml:id="_classevmc_1_1MockedHost_1l00351"/>00351 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(addr&#32;&gt;=&#32;0x0000000000000000000000000000000000000001_address&#32;&amp;&amp;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00352"/>00352 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;addr&#32;&lt;=&#32;0x0000000000000000000000000000000000000009_address)
+<anchor xml:id="_classevmc_1_1MockedHost_1l00353"/>00353 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994">EVMC_ACCESS_WARM</link>;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00354"/>00354 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00355"/>00355 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;already_accessed&#32;?&#32;<link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994">EVMC_ACCESS_WARM</link>&#32;:&#32;<link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76">EVMC_ACCESS_COLD</link>;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00356"/>00356 &#32;&#32;&#32;&#32;}
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1MockedHost_a51f9acf40acec535549d32c7ab079b9e_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a759d289a03d7ebeac0b727938d9ee521"/><section>
+    <title>access_storage()</title>
+<indexterm><primary>access_storage</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>access_storage</secondary></indexterm>
+<para><computeroutput><link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link> evmc::MockedHost::access_storage (const <link linkend="_structevmc_1_1address">address</link> &amp; addr, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp; key)<computeroutput>[inline]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Access the account&apos;s storage value at the given key. </para>
+</para>
+
+<para>This method is required by EIP-2929 introduced in <link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7af53e0cb0d793d60b5fb07c6b4c3c6ab7">EVMC_BERLIN</link>. In records that the given account&apos;s storage key has been access and returns the previous access status. To mock storage access list (EIP-2930), you can pre-init account&apos;s storage values with the <link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994">EVMC_ACCESS_WARM</link> flag: <literallayout><computeroutput>mocked_host.accounts[msg.recipient].storage[key] = {value, EVMC_ACCESS_WARM};
+</computeroutput></literallayout> 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>addr</entry><entry>
+<para>The account address. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>key</entry><entry>
+<para>The account&apos;s storage key. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The <link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994">EVMC_ACCESS_WARM</link> if the storage key has been accessed before, the <link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76">EVMC_ACCESS_COLD</link> otherwise. </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_classevmc_1_1HostInterface_1ac0192ce7575fe86b7466405e93484ad8">evmc::HostInterface</link>.</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00371">371</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00372"/>00372 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00373"/>00373 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;value&#32;=&#32;<link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link>[addr].storage[key];
+<anchor xml:id="_classevmc_1_1MockedHost_1l00374"/>00374 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;access_status&#32;=&#32;value.access_status;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00375"/>00375 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;value.access_status&#32;=&#32;<link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994">EVMC_ACCESS_WARM</link>;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00376"/>00376 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;access_status;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00377"/>00377 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a53a463e19e4908022137ce53715c2dce"/><section>
+    <title>account_exists()</title>
+<indexterm><primary>account_exists</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>account_exists</secondary></indexterm>
+<para><computeroutput>bool evmc::MockedHost::account_exists (const <link linkend="_structevmc_1_1address">address</link> &amp; addr) const<computeroutput>[inline]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Returns true if an account exists (EVMC <link linkend="_classevmc_1_1Host">Host</link> method). </para>
+</para>
+<para>
+Implements <link linkend="_classevmc_1_1HostInterface_1ae735474dc8425b49b3eb0ef12212fae7">evmc::HostInterface</link>.</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00161">161</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00162"/>00162 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link>.count(addr)&#32;!=&#32;0;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00165"/>00165 &#32;&#32;&#32;&#32;}
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1MockedHost_a53a463e19e4908022137ce53715c2dce_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1ad7f341e9bc49fe73286c65bfc3d56ec3"/><section>
+    <title>call()</title>
+<indexterm><primary>call</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>call</secondary></indexterm>
+<para><computeroutput><link linkend="_classevmc_1_1result">result</link> evmc::MockedHost::call (const <link linkend="_structevmc__message">evmc_message</link> &amp; msg)<computeroutput>[inline]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Call/create other contract (EVMC host method). </para>
+</para>
+<para>
+Implements <link linkend="_classevmc_1_1HostInterface_1a392feba1f27c9352c85bf2559c1fbcb2">evmc::HostInterface</link>.</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00281">281</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00282"/>00282 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00283"/>00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(msg.<link linkend="_structevmc__message_1a63643daa5f3a30df28d42360a20e39e2">recipient</link>);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00284"/>00284 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00285"/>00285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_classevmc_1_1MockedHost_1af4487c7cb827ef8ce54da187d109189a">recorded_calls</link>.empty())
+<anchor xml:id="_classevmc_1_1MockedHost_1l00286"/>00286 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00287"/>00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1af4487c7cb827ef8ce54da187d109189a">recorded_calls</link>.reserve(<link linkend="_classevmc_1_1MockedHost_1a78ad202959aa8d416faf715ab6f7f687">max_recorded_calls</link>);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00288"/>00288 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a07d9cb06c3f78bbb2323467271709467">m_recorded_calls_inputs</link>.reserve(<link linkend="_classevmc_1_1MockedHost_1a78ad202959aa8d416faf715ab6f7f687">max_recorded_calls</link>);&#32;&#32;<emphasis role="comment">//&#32;Iterators&#32;will&#32;not&#32;invalidate.</emphasis>
+<anchor xml:id="_classevmc_1_1MockedHost_1l00289"/>00289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_classevmc_1_1MockedHost_1l00290"/>00290 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00291"/>00291 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_classevmc_1_1MockedHost_1af4487c7cb827ef8ce54da187d109189a">recorded_calls</link>.size()&#32;&lt;&#32;<link linkend="_classevmc_1_1MockedHost_1a78ad202959aa8d416faf715ab6f7f687">max_recorded_calls</link>)
+<anchor xml:id="_classevmc_1_1MockedHost_1l00292"/>00292 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00293"/>00293 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1af4487c7cb827ef8ce54da187d109189a">recorded_calls</link>.emplace_back(msg);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00294"/>00294 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;call_msg&#32;=&#32;<link linkend="_classevmc_1_1MockedHost_1af4487c7cb827ef8ce54da187d109189a">recorded_calls</link>.back();
+<anchor xml:id="_classevmc_1_1MockedHost_1l00295"/>00295 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(call_msg.input_size&#32;&gt;&#32;0)
+<anchor xml:id="_classevmc_1_1MockedHost_1l00296"/>00296 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00297"/>00297 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a07d9cb06c3f78bbb2323467271709467">m_recorded_calls_inputs</link>.emplace_back(call_msg.input_data,&#32;call_msg.input_size);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00298"/>00298 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;input_copy&#32;=&#32;<link linkend="_classevmc_1_1MockedHost_1a07d9cb06c3f78bbb2323467271709467">m_recorded_calls_inputs</link>.back();
+<anchor xml:id="_classevmc_1_1MockedHost_1l00299"/>00299 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;call_msg.input_data&#32;=&#32;input_copy.data();
+<anchor xml:id="_classevmc_1_1MockedHost_1l00300"/>00300 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_classevmc_1_1MockedHost_1l00301"/>00301 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_classevmc_1_1MockedHost_1l00302"/>00302 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;result{<link linkend="_classevmc_1_1MockedHost_1a473ec63bcb8b786c5fb1b097cfcfb8c0">call_result</link>};
+<anchor xml:id="_classevmc_1_1MockedHost_1l00303"/>00303 &#32;&#32;&#32;&#32;}
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1MockedHost_ad7f341e9bc49fe73286c65bfc3d56ec3_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a2679f00109fab1c027fb789b83a25d20"/><section>
+    <title>copy_code()</title>
+<indexterm><primary>copy_code</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>copy_code</secondary></indexterm>
+<para><computeroutput>size_t evmc::MockedHost::copy_code (const <link linkend="_structevmc_1_1address">address</link> &amp; addr, size_t code_offset, uint8_t * buffer_data, size_t buffer_size) const<computeroutput>[inline]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Copy the account&apos;s code to the given buffer (EVMC host method). </para>
+</para>
+<para>
+Implements <link linkend="_classevmc_1_1HostInterface_1ace3dcf2b277c60cb422f3af1d63dd36b">evmc::HostInterface</link>.</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00251">251</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00255"/>00255 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00256"/>00256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00257"/>00257 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;<link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link>.find(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00258"/>00258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(it&#32;==&#32;<link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link>.end())
+<anchor xml:id="_classevmc_1_1MockedHost_1l00259"/>00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00260"/>00260 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00261"/>00261 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;code&#32;=&#32;it-&gt;second.code;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00262"/>00262 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00263"/>00263 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(code_offset&#32;&gt;=&#32;code.size())
+<anchor xml:id="_classevmc_1_1MockedHost_1l00264"/>00264 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00265"/>00265 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00266"/>00266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;n&#32;=&#32;std::min(buffer_size,&#32;code.size()&#32;-&#32;code_offset);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00267"/>00267 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00268"/>00268 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(n&#32;&gt;&#32;0)
+<anchor xml:id="_classevmc_1_1MockedHost_1l00269"/>00269 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::copy_n(&amp;code[code_offset],&#32;n,&#32;buffer_data);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00270"/>00270 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;n;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00271"/>00271 &#32;&#32;&#32;&#32;}
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1MockedHost_a2679f00109fab1c027fb789b83a25d20_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a4263c29b321dbecfcbb4357a469a3bee"/><section>
+    <title>emit_log()</title>
+<indexterm><primary>emit_log</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>emit_log</secondary></indexterm>
+<para><computeroutput>void evmc::MockedHost::emit_log (const <link linkend="_structevmc_1_1address">address</link> &amp; addr, const uint8_t * data, size_t data_size, const <link linkend="_structevmc_1_1bytes32">bytes32</link> topics[], size_t topics_count)<computeroutput>[inline]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Emit LOG (EVMC host method). </para>
+</para>
+<para>
+Implements <link linkend="_classevmc_1_1HostInterface_1a1f95317392e4615e29ad038fe4ff049d">evmc::HostInterface</link>.</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00316">316</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00321"/>00321 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00322"/>00322 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a6f6b51ddda349341a158456a180f7d9e">recorded_logs</link>.push_back({addr,&#32;{data,&#32;data_size},&#32;{topics,&#32;topics&#32;+&#32;topics_count}});
+<anchor xml:id="_classevmc_1_1MockedHost_1l00323"/>00323 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a401e74178baba9772638e6b4309e9bee"/><section>
+    <title>get_balance()</title>
+<indexterm><primary>get_balance</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>get_balance</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceevmc_1a92bc6b73f1ce3a2b2eea018cf902c4da">uint256be</link> evmc::MockedHost::get_balance (const <link linkend="_structevmc_1_1address">address</link> &amp; addr) const<computeroutput>[inline]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Get the account&apos;s balance (EVMC <link linkend="_classevmc_1_1Host">Host</link> method). </para>
+</para>
+<para>
+Implements <link linkend="_classevmc_1_1HostInterface_1ac30e7e938793a2c46e3d5d416e15c3f5">evmc::HostInterface</link>.</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00220">220</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00221"/>00221 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00222"/>00222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00223"/>00223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;<link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link>.find(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00224"/>00224 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(it&#32;==&#32;<link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link>.end())
+<anchor xml:id="_classevmc_1_1MockedHost_1l00225"/>00225 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{};
+<anchor xml:id="_classevmc_1_1MockedHost_1l00226"/>00226 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00227"/>00227 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;it-&gt;second.balance;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00228"/>00228 &#32;&#32;&#32;&#32;}
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1MockedHost_a401e74178baba9772638e6b4309e9bee_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1ace3ba78141acc06849d3b34382466e36"/><section>
+    <title>get_block_hash()</title>
+<indexterm><primary>get_block_hash</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>get_block_hash</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc_1_1bytes32">bytes32</link> evmc::MockedHost::get_block_hash (int64_t block_number) const<computeroutput>[inline]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Get the block header hash (EVMC host method). </para>
+</para>
+<para>
+Implements <link linkend="_classevmc_1_1HostInterface_1ab4fcbbe88b9490f78e0f99c7ce2b167f">evmc::HostInterface</link>.</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00309">309</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00310"/>00310 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00311"/>00311 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1ac4acf299c63beb5134fede0d0a5f7c1f">recorded_blockhashes</link>.emplace_back(block_number);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00312"/>00312 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1MockedHost_1a4cdb6de6b81f9845eb6079f5729e0805">block_hash</link>;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00313"/>00313 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a776687379553c67540c8c16df9e8f226"/><section>
+    <title>get_code_hash()</title>
+<indexterm><primary>get_code_hash</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>get_code_hash</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc_1_1bytes32">bytes32</link> evmc::MockedHost::get_code_hash (const <link linkend="_structevmc_1_1address">address</link> &amp; addr) const<computeroutput>[inline]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Get the account&apos;s code hash (EVMC host method). </para>
+</para>
+<para>
+Implements <link linkend="_classevmc_1_1HostInterface_1a748a36bc934302492f54e3fc90cdca88">evmc::HostInterface</link>.</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00241">241</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00242"/>00242 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00243"/>00243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;<link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link>.find(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00245"/>00245 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(it&#32;==&#32;<link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link>.end())
+<anchor xml:id="_classevmc_1_1MockedHost_1l00246"/>00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{};
+<anchor xml:id="_classevmc_1_1MockedHost_1l00247"/>00247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;it-&gt;second.codehash;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00248"/>00248 &#32;&#32;&#32;&#32;}
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1MockedHost_a776687379553c67540c8c16df9e8f226_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a0ecf2503e3af4ed98cce8eff45385a33"/><section>
+    <title>get_code_size()</title>
+<indexterm><primary>get_code_size</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>get_code_size</secondary></indexterm>
+<para><computeroutput>size_t evmc::MockedHost::get_code_size (const <link linkend="_structevmc_1_1address">address</link> &amp; addr) const<computeroutput>[inline]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Get the account&apos;s code size (EVMC host method). </para>
+</para>
+<para>
+Implements <link linkend="_classevmc_1_1HostInterface_1a8cb4656ab4c478d5fe152b4f6c4b6dc4">evmc::HostInterface</link>.</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00231">231</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00232"/>00232 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00233"/>00233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;<link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link>.find(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(it&#32;==&#32;<link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link>.end())
+<anchor xml:id="_classevmc_1_1MockedHost_1l00236"/>00236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00237"/>00237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;it-&gt;second.code.size();
+<anchor xml:id="_classevmc_1_1MockedHost_1l00238"/>00238 &#32;&#32;&#32;&#32;}
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1MockedHost_a0ecf2503e3af4ed98cce8eff45385a33_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a6336919efaf07ad1e9e4f725a86ebdca"/><section>
+    <title>get_storage()</title>
+<indexterm><primary>get_storage</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>get_storage</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc_1_1bytes32">bytes32</link> evmc::MockedHost::get_storage (const <link linkend="_structevmc_1_1address">address</link> &amp; addr, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp; key) const<computeroutput>[inline]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Get the account&apos;s storage value at the given key (EVMC <link linkend="_classevmc_1_1Host">Host</link> method). </para>
+</para>
+<para>
+Implements <link linkend="_classevmc_1_1HostInterface_1a020f849f737fcd841681f73f74514b4d">evmc::HostInterface</link>.</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00168">168</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00169"/>00169 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00171"/>00171 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;account_iter&#32;=&#32;<link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link>.find(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(account_iter&#32;==&#32;<link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link>.end())
+<anchor xml:id="_classevmc_1_1MockedHost_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{};
+<anchor xml:id="_classevmc_1_1MockedHost_1l00175"/>00175 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;storage_iter&#32;=&#32;account_iter-&gt;second.storage.find(key);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(storage_iter&#32;!=&#32;account_iter-&gt;second.storage.end())
+<anchor xml:id="_classevmc_1_1MockedHost_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;storage_iter-&gt;second.value;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{};
+<anchor xml:id="_classevmc_1_1MockedHost_1l00180"/>00180 &#32;&#32;&#32;&#32;}
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1MockedHost_a6336919efaf07ad1e9e4f725a86ebdca_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a45187586bde530ca7beb157467c12733"/><section>
+    <title>get_tx_context()</title>
+<indexterm><primary>get_tx_context</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>get_tx_context</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc__tx__context">evmc_tx_context</link> evmc::MockedHost::get_tx_context ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Get transaction context (EVMC host method). </para>
+</para>
+<para>
+Implements <link linkend="_classevmc_1_1HostInterface_1a2e958d4265e17048b817626f6fd3cdcc">evmc::HostInterface</link>.</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00306">306</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00306"/>00306 {&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1MockedHost_1addf01838d4c15228e746caa0a645a3b1">tx_context</link>;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1"/><section>
+    <title>record_account_access()</title>
+<indexterm><primary>record_account_access</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>record_account_access</secondary></indexterm>
+<para><computeroutput>void evmc::MockedHost::record_account_access (const <link linkend="_structevmc_1_1address">address</link> &amp; addr) const<computeroutput>[inline]</computeroutput>, <computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Record an account access. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>addr</entry><entry>
+<para>The address of the accessed account. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00150">150</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00151"/>00151 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>.empty())
+<anchor xml:id="_classevmc_1_1MockedHost_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>.reserve(<link linkend="_classevmc_1_1MockedHost_1a5ab49cfd8bc76f9dab117946a5c12efa">max_recorded_account_accesses</link>);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00154"/>00154 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>.size()&#32;&lt;&#32;<link linkend="_classevmc_1_1MockedHost_1a5ab49cfd8bc76f9dab117946a5c12efa">max_recorded_account_accesses</link>)
+<anchor xml:id="_classevmc_1_1MockedHost_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>.emplace_back(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00157"/>00157 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1MockedHost_1aa0b0cfd19450eaf220cde06ab1d96858"/><section>
+    <title>selfdestruct()</title>
+<indexterm><primary>selfdestruct</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>selfdestruct</secondary></indexterm>
+<para><computeroutput>void evmc::MockedHost::selfdestruct (const <link linkend="_structevmc_1_1address">address</link> &amp; addr, const <link linkend="_structevmc_1_1address">address</link> &amp; beneficiary)<computeroutput>[inline]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Selfdestruct the account (EVMC host method). </para>
+</para>
+<para>
+Implements <link linkend="_classevmc_1_1HostInterface_1afd78f82767a70ed1e4e68fce6007ad0b">evmc::HostInterface</link>.</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00274">274</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00275"/>00275 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00276"/>00276 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00277"/>00277 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0456263e1326f91a27c0e3a0381d967f">recorded_selfdestructs</link>.push_back({addr,&#32;beneficiary});
+<anchor xml:id="_classevmc_1_1MockedHost_1l00278"/>00278 &#32;&#32;&#32;&#32;}
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1MockedHost_aa0b0cfd19450eaf220cde06ab1d96858_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1aad63cd61357052ab1fa87e6ff372b3d7"/><section>
+    <title>set_storage()</title>
+<indexterm><primary>set_storage</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>set_storage</secondary></indexterm>
+<para><computeroutput><link linkend="_group__EVMC_1gae012fd6b8e5c23806b507c2d3e9fb1aa">evmc_storage_status</link> evmc::MockedHost::set_storage (const <link linkend="_structevmc_1_1address">address</link> &amp; addr, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp; key, const <link linkend="_structevmc_1_1bytes32">bytes32</link> &amp; value)<computeroutput>[inline]</computeroutput>, <computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Set the account&apos;s storage value (EVMC <link linkend="_classevmc_1_1Host">Host</link> method). </para>
+</para>
+<para>
+Implements <link linkend="_classevmc_1_1HostInterface_1ab302ebc0c838560a6c4b8b1aec21815a">evmc::HostInterface</link>.</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00183">183</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1MockedHost_1l00186"/>00186 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00187"/>00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_classevmc_1_1MockedHost_1l00188"/>00188 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00189"/>00189 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Get&#32;the&#32;reference&#32;to&#32;the&#32;old&#32;value.</emphasis>
+<anchor xml:id="_classevmc_1_1MockedHost_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;This&#32;will&#32;create&#32;the&#32;account&#32;in&#32;case&#32;it&#32;was&#32;not&#32;present.</emphasis>
+<anchor xml:id="_classevmc_1_1MockedHost_1l00191"/>00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;This&#32;is&#32;convenient&#32;for&#32;unit&#32;testing&#32;and&#32;standalone&#32;EVM&#32;execution&#32;to&#32;preserve&#32;the</emphasis>
+<anchor xml:id="_classevmc_1_1MockedHost_1l00192"/>00192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;storage&#32;values&#32;after&#32;the&#32;execution&#32;terminates.</emphasis>
+<anchor xml:id="_classevmc_1_1MockedHost_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;old&#32;=&#32;<link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link>[addr].storage[key];
+<anchor xml:id="_classevmc_1_1MockedHost_1l00194"/>00194 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00195"/>00195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Follow&#32;https://eips.ethereum.org/EIPS/eip-1283&#32;specification.</emphasis>
+<anchor xml:id="_classevmc_1_1MockedHost_1l00196"/>00196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;WARNING!&#32;This&#32;is&#32;not&#32;complete&#32;implementation&#32;as&#32;refund&#32;is&#32;not&#32;handled&#32;here.</emphasis>
+<anchor xml:id="_classevmc_1_1MockedHost_1l00197"/>00197 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00198"/>00198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(old.value&#32;==&#32;value)
+<anchor xml:id="_classevmc_1_1MockedHost_1l00199"/>00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__EVMC_1ggae012fd6b8e5c23806b507c2d3e9fb1aaad6d527edcbe8a63edad5be80f252330c">EVMC_STORAGE_UNCHANGED</link>;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00200"/>00200 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1gae012fd6b8e5c23806b507c2d3e9fb1aa">evmc_storage_status</link>&#32;status{};
+<anchor xml:id="_classevmc_1_1MockedHost_1l00202"/>00202 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!old.dirty)
+<anchor xml:id="_classevmc_1_1MockedHost_1l00203"/>00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1MockedHost_1l00204"/>00204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;old.dirty&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!old.value)
+<anchor xml:id="_classevmc_1_1MockedHost_1l00206"/>00206 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;status&#32;=&#32;<link linkend="_group__EVMC_1ggae012fd6b8e5c23806b507c2d3e9fb1aaa8afd1741edf799d44264654d9f04a5a9">EVMC_STORAGE_ADDED</link>;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00207"/>00207 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(value)
+<anchor xml:id="_classevmc_1_1MockedHost_1l00208"/>00208 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;status&#32;=&#32;<link linkend="_group__EVMC_1ggae012fd6b8e5c23806b507c2d3e9fb1aaaf102ce749767d5277923c221089da2c6">EVMC_STORAGE_MODIFIED</link>;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="_classevmc_1_1MockedHost_1l00210"/>00210 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;status&#32;=&#32;<link linkend="_group__EVMC_1ggae012fd6b8e5c23806b507c2d3e9fb1aaae5b6ea5ec988f3b3ceb323ce3c0fa53f">EVMC_STORAGE_DELETED</link>;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00211"/>00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_classevmc_1_1MockedHost_1l00212"/>00212 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="_classevmc_1_1MockedHost_1l00213"/>00213 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;status&#32;=&#32;<link linkend="_group__EVMC_1ggae012fd6b8e5c23806b507c2d3e9fb1aaa072394aca7925f8de8facf8f8a5e477c">EVMC_STORAGE_MODIFIED_AGAIN</link>;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00214"/>00214 
+<anchor xml:id="_classevmc_1_1MockedHost_1l00215"/>00215 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;old.value&#32;=&#32;value;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00216"/>00216 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;status;
+<anchor xml:id="_classevmc_1_1MockedHost_1l00217"/>00217 &#32;&#32;&#32;&#32;}
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1MockedHost_aad63cd61357052ab1fa87e6ff372b3d7_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47"/><section>
+    <title>accounts</title>
+<indexterm><primary>accounts</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>accounts</secondary></indexterm>
+<para><computeroutput>std::unordered_map&lt;<link linkend="_structevmc_1_1address">address</link>, <link linkend="_structevmc_1_1MockedAccount">MockedAccount</link>&gt; evmc::MockedHost::accounts</computeroutput></para><para>
+
+<para>The set of all accounts in the <link linkend="_classevmc_1_1Host">Host</link>, organized by their addresses. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00110">110</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a4cdb6de6b81f9845eb6079f5729e0805"/><section>
+    <title>block_hash</title>
+<indexterm><primary>block_hash</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>block_hash</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc_1_1bytes32">bytes32</link> evmc::MockedHost::block_hash = {}</computeroutput></para><para>
+
+<para>The block header hash value to be returned by <link linkend="_classevmc_1_1MockedHost_1ace3ba78141acc06849d3b34382466e36">get_block_hash()</link>. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00116">116</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a473ec63bcb8b786c5fb1b097cfcfb8c0"/><section>
+    <title>call_result</title>
+<indexterm><primary>call_result</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>call_result</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc__result">evmc_result</link> evmc::MockedHost::call_result = {}</computeroutput></para><para>
+
+<para>The call result to be returned by the <link linkend="_classevmc_1_1MockedHost_1ad7f341e9bc49fe73286c65bfc3d56ec3">call()</link> method. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00119">119</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a07d9cb06c3f78bbb2323467271709467"/><section>
+    <title>m_recorded_calls_inputs</title>
+<indexterm><primary>m_recorded_calls_inputs</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>m_recorded_calls_inputs</secondary></indexterm>
+<para><computeroutput>std::vector&lt;<link linkend="_namespaceevmc_1a092c09f674d9cb5f0ba31d0f86537f4a">bytes</link>&gt; evmc::MockedHost::m_recorded_calls_inputs<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>The copy of call inputs for the recorded_calls record. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00146">146</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a5ab49cfd8bc76f9dab117946a5c12efa"/><section>
+    <title>max_recorded_account_accesses</title>
+<indexterm><primary>max_recorded_account_accesses</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>max_recorded_account_accesses</secondary></indexterm>
+<para><computeroutput>constexpr auto evmc::MockedHost::max_recorded_account_accesses = 200<computeroutput>[static]</computeroutput>, <computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+
+<para>The maximum number of entries in recorded_account_accesses record. </para>
+</para>
+
+<para>This is arbitrary value useful in fuzzing when we don&apos;t want the record to explode. </para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00129">129</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a78ad202959aa8d416faf715ab6f7f687"/><section>
+    <title>max_recorded_calls</title>
+<indexterm><primary>max_recorded_calls</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>max_recorded_calls</secondary></indexterm>
+<para><computeroutput>constexpr auto evmc::MockedHost::max_recorded_calls = 100<computeroutput>[static]</computeroutput>, <computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+
+<para>The maximum number of entries in recorded_calls record. </para>
+</para>
+
+<para>This is arbitrary value useful in fuzzing when we don&apos;t want the record to explode. </para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00136">136</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca"/><section>
+    <title>recorded_account_accesses</title>
+<indexterm><primary>recorded_account_accesses</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>recorded_account_accesses</secondary></indexterm>
+<para><computeroutput>std::vector&lt;<link linkend="_structevmc_1_1address">address</link>&gt; evmc::MockedHost::recorded_account_accesses<computeroutput>[mutable]</computeroutput></computeroutput></para><para>
+
+<para>The record of all account accesses. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00125">125</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1ac4acf299c63beb5134fede0d0a5f7c1f"/><section>
+    <title>recorded_blockhashes</title>
+<indexterm><primary>recorded_blockhashes</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>recorded_blockhashes</secondary></indexterm>
+<para><computeroutput>std::vector&lt;int64_t&gt; evmc::MockedHost::recorded_blockhashes<computeroutput>[mutable]</computeroutput></computeroutput></para><para>
+
+<para>The record of all block numbers for which <link linkend="_classevmc_1_1MockedHost_1ace3ba78141acc06849d3b34382466e36">get_block_hash()</link> was called. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00122">122</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1af4487c7cb827ef8ce54da187d109189a"/><section>
+    <title>recorded_calls</title>
+<indexterm><primary>recorded_calls</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>recorded_calls</secondary></indexterm>
+<para><computeroutput>std::vector&lt;<link linkend="_structevmc__message">evmc_message</link>&gt; evmc::MockedHost::recorded_calls</computeroutput></para><para>
+
+<para>The record of all call messages requested in the <link linkend="_classevmc_1_1MockedHost_1ad7f341e9bc49fe73286c65bfc3d56ec3">call()</link> method. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00132">132</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a6f6b51ddda349341a158456a180f7d9e"/><section>
+    <title>recorded_logs</title>
+<indexterm><primary>recorded_logs</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>recorded_logs</secondary></indexterm>
+<para><computeroutput>std::vector&lt;<link linkend="_structevmc_1_1MockedHost_1_1log__record">log_record</link>&gt; evmc::MockedHost::recorded_logs</computeroutput></para><para>
+
+<para>The record of all LOGs passed to the <link linkend="_classevmc_1_1MockedHost_1a4263c29b321dbecfcbb4357a469a3bee">emit_log()</link> method. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00139">139</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1a0456263e1326f91a27c0e3a0381d967f"/><section>
+    <title>recorded_selfdestructs</title>
+<indexterm><primary>recorded_selfdestructs</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>recorded_selfdestructs</secondary></indexterm>
+<para><computeroutput>std::vector&lt;<link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record">selfdestruct_record</link>&gt; evmc::MockedHost::recorded_selfdestructs</computeroutput></para><para>
+
+<para>The record of all SELFDESTRUCTs from the <link linkend="_classevmc_1_1MockedHost_1aa0b0cfd19450eaf220cde06ab1d96858">selfdestruct()</link> method. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00142">142</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1MockedHost_1addf01838d4c15228e746caa0a645a3b1"/><section>
+    <title>tx_context</title>
+<indexterm><primary>tx_context</primary><secondary>evmc::MockedHost</secondary></indexterm>
+<indexterm><primary>evmc::MockedHost</primary><secondary>tx_context</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc__tx__context">evmc_tx_context</link> evmc::MockedHost::tx_context = {}</computeroutput></para><para>
+
+<para>The EVMC transaction context to be returned by <link linkend="_classevmc_1_1MockedHost_1a45187586bde530ca7beb157467c12733">get_tx_context()</link>. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00113">113</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+include/evmc/<link linkend="_mocked__host_8hpp">mocked_host.hpp</link></section>
+</section>

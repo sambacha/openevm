@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structevmc__instruction__metrics" xml:lang="en-US">
+<title>evmc_instruction_metrics Struct Reference</title>
+<indexterm><primary>evmc_instruction_metrics</primary></indexterm>
+<para>
+
+<para>Metrics for an EVM 1 instruction. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;instructions.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>int16_t <link linkend="_structevmc__instruction__metrics_1a44c39286accf5bf74d10e7491ed5b8dd">gas_cost</link></para>
+
+<para>The instruction gas cost. </para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_structevmc__instruction__metrics_1a7cfaf4a8c004d69807e5c4a2b47dad6a">stack_height_required</link></para>
+
+<para>The minimum number of the EVM stack items required for the instruction. </para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_structevmc__instruction__metrics_1ae721712b3eb353747203bf18d1309e0b">stack_height_change</link></para>
+
+<para>The EVM stack height change caused by the instruction execution, i.e. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Metrics for an EVM 1 instruction. </para>
+
+
+
+<para>Small integer types are used here to make the tables of metrics smaller. </para>
+<para>
+Definition at line <link linkend="_instructions_8h_source_1l00187">187</link> of file <link linkend="_instructions_8h_source">instructions.h</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_structevmc__instruction__metrics_1a44c39286accf5bf74d10e7491ed5b8dd"/><section>
+    <title>gas_cost</title>
+<indexterm><primary>gas_cost</primary><secondary>evmc_instruction_metrics</secondary></indexterm>
+<indexterm><primary>evmc_instruction_metrics</primary><secondary>gas_cost</secondary></indexterm>
+<para><computeroutput>int16_t evmc_instruction_metrics::gas_cost</computeroutput></para><para>
+
+<para>The instruction gas cost. </para>
+</para>
+<para>
+Definition at line <link linkend="_instructions_8h_source_1l00190">190</link> of file <link linkend="_instructions_8h_source">instructions.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__instruction__metrics_1ae721712b3eb353747203bf18d1309e0b"/><section>
+    <title>stack_height_change</title>
+<indexterm><primary>stack_height_change</primary><secondary>evmc_instruction_metrics</secondary></indexterm>
+<indexterm><primary>evmc_instruction_metrics</primary><secondary>stack_height_change</secondary></indexterm>
+<para><computeroutput>int8_t evmc_instruction_metrics::stack_height_change</computeroutput></para><para>
+
+<para>The EVM stack height change caused by the instruction execution, i.e. </para>
+</para>
+
+<para>stack height <emphasis>after</emphasis> execution - stack height <emphasis>before</emphasis> execution. </para>
+<para>
+Definition at line <link linkend="_instructions_8h_source_1l00199">199</link> of file <link linkend="_instructions_8h_source">instructions.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__instruction__metrics_1a7cfaf4a8c004d69807e5c4a2b47dad6a"/><section>
+    <title>stack_height_required</title>
+<indexterm><primary>stack_height_required</primary><secondary>evmc_instruction_metrics</secondary></indexterm>
+<indexterm><primary>evmc_instruction_metrics</primary><secondary>stack_height_required</secondary></indexterm>
+<para><computeroutput>int8_t evmc_instruction_metrics::stack_height_required</computeroutput></para><para>
+
+<para>The minimum number of the EVM stack items required for the instruction. </para>
+</para>
+<para>
+Definition at line <link linkend="_instructions_8h_source_1l00193">193</link> of file <link linkend="_instructions_8h_source">instructions.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+include/evmc/<link linkend="_instructions_8h">instructions.h</link></section>
+</section>

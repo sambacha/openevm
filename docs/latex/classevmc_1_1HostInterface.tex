@@ -1,0 +1,274 @@
+\hypertarget{classevmc_1_1HostInterface}{}\doxysection{evmc\+::Host\+Interface Class Reference}
+\label{classevmc_1_1HostInterface}\index{evmc::HostInterface@{evmc::HostInterface}}
+
+
+The EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}} interface.  
+
+
+
+
+{\ttfamily \#include $<$evmc.\+hpp$>$}
+
+
+
+Inheritance diagram for evmc\+::Host\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{classevmc_1_1HostInterface__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classevmc_1_1HostInterface_a665ab0274f11c55269c08dc8c056d061}{$\sim$\+Host\+Interface}} () noexcept=default
+\item 
+virtual bool \mbox{\hyperlink{classevmc_1_1HostInterface_ae735474dc8425b49b3eb0ef12212fae7}{account\+\_\+exists}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr) const noexcept=0
+\begin{DoxyCompactList}\small\item\em Check account existence callback function. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \mbox{\hyperlink{classevmc_1_1HostInterface_a020f849f737fcd841681f73f74514b4d}{get\+\_\+storage}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&key) const noexcept=0
+\begin{DoxyCompactList}\small\item\em Get storage callback function. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{group__EVMC_gae012fd6b8e5c23806b507c2d3e9fb1aa}{evmc\+\_\+storage\+\_\+status}} \mbox{\hyperlink{classevmc_1_1HostInterface_ab302ebc0c838560a6c4b8b1aec21815a}{set\+\_\+storage}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&key, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&value) noexcept=0
+\begin{DoxyCompactList}\small\item\em Set storage callback function. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{namespaceevmc_a92bc6b73f1ce3a2b2eea018cf902c4da}{uint256be}} \mbox{\hyperlink{classevmc_1_1HostInterface_ac30e7e938793a2c46e3d5d416e15c3f5}{get\+\_\+balance}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr) const noexcept=0
+\begin{DoxyCompactList}\small\item\em Get balance callback function. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{classevmc_1_1HostInterface_a8cb4656ab4c478d5fe152b4f6c4b6dc4}{get\+\_\+code\+\_\+size}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr) const noexcept=0
+\begin{DoxyCompactList}\small\item\em Get code size callback function. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \mbox{\hyperlink{classevmc_1_1HostInterface_a748a36bc934302492f54e3fc90cdca88}{get\+\_\+code\+\_\+hash}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr) const noexcept=0
+\begin{DoxyCompactList}\small\item\em Get code hash callback function. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{classevmc_1_1HostInterface_ace3dcf2b277c60cb422f3af1d63dd36b}{copy\+\_\+code}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr, size\+\_\+t code\+\_\+offset, uint8\+\_\+t $\ast$buffer\+\_\+data, size\+\_\+t buffer\+\_\+size) const noexcept=0
+\begin{DoxyCompactList}\small\item\em Copy code callback function. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classevmc_1_1HostInterface_afd78f82767a70ed1e4e68fce6007ad0b}{selfdestruct}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr, const \mbox{\hyperlink{structevmc_1_1address}{address}} \&beneficiary) noexcept=0
+\begin{DoxyCompactList}\small\item\em Selfdestruct callback function. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classevmc_1_1result}{result}} \mbox{\hyperlink{classevmc_1_1HostInterface_a392feba1f27c9352c85bf2559c1fbcb2}{call}} (const \mbox{\hyperlink{structevmc__message}{evmc\+\_\+message}} \&msg) noexcept=0
+\begin{DoxyCompactList}\small\item\em Call callback function. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{structevmc__tx__context}{evmc\+\_\+tx\+\_\+context}} \mbox{\hyperlink{classevmc_1_1HostInterface_a2e958d4265e17048b817626f6fd3cdcc}{get\+\_\+tx\+\_\+context}} () const noexcept=0
+\begin{DoxyCompactList}\small\item\em Get transaction context callback function. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \mbox{\hyperlink{classevmc_1_1HostInterface_ab4fcbbe88b9490f78e0f99c7ce2b167f}{get\+\_\+block\+\_\+hash}} (int64\+\_\+t block\+\_\+number) const noexcept=0
+\begin{DoxyCompactList}\small\item\em Get block hash callback function. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classevmc_1_1HostInterface_a1f95317392e4615e29ad038fe4ff049d}{emit\+\_\+log}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr, const uint8\+\_\+t $\ast$data, size\+\_\+t data\+\_\+size, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} topics\mbox{[}$\,$\mbox{]}, size\+\_\+t num\+\_\+topics) noexcept=0
+\begin{DoxyCompactList}\small\item\em Emit log callback function. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{group__EVMC_ga9f71195f3873f9979d81d7a5e1b3aaf0}{evmc\+\_\+access\+\_\+status}} \mbox{\hyperlink{classevmc_1_1HostInterface_ab5ec93cb9fc439fd22cacecc468ed9f8}{access\+\_\+account}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr) noexcept=0
+\begin{DoxyCompactList}\small\item\em Access account callback function. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{group__EVMC_ga9f71195f3873f9979d81d7a5e1b3aaf0}{evmc\+\_\+access\+\_\+status}} \mbox{\hyperlink{classevmc_1_1HostInterface_ac0192ce7575fe86b7466405e93484ad8}{access\+\_\+storage}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&key) noexcept=0
+\begin{DoxyCompactList}\small\item\em Access storage callback function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}} interface. 
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00438}{438}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classevmc_1_1HostInterface_a665ab0274f11c55269c08dc8c056d061}\label{classevmc_1_1HostInterface_a665ab0274f11c55269c08dc8c056d061}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!````~HostInterface@{$\sim$HostInterface}}
+\index{````~HostInterface@{$\sim$HostInterface}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{$\sim$HostInterface()}{~HostInterface()}}
+{\footnotesize\ttfamily virtual evmc\+::\+Host\+Interface\+::$\sim$\+Host\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classevmc_1_1HostInterface_ab5ec93cb9fc439fd22cacecc468ed9f8}\label{classevmc_1_1HostInterface_ab5ec93cb9fc439fd22cacecc468ed9f8}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!access\_account@{access\_account}}
+\index{access\_account@{access\_account}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{access\_account()}{access\_account()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{group__EVMC_ga9f71195f3873f9979d81d7a5e1b3aaf0}{evmc\+\_\+access\+\_\+status}} evmc\+::\+Host\+Interface\+::access\+\_\+account (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Access account callback function. 
+
+
+
+Implemented in \mbox{\hyperlink{classevmc_1_1MockedHost_a51f9acf40acec535549d32c7ab079b9e}{evmc\+::\+Mocked\+Host}}, \mbox{\hyperlink{classevmc_1_1HostContext_a703bce4ebfcec7bd8b804e30f7b0d965}{evmc\+::\+Host\+Context}}, and \mbox{\hyperlink{classExampleHost_a90efb185a1ad4f66c5ba404316c3497d}{Example\+Host}}.
+
+\mbox{\Hypertarget{classevmc_1_1HostInterface_ac0192ce7575fe86b7466405e93484ad8}\label{classevmc_1_1HostInterface_ac0192ce7575fe86b7466405e93484ad8}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!access\_storage@{access\_storage}}
+\index{access\_storage@{access\_storage}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{access\_storage()}{access\_storage()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{group__EVMC_ga9f71195f3873f9979d81d7a5e1b3aaf0}{evmc\+\_\+access\+\_\+status}} evmc\+::\+Host\+Interface\+::access\+\_\+storage (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Access storage callback function. 
+
+
+
+Implemented in \mbox{\hyperlink{classevmc_1_1MockedHost_a759d289a03d7ebeac0b727938d9ee521}{evmc\+::\+Mocked\+Host}}, \mbox{\hyperlink{classevmc_1_1HostContext_a4132fc7dd93405c5c2fcd2729d7a2be8}{evmc\+::\+Host\+Context}}, and \mbox{\hyperlink{classExampleHost_a4c9e24f1177e2ecddac5b6959c19ec60}{Example\+Host}}.
+
+\mbox{\Hypertarget{classevmc_1_1HostInterface_ae735474dc8425b49b3eb0ef12212fae7}\label{classevmc_1_1HostInterface_ae735474dc8425b49b3eb0ef12212fae7}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!account\_exists@{account\_exists}}
+\index{account\_exists@{account\_exists}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{account\_exists()}{account\_exists()}}
+{\footnotesize\ttfamily virtual bool evmc\+::\+Host\+Interface\+::account\+\_\+exists (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Check account existence callback function. 
+
+
+
+Implemented in \mbox{\hyperlink{classevmc_1_1MockedHost_a53a463e19e4908022137ce53715c2dce}{evmc\+::\+Mocked\+Host}}, \mbox{\hyperlink{classevmc_1_1HostContext_a08a0b1cc1f03aff697e9344865047e56}{evmc\+::\+Host\+Context}}, and \mbox{\hyperlink{classExampleHost_ac37de9a8465e23879f64c8ada27b1285}{Example\+Host}}.
+
+\mbox{\Hypertarget{classevmc_1_1HostInterface_a392feba1f27c9352c85bf2559c1fbcb2}\label{classevmc_1_1HostInterface_a392feba1f27c9352c85bf2559c1fbcb2}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!call@{call}}
+\index{call@{call}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{call()}{call()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classevmc_1_1result}{result}} evmc\+::\+Host\+Interface\+::call (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc__message}{evmc\+\_\+message}} \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Call callback function. 
+
+
+
+Implemented in \mbox{\hyperlink{classevmc_1_1HostContext_a47884bf60bd9f503300fae10bdc058f2}{evmc\+::\+Host\+Context}}, \mbox{\hyperlink{classExampleHost_ad76f578cc300dfb59e3f7eb561e7112e}{Example\+Host}}, and \mbox{\hyperlink{classevmc_1_1MockedHost_ad7f341e9bc49fe73286c65bfc3d56ec3}{evmc\+::\+Mocked\+Host}}.
+
+\mbox{\Hypertarget{classevmc_1_1HostInterface_ace3dcf2b277c60cb422f3af1d63dd36b}\label{classevmc_1_1HostInterface_ace3dcf2b277c60cb422f3af1d63dd36b}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!copy\_code@{copy\_code}}
+\index{copy\_code@{copy\_code}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{copy\_code()}{copy\_code()}}
+{\footnotesize\ttfamily virtual size\+\_\+t evmc\+::\+Host\+Interface\+::copy\+\_\+code (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr,  }\item[{size\+\_\+t}]{code\+\_\+offset,  }\item[{uint8\+\_\+t $\ast$}]{buffer\+\_\+data,  }\item[{size\+\_\+t}]{buffer\+\_\+size }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Copy code callback function. 
+
+
+
+Implemented in \mbox{\hyperlink{classevmc_1_1MockedHost_a2679f00109fab1c027fb789b83a25d20}{evmc\+::\+Mocked\+Host}}, \mbox{\hyperlink{classevmc_1_1HostContext_a62742a0675d8675dd8ee155b5def02dc}{evmc\+::\+Host\+Context}}, and \mbox{\hyperlink{classExampleHost_a9d20a3ad0ef146bd51b99a60c4aabc56}{Example\+Host}}.
+
+\mbox{\Hypertarget{classevmc_1_1HostInterface_a1f95317392e4615e29ad038fe4ff049d}\label{classevmc_1_1HostInterface_a1f95317392e4615e29ad038fe4ff049d}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!emit\_log@{emit\_log}}
+\index{emit\_log@{emit\_log}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{emit\_log()}{emit\_log()}}
+{\footnotesize\ttfamily virtual void evmc\+::\+Host\+Interface\+::emit\+\_\+log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr,  }\item[{const uint8\+\_\+t $\ast$}]{data,  }\item[{size\+\_\+t}]{data\+\_\+size,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}}}]{topics\mbox{[}$\,$\mbox{]},  }\item[{size\+\_\+t}]{num\+\_\+topics }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Emit log callback function. 
+
+
+
+Implemented in \mbox{\hyperlink{classevmc_1_1HostContext_acb1f7dabab3134e4ac80f9f6ada590a9}{evmc\+::\+Host\+Context}}, \mbox{\hyperlink{classevmc_1_1MockedHost_a4263c29b321dbecfcbb4357a469a3bee}{evmc\+::\+Mocked\+Host}}, and \mbox{\hyperlink{classExampleHost_ae095a66b77e3c69f1b111eddf88556e8}{Example\+Host}}.
+
+\mbox{\Hypertarget{classevmc_1_1HostInterface_ac30e7e938793a2c46e3d5d416e15c3f5}\label{classevmc_1_1HostInterface_ac30e7e938793a2c46e3d5d416e15c3f5}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!get\_balance@{get\_balance}}
+\index{get\_balance@{get\_balance}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{get\_balance()}{get\_balance()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{namespaceevmc_a92bc6b73f1ce3a2b2eea018cf902c4da}{uint256be}} evmc\+::\+Host\+Interface\+::get\+\_\+balance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Get balance callback function. 
+
+
+
+Implemented in \mbox{\hyperlink{classevmc_1_1MockedHost_a401e74178baba9772638e6b4309e9bee}{evmc\+::\+Mocked\+Host}}, \mbox{\hyperlink{classevmc_1_1HostContext_a2e50fd490162237ac04f26cbd8c9e916}{evmc\+::\+Host\+Context}}, and \mbox{\hyperlink{classExampleHost_affae69006394fc7c455cb629eb160df9}{Example\+Host}}.
+
+\mbox{\Hypertarget{classevmc_1_1HostInterface_ab4fcbbe88b9490f78e0f99c7ce2b167f}\label{classevmc_1_1HostInterface_ab4fcbbe88b9490f78e0f99c7ce2b167f}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!get\_block\_hash@{get\_block\_hash}}
+\index{get\_block\_hash@{get\_block\_hash}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{get\_block\_hash()}{get\_block\_hash()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} evmc\+::\+Host\+Interface\+::get\+\_\+block\+\_\+hash (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{block\+\_\+number }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Get block hash callback function. 
+
+
+
+Implemented in \mbox{\hyperlink{classevmc_1_1MockedHost_ace3ba78141acc06849d3b34382466e36}{evmc\+::\+Mocked\+Host}}, \mbox{\hyperlink{classExampleHost_ab9061ad7baeb932aeb1e5e6c15eaccdc}{Example\+Host}}, and \mbox{\hyperlink{classevmc_1_1HostContext_ac7ce942550fee4d6e801af880484e271}{evmc\+::\+Host\+Context}}.
+
+\mbox{\Hypertarget{classevmc_1_1HostInterface_a748a36bc934302492f54e3fc90cdca88}\label{classevmc_1_1HostInterface_a748a36bc934302492f54e3fc90cdca88}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!get\_code\_hash@{get\_code\_hash}}
+\index{get\_code\_hash@{get\_code\_hash}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{get\_code\_hash()}{get\_code\_hash()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} evmc\+::\+Host\+Interface\+::get\+\_\+code\+\_\+hash (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Get code hash callback function. 
+
+
+
+Implemented in \mbox{\hyperlink{classevmc_1_1MockedHost_a776687379553c67540c8c16df9e8f226}{evmc\+::\+Mocked\+Host}}, \mbox{\hyperlink{classevmc_1_1HostContext_a06c2f1a5f29be3384b4e48c70198b563}{evmc\+::\+Host\+Context}}, and \mbox{\hyperlink{classExampleHost_a588763d53930877e2aac165fe8253bf2}{Example\+Host}}.
+
+\mbox{\Hypertarget{classevmc_1_1HostInterface_a8cb4656ab4c478d5fe152b4f6c4b6dc4}\label{classevmc_1_1HostInterface_a8cb4656ab4c478d5fe152b4f6c4b6dc4}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!get\_code\_size@{get\_code\_size}}
+\index{get\_code\_size@{get\_code\_size}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{get\_code\_size()}{get\_code\_size()}}
+{\footnotesize\ttfamily virtual size\+\_\+t evmc\+::\+Host\+Interface\+::get\+\_\+code\+\_\+size (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Get code size callback function. 
+
+
+
+Implemented in \mbox{\hyperlink{classevmc_1_1MockedHost_a0ecf2503e3af4ed98cce8eff45385a33}{evmc\+::\+Mocked\+Host}}, \mbox{\hyperlink{classevmc_1_1HostContext_a278e6c530fce8397b1dc2de07ba0b26d}{evmc\+::\+Host\+Context}}, and \mbox{\hyperlink{classExampleHost_a7e5aacf59d0d072d8ebbce74ba3cf513}{Example\+Host}}.
+
+\mbox{\Hypertarget{classevmc_1_1HostInterface_a020f849f737fcd841681f73f74514b4d}\label{classevmc_1_1HostInterface_a020f849f737fcd841681f73f74514b4d}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!get\_storage@{get\_storage}}
+\index{get\_storage@{get\_storage}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{get\_storage()}{get\_storage()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} evmc\+::\+Host\+Interface\+::get\+\_\+storage (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Get storage callback function. 
+
+
+
+Implemented in \mbox{\hyperlink{classevmc_1_1MockedHost_a6336919efaf07ad1e9e4f725a86ebdca}{evmc\+::\+Mocked\+Host}}, \mbox{\hyperlink{classevmc_1_1HostContext_afb6bc0d98a19cf760ef9e886366e4108}{evmc\+::\+Host\+Context}}, and \mbox{\hyperlink{classExampleHost_afeed7489e0128d0df0f398744c57b14a}{Example\+Host}}.
+
+\mbox{\Hypertarget{classevmc_1_1HostInterface_a2e958d4265e17048b817626f6fd3cdcc}\label{classevmc_1_1HostInterface_a2e958d4265e17048b817626f6fd3cdcc}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!get\_tx\_context@{get\_tx\_context}}
+\index{get\_tx\_context@{get\_tx\_context}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{get\_tx\_context()}{get\_tx\_context()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structevmc__tx__context}{evmc\+\_\+tx\+\_\+context}} evmc\+::\+Host\+Interface\+::get\+\_\+tx\+\_\+context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Get transaction context callback function. 
+
+
+
+Implemented in \mbox{\hyperlink{classExampleHost_aa7acecd4846fda20be62fb724ed0075a}{Example\+Host}}, \mbox{\hyperlink{classevmc_1_1HostContext_af51f231f8607e7a506a25d8b21874cd1}{evmc\+::\+Host\+Context}}, and \mbox{\hyperlink{classevmc_1_1MockedHost_a45187586bde530ca7beb157467c12733}{evmc\+::\+Mocked\+Host}}.
+
+\mbox{\Hypertarget{classevmc_1_1HostInterface_afd78f82767a70ed1e4e68fce6007ad0b}\label{classevmc_1_1HostInterface_afd78f82767a70ed1e4e68fce6007ad0b}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!selfdestruct@{selfdestruct}}
+\index{selfdestruct@{selfdestruct}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{selfdestruct()}{selfdestruct()}}
+{\footnotesize\ttfamily virtual void evmc\+::\+Host\+Interface\+::selfdestruct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr,  }\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{beneficiary }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Selfdestruct callback function. 
+
+
+
+Implemented in \mbox{\hyperlink{classevmc_1_1HostContext_a150580ee3efd12661656c4e3ab350457}{evmc\+::\+Host\+Context}}, \mbox{\hyperlink{classevmc_1_1MockedHost_aa0b0cfd19450eaf220cde06ab1d96858}{evmc\+::\+Mocked\+Host}}, and \mbox{\hyperlink{classExampleHost_a9d2ce6481950dfc3d30fdd9e80665c14}{Example\+Host}}.
+
+\mbox{\Hypertarget{classevmc_1_1HostInterface_ab302ebc0c838560a6c4b8b1aec21815a}\label{classevmc_1_1HostInterface_ab302ebc0c838560a6c4b8b1aec21815a}} 
+\index{evmc::HostInterface@{evmc::HostInterface}!set\_storage@{set\_storage}}
+\index{set\_storage@{set\_storage}!evmc::HostInterface@{evmc::HostInterface}}
+\doxysubsubsection{\texorpdfstring{set\_storage()}{set\_storage()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{group__EVMC_gae012fd6b8e5c23806b507c2d3e9fb1aa}{evmc\+\_\+storage\+\_\+status}} evmc\+::\+Host\+Interface\+::set\+\_\+storage (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{key,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Set storage callback function. 
+
+
+
+Implemented in \mbox{\hyperlink{classevmc_1_1MockedHost_aad63cd61357052ab1fa87e6ff372b3d7}{evmc\+::\+Mocked\+Host}}, \mbox{\hyperlink{classevmc_1_1HostContext_accce7c534c0f1e50f70d52a50d2ff659}{evmc\+::\+Host\+Context}}, and \mbox{\hyperlink{classExampleHost_a2e2c1d74614e7c863b501e2e1e56e622}{Example\+Host}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/evmc/\mbox{\hyperlink{evmc_8hpp}{evmc.\+hpp}}\end{DoxyCompactItemize}

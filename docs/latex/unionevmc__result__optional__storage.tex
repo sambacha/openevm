@@ -1,0 +1,70 @@
+\hypertarget{unionevmc__result__optional__storage}{}\doxysection{evmc\+\_\+result\+\_\+optional\+\_\+storage Union Reference}
+\label{unionevmc__result__optional__storage}\index{evmc\_result\_optional\_storage@{evmc\_result\_optional\_storage}}
+
+
+The union representing \mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}} \char`\"{}optional storage\char`\"{}.  
+
+
+
+
+{\ttfamily \#include $<$helpers.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{unionevmc__result__optional__storage_ac98bd272f9b63a17b2c1a10deff80716}{bytes}} \mbox{[}24\mbox{]}
+\begin{DoxyCompactList}\small\item\em 24 bytes of optional storage. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{unionevmc__result__optional__storage_a98839fa102a6c892a735804160ca34c7}{pointer}}
+\begin{DoxyCompactList}\small\item\em Optional pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The union representing \mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}} \char`\"{}optional storage\char`\"{}. 
+
+The \mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}} struct contains 24 bytes of optional storage that can be reused by the object creator if the object does not contain \mbox{\hyperlink{structevmc__result_ae7f37ff7c9cfa3b58af2c89f4d610522}{evmc\+\_\+result\+::create\+\_\+address}}.
+
+A VM implementation MAY use this memory to keep additional data when returning result from \mbox{\hyperlink{group__EVMC_gaed9a4ab5609b55c5e3272d6d37d84ff7}{evmc\+\_\+execute\+\_\+fn()}}. The host application MAY use this memory to keep additional data when returning result of performed calls from \mbox{\hyperlink{group__EVMC_ga54f569386b52be6eee15ca9e14ed1ef8}{evmc\+\_\+call\+\_\+fn()}}.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__result__optional__storage_gaf07c4782c1ee8f22ad9a3baae8d0d9fe}{evmc\+\_\+get\+\_\+optional\+\_\+storage()}}, \mbox{\hyperlink{group__result__optional__storage_gadc8033f0501ad094c8319da486018939}{evmc\+\_\+get\+\_\+const\+\_\+optional\+\_\+storage()}}. 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{helpers_8h_source_l00190}{190}} of file \mbox{\hyperlink{helpers_8h_source}{helpers.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{unionevmc__result__optional__storage_ac98bd272f9b63a17b2c1a10deff80716}\label{unionevmc__result__optional__storage_ac98bd272f9b63a17b2c1a10deff80716}} 
+\index{evmc\_result\_optional\_storage@{evmc\_result\_optional\_storage}!bytes@{bytes}}
+\index{bytes@{bytes}!evmc\_result\_optional\_storage@{evmc\_result\_optional\_storage}}
+\doxysubsubsection{\texorpdfstring{bytes}{bytes}}
+{\footnotesize\ttfamily uint8\+\_\+t evmc\+\_\+result\+\_\+optional\+\_\+storage\+::bytes\mbox{[}24\mbox{]}}
+
+
+
+24 bytes of optional storage. 
+
+
+
+Definition at line \mbox{\hyperlink{helpers_8h_source_l00192}{192}} of file \mbox{\hyperlink{helpers_8h_source}{helpers.\+h}}.
+
+\mbox{\Hypertarget{unionevmc__result__optional__storage_a98839fa102a6c892a735804160ca34c7}\label{unionevmc__result__optional__storage_a98839fa102a6c892a735804160ca34c7}} 
+\index{evmc\_result\_optional\_storage@{evmc\_result\_optional\_storage}!pointer@{pointer}}
+\index{pointer@{pointer}!evmc\_result\_optional\_storage@{evmc\_result\_optional\_storage}}
+\doxysubsubsection{\texorpdfstring{pointer}{pointer}}
+{\footnotesize\ttfamily void$\ast$ evmc\+\_\+result\+\_\+optional\+\_\+storage\+::pointer}
+
+
+
+Optional pointer. 
+
+
+
+Definition at line \mbox{\hyperlink{helpers_8h_source_l00193}{193}} of file \mbox{\hyperlink{helpers_8h_source}{helpers.\+h}}.
+
+
+
+The documentation for this union was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/evmc/\mbox{\hyperlink{helpers_8h}{helpers.\+h}}\end{DoxyCompactItemize}

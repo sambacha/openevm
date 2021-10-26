@@ -1,0 +1,79 @@
+\hypertarget{structevmc__instruction__metrics}{}\doxysection{evmc\+\_\+instruction\+\_\+metrics Struct Reference}
+\label{structevmc__instruction__metrics}\index{evmc\_instruction\_metrics@{evmc\_instruction\_metrics}}
+
+
+Metrics for an EVM 1 instruction.  
+
+
+
+
+{\ttfamily \#include $<$instructions.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int16\+\_\+t \mbox{\hyperlink{structevmc__instruction__metrics_a44c39286accf5bf74d10e7491ed5b8dd}{gas\+\_\+cost}}
+\begin{DoxyCompactList}\small\item\em The instruction gas cost. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{structevmc__instruction__metrics_a7cfaf4a8c004d69807e5c4a2b47dad6a}{stack\+\_\+height\+\_\+required}}
+\begin{DoxyCompactList}\small\item\em The minimum number of the EVM stack items required for the instruction. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{structevmc__instruction__metrics_ae721712b3eb353747203bf18d1309e0b}{stack\+\_\+height\+\_\+change}}
+\begin{DoxyCompactList}\small\item\em The EVM stack height change caused by the instruction execution, i.\+e. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Metrics for an EVM 1 instruction. 
+
+Small integer types are used here to make the tables of metrics smaller. 
+
+Definition at line \mbox{\hyperlink{instructions_8h_source_l00187}{187}} of file \mbox{\hyperlink{instructions_8h_source}{instructions.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structevmc__instruction__metrics_a44c39286accf5bf74d10e7491ed5b8dd}\label{structevmc__instruction__metrics_a44c39286accf5bf74d10e7491ed5b8dd}} 
+\index{evmc\_instruction\_metrics@{evmc\_instruction\_metrics}!gas\_cost@{gas\_cost}}
+\index{gas\_cost@{gas\_cost}!evmc\_instruction\_metrics@{evmc\_instruction\_metrics}}
+\doxysubsubsection{\texorpdfstring{gas\_cost}{gas\_cost}}
+{\footnotesize\ttfamily int16\+\_\+t evmc\+\_\+instruction\+\_\+metrics\+::gas\+\_\+cost}
+
+
+
+The instruction gas cost. 
+
+
+
+Definition at line \mbox{\hyperlink{instructions_8h_source_l00190}{190}} of file \mbox{\hyperlink{instructions_8h_source}{instructions.\+h}}.
+
+\mbox{\Hypertarget{structevmc__instruction__metrics_ae721712b3eb353747203bf18d1309e0b}\label{structevmc__instruction__metrics_ae721712b3eb353747203bf18d1309e0b}} 
+\index{evmc\_instruction\_metrics@{evmc\_instruction\_metrics}!stack\_height\_change@{stack\_height\_change}}
+\index{stack\_height\_change@{stack\_height\_change}!evmc\_instruction\_metrics@{evmc\_instruction\_metrics}}
+\doxysubsubsection{\texorpdfstring{stack\_height\_change}{stack\_height\_change}}
+{\footnotesize\ttfamily int8\+\_\+t evmc\+\_\+instruction\+\_\+metrics\+::stack\+\_\+height\+\_\+change}
+
+
+
+The EVM stack height change caused by the instruction execution, i.\+e. 
+
+stack height {\itshape after} execution -\/ stack height {\itshape before} execution. 
+
+Definition at line \mbox{\hyperlink{instructions_8h_source_l00199}{199}} of file \mbox{\hyperlink{instructions_8h_source}{instructions.\+h}}.
+
+\mbox{\Hypertarget{structevmc__instruction__metrics_a7cfaf4a8c004d69807e5c4a2b47dad6a}\label{structevmc__instruction__metrics_a7cfaf4a8c004d69807e5c4a2b47dad6a}} 
+\index{evmc\_instruction\_metrics@{evmc\_instruction\_metrics}!stack\_height\_required@{stack\_height\_required}}
+\index{stack\_height\_required@{stack\_height\_required}!evmc\_instruction\_metrics@{evmc\_instruction\_metrics}}
+\doxysubsubsection{\texorpdfstring{stack\_height\_required}{stack\_height\_required}}
+{\footnotesize\ttfamily int8\+\_\+t evmc\+\_\+instruction\+\_\+metrics\+::stack\+\_\+height\+\_\+required}
+
+
+
+The minimum number of the EVM stack items required for the instruction. 
+
+
+
+Definition at line \mbox{\hyperlink{instructions_8h_source_l00193}{193}} of file \mbox{\hyperlink{instructions_8h_source}{instructions.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/evmc/\mbox{\hyperlink{instructions_8h}{instructions.\+h}}\end{DoxyCompactItemize}

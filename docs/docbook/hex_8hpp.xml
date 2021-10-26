@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_hex_8hpp" xml:lang="en-US">
+<title>include/evmc/hex.hpp File Reference</title>
+<indexterm><primary>include/evmc/hex.hpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;cstdint&gt;
+#include &lt;iterator&gt;
+#include &lt;string&gt;
+#include &lt;string_view&gt;
+#include &lt;system_error&gt;
+</programlisting>Include dependency graph for hex.hpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="hex_8hpp__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structevmc_1_1hex__error">evmc::hex_error</link></para>
+
+<para>Hex decoding exception. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespaceevmc">evmc</link></para>
+
+<para>EVMC C++ API - wrappers and bindings for C++. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="_namespaceevmc_1a092c09f674d9cb5f0ba31d0f86537f4a">evmc::bytes</link> = std::basic_string&lt; uint8_t &gt;</para>
+
+<para>String of uint8_t chars. </para>
+</listitem>
+            <listitem><para>using <link linkend="_namespaceevmc_1a539bc1335390844ee67ae697ec457720">evmc::bytes_view</link> = std::basic_string_view&lt; uint8_t &gt;</para>
+
+<para>String view of uint8_t chars. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum class <link linkend="_namespaceevmc_1a37d7a743959a67434404404b257b2fd4">evmc::hex_errc</link> { <link linkend="_namespaceevmc_1a37d7a743959a67434404404b257b2fd4a52e6eb82c226e9bfa738fa47d7e359dd">evmc::invalid_hex_digit</link> = 1
+, <link linkend="_namespaceevmc_1a37d7a743959a67434404404b257b2fd4aac6aff673f8bde724199fc07cea34f63">evmc::incomplete_hex_byte_pair</link> = 2
+ }</para>
+
+<para>Hex decoding error codes. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>const std::error_category &amp; <link linkend="_namespaceevmc_1ab7adb84a6060aa244b75958d73752696">evmc::hex_category</link> () noexcept</para>
+
+<para>Obtains a reference to the static error category object for hex errors. </para>
+</listitem>
+            <listitem><para>std::error_code <link linkend="_namespaceevmc_1aaf35d1ee5ad04f36c4287e9bafb4bd48">evmc::make_error_code</link> (hex_errc errc) noexcept</para>
+
+<para>Creates error_code object out of a hex error code value. </para>
+</listitem>
+            <listitem><para>std::string <link linkend="_namespaceevmc_1a19a82782b528ebd37782eb145cf4152c">evmc::hex</link> (uint8_t b) noexcept</para>
+
+<para>Encode a byte to a hex string. </para>
+</listitem>
+            <listitem><para>std::error_code <link linkend="_namespaceevmc_1aad6a175f9f53ee5700cb0c233efba79b">evmc::validate_hex</link> (std::string_view hex) noexcept</para>
+
+<para>Validates hex encoded string. </para>
+</listitem>
+            <listitem><para>bytes <link linkend="_namespaceevmc_1a4d4e349e08f3fed84bbd6424208a43cf">evmc::from_hex</link> (std::string_view hex)</para>
+
+<para>Decodes hex encoded string to bytes. </para>
+</listitem>
+            <listitem><para>std::string <link linkend="_namespaceevmc_1adb1773c2909e66879ce13de2a49c5fee">evmc::hex</link> (bytes_view bs)</para>
+
+<para>Encodes bytes as hex string. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

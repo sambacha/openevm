@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_example__host_8cpp_source" xml:lang="en-US">
+<title>example_host.cpp</title>
+<indexterm><primary>examples/example_host.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_example__host_8cpp_source_1l00001"/>00001 <emphasis role="comment">/*&#32;EVMC:&#32;Ethereum&#32;Client-VM&#32;Connector&#32;API.</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00002"/>00002 <emphasis role="comment">&#32;*&#32;Copyright&#32;2016-2019&#32;The&#32;EVMC&#32;Authors.</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00003"/>00003 <emphasis role="comment">&#32;*&#32;Licensed&#32;under&#32;the&#32;Apache&#32;License,&#32;Version&#32;2.0.</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00004"/>00004 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00005"/>00005 
+<anchor xml:id="_example__host_8cpp_source_1l00008"/>00008 
+<anchor xml:id="_example__host_8cpp_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_example__host_8h">example_host.h</link>&quot;</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00010"/>00010 
+<anchor xml:id="_example__host_8cpp_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&lt;<link linkend="_evmc_8hpp">evmc/evmc.hpp</link>&gt;</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00012"/>00012 
+<anchor xml:id="_example__host_8cpp_source_1l00013"/>00013 <emphasis role="preprocessor">#include&#32;&lt;algorithm&gt;</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00014"/>00014 <emphasis role="preprocessor">#include&#32;&lt;map&gt;</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00015"/>00015 <emphasis role="preprocessor">#include&#32;&lt;vector&gt;</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00016"/>00016 
+<anchor xml:id="_example__host_8cpp_source_1l00017"/>00017 <emphasis role="keyword">using&#32;namespace&#32;</emphasis><link linkend="_namespaceevmc_1_1literals">evmc::literals</link>;
+<anchor xml:id="_example__host_8cpp_source_1l00018"/>00018 
+<anchor xml:id="_example__host_8cpp_source_1l00019"/><link linkend="_namespaceevmc">00019</link> <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespaceevmc">evmc</link>
+<anchor xml:id="_example__host_8cpp_source_1l00020"/>00020 {
+<anchor xml:id="_example__host_8cpp_source_1l00021"/><link linkend="_structevmc_1_1account">00021</link> <emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc_1_1account">account</link>
+<anchor xml:id="_example__host_8cpp_source_1l00022"/>00022 {
+<anchor xml:id="_example__host_8cpp_source_1l00023"/><link linkend="_structevmc_1_1account_1a419f7e4d674c88eecc3a9609fc1fe00a">00023</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_structevmc_1_1account_1a419f7e4d674c88eecc3a9609fc1fe00a">~account</link>()&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="_example__host_8cpp_source_1l00024"/>00024 
+<anchor xml:id="_example__host_8cpp_source_1l00025"/><link linkend="_structevmc_1_1account_1ac704efb6f4a9b06be6269771fa4380d1">00025</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">evmc::uint256be</link>&#32;<link linkend="_structevmc_1_1account_1ac704efb6f4a9b06be6269771fa4380d1">balance</link>&#32;=&#32;{};
+<anchor xml:id="_example__host_8cpp_source_1l00026"/><link linkend="_structevmc_1_1account_1ada1c49993310d42d490999e33d59ebb9">00026</link> &#32;&#32;&#32;&#32;std::vector&lt;uint8_t&gt;&#32;<link linkend="_structevmc_1_1account_1ada1c49993310d42d490999e33d59ebb9">code</link>;
+<anchor xml:id="_example__host_8cpp_source_1l00027"/><link linkend="_structevmc_1_1account_1ac13e5e95a22eae369694c456f9d3b1ba">00027</link> &#32;&#32;&#32;&#32;std::map&lt;evmc::bytes32,&#32;evmc::bytes32&gt;&#32;<link linkend="_structevmc_1_1account_1ac13e5e95a22eae369694c456f9d3b1ba">storage</link>;
+<anchor xml:id="_example__host_8cpp_source_1l00028"/>00028 
+<anchor xml:id="_example__host_8cpp_source_1l00029"/><link linkend="_structevmc_1_1account_1aae28bc8e04d8a916574eff99a69560ef">00029</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">evmc::bytes32</link>&#32;<link linkend="_structevmc_1_1account_1aae28bc8e04d8a916574eff99a69560ef">code_hash</link>()<emphasis role="keyword">&#32;const</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00030"/>00030 <emphasis role="keyword">&#32;&#32;&#32;&#32;</emphasis>{
+<anchor xml:id="_example__host_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Extremely&#32;dumb&#32;&quot;hash&quot;&#32;function.</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">evmc::bytes32</link>&#32;ret{};
+<anchor xml:id="_example__host_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(std::vector&lt;uint8_t&gt;::size_type&#32;i&#32;=&#32;0;&#32;i&#32;!=&#32;<link linkend="_structevmc_1_1account_1ada1c49993310d42d490999e33d59ebb9">code</link>.size();&#32;i++)
+<anchor xml:id="_example__host_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;v&#32;=&#32;<link linkend="_structevmc_1_1account_1ada1c49993310d42d490999e33d59ebb9">code</link>[i];
+<anchor xml:id="_example__host_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ret.bytes[v&#32;%&#32;<emphasis role="keyword">sizeof</emphasis>(ret.bytes)]&#32;^=&#32;v;
+<anchor xml:id="_example__host_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;ret;
+<anchor xml:id="_example__host_8cpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00040"/>00040 };
+<anchor xml:id="_example__host_8cpp_source_1l00041"/>00041 
+<anchor xml:id="_example__host_8cpp_source_1l00042"/><link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">00042</link> <emphasis role="keyword">using</emphasis>&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">accounts</link>&#32;=&#32;std::map&lt;evmc::address,&#32;account&gt;;
+<anchor xml:id="_example__host_8cpp_source_1l00043"/>00043 
+<anchor xml:id="_example__host_8cpp_source_1l00044"/>00044 }&#32;&#32;<emphasis role="comment">//&#32;namespace&#32;evmc</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00045"/>00045 
+<anchor xml:id="_example__host_8cpp_source_1l00046"/><link linkend="_classExampleHost">00046</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classExampleHost">ExampleHost</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_classevmc_1_1Host">evmc::Host</link>
+<anchor xml:id="_example__host_8cpp_source_1l00047"/>00047 {
+<anchor xml:id="_example__host_8cpp_source_1l00048"/><link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">00048</link> &#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">evmc::accounts</link>&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>;
+<anchor xml:id="_example__host_8cpp_source_1l00049"/><link linkend="_classExampleHost_1a0945262a8d233b8d45b2479432b3d792">00049</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc__tx__context">evmc_tx_context</link>&#32;<link linkend="_classExampleHost_1a0945262a8d233b8d45b2479432b3d792">tx_context</link>{};
+<anchor xml:id="_example__host_8cpp_source_1l00050"/>00050 
+<anchor xml:id="_example__host_8cpp_source_1l00051"/>00051 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_example__host_8cpp_source_1l00052"/><link linkend="_classExampleHost_1a53770f0a3ca09715b0306bdc9f0304b7">00052</link> &#32;&#32;&#32;&#32;<link linkend="_classExampleHost_1a53770f0a3ca09715b0306bdc9f0304b7">ExampleHost</link>()&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="_example__host_8cpp_source_1l00053"/><link linkend="_classExampleHost_1a6d2f475d7f9dde90a8a0bc18d13d8e3e">00053</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_classExampleHost_1a6d2f475d7f9dde90a8a0bc18d13d8e3e">ExampleHost</link>(<link linkend="_structevmc__tx__context">evmc_tx_context</link>&amp;&#32;_tx_context)&#32;noexcept&#32;:&#32;<link linkend="_classExampleHost_1a0945262a8d233b8d45b2479432b3d792">tx_context</link>{_tx_context}&#32;{}
+<anchor xml:id="_example__host_8cpp_source_1l00054"/><link linkend="_classExampleHost_1a92bfbfcc308a397e27dbc34520030614">00054</link> &#32;&#32;&#32;&#32;<link linkend="_classExampleHost_1a92bfbfcc308a397e27dbc34520030614">ExampleHost</link>(<link linkend="_structevmc__tx__context">evmc_tx_context</link>&amp;&#32;_tx_context,&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">evmc::accounts</link>&amp;&#32;_accounts)&#32;noexcept
+<anchor xml:id="_example__host_8cpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;:&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>{_accounts},&#32;<link linkend="_classExampleHost_1a0945262a8d233b8d45b2479432b3d792">tx_context</link>{_tx_context}
+<anchor xml:id="_example__host_8cpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;{}
+<anchor xml:id="_example__host_8cpp_source_1l00057"/>00057 
+<anchor xml:id="_example__host_8cpp_source_1l00058"/><link linkend="_classExampleHost_1ac37de9a8465e23879f64c8ada27b1285">00058</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classExampleHost_1ac37de9a8465e23879f64c8ada27b1285">account_exists</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">evmc::address</link>&amp;&#32;addr)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00059"/>00059 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>.find(addr)&#32;!=&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>.end();
+<anchor xml:id="_example__host_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00062"/>00062 
+<anchor xml:id="_example__host_8cpp_source_1l00063"/><link linkend="_classExampleHost_1afeed7489e0128d0df0f398744c57b14a">00063</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">evmc::bytes32</link>&#32;<link linkend="_classExampleHost_1afeed7489e0128d0df0f398744c57b14a">get_storage</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">evmc::address</link>&amp;&#32;addr,
+<anchor xml:id="_example__host_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">evmc::bytes32</link>&amp;&#32;key)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;account_iter&#32;=&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>.find(addr);
+<anchor xml:id="_example__host_8cpp_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(account_iter&#32;==&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>.end())
+<anchor xml:id="_example__host_8cpp_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{};
+<anchor xml:id="_example__host_8cpp_source_1l00069"/>00069 
+<anchor xml:id="_example__host_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;storage_iter&#32;=&#32;account_iter-&gt;second.storage.find(key);
+<anchor xml:id="_example__host_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(storage_iter&#32;!=&#32;account_iter-&gt;second.storage.end())
+<anchor xml:id="_example__host_8cpp_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;storage_iter-&gt;second;
+<anchor xml:id="_example__host_8cpp_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{};
+<anchor xml:id="_example__host_8cpp_source_1l00074"/>00074 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00075"/>00075 
+<anchor xml:id="_example__host_8cpp_source_1l00076"/><link linkend="_classExampleHost_1a2e2c1d74614e7c863b501e2e1e56e622">00076</link> &#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1gae012fd6b8e5c23806b507c2d3e9fb1aa">evmc_storage_status</link>&#32;<link linkend="_classExampleHost_1a2e2c1d74614e7c863b501e2e1e56e622">set_storage</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">evmc::address</link>&amp;&#32;addr,
+<anchor xml:id="_example__host_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">evmc::bytes32</link>&amp;&#32;key,
+<anchor xml:id="_example__host_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">evmc::bytes32</link>&amp;&#32;value)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;account&#32;=&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>[addr];
+<anchor xml:id="_example__host_8cpp_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;prev_value&#32;=&#32;account.storage[key];
+<anchor xml:id="_example__host_8cpp_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;account.storage[key]&#32;=&#32;value;
+<anchor xml:id="_example__host_8cpp_source_1l00083"/>00083 
+<anchor xml:id="_example__host_8cpp_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(prev_value&#32;==&#32;value)&#32;?&#32;<link linkend="_group__EVMC_1ggae012fd6b8e5c23806b507c2d3e9fb1aaad6d527edcbe8a63edad5be80f252330c">EVMC_STORAGE_UNCHANGED</link>&#32;:&#32;<link linkend="_group__EVMC_1ggae012fd6b8e5c23806b507c2d3e9fb1aaaf102ce749767d5277923c221089da2c6">EVMC_STORAGE_MODIFIED</link>;
+<anchor xml:id="_example__host_8cpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00086"/>00086 
+<anchor xml:id="_example__host_8cpp_source_1l00087"/><link linkend="_classExampleHost_1affae69006394fc7c455cb629eb160df9">00087</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">evmc::uint256be</link>&#32;<link linkend="_classExampleHost_1affae69006394fc7c455cb629eb160df9">get_balance</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">evmc::address</link>&amp;&#32;addr)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>.find(addr);
+<anchor xml:id="_example__host_8cpp_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(it&#32;!=&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>.end())
+<anchor xml:id="_example__host_8cpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;it-&gt;second.balance;
+<anchor xml:id="_example__host_8cpp_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{};
+<anchor xml:id="_example__host_8cpp_source_1l00093"/>00093 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00094"/>00094 
+<anchor xml:id="_example__host_8cpp_source_1l00095"/><link linkend="_classExampleHost_1a7e5aacf59d0d072d8ebbce74ba3cf513">00095</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_classExampleHost_1a7e5aacf59d0d072d8ebbce74ba3cf513">get_code_size</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">evmc::address</link>&amp;&#32;addr)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00096"/>00096 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>.find(addr);
+<anchor xml:id="_example__host_8cpp_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(it&#32;!=&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>.end())
+<anchor xml:id="_example__host_8cpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;it-&gt;second.code.size();
+<anchor xml:id="_example__host_8cpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_example__host_8cpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00102"/>00102 
+<anchor xml:id="_example__host_8cpp_source_1l00103"/><link linkend="_classExampleHost_1a588763d53930877e2aac165fe8253bf2">00103</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">evmc::bytes32</link>&#32;<link linkend="_classExampleHost_1a588763d53930877e2aac165fe8253bf2">get_code_hash</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">evmc::address</link>&amp;&#32;addr)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00104"/>00104 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>.find(addr);
+<anchor xml:id="_example__host_8cpp_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(it&#32;!=&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>.end())
+<anchor xml:id="_example__host_8cpp_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;it-&gt;second.code_hash();
+<anchor xml:id="_example__host_8cpp_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{};
+<anchor xml:id="_example__host_8cpp_source_1l00109"/>00109 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00110"/>00110 
+<anchor xml:id="_example__host_8cpp_source_1l00111"/><link linkend="_classExampleHost_1a9d20a3ad0ef146bd51b99a60c4aabc56">00111</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_classExampleHost_1a9d20a3ad0ef146bd51b99a60c4aabc56">copy_code</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">evmc::address</link>&amp;&#32;addr,
+<anchor xml:id="_example__host_8cpp_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;code_offset,
+<anchor xml:id="_example__host_8cpp_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t*&#32;buffer_data,
+<anchor xml:id="_example__host_8cpp_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;buffer_size)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00115"/>00115 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>.find(addr);
+<anchor xml:id="_example__host_8cpp_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(it&#32;==&#32;<link linkend="_classExampleHost_1a5d19048754dc825a85e97157f8db1409">accounts</link>.end())
+<anchor xml:id="_example__host_8cpp_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_example__host_8cpp_source_1l00119"/>00119 
+<anchor xml:id="_example__host_8cpp_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;code&#32;=&#32;it-&gt;second.code;
+<anchor xml:id="_example__host_8cpp_source_1l00121"/>00121 
+<anchor xml:id="_example__host_8cpp_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(code_offset&#32;&gt;=&#32;code.size())
+<anchor xml:id="_example__host_8cpp_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_example__host_8cpp_source_1l00124"/>00124 
+<anchor xml:id="_example__host_8cpp_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;n&#32;=&#32;std::min(buffer_size,&#32;code.size()&#32;-&#32;code_offset);
+<anchor xml:id="_example__host_8cpp_source_1l00126"/>00126 
+<anchor xml:id="_example__host_8cpp_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(n&#32;&gt;&#32;0)
+<anchor xml:id="_example__host_8cpp_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::copy_n(&amp;code[code_offset],&#32;n,&#32;buffer_data);
+<anchor xml:id="_example__host_8cpp_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;n;
+<anchor xml:id="_example__host_8cpp_source_1l00130"/>00130 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00131"/>00131 
+<anchor xml:id="_example__host_8cpp_source_1l00132"/><link linkend="_classExampleHost_1a9d2ce6481950dfc3d30fdd9e80665c14">00132</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classExampleHost_1a9d2ce6481950dfc3d30fdd9e80665c14">selfdestruct</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">evmc::address</link>&amp;&#32;addr,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">evmc::address</link>&amp;&#32;beneficiary)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00133"/>00133 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(void)addr;
+<anchor xml:id="_example__host_8cpp_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(void)beneficiary;
+<anchor xml:id="_example__host_8cpp_source_1l00136"/>00136 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00137"/>00137 
+<anchor xml:id="_example__host_8cpp_source_1l00138"/><link linkend="_classExampleHost_1ad76f578cc300dfb59e3f7eb561e7112e">00138</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1result">evmc::result</link>&#32;<link linkend="_classExampleHost_1ad76f578cc300dfb59e3f7eb561e7112e">call</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__message">evmc_message</link>&amp;&#32;msg)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00139"/>00139 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920aed708e84d49cc1270e54ec20b0ca0a05">EVMC_REVERT</link>,&#32;msg.gas,&#32;msg.input_data,&#32;msg.input_size};
+<anchor xml:id="_example__host_8cpp_source_1l00141"/>00141 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00142"/>00142 
+<anchor xml:id="_example__host_8cpp_source_1l00143"/><link linkend="_classExampleHost_1aa7acecd4846fda20be62fb724ed0075a">00143</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc__tx__context">evmc_tx_context</link>&#32;<link linkend="_classExampleHost_1aa7acecd4846fda20be62fb724ed0075a">get_tx_context</link>()&#32;const&#32;noexcept&#32;final&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classExampleHost_1a0945262a8d233b8d45b2479432b3d792">tx_context</link>;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00144"/>00144 
+<anchor xml:id="_example__host_8cpp_source_1l00145"/><link linkend="_classExampleHost_1ab9061ad7baeb932aeb1e5e6c15eaccdc">00145</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">evmc::bytes32</link>&#32;<link linkend="_classExampleHost_1ab9061ad7baeb932aeb1e5e6c15eaccdc">get_block_hash</link>(int64_t&#32;number)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00146"/>00146 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;int64_t&#32;current_block_number&#32;=&#32;<link linkend="_classExampleHost_1aa7acecd4846fda20be62fb724ed0075a">get_tx_context</link>().<link linkend="_structevmc__tx__context_1a1c3c0552db49b91358256c25643ba44a">block_number</link>;
+<anchor xml:id="_example__host_8cpp_source_1l00148"/>00148 
+<anchor xml:id="_example__host_8cpp_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(number&#32;&lt;&#32;current_block_number&#32;&amp;&amp;&#32;number&#32;&gt;=&#32;current_block_number&#32;-&#32;256)&#32;?
+<anchor xml:id="_example__host_8cpp_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0xb10c8a5fb10c8a5fb10c8a5fb10c8a5fb10c8a5fb10c8a5fb10c8a5fb10c8a5f_bytes32&#32;:
+<anchor xml:id="_example__host_8cpp_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0_bytes32;
+<anchor xml:id="_example__host_8cpp_source_1l00152"/>00152 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00153"/>00153 
+<anchor xml:id="_example__host_8cpp_source_1l00154"/><link linkend="_classExampleHost_1ae095a66b77e3c69f1b111eddf88556e8">00154</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classExampleHost_1ae095a66b77e3c69f1b111eddf88556e8">emit_log</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">evmc::address</link>&amp;&#32;addr,
+<anchor xml:id="_example__host_8cpp_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t*&#32;data,
+<anchor xml:id="_example__host_8cpp_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;data_size,
+<anchor xml:id="_example__host_8cpp_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">evmc::bytes32</link>&#32;topics[],
+<anchor xml:id="_example__host_8cpp_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;topics_count)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00159"/>00159 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(void)addr;
+<anchor xml:id="_example__host_8cpp_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(void)data;
+<anchor xml:id="_example__host_8cpp_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(void)data_size;
+<anchor xml:id="_example__host_8cpp_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(void)topics;
+<anchor xml:id="_example__host_8cpp_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(void)topics_count;
+<anchor xml:id="_example__host_8cpp_source_1l00165"/>00165 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00166"/>00166 
+<anchor xml:id="_example__host_8cpp_source_1l00167"/><link linkend="_classExampleHost_1a90efb185a1ad4f66c5ba404316c3497d">00167</link> &#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link>&#32;<link linkend="_classExampleHost_1a90efb185a1ad4f66c5ba404316c3497d">access_account</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">evmc::address</link>&amp;&#32;addr)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00168"/>00168 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(void)addr;
+<anchor xml:id="_example__host_8cpp_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76">EVMC_ACCESS_COLD</link>;
+<anchor xml:id="_example__host_8cpp_source_1l00171"/>00171 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00172"/>00172 
+<anchor xml:id="_example__host_8cpp_source_1l00173"/><link linkend="_classExampleHost_1a4c9e24f1177e2ecddac5b6959c19ec60">00173</link> &#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link>&#32;<link linkend="_classExampleHost_1a4c9e24f1177e2ecddac5b6959c19ec60">access_storage</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">evmc::address</link>&amp;&#32;addr,
+<anchor xml:id="_example__host_8cpp_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">evmc::bytes32</link>&amp;&#32;key)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_example__host_8cpp_source_1l00175"/>00175 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(void)addr;
+<anchor xml:id="_example__host_8cpp_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(void)key;
+<anchor xml:id="_example__host_8cpp_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76">EVMC_ACCESS_COLD</link>;
+<anchor xml:id="_example__host_8cpp_source_1l00179"/>00179 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_example__host_8cpp_source_1l00180"/>00180 };
+<anchor xml:id="_example__host_8cpp_source_1l00181"/>00181 
+<anchor xml:id="_example__host_8cpp_source_1l00182"/>00182 
+<anchor xml:id="_example__host_8cpp_source_1l00183"/>00183 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="stringliteral">&quot;C&quot;</emphasis>&#32;{
+<anchor xml:id="_example__host_8cpp_source_1l00184"/>00184 
+<anchor xml:id="_example__host_8cpp_source_1l00185"/><link linkend="_example__host_8cpp_1a1aa8c09de78471976959763a62bf069c">00185</link> <emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__host__interface">evmc_host_interface</link>*&#32;<link linkend="_example__host_8cpp_1a1aa8c09de78471976959763a62bf069c">example_host_get_interface</link>()
+<anchor xml:id="_example__host_8cpp_source_1l00186"/>00186 {
+<anchor xml:id="_example__host_8cpp_source_1l00187"/>00187 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;&amp;<link linkend="_classevmc_1_1Host_1afb96540fea288f02d83f01e185a78374">evmc::Host::get_interface</link>();
+<anchor xml:id="_example__host_8cpp_source_1l00188"/>00188 }
+<anchor xml:id="_example__host_8cpp_source_1l00189"/>00189 
+<anchor xml:id="_example__host_8cpp_source_1l00190"/><link linkend="_example__host_8cpp_1a8009572826ed8abb88284e79cefb4987">00190</link> <link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;<link linkend="_example__host_8cpp_1a8009572826ed8abb88284e79cefb4987">example_host_create_context</link>(<link linkend="_structevmc__tx__context">evmc_tx_context</link>&#32;tx_context)
+<anchor xml:id="_example__host_8cpp_source_1l00191"/>00191 {
+<anchor xml:id="_example__host_8cpp_source_1l00192"/>00192 &#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;host&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_classExampleHost">ExampleHost</link>{tx_context};
+<anchor xml:id="_example__host_8cpp_source_1l00193"/>00193 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;host-&gt;to_context();
+<anchor xml:id="_example__host_8cpp_source_1l00194"/>00194 }
+<anchor xml:id="_example__host_8cpp_source_1l00195"/>00195 
+<anchor xml:id="_example__host_8cpp_source_1l00196"/><link linkend="_example__host_8cpp_1a9ff72df98da6045af155bb8b9697da23">00196</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_example__host_8cpp_1a9ff72df98da6045af155bb8b9697da23">example_host_destroy_context</link>(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;context)
+<anchor xml:id="_example__host_8cpp_source_1l00197"/>00197 {
+<anchor xml:id="_example__host_8cpp_source_1l00198"/>00198 &#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;evmc::Host::from_context&lt;ExampleHost&gt;(context);
+<anchor xml:id="_example__host_8cpp_source_1l00199"/>00199 }
+<anchor xml:id="_example__host_8cpp_source_1l00200"/>00200 }
+</programlisting></section>

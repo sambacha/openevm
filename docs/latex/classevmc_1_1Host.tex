@@ -1,0 +1,154 @@
+\hypertarget{classevmc_1_1Host}{}\doxysection{evmc\+::Host Class Reference}
+\label{classevmc_1_1Host}\index{evmc::Host@{evmc::Host}}
+
+
+Abstract class to be used by \mbox{\hyperlink{classevmc_1_1Host}{Host}} implementations.  
+
+
+
+
+{\ttfamily \#include $<$evmc.\+hpp$>$}
+
+
+
+Inheritance diagram for evmc\+::Host\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{classevmc_1_1Host__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for evmc\+::Host\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{classevmc_1_1Host__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structevmc__host__context}{evmc\+\_\+host\+\_\+context}} $\ast$ \mbox{\hyperlink{classevmc_1_1Host_abd96a61aa3b45d949cb41cf7778fdf6d}{to\+\_\+context}} () noexcept
+\begin{DoxyCompactList}\small\item\em Converts the \mbox{\hyperlink{classevmc_1_1Host}{Host}} object to the opaque host context pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{structevmc__host__interface}{evmc\+\_\+host\+\_\+interface}} \& \mbox{\hyperlink{classevmc_1_1Host_afb96540fea288f02d83f01e185a78374}{get\+\_\+interface}} () noexcept
+\begin{DoxyCompactList}\small\item\em Provides access to the global host interface. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Derived\+Class  = Host$>$ }\\static Derived\+Class $\ast$ \mbox{\hyperlink{classevmc_1_1Host_a8f28078b9c8fd003061859ecf31d1bed}{from\+\_\+context}} (\mbox{\hyperlink{structevmc__host__context}{evmc\+\_\+host\+\_\+context}} $\ast$context) noexcept
+\begin{DoxyCompactList}\small\item\em Converts the opaque host context pointer back to the original \mbox{\hyperlink{classevmc_1_1Host}{Host}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class to be used by \mbox{\hyperlink{classevmc_1_1Host}{Host}} implementations. 
+
+When implementing EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}}, you can directly inherit from the \mbox{\hyperlink{classevmc_1_1Host}{evmc\+::\+Host}} class. This way your implementation will be simpler by avoiding manual handling of the \mbox{\hyperlink{structevmc__host__context}{evmc\+\_\+host\+\_\+context}} and the \mbox{\hyperlink{structevmc__host__interface}{evmc\+\_\+host\+\_\+interface}}. 
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00610}{610}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classevmc_1_1Host_a8f28078b9c8fd003061859ecf31d1bed}\label{classevmc_1_1Host_a8f28078b9c8fd003061859ecf31d1bed}} 
+\index{evmc::Host@{evmc::Host}!from\_context@{from\_context}}
+\index{from\_context@{from\_context}!evmc::Host@{evmc::Host}}
+\doxysubsubsection{\texorpdfstring{from\_context()}{from\_context()}}
+{\footnotesize\ttfamily template$<$typename Derived\+Class  = Host$>$ \\
+static Derived\+Class $\ast$ evmc\+::\+Host\+::from\+\_\+context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structevmc__host__context}{evmc\+\_\+host\+\_\+context}} $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+
+
+Converts the opaque host context pointer back to the original \mbox{\hyperlink{classevmc_1_1Host}{Host}} object. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Derived\+Class} & The class derived from the \mbox{\hyperlink{classevmc_1_1Host}{Host}} class. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The opaque host context pointer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to Derived\+Class. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00626}{626}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00627}00627     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00628}00628         \textcolor{comment}{// Get pointer of the Host base class.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00629}00629         \textcolor{keyword}{auto}* h = \textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classevmc_1_1Host}{Host}}*\textcolor{keyword}{>}(context);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00630}00630 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00631}00631         \textcolor{comment}{// Additional downcast, only possible if DerivedClass inherits from Host.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00632}00632         \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}DerivedClass*\textcolor{keyword}{>}(h);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00633}00633     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1Host_afb96540fea288f02d83f01e185a78374}\label{classevmc_1_1Host_afb96540fea288f02d83f01e185a78374}} 
+\index{evmc::Host@{evmc::Host}!get\_interface@{get\_interface}}
+\index{get\_interface@{get\_interface}!evmc::Host@{evmc::Host}}
+\doxysubsubsection{\texorpdfstring{get\_interface()}{get\_interface()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structevmc__host__interface}{evmc\+\_\+host\+\_\+interface}} \& evmc\+::\+Host\+::get\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+
+
+Provides access to the global host interface. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the host interface object. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00857}{857}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00858}00858 \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00859}00859     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \mbox{\hyperlink{structevmc__host__interface}{evmc\_host\_interface}} interface\{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00860}00860         ::evmc::internal::account\_exists, ::evmc::internal::get\_storage,}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00861}00861         ::evmc::internal::set\_storage,    ::evmc::internal::get\_balance,}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00862}00862         ::evmc::internal::get\_code\_size,  ::evmc::internal::get\_code\_hash,}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00863}00863         ::evmc::internal::copy\_code,      ::evmc::internal::selfdestruct,}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00864}00864         ::evmc::internal::call,           ::evmc::internal::get\_tx\_context,}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00865}00865         ::evmc::internal::get\_block\_hash, ::evmc::internal::emit\_log,}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00866}00866         ::evmc::internal::access\_account, ::evmc::internal::access\_storage,}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00867}00867     \};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00868}00868     \textcolor{keywordflow}{return} interface;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00869}00869 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1Host_abd96a61aa3b45d949cb41cf7778fdf6d}\label{classevmc_1_1Host_abd96a61aa3b45d949cb41cf7778fdf6d}} 
+\index{evmc::Host@{evmc::Host}!to\_context@{to\_context}}
+\index{to\_context@{to\_context}!evmc::Host@{evmc::Host}}
+\doxysubsubsection{\texorpdfstring{to\_context()}{to\_context()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc__host__context}{evmc\+\_\+host\+\_\+context}} $\ast$ evmc\+::\+Host\+::to\+\_\+context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Converts the \mbox{\hyperlink{classevmc_1_1Host}{Host}} object to the opaque host context pointer. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to \mbox{\hyperlink{structevmc__host__context}{evmc\+\_\+host\+\_\+context}}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00619}{619}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1Host_l00619}00619 \{ \textcolor{keywordflow}{return} \textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{structevmc__host__context}{evmc\_host\_context}}*\textcolor{keyword}{>}(\textcolor{keyword}{this}); \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/evmc/\mbox{\hyperlink{evmc_8hpp}{evmc.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,100 @@
+\hypertarget{structevmc_1_1MockedHost_1_1selfdestruct__record}{}\doxysection{evmc\+::Mocked\+Host\+::selfdestruct\+\_\+record Struct Reference}
+\label{structevmc_1_1MockedHost_1_1selfdestruct__record}\index{evmc::MockedHost::selfdestruct\_record@{evmc::MockedHost::selfdestruct\_record}}
+
+
+SELFDESTRUCT record.  
+
+
+
+
+{\ttfamily \#include $<$mocked\+\_\+host.\+hpp$>$}
+
+
+
+Collaboration diagram for evmc\+::Mocked\+Host\+::selfdestruct\+\_\+record\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{structevmc_1_1MockedHost_1_1selfdestruct__record__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structevmc_1_1MockedHost_1_1selfdestruct__record_a48f39f0a1b0fe63542ec8146a1e1f6c4}{operator==}} (const \mbox{\hyperlink{structevmc_1_1MockedHost_1_1selfdestruct__record}{selfdestruct\+\_\+record}} \&other) const noexcept
+\begin{DoxyCompactList}\small\item\em Equal operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structevmc_1_1address}{address}} \mbox{\hyperlink{structevmc_1_1MockedHost_1_1selfdestruct__record_a251b6d2036724f1928d45a6b28b7b28c}{selfdestructed}}
+\begin{DoxyCompactList}\small\item\em The address of the account which has self-\/destructed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structevmc_1_1address}{address}} \mbox{\hyperlink{structevmc_1_1MockedHost_1_1selfdestruct__record_a2fff44cb856c4cd971d94f2ac0b5e145}{beneficiary}}
+\begin{DoxyCompactList}\small\item\em The address of the beneficiary account. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SELFDESTRUCT record. 
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00094}{94}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structevmc_1_1MockedHost_1_1selfdestruct__record_a48f39f0a1b0fe63542ec8146a1e1f6c4}\label{structevmc_1_1MockedHost_1_1selfdestruct__record_a48f39f0a1b0fe63542ec8146a1e1f6c4}} 
+\index{evmc::MockedHost::selfdestruct\_record@{evmc::MockedHost::selfdestruct\_record}!operator==@{operator==}}
+\index{operator==@{operator==}!evmc::MockedHost::selfdestruct\_record@{evmc::MockedHost::selfdestruct\_record}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool evmc\+::\+Mocked\+Host\+::selfdestruct\+\_\+record\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1MockedHost_1_1selfdestruct__record}{selfdestruct\+\_\+record}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Equal operator. 
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00103}{103}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1MockedHost_1_1selfdestruct__record_l00104}00104         \{}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1MockedHost_1_1selfdestruct__record_l00105}00105             \textcolor{keywordflow}{return} \mbox{\hyperlink{structevmc_1_1MockedHost_1_1selfdestruct__record_a251b6d2036724f1928d45a6b28b7b28c}{selfdestructed}} == other.selfdestructed \&\& \mbox{\hyperlink{structevmc_1_1MockedHost_1_1selfdestruct__record_a2fff44cb856c4cd971d94f2ac0b5e145}{beneficiary}} == other.beneficiary;}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1MockedHost_1_1selfdestruct__record_l00106}00106         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structevmc_1_1MockedHost_1_1selfdestruct__record_a2fff44cb856c4cd971d94f2ac0b5e145}\label{structevmc_1_1MockedHost_1_1selfdestruct__record_a2fff44cb856c4cd971d94f2ac0b5e145}} 
+\index{evmc::MockedHost::selfdestruct\_record@{evmc::MockedHost::selfdestruct\_record}!beneficiary@{beneficiary}}
+\index{beneficiary@{beneficiary}!evmc::MockedHost::selfdestruct\_record@{evmc::MockedHost::selfdestruct\_record}}
+\doxysubsubsection{\texorpdfstring{beneficiary}{beneficiary}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc_1_1address}{address}} evmc\+::\+Mocked\+Host\+::selfdestruct\+\_\+record\+::beneficiary}
+
+
+
+The address of the beneficiary account. 
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00100}{100}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+\mbox{\Hypertarget{structevmc_1_1MockedHost_1_1selfdestruct__record_a251b6d2036724f1928d45a6b28b7b28c}\label{structevmc_1_1MockedHost_1_1selfdestruct__record_a251b6d2036724f1928d45a6b28b7b28c}} 
+\index{evmc::MockedHost::selfdestruct\_record@{evmc::MockedHost::selfdestruct\_record}!selfdestructed@{selfdestructed}}
+\index{selfdestructed@{selfdestructed}!evmc::MockedHost::selfdestruct\_record@{evmc::MockedHost::selfdestruct\_record}}
+\doxysubsubsection{\texorpdfstring{selfdestructed}{selfdestructed}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc_1_1address}{address}} evmc\+::\+Mocked\+Host\+::selfdestruct\+\_\+record\+::selfdestructed}
+
+
+
+The address of the account which has self-\/destructed. 
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00097}{97}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/evmc/\mbox{\hyperlink{mocked__host_8hpp}{mocked\+\_\+host.\+hpp}}\end{DoxyCompactItemize}

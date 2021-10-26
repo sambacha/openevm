@@ -1,0 +1,18 @@
+\label{vmtester_md_docs_VM_Tester}%
+\Hypertarget{vmtester_md_docs_VM_Tester}%
+ The EVMC project contains a EVMC-\/compatibility testing tool for VM implementations.
+
+The tool is called {\ttfamily evmc-\/vmtester} and to include it in the EVMC build add {\ttfamily -\/DEVMC\+\_\+\+TESTING=ON} CMake option to the project configuration step.
+
+Usage is simple as
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{evmc-\/vmtester [vm]}
+
+\end{DoxyCode}
+
+
+where {\ttfamily \mbox{[}vm\mbox{]}} is a path to a shared library with VM implementation.
+
+For more information check {\ttfamily evmc-\/vmtester -\/-\/help}. 

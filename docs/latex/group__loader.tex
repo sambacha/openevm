@@ -1,0 +1,256 @@
+\hypertarget{group__loader}{}\doxysection{EVMC Loader}
+\label{group__loader}\index{EVMC Loader@{EVMC Loader}}
+
+
+EVMC Loader Library.  
+
+
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} $\ast$($\ast$ \mbox{\hyperlink{group__loader_gaa47b31e30330c2614e4d40e14d014822}{evmc\+\_\+create\+\_\+fn}}) (void)
+\begin{DoxyCompactList}\small\item\em The function pointer type for EVMC create functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__loader_gadf193ed1d2d7e9053e9c592fc201bd7d}{evmc\+\_\+loader\+\_\+error\+\_\+code}} \{ \newline
+\mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da0cead101d164fef2ac74efd4d6e1ae6d}{EVMC\+\_\+\+LOADER\+\_\+\+SUCCESS}} = 0
+, \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da199bb0c460fa6263b26badcc6f6e65fb}{EVMC\+\_\+\+LOADER\+\_\+\+CANNOT\+\_\+\+OPEN}} = 1
+, \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da397b783d11709ec470bf5782c377deb2}{EVMC\+\_\+\+LOADER\+\_\+\+SYMBOL\+\_\+\+NOT\+\_\+\+FOUND}} = 2
+, \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da36c6ba4f96cdd1b5407aa0f26a9aa379}{EVMC\+\_\+\+LOADER\+\_\+\+INVALID\+\_\+\+ARGUMENT}} = 3
+, \newline
+\mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da504de7833560037be4d2c620345767f5}{EVMC\+\_\+\+LOADER\+\_\+\+VM\+\_\+\+CREATION\+\_\+\+FAILURE}} = 4
+, \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da0d4eb3a48d3f8c500b96f43e1aa7c458}{EVMC\+\_\+\+LOADER\+\_\+\+ABI\+\_\+\+VERSION\+\_\+\+MISMATCH}} = 5
+, \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da53b3d46623f93646389aaf65d977aff2}{EVMC\+\_\+\+LOADER\+\_\+\+INVALID\+\_\+\+OPTION\+\_\+\+NAME}} = 6
+, \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7dad2625a5c71f0c585cf0493c47c805e1b}{EVMC\+\_\+\+LOADER\+\_\+\+INVALID\+\_\+\+OPTION\+\_\+\+VALUE}} = 7
+ \}
+\begin{DoxyCompactList}\small\item\em Error codes for the EVMC loader. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__loader_gaa47b31e30330c2614e4d40e14d014822}{evmc\+\_\+create\+\_\+fn}} \mbox{\hyperlink{group__loader_gabcf5733eb4dd80c1ce060aec9ed60600}{evmc\+\_\+load}} (const char $\ast$filename, enum \mbox{\hyperlink{group__loader_gadf193ed1d2d7e9053e9c592fc201bd7d}{evmc\+\_\+loader\+\_\+error\+\_\+code}} $\ast$error\+\_\+code)
+\begin{DoxyCompactList}\small\item\em Dynamically loads the EVMC module with a VM implementation. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} $\ast$ \mbox{\hyperlink{group__loader_ga53c5982e90b8dcbae860b98cae9951da}{evmc\+\_\+load\+\_\+and\+\_\+create}} (const char $\ast$filename, enum \mbox{\hyperlink{group__loader_gadf193ed1d2d7e9053e9c592fc201bd7d}{evmc\+\_\+loader\+\_\+error\+\_\+code}} $\ast$error\+\_\+code)
+\begin{DoxyCompactList}\small\item\em Dynamically loads the EVMC module and creates the VM instance. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} $\ast$ \mbox{\hyperlink{group__loader_ga3e29ca285fe13db086daf0bf98b4a046}{evmc\+\_\+load\+\_\+and\+\_\+configure}} (const char $\ast$config, enum \mbox{\hyperlink{group__loader_gadf193ed1d2d7e9053e9c592fc201bd7d}{evmc\+\_\+loader\+\_\+error\+\_\+code}} $\ast$error\+\_\+code)
+\begin{DoxyCompactList}\small\item\em Dynamically loads the EVMC module, then creates and configures the VM instance. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{group__loader_gabc6999f43f5bdc388bf3e1662b1c4e97}{evmc\+\_\+last\+\_\+error\+\_\+msg}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the human-\/readable message describing the most recent error that occurred in EVMC loading since the last call to this function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+EVMC Loader Library. 
+
+The EVMC Loader Library supports loading VMs implemented as Dynamically Loaded Libraries (DLLs, shared objects). 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__loader_gaa47b31e30330c2614e4d40e14d014822}\label{group__loader_gaa47b31e30330c2614e4d40e14d014822}} 
+\index{EVMC Loader@{EVMC Loader}!evmc\_create\_fn@{evmc\_create\_fn}}
+\index{evmc\_create\_fn@{evmc\_create\_fn}!EVMC Loader@{EVMC Loader}}
+\doxysubsubsection{\texorpdfstring{evmc\_create\_fn}{evmc\_create\_fn}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} $\ast$($\ast$ evmc\+\_\+create\+\_\+fn) (void)}
+
+
+
+The function pointer type for EVMC create functions. 
+
+
+
+Definition at line \mbox{\hyperlink{loader_8h_source_l00001}{1}} of file \mbox{\hyperlink{loader_8h_source}{loader.\+h}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__loader_gadf193ed1d2d7e9053e9c592fc201bd7d}\label{group__loader_gadf193ed1d2d7e9053e9c592fc201bd7d}} 
+\index{EVMC Loader@{EVMC Loader}!evmc\_loader\_error\_code@{evmc\_loader\_error\_code}}
+\index{evmc\_loader\_error\_code@{evmc\_loader\_error\_code}!EVMC Loader@{EVMC Loader}}
+\doxysubsubsection{\texorpdfstring{evmc\_loader\_error\_code}{evmc\_loader\_error\_code}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__loader_gadf193ed1d2d7e9053e9c592fc201bd7d}{evmc\+\_\+loader\+\_\+error\+\_\+code}}}
+
+
+
+Error codes for the EVMC loader. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EVMC\_LOADER\_SUCCESS@{EVMC\_LOADER\_SUCCESS}!EVMC Loader@{EVMC Loader}}\index{EVMC Loader@{EVMC Loader}!EVMC\_LOADER\_SUCCESS@{EVMC\_LOADER\_SUCCESS}}}\mbox{\Hypertarget{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da0cead101d164fef2ac74efd4d6e1ae6d}\label{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da0cead101d164fef2ac74efd4d6e1ae6d}} 
+EVMC\+\_\+\+LOADER\+\_\+\+SUCCESS&The loader succeeded. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EVMC\_LOADER\_CANNOT\_OPEN@{EVMC\_LOADER\_CANNOT\_OPEN}!EVMC Loader@{EVMC Loader}}\index{EVMC Loader@{EVMC Loader}!EVMC\_LOADER\_CANNOT\_OPEN@{EVMC\_LOADER\_CANNOT\_OPEN}}}\mbox{\Hypertarget{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da199bb0c460fa6263b26badcc6f6e65fb}\label{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da199bb0c460fa6263b26badcc6f6e65fb}} 
+EVMC\+\_\+\+LOADER\+\_\+\+CANNOT\+\_\+\+OPEN&The loader cannot open the given file name. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EVMC\_LOADER\_SYMBOL\_NOT\_FOUND@{EVMC\_LOADER\_SYMBOL\_NOT\_FOUND}!EVMC Loader@{EVMC Loader}}\index{EVMC Loader@{EVMC Loader}!EVMC\_LOADER\_SYMBOL\_NOT\_FOUND@{EVMC\_LOADER\_SYMBOL\_NOT\_FOUND}}}\mbox{\Hypertarget{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da397b783d11709ec470bf5782c377deb2}\label{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da397b783d11709ec470bf5782c377deb2}} 
+EVMC\+\_\+\+LOADER\+\_\+\+SYMBOL\+\_\+\+NOT\+\_\+\+FOUND&The VM create function not found. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EVMC\_LOADER\_INVALID\_ARGUMENT@{EVMC\_LOADER\_INVALID\_ARGUMENT}!EVMC Loader@{EVMC Loader}}\index{EVMC Loader@{EVMC Loader}!EVMC\_LOADER\_INVALID\_ARGUMENT@{EVMC\_LOADER\_INVALID\_ARGUMENT}}}\mbox{\Hypertarget{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da36c6ba4f96cdd1b5407aa0f26a9aa379}\label{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da36c6ba4f96cdd1b5407aa0f26a9aa379}} 
+EVMC\+\_\+\+LOADER\+\_\+\+INVALID\+\_\+\+ARGUMENT&The invalid argument value provided. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EVMC\_LOADER\_VM\_CREATION\_FAILURE@{EVMC\_LOADER\_VM\_CREATION\_FAILURE}!EVMC Loader@{EVMC Loader}}\index{EVMC Loader@{EVMC Loader}!EVMC\_LOADER\_VM\_CREATION\_FAILURE@{EVMC\_LOADER\_VM\_CREATION\_FAILURE}}}\mbox{\Hypertarget{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da504de7833560037be4d2c620345767f5}\label{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da504de7833560037be4d2c620345767f5}} 
+EVMC\+\_\+\+LOADER\+\_\+\+VM\+\_\+\+CREATION\+\_\+\+FAILURE&The creation of a VM instance has failed. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EVMC\_LOADER\_ABI\_VERSION\_MISMATCH@{EVMC\_LOADER\_ABI\_VERSION\_MISMATCH}!EVMC Loader@{EVMC Loader}}\index{EVMC Loader@{EVMC Loader}!EVMC\_LOADER\_ABI\_VERSION\_MISMATCH@{EVMC\_LOADER\_ABI\_VERSION\_MISMATCH}}}\mbox{\Hypertarget{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da0d4eb3a48d3f8c500b96f43e1aa7c458}\label{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da0d4eb3a48d3f8c500b96f43e1aa7c458}} 
+EVMC\+\_\+\+LOADER\+\_\+\+ABI\+\_\+\+VERSION\+\_\+\+MISMATCH&The ABI version of the VM instance has mismatched. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EVMC\_LOADER\_INVALID\_OPTION\_NAME@{EVMC\_LOADER\_INVALID\_OPTION\_NAME}!EVMC Loader@{EVMC Loader}}\index{EVMC Loader@{EVMC Loader}!EVMC\_LOADER\_INVALID\_OPTION\_NAME@{EVMC\_LOADER\_INVALID\_OPTION\_NAME}}}\mbox{\Hypertarget{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da53b3d46623f93646389aaf65d977aff2}\label{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da53b3d46623f93646389aaf65d977aff2}} 
+EVMC\+\_\+\+LOADER\+\_\+\+INVALID\+\_\+\+OPTION\+\_\+\+NAME&The VM option is invalid. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EVMC\_LOADER\_INVALID\_OPTION\_VALUE@{EVMC\_LOADER\_INVALID\_OPTION\_VALUE}!EVMC Loader@{EVMC Loader}}\index{EVMC Loader@{EVMC Loader}!EVMC\_LOADER\_INVALID\_OPTION\_VALUE@{EVMC\_LOADER\_INVALID\_OPTION\_VALUE}}}\mbox{\Hypertarget{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7dad2625a5c71f0c585cf0493c47c805e1b}\label{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7dad2625a5c71f0c585cf0493c47c805e1b}} 
+EVMC\+\_\+\+LOADER\+\_\+\+INVALID\+\_\+\+OPTION\+\_\+\+VALUE&The VM option value is invalid. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{loader_8h_source_l00025}{25}} of file \mbox{\hyperlink{loader_8h_source}{loader.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{group__loader_l00026}00026 \{}
+\DoxyCodeLine{\Hypertarget{group__loader_l00028}00028     \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da0cead101d164fef2ac74efd4d6e1ae6d}{EVMC\_LOADER\_SUCCESS}} = 0,}
+\DoxyCodeLine{\Hypertarget{group__loader_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{group__loader_l00031}00031     \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da199bb0c460fa6263b26badcc6f6e65fb}{EVMC\_LOADER\_CANNOT\_OPEN}} = 1,}
+\DoxyCodeLine{\Hypertarget{group__loader_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{group__loader_l00034}00034     \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da397b783d11709ec470bf5782c377deb2}{EVMC\_LOADER\_SYMBOL\_NOT\_FOUND}} = 2,}
+\DoxyCodeLine{\Hypertarget{group__loader_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{group__loader_l00037}00037     \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da36c6ba4f96cdd1b5407aa0f26a9aa379}{EVMC\_LOADER\_INVALID\_ARGUMENT}} = 3,}
+\DoxyCodeLine{\Hypertarget{group__loader_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{group__loader_l00040}00040     \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da504de7833560037be4d2c620345767f5}{EVMC\_LOADER\_VM\_CREATION\_FAILURE}} = 4,}
+\DoxyCodeLine{\Hypertarget{group__loader_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{group__loader_l00043}00043     \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da0d4eb3a48d3f8c500b96f43e1aa7c458}{EVMC\_LOADER\_ABI\_VERSION\_MISMATCH}} = 5,}
+\DoxyCodeLine{\Hypertarget{group__loader_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{group__loader_l00046}00046     \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da53b3d46623f93646389aaf65d977aff2}{EVMC\_LOADER\_INVALID\_OPTION\_NAME}} = 6,}
+\DoxyCodeLine{\Hypertarget{group__loader_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{group__loader_l00049}00049     \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7dad2625a5c71f0c585cf0493c47c805e1b}{EVMC\_LOADER\_INVALID\_OPTION\_VALUE}} = 7}
+\DoxyCodeLine{\Hypertarget{group__loader_l00050}00050 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__loader_gabc6999f43f5bdc388bf3e1662b1c4e97}\label{group__loader_gabc6999f43f5bdc388bf3e1662b1c4e97}} 
+\index{EVMC Loader@{EVMC Loader}!evmc\_last\_error\_msg@{evmc\_last\_error\_msg}}
+\index{evmc\_last\_error\_msg@{evmc\_last\_error\_msg}!EVMC Loader@{EVMC Loader}}
+\doxysubsubsection{\texorpdfstring{evmc\_last\_error\_msg()}{evmc\_last\_error\_msg()}}
+{\footnotesize\ttfamily const char $\ast$ evmc\+\_\+last\+\_\+error\+\_\+msg (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns the human-\/readable message describing the most recent error that occurred in EVMC loading since the last call to this function. 
+
+In case any loading function returned \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da0cead101d164fef2ac74efd4d6e1ae6d}{EVMC\+\_\+\+LOADER\+\_\+\+SUCCESS}} this function always returns NULL. In case of error code other than success returned, this function MAY return the error message. Calling this function \char`\"{}consumes\char`\"{} the error message and the function will return NULL from subsequent invocations. This function is not thread-\/safe.
+
+\begin{DoxyReturn}{Returns}
+Error message or NULL if no additional information is available. The returned pointer MUST NOT be freed by the caller. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__loader_gabcf5733eb4dd80c1ce060aec9ed60600}\label{group__loader_gabcf5733eb4dd80c1ce060aec9ed60600}} 
+\index{EVMC Loader@{EVMC Loader}!evmc\_load@{evmc\_load}}
+\index{evmc\_load@{evmc\_load}!EVMC Loader@{EVMC Loader}}
+\doxysubsubsection{\texorpdfstring{evmc\_load()}{evmc\_load()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__loader_gaa47b31e30330c2614e4d40e14d014822}{evmc\+\_\+create\+\_\+fn}} evmc\+\_\+load (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{enum \mbox{\hyperlink{group__loader_gadf193ed1d2d7e9053e9c592fc201bd7d}{evmc\+\_\+loader\+\_\+error\+\_\+code}} $\ast$}]{error\+\_\+code }\end{DoxyParamCaption})}
+
+
+
+Dynamically loads the EVMC module with a VM implementation. 
+
+This function tries to open a dynamically loaded library (DLL) at the given {\ttfamily filename}. On UNIX-\/like systems dlopen() function is used. On Windows Load\+Library() function is used.
+
+If the file does not exist or is not a valid shared library the \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da199bb0c460fa6263b26badcc6f6e65fb}{EVMC\+\_\+\+LOADER\+\_\+\+CANNOT\+\_\+\+OPEN}} error code is signaled and NULL is returned.
+
+After the DLL is successfully loaded the function tries to find the EVM create function in the library. The {\ttfamily filename} is used to guess the EVM name and the name of the create function. The create function name is constructed by the following rules. Consider example path\+: \char`\"{}/ethereum/libexample-\/interpreter.\+so.\+1.\+0\char`\"{}.
+\begin{DoxyItemize}
+\item the filename is taken from the path\+: \char`\"{}libexample-\/interpreter.\+so.\+1.\+0\char`\"{},
+\item the \char`\"{}lib\char`\"{} prefix and all file extensions are stripped from the name\+: \char`\"{}example-\/interpreter\char`\"{}
+\item all \char`\"{}-\/\char`\"{} are replaced with \char`\"{}\+\_\+\char`\"{} to construct {\itshape base name}\+: \char`\"{}example\+\_\+interpreter\char`\"{},
+\item the function name \char`\"{}evmc\+\_\+create\+\_\+\char`\"{} + {\itshape base name} is searched in the library\+: \char`\"{}evmc\+\_\+create\+\_\+example\+\_\+interpreter\char`\"{},
+\item if the function is not found, the function name \char`\"{}evmc\+\_\+create\char`\"{} is searched in the library.
+\end{DoxyItemize}
+
+If the create function is found in the library, the pointer to the function is returned. Otherwise, the \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da397b783d11709ec470bf5782c377deb2}{EVMC\+\_\+\+LOADER\+\_\+\+SYMBOL\+\_\+\+NOT\+\_\+\+FOUND}} error code is signaled and NULL is returned.
+
+It is safe to call this function with the same filename argument multiple times (the DLL is not going to be loaded multiple times).
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The null terminated path (absolute or relative) to an EVMC module (dynamically loaded library) containing the VM implementation. If the value is NULL, an empty C-\/string or longer than the path maximum length the \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da36c6ba4f96cdd1b5407aa0f26a9aa379}{EVMC\+\_\+\+LOADER\+\_\+\+INVALID\+\_\+\+ARGUMENT}} is signaled. \\
+\hline
+{\em error\+\_\+code} & The pointer to the error code. If not NULL the value is set to \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da0cead101d164fef2ac74efd4d6e1ae6d}{EVMC\+\_\+\+LOADER\+\_\+\+SUCCESS}} on success or any other error code as described above. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the EVM create function or NULL in case of error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__loader_ga3e29ca285fe13db086daf0bf98b4a046}\label{group__loader_ga3e29ca285fe13db086daf0bf98b4a046}} 
+\index{EVMC Loader@{EVMC Loader}!evmc\_load\_and\_configure@{evmc\_load\_and\_configure}}
+\index{evmc\_load\_and\_configure@{evmc\_load\_and\_configure}!EVMC Loader@{EVMC Loader}}
+\doxysubsubsection{\texorpdfstring{evmc\_load\_and\_configure()}{evmc\_load\_and\_configure()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} $\ast$ evmc\+\_\+load\+\_\+and\+\_\+configure (\begin{DoxyParamCaption}\item[{const char $\ast$}]{config,  }\item[{enum \mbox{\hyperlink{group__loader_gadf193ed1d2d7e9053e9c592fc201bd7d}{evmc\+\_\+loader\+\_\+error\+\_\+code}} $\ast$}]{error\+\_\+code }\end{DoxyParamCaption})}
+
+
+
+Dynamically loads the EVMC module, then creates and configures the VM instance. 
+
+This function performs the following actions atomically\+:
+\begin{DoxyItemize}
+\item loads the EVMC module (as \mbox{\hyperlink{group__loader_gabcf5733eb4dd80c1ce060aec9ed60600}{evmc\+\_\+load()}}),
+\item creates the VM instance,
+\item configures the VM instance with options provided in the {\ttfamily config} parameter.
+\end{DoxyItemize}
+
+The configuration string ({\ttfamily config}) has the following syntax\+: \begin{DoxyVerb}<path> ("," <option-name> ["=" <option-value>])*
+\end{DoxyVerb}
+ In this syntax, an option without a value can be specified ({\ttfamily ,option,}) as a shortcut for using empty value ({\ttfamily ,option=,}).
+
+Options are passed to a VM in the order they are specified in the configuration string. It is up to the VM implementation how to handle duplicated options and other conflicts.
+
+Example configuration string\+: \begin{DoxyVerb}./modules/vm.so,engine=compiler,trace,verbosity=2
+\end{DoxyVerb}
+ The function signals the same errors as \mbox{\hyperlink{group__loader_ga53c5982e90b8dcbae860b98cae9951da}{evmc\+\_\+load\+\_\+and\+\_\+create()}} and additionally\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da53b3d46623f93646389aaf65d977aff2}{EVMC\+\_\+\+LOADER\+\_\+\+INVALID\+\_\+\+OPTION\+\_\+\+NAME}} when the provided options list contains an option unknown for the VM,
+\item \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7dad2625a5c71f0c585cf0493c47c805e1b}{EVMC\+\_\+\+LOADER\+\_\+\+INVALID\+\_\+\+OPTION\+\_\+\+VALUE}} when there exists unsupported value for a given VM option.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & The path to the EVMC module with additional configuration options. \\
+\hline
+{\em error\+\_\+code} & The pointer to the error code. If not NULL the value is set to \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da0cead101d164fef2ac74efd4d6e1ae6d}{EVMC\+\_\+\+LOADER\+\_\+\+SUCCESS}} on success or any other error code as described above. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the created VM or NULL in case of error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__loader_ga53c5982e90b8dcbae860b98cae9951da}\label{group__loader_ga53c5982e90b8dcbae860b98cae9951da}} 
+\index{EVMC Loader@{EVMC Loader}!evmc\_load\_and\_create@{evmc\_load\_and\_create}}
+\index{evmc\_load\_and\_create@{evmc\_load\_and\_create}!EVMC Loader@{EVMC Loader}}
+\doxysubsubsection{\texorpdfstring{evmc\_load\_and\_create()}{evmc\_load\_and\_create()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} $\ast$ evmc\+\_\+load\+\_\+and\+\_\+create (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{enum \mbox{\hyperlink{group__loader_gadf193ed1d2d7e9053e9c592fc201bd7d}{evmc\+\_\+loader\+\_\+error\+\_\+code}} $\ast$}]{error\+\_\+code }\end{DoxyParamCaption})}
+
+
+
+Dynamically loads the EVMC module and creates the VM instance. 
+
+This is a macro for creating the VM instance with the function returned from \mbox{\hyperlink{group__loader_gabcf5733eb4dd80c1ce060aec9ed60600}{evmc\+\_\+load()}}. The function signals the same errors as \mbox{\hyperlink{group__loader_gabcf5733eb4dd80c1ce060aec9ed60600}{evmc\+\_\+load()}} and additionally\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da504de7833560037be4d2c620345767f5}{EVMC\+\_\+\+LOADER\+\_\+\+VM\+\_\+\+CREATION\+\_\+\+FAILURE}} when the create function returns NULL,
+\item \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da0d4eb3a48d3f8c500b96f43e1aa7c458}{EVMC\+\_\+\+LOADER\+\_\+\+ABI\+\_\+\+VERSION\+\_\+\+MISMATCH}} when the created VM instance has ABI version different from the ABI version of this library (\mbox{\hyperlink{group__EVMC_gga06fc87d81c62e9abb8790b6e5713c55ba1db9144f8af4e62865f0c003c07a02bc}{EVMC\+\_\+\+ABI\+\_\+\+VERSION}}).
+\end{DoxyItemize}
+
+It is safe to call this function with the same filename argument multiple times\+: the DLL is not going to be loaded multiple times, but the function will return new VM instance each time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The null terminated path (absolute or relative) to an EVMC module (dynamically loaded library) containing the VM implementation. If the value is NULL, an empty C-\/string or longer than the path maximum length the \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da36c6ba4f96cdd1b5407aa0f26a9aa379}{EVMC\+\_\+\+LOADER\+\_\+\+INVALID\+\_\+\+ARGUMENT}} is signaled. \\
+\hline
+{\em error\+\_\+code} & The pointer to the error code. If not NULL the value is set to \mbox{\hyperlink{group__loader_ggadf193ed1d2d7e9053e9c592fc201bd7da0cead101d164fef2ac74efd4d6e1ae6d}{EVMC\+\_\+\+LOADER\+\_\+\+SUCCESS}} on success or any other error code as described above. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the created VM or NULL in case of error. 
+\end{DoxyReturn}

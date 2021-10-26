@@ -1,0 +1,25 @@
+\label{vmguide_md_docs_VM_Guide}%
+\Hypertarget{vmguide_md_docs_VM_Guide}%
+ \begin{quote}
+How to add EVMC interface to Your Ethereum VM implementation. \end{quote}
+\hypertarget{vmguide_autotoc_md7}{}\doxysection{An example}\label{vmguide_autotoc_md7}
+You can start with the example implementation of EVMC VM interface in C++.\hypertarget{vmguide_autotoc_md8}{}\doxysection{VM instance}\label{vmguide_autotoc_md8}
+The VM instance is described by the \mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} struct. It contains the basic static information about the VM like name and version. The struct also includes the VM methods (in form of function pointers) to allow the Host to interact with the VM.
+
+Some methods are optional. The VM must implement at least all mandatory ones.
+
+The instance struct must also include the EVMC ABI version (\mbox{\hyperlink{group__EVMC_gga06fc87d81c62e9abb8790b6e5713c55ba1db9144f8af4e62865f0c003c07a02bc}{EVMC\+\_\+\+ABI\+\_\+\+VERSION}}) it was build with. This allows the Host to check the ABI compatibility when loading VMs dynamically.
+
+The VM instance is created and returned as a pointer from a special \char`\"{}create\char`\"{} function. The EVMC recommends to name the function by the VM codename, e.\+g. \mbox{\hyperlink{group__EVMC_ga4ba5aae5d0250d9c4f6987a78602e795}{evmc\+\_\+create\+\_\+example\+\_\+vm()}}.\hypertarget{vmguide_autotoc_md9}{}\doxysection{VM methods implementation}\label{vmguide_autotoc_md9}
+Each VM methods takes the pointer to the \mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} as the first argument. The VM implementation can extend the \mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} struct for storing internal data. This allow implementing the VM in object-\/oriented manner.
+
+The most important method is \mbox{\hyperlink{structevmc__vm_a8384d28338f2287a9f9e1508699c53f0}{evmc\+\_\+vm\+::execute()}} because it executes EVM code. Remember that the Host is allowed to invoke the execute method concurrently so do not store data related to a particular execution context in the VM instance.
+
+Before a client can actually execute a VM, it is important to implement the three basic fields for querying name (\mbox{\hyperlink{structevmc__vm_ac29ccc98e89c8cab3ffc5bd51a2afaa8}{evmc\+\_\+vm\+::name}}), version (\mbox{\hyperlink{structevmc__vm_af98936c214ed16f5da05ba3d6a619faa}{evmc\+\_\+vm\+::version}}) and capabilities (\mbox{\hyperlink{structevmc__vm_a505d4e584a858c2eea7a026f3a94188b}{evmc\+\_\+vm\+::get\+\_\+capabilities()}}) as well as the \mbox{\hyperlink{structevmc__vm_ac78933134b4e14ca3dd4139ee061cc6b}{evmc\+\_\+vm\+::destroy()}} method to wind the VM down.
+
+Other methods are optional.\hypertarget{vmguide_autotoc_md10}{}\doxysection{Resource management}\label{vmguide_autotoc_md10}
+All additional resources allocated when the VM instance is created must be freed when the destroy method is invoked.
+
+The VM implementation can also attach additional resources to the \mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}} of an execution. These resource must be freed when the \mbox{\hyperlink{structevmc__result_a8727ff83d372ab0067bcf6656d30b0ed}{evmc\+\_\+result\+::release()}} method is invoked.
+
+{\itshape Have fun!} 

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="en-US">
+    <info>
+    <title>EVMC</title>
+    </info>
+<chapter>
+    <title>EVMC – Ethereum Client-VM Connector API</title>
+    <xi:include href="mainpage.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>EVMC Host Implementation Guide</title>
+    <xi:include href="hostguide.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>EVMC VM Implementation Guide</title>
+    <xi:include href="vmguide.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>EVMC VM Tester</title>
+    <xi:include href="vmtester.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>Module Documentation</title>
+    <xi:include href="group__cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="group__EVMC.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="group__helpers.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="group__result__optional__storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="group__instructions.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="group__loader.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>Namespace Documentation</title>
+<xi:include href="namespaceevmc.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespaceevmc_1_1fnv.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespaceevmc_1_1literals.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespaceevmc_1_1tooling.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>Class Documentation</title>
+    <xi:include href="structevmc_1_1account.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc_1_1address.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc_1_1bytes32.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc__address.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc__bytes32.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc__host__context.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc__host__interface.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc__instruction__metrics.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc__message.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc__result.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="unionevmc__result__optional__storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc__tx__context.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc__vm.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classExampleHost.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc_1_1hex__error.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classevmc_1_1Host.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classevmc_1_1HostContext.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classevmc_1_1HostInterface.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc_1_1MockedHost_1_1log__record.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc_1_1MockedAccount.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classevmc_1_1MockedHost.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classevmc_1_1result.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc_1_1MockedHost_1_1selfdestruct__record.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structevmc_1_1storage__value.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classevmc_1_1VM.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>File Documentation</title>
+    <xi:include href="custom_8dox.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="EVMC_8md.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="Host__Guide_8md.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="VM__Guide_8md.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="VM__Tester_8md.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="example_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="example_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="example__host_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="example__host_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="example__host_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="example__host_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="evmc_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="evmc_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="evmc_8hpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="evmc_8hpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="helpers_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="helpers_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="hex_8hpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="hex_8hpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="instructions_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="instructions_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="loader_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="loader_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mocked__host_8hpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mocked__host_8hpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="tooling_8hpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="tooling_8hpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="utils_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="utils_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

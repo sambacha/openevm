@@ -1,0 +1,815 @@
+\hypertarget{namespaceevmc}{}\doxysection{evmc Namespace Reference}
+\label{namespaceevmc}\index{evmc@{evmc}}
+
+
+EVMC C++ API -\/ wrappers and bindings for C++.  
+
+
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceevmc_1_1fnv}{fnv}}
+\item 
+namespace \mbox{\hyperlink{namespaceevmc_1_1literals}{literals}}
+\item 
+namespace \mbox{\hyperlink{namespaceevmc_1_1tooling}{tooling}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structevmc_1_1account}{account}}
+\item 
+struct \mbox{\hyperlink{structevmc_1_1address}{address}}
+\begin{DoxyCompactList}\small\item\em The big-\/endian 160-\/bit hash suitable for keeping an Ethereum address. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}}
+\begin{DoxyCompactList}\small\item\em The fixed size array of 32 bytes for storing 256-\/bit EVM values. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structevmc_1_1hex__error}{hex\+\_\+error}}
+\begin{DoxyCompactList}\small\item\em Hex decoding exception. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classevmc_1_1Host}{Host}}
+\begin{DoxyCompactList}\small\item\em Abstract class to be used by \mbox{\hyperlink{classevmc_1_1Host}{Host}} implementations. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classevmc_1_1HostContext}{Host\+Context}}
+\begin{DoxyCompactList}\small\item\em Wrapper around EVMC host context / host interface. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classevmc_1_1HostInterface}{Host\+Interface}}
+\begin{DoxyCompactList}\small\item\em The EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}} interface. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structevmc_1_1MockedAccount}{Mocked\+Account}}
+\begin{DoxyCompactList}\small\item\em Mocked account. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classevmc_1_1MockedHost}{Mocked\+Host}}
+\begin{DoxyCompactList}\small\item\em Mocked EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}} implementation. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classevmc_1_1result}{result}}
+\begin{DoxyCompactList}\small\item\em The EVM code execution result. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structevmc_1_1storage__value}{storage\+\_\+value}}
+\begin{DoxyCompactList}\small\item\em Extended value (by dirty flag) for account storage. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classevmc_1_1VM}{VM}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceevmc_a85ff0436efd1c2e8b065f73b361269e1}{accounts}} = std\+::map$<$ \mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}}, \mbox{\hyperlink{structevmc_1_1account}{account}} $>$
+\item 
+using \mbox{\hyperlink{namespaceevmc_a92bc6b73f1ce3a2b2eea018cf902c4da}{uint256be}} = \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}}
+\begin{DoxyCompactList}\small\item\em The alias for \mbox{\hyperlink{structevmc_1_1bytes32}{evmc\+::bytes32}} to represent a big-\/endian 256-\/bit integer. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespaceevmc_a092c09f674d9cb5f0ba31d0f86537f4a}{bytes}} = std\+::basic\+\_\+string$<$ uint8\+\_\+t $>$
+\begin{DoxyCompactList}\small\item\em String of uint8\+\_\+t chars. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespaceevmc_a539bc1335390844ee67ae697ec457720}{bytes\+\_\+view}} = std\+::basic\+\_\+string\+\_\+view$<$ uint8\+\_\+t $>$
+\begin{DoxyCompactList}\small\item\em String view of uint8\+\_\+t chars. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4}{hex\+\_\+errc}} \{ \mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4a52e6eb82c226e9bfa738fa47d7e359dd}{invalid\+\_\+hex\+\_\+digit}} = 1
+, \mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4aac6aff673f8bde724199fc07cea34f63}{incomplete\+\_\+hex\+\_\+byte\+\_\+pair}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em Hex decoding error codes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr uint64\+\_\+t \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}} (const uint8\+\_\+t $\ast$data) noexcept
+\begin{DoxyCompactList}\small\item\em Loads 64 bits / 8 bytes of data from the given {\ttfamily data} array in big-\/endian order. \end{DoxyCompactList}\item 
+constexpr uint64\+\_\+t \mbox{\hyperlink{namespaceevmc_acd1275224a4eb5f6a672507d144065df}{load64le}} (const uint8\+\_\+t $\ast$data) noexcept
+\begin{DoxyCompactList}\small\item\em Loads 64 bits / 8 bytes of data from the given {\ttfamily data} array in little-\/endian order. \end{DoxyCompactList}\item 
+constexpr uint32\+\_\+t \mbox{\hyperlink{namespaceevmc_a2170432bbbef84b33ce6dda30904068e}{load32be}} (const uint8\+\_\+t $\ast$data) noexcept
+\begin{DoxyCompactList}\small\item\em Loads 32 bits / 4 bytes of data from the given {\ttfamily data} array in big-\/endian order. \end{DoxyCompactList}\item 
+constexpr uint32\+\_\+t \mbox{\hyperlink{namespaceevmc_ada9ae3e2b40c36dbea8b6fe8ab70375b}{load32le}} (const uint8\+\_\+t $\ast$data) noexcept
+\begin{DoxyCompactList}\small\item\em Loads 32 bits / 4 bytes of data from the given {\ttfamily data} array in little-\/endian order. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespaceevmc_a3f6b3b885e1053cebe81913583212e70}{operator==}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&a, const \mbox{\hyperlink{structevmc_1_1address}{address}} \&b) noexcept
+\begin{DoxyCompactList}\small\item\em The \char`\"{}equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}} type. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespaceevmc_acef96efd7f9847cc089834dff73054bd}{operator!=}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&a, const \mbox{\hyperlink{structevmc_1_1address}{address}} \&b) noexcept
+\begin{DoxyCompactList}\small\item\em The \char`\"{}not equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}} type. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespaceevmc_a0a5557fb3dc3c04da6ef466ec3bb4d4c}{operator$<$}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&a, const \mbox{\hyperlink{structevmc_1_1address}{address}} \&b) noexcept
+\begin{DoxyCompactList}\small\item\em The \char`\"{}less than\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}} type. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespaceevmc_a44333e715985f766f2493b20ed665fbd}{operator$>$}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&a, const \mbox{\hyperlink{structevmc_1_1address}{address}} \&b) noexcept
+\begin{DoxyCompactList}\small\item\em The \char`\"{}greater than\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}} type. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespaceevmc_ac0dc436fe57925210dcd0481a79e9784}{operator$<$=}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&a, const \mbox{\hyperlink{structevmc_1_1address}{address}} \&b) noexcept
+\begin{DoxyCompactList}\small\item\em The \char`\"{}less than or equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}} type. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespaceevmc_aa1739e6e990dbd1fd3d30b249b1d0d58}{operator$>$=}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&a, const \mbox{\hyperlink{structevmc_1_1address}{address}} \&b) noexcept
+\begin{DoxyCompactList}\small\item\em The \char`\"{}greater than or equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}} type. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespaceevmc_a338b7c7a6dd5c12c0e37e5e8ef729100}{operator==}} (const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&a, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&b) noexcept
+\begin{DoxyCompactList}\small\item\em The \char`\"{}equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1bytes32}{evmc\+::bytes32}} type. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespaceevmc_a5917d256b4c67912a47d3a54f849f751}{operator!=}} (const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&a, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&b) noexcept
+\begin{DoxyCompactList}\small\item\em The \char`\"{}not equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1bytes32}{evmc\+::bytes32}} type. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespaceevmc_a4a0c61db81ebf11230c1506f7fc9e003}{operator$<$}} (const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&a, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&b) noexcept
+\begin{DoxyCompactList}\small\item\em The \char`\"{}less than\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1bytes32}{evmc\+::bytes32}} type. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespaceevmc_a04835f698b6a2a5d2fbc3f8234518aed}{operator$>$}} (const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&a, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&b) noexcept
+\begin{DoxyCompactList}\small\item\em The \char`\"{}greater than\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1bytes32}{evmc\+::bytes32}} type. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespaceevmc_a8580df251c76ac9b0a1561cbfda93274}{operator$<$=}} (const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&a, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&b) noexcept
+\begin{DoxyCompactList}\small\item\em The \char`\"{}less than or equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1bytes32}{evmc\+::bytes32}} type. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespaceevmc_ad830a8c519d4baf674a220480efc8ad3}{operator$>$=}} (const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&a, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&b) noexcept
+\begin{DoxyCompactList}\small\item\em The \char`\"{}greater than or equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1bytes32}{evmc\+::bytes32}} type. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespaceevmc_afc53d0e831bda94fbf31a64d224c8d24}{is\+\_\+zero}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&a) noexcept
+\begin{DoxyCompactList}\small\item\em Checks if the given address is the zero address. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespaceevmc_a2277f8eca7df22f45a4476d3fe6342fe}{is\+\_\+zero}} (const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&a) noexcept
+\begin{DoxyCompactList}\small\item\em Checks if the given \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} object has all zero bytes. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{namespaceevmc_a44c9aad0ac3f324d817e18720a1e37de}{to\+\_\+string}} (\mbox{\hyperlink{group__EVMC_ga4c0be97f333c050ff45321fcaa34d920}{evmc\+\_\+status\+\_\+code}} status\+\_\+code) noexcept
+\begin{DoxyCompactList}\small\item\em Returns text representation of the \mbox{\hyperlink{group__EVMC_ga4c0be97f333c050ff45321fcaa34d920}{evmc\+\_\+status\+\_\+code}}. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{namespaceevmc_a773edff68f6e013b3c809bb4c6ea33d3}{to\+\_\+string}} (\mbox{\hyperlink{group__EVMC_gae5759b1590071966ccf6a505b52a0ef7}{evmc\+\_\+revision}} rev) noexcept
+\begin{DoxyCompactList}\small\item\em Returns the name of the \mbox{\hyperlink{group__EVMC_gae5759b1590071966ccf6a505b52a0ef7}{evmc\+\_\+revision}}. \end{DoxyCompactList}\item 
+const std\+::error\+\_\+category \& \mbox{\hyperlink{namespaceevmc_ab7adb84a6060aa244b75958d73752696}{hex\+\_\+category}} () noexcept
+\begin{DoxyCompactList}\small\item\em Obtains a reference to the static error category object for hex errors. \end{DoxyCompactList}\item 
+std\+::error\+\_\+code \mbox{\hyperlink{namespaceevmc_aaf35d1ee5ad04f36c4287e9bafb4bd48}{make\+\_\+error\+\_\+code}} (\mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4}{hex\+\_\+errc}} errc) noexcept
+\begin{DoxyCompactList}\small\item\em Creates error\+\_\+code object out of a hex error code value. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespaceevmc_a19a82782b528ebd37782eb145cf4152c}{hex}} (uint8\+\_\+t b) noexcept
+\begin{DoxyCompactList}\small\item\em Encode a byte to a hex string. \end{DoxyCompactList}\item 
+std\+::error\+\_\+code \mbox{\hyperlink{namespaceevmc_aad6a175f9f53ee5700cb0c233efba79b}{validate\+\_\+hex}} (std\+::string\+\_\+view \mbox{\hyperlink{namespaceevmc_a19a82782b528ebd37782eb145cf4152c}{hex}}) noexcept
+\begin{DoxyCompactList}\small\item\em Validates hex encoded string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceevmc_a092c09f674d9cb5f0ba31d0f86537f4a}{bytes}} \mbox{\hyperlink{namespaceevmc_a4d4e349e08f3fed84bbd6424208a43cf}{from\+\_\+hex}} (std\+::string\+\_\+view \mbox{\hyperlink{namespaceevmc_a19a82782b528ebd37782eb145cf4152c}{hex}})
+\begin{DoxyCompactList}\small\item\em Decodes hex encoded string to bytes. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespaceevmc_adb1773c2909e66879ce13de2a49c5fee}{hex}} (\mbox{\hyperlink{namespaceevmc_a539bc1335390844ee67ae697ec457720}{bytes\+\_\+view}} bs)
+\begin{DoxyCompactList}\small\item\em Encodes bytes as hex string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr auto \mbox{\hyperlink{namespaceevmc_a9843b267dc279832b0ff9578b7dacdb7}{make\+\_\+result}} = \mbox{\hyperlink{group__helpers_ga1eb1facc9b5ddacda368ffdeb89d1a20}{evmc\+\_\+make\+\_\+result}}
+\begin{DoxyCompactList}\small\item\em Alias for \mbox{\hyperlink{group__helpers_ga1eb1facc9b5ddacda368ffdeb89d1a20}{evmc\+\_\+make\+\_\+result()}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+EVMC C++ API -\/ wrappers and bindings for C++. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespaceevmc_a85ff0436efd1c2e8b065f73b361269e1}\label{namespaceevmc_a85ff0436efd1c2e8b065f73b361269e1}} 
+\index{evmc@{evmc}!accounts@{accounts}}
+\index{accounts@{accounts}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{accounts}{accounts}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceevmc_a85ff0436efd1c2e8b065f73b361269e1}{evmc\+::accounts}} = typedef std\+::map$<$\mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}}, \mbox{\hyperlink{structevmc_1_1account}{account}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{example__host_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{example__host_8cpp_source}{example\+\_\+host.\+cpp}}.
+
+\mbox{\Hypertarget{namespaceevmc_a092c09f674d9cb5f0ba31d0f86537f4a}\label{namespaceevmc_a092c09f674d9cb5f0ba31d0f86537f4a}} 
+\index{evmc@{evmc}!bytes@{bytes}}
+\index{bytes@{bytes}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{bytes}{bytes}}
+{\footnotesize\ttfamily typedef std\+::basic\+\_\+string$<$ uint8\+\_\+t $>$ \mbox{\hyperlink{namespaceevmc_a092c09f674d9cb5f0ba31d0f86537f4a}{evmc\+::bytes}}}
+
+
+
+String of uint8\+\_\+t chars. 
+
+The string of bytes. 
+
+Definition at line \mbox{\hyperlink{hex_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{hex_8hpp_source}{hex.\+hpp}}.
+
+\mbox{\Hypertarget{namespaceevmc_a539bc1335390844ee67ae697ec457720}\label{namespaceevmc_a539bc1335390844ee67ae697ec457720}} 
+\index{evmc@{evmc}!bytes\_view@{bytes\_view}}
+\index{bytes\_view@{bytes\_view}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{bytes\_view}{bytes\_view}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceevmc_a539bc1335390844ee67ae697ec457720}{evmc\+::bytes\+\_\+view}} = typedef std\+::basic\+\_\+string\+\_\+view$<$uint8\+\_\+t$>$}
+
+
+
+String view of uint8\+\_\+t chars. 
+
+
+
+Definition at line \mbox{\hyperlink{hex_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{hex_8hpp_source}{hex.\+hpp}}.
+
+\mbox{\Hypertarget{namespaceevmc_a92bc6b73f1ce3a2b2eea018cf902c4da}\label{namespaceevmc_a92bc6b73f1ce3a2b2eea018cf902c4da}} 
+\index{evmc@{evmc}!uint256be@{uint256be}}
+\index{uint256be@{uint256be}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{uint256be}{uint256be}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceevmc_a92bc6b73f1ce3a2b2eea018cf902c4da}{evmc\+::uint256be}} = typedef \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}}}
+
+
+
+The alias for \mbox{\hyperlink{structevmc_1_1bytes32}{evmc\+::bytes32}} to represent a big-\/endian 256-\/bit integer. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00117}{117}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespaceevmc_a37d7a743959a67434404404b257b2fd4}\label{namespaceevmc_a37d7a743959a67434404404b257b2fd4}} 
+\index{evmc@{evmc}!hex\_errc@{hex\_errc}}
+\index{hex\_errc@{hex\_errc}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{hex\_errc}{hex\_errc}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4}{evmc\+::hex\+\_\+errc}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Hex decoding error codes. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{invalid\_hex\_digit@{invalid\_hex\_digit}!evmc@{evmc}}\index{evmc@{evmc}!invalid\_hex\_digit@{invalid\_hex\_digit}}}\mbox{\Hypertarget{namespaceevmc_a37d7a743959a67434404404b257b2fd4a52e6eb82c226e9bfa738fa47d7e359dd}\label{namespaceevmc_a37d7a743959a67434404404b257b2fd4a52e6eb82c226e9bfa738fa47d7e359dd}} 
+invalid\+\_\+hex\+\_\+digit&Invalid hex digit encountered during decoding. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{incomplete\_hex\_byte\_pair@{incomplete\_hex\_byte\_pair}!evmc@{evmc}}\index{evmc@{evmc}!incomplete\_hex\_byte\_pair@{incomplete\_hex\_byte\_pair}}}\mbox{\Hypertarget{namespaceevmc_a37d7a743959a67434404404b257b2fd4aac6aff673f8bde724199fc07cea34f63}\label{namespaceevmc_a37d7a743959a67434404404b257b2fd4aac6aff673f8bde724199fc07cea34f63}} 
+incomplete\+\_\+hex\+\_\+byte\+\_\+pair&Input contains incomplete hex byte (length is odd). \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{hex_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{hex_8hpp_source}{hex.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00022}00022 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00024}00024     \mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4a52e6eb82c226e9bfa738fa47d7e359dd}{invalid\_hex\_digit}} = 1,}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00027}00027     \mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4aac6aff673f8bde724199fc07cea34f63}{incomplete\_hex\_byte\_pair}} = 2,}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00028}00028 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceevmc_a4d4e349e08f3fed84bbd6424208a43cf}\label{namespaceevmc_a4d4e349e08f3fed84bbd6424208a43cf}} 
+\index{evmc@{evmc}!from\_hex@{from\_hex}}
+\index{from\_hex@{from\_hex}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{from\_hex()}{from\_hex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceevmc_a092c09f674d9cb5f0ba31d0f86537f4a}{bytes}} evmc\+::from\+\_\+hex (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{hex }\end{DoxyParamCaption})}
+
+
+
+Decodes hex encoded string to bytes. 
+
+Throws \mbox{\hyperlink{structevmc_1_1hex__error}{hex\+\_\+error}} with the appropriate error code. \mbox{\Hypertarget{namespaceevmc_adb1773c2909e66879ce13de2a49c5fee}\label{namespaceevmc_adb1773c2909e66879ce13de2a49c5fee}} 
+\index{evmc@{evmc}!hex@{hex}}
+\index{hex@{hex}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{hex()}{hex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::string evmc\+::hex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceevmc_a539bc1335390844ee67ae697ec457720}{bytes\+\_\+view}}}]{bs }\end{DoxyParamCaption})}
+
+
+
+Encodes bytes as hex string. 
+
+\mbox{\Hypertarget{namespaceevmc_a19a82782b528ebd37782eb145cf4152c}\label{namespaceevmc_a19a82782b528ebd37782eb145cf4152c}} 
+\index{evmc@{evmc}!hex@{hex}}
+\index{hex@{hex}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{hex()}{hex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string evmc\+::hex (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Encode a byte to a hex string. 
+
+
+
+Definition at line \mbox{\hyperlink{hex_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{hex_8hpp_source}{hex.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00047}00047 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00048}00048     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} hex\_chars = \textcolor{stringliteral}{"{}0123456789abcdef"{}};}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00049}00049     \textcolor{keywordflow}{return} \{hex\_chars[b >> 4], hex\_chars[b \& 0xf]\};}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00050}00050 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_ab7adb84a6060aa244b75958d73752696}\label{namespaceevmc_ab7adb84a6060aa244b75958d73752696}} 
+\index{evmc@{evmc}!hex\_category@{hex\_category}}
+\index{hex\_category@{hex\_category}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{hex\_category()}{hex\_category()}}
+{\footnotesize\ttfamily const std\+::error\+\_\+category \& evmc\+::hex\+\_\+category (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Obtains a reference to the static error category object for hex errors. 
+
+\mbox{\Hypertarget{namespaceevmc_afc53d0e831bda94fbf31a64d224c8d24}\label{namespaceevmc_afc53d0e831bda94fbf31a64d224c8d24}} 
+\index{evmc@{evmc}!is\_zero@{is\_zero}}
+\index{is\_zero@{is\_zero}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{is\_zero()}{is\_zero()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily constexpr bool evmc\+::is\+\_\+zero (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Checks if the given address is the zero address. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00251}{251}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00252}00252 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00253}00253     \textcolor{keywordflow}{return} a == \mbox{\hyperlink{structevmc_1_1address}{address}}\{\};}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00254}00254 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_a2277f8eca7df22f45a4476d3fe6342fe}\label{namespaceevmc_a2277f8eca7df22f45a4476d3fe6342fe}} 
+\index{evmc@{evmc}!is\_zero@{is\_zero}}
+\index{is\_zero@{is\_zero}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{is\_zero()}{is\_zero()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily constexpr bool evmc\+::is\+\_\+zero (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Checks if the given \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} object has all zero bytes. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00262}{262}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00263}00263 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00264}00264     \textcolor{keywordflow}{return} a == \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}}\{\};}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00265}00265 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_a2170432bbbef84b33ce6dda30904068e}\label{namespaceevmc_a2170432bbbef84b33ce6dda30904068e}} 
+\index{evmc@{evmc}!load32be@{load32be}}
+\index{load32be@{load32be}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{load32be()}{load32be()}}
+{\footnotesize\ttfamily constexpr uint32\+\_\+t evmc\+::load32be (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Loads 32 bits / 4 bytes of data from the given {\ttfamily data} array in big-\/endian order. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00137}{137}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00138}00138 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00139}00139     \textcolor{keywordflow}{return} (uint32\_t\{data[0]\} << 24) | (uint32\_t\{data[1]\} << 16) | (uint32\_t\{data[2]\} << 8) |}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00140}00140            uint32\_t\{data[3]\};}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00141}00141 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_ada9ae3e2b40c36dbea8b6fe8ab70375b}\label{namespaceevmc_ada9ae3e2b40c36dbea8b6fe8ab70375b}} 
+\index{evmc@{evmc}!load32le@{load32le}}
+\index{load32le@{load32le}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{load32le()}{load32le()}}
+{\footnotesize\ttfamily constexpr uint32\+\_\+t evmc\+::load32le (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Loads 32 bits / 4 bytes of data from the given {\ttfamily data} array in little-\/endian order. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00144}{144}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00145}00145 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00146}00146     \textcolor{keywordflow}{return} uint32\_t\{data[0]\} | (uint32\_t\{data[1]\} << 8) | (uint32\_t\{data[2]\} << 16) |}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00147}00147            (uint32\_t\{data[3]\} << 24);}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00148}00148 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}\label{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}} 
+\index{evmc@{evmc}!load64be@{load64be}}
+\index{load64be@{load64be}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{load64be()}{load64be()}}
+{\footnotesize\ttfamily constexpr uint64\+\_\+t evmc\+::load64be (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Loads 64 bits / 8 bytes of data from the given {\ttfamily data} array in big-\/endian order. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00121}{121}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00122}00122 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00123}00123     \textcolor{keywordflow}{return} (uint64\_t\{data[0]\} << 56) | (uint64\_t\{data[1]\} << 48) | (uint64\_t\{data[2]\} << 40) |}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00124}00124            (uint64\_t\{data[3]\} << 32) | (uint64\_t\{data[4]\} << 24) | (uint64\_t\{data[5]\} << 16) |}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00125}00125            (uint64\_t\{data[6]\} << 8) | uint64\_t\{data[7]\};}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00126}00126 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_acd1275224a4eb5f6a672507d144065df}\label{namespaceevmc_acd1275224a4eb5f6a672507d144065df}} 
+\index{evmc@{evmc}!load64le@{load64le}}
+\index{load64le@{load64le}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{load64le()}{load64le()}}
+{\footnotesize\ttfamily constexpr uint64\+\_\+t evmc\+::load64le (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Loads 64 bits / 8 bytes of data from the given {\ttfamily data} array in little-\/endian order. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00129}{129}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00130}00130 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00131}00131     \textcolor{keywordflow}{return} uint64\_t\{data[0]\} | (uint64\_t\{data[1]\} << 8) | (uint64\_t\{data[2]\} << 16) |}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00132}00132            (uint64\_t\{data[3]\} << 24) | (uint64\_t\{data[4]\} << 32) | (uint64\_t\{data[5]\} << 40) |}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00133}00133            (uint64\_t\{data[6]\} << 48) | (uint64\_t\{data[7]\} << 56);}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00134}00134 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_aaf35d1ee5ad04f36c4287e9bafb4bd48}\label{namespaceevmc_aaf35d1ee5ad04f36c4287e9bafb4bd48}} 
+\index{evmc@{evmc}!make\_error\_code@{make\_error\_code}}
+\index{make\_error\_code@{make\_error\_code}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{make\_error\_code()}{make\_error\_code()}}
+{\footnotesize\ttfamily std\+::error\+\_\+code evmc\+::make\+\_\+error\+\_\+code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4}{hex\+\_\+errc}}}]{errc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Creates error\+\_\+code object out of a hex error code value. 
+
+
+
+Definition at line \mbox{\hyperlink{hex_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{hex_8hpp_source}{hex.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00035}00035 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00036}00036     \textcolor{keywordflow}{return} \{\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(errc), \mbox{\hyperlink{namespaceevmc_ab7adb84a6060aa244b75958d73752696}{hex\_category}}()\};}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00037}00037 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{namespaceevmc_aaf35d1ee5ad04f36c4287e9bafb4bd48_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceevmc_acef96efd7f9847cc089834dff73054bd}\label{namespaceevmc_acef96efd7f9847cc089834dff73054bd}} 
+\index{evmc@{evmc}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily constexpr bool evmc\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{a,  }\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+The \char`\"{}not equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}} type. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00172}{172}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00173}00173 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00174}00174     \textcolor{keywordflow}{return} !(a == b);}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00175}00175 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_a5917d256b4c67912a47d3a54f849f751}\label{namespaceevmc_a5917d256b4c67912a47d3a54f849f751}} 
+\index{evmc@{evmc}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily constexpr bool evmc\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{a,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+The \char`\"{}not equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1bytes32}{evmc\+::bytes32}} type. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00215}{215}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00216}00216 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00217}00217     \textcolor{keywordflow}{return} !(a == b);}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00218}00218 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_a0a5557fb3dc3c04da6ef466ec3bb4d4c}\label{namespaceevmc_a0a5557fb3dc3c04da6ef466ec3bb4d4c}} 
+\index{evmc@{evmc}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily constexpr bool evmc\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{a,  }\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+The \char`\"{}less than\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}} type. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00178}{178}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00179}00179 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00180}00180     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&a.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[0]) < \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&b.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[0]) ||}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00181}00181            (\mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&a.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[0]) == \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&b.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[0]) \&\&}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00182}00182             (\mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&a.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[8]) < \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&b.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[8]) ||}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00183}00183              (\mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&a.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[8]) == \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&b.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[8]) \&\&}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00184}00184               \mbox{\hyperlink{namespaceevmc_a2170432bbbef84b33ce6dda30904068e}{load32be}}(\&a.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[16]) < \mbox{\hyperlink{namespaceevmc_a2170432bbbef84b33ce6dda30904068e}{load32be}}(\&b.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[16]))));}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00185}00185 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{namespaceevmc_a0a5557fb3dc3c04da6ef466ec3bb4d4c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceevmc_a4a0c61db81ebf11230c1506f7fc9e003}\label{namespaceevmc_a4a0c61db81ebf11230c1506f7fc9e003}} 
+\index{evmc@{evmc}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily constexpr bool evmc\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{a,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+The \char`\"{}less than\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1bytes32}{evmc\+::bytes32}} type. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00221}{221}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00222}00222 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00223}00223     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&a.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[0]) < \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&b.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[0]) ||}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00224}00224            (\mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&a.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[0]) == \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&b.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[0]) \&\&}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00225}00225             (\mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&a.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[8]) < \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&b.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[8]) ||}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00226}00226              (\mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&a.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[8]) == \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&b.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[8]) \&\&}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00227}00227               (\mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&a.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[16]) < \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&b.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[16]) ||}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00228}00228                (\mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&a.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[16]) == \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&b.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[16]) \&\&}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00229}00229                 \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&a.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[24]) < \mbox{\hyperlink{namespaceevmc_a1a253fea559bb97f713b91903ffc860e}{load64be}}(\&b.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[24]))))));}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00230}00230 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{namespaceevmc_a4a0c61db81ebf11230c1506f7fc9e003_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceevmc_ac0dc436fe57925210dcd0481a79e9784}\label{namespaceevmc_ac0dc436fe57925210dcd0481a79e9784}} 
+\index{evmc@{evmc}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily constexpr bool evmc\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{a,  }\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+The \char`\"{}less than or equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}} type. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00194}{194}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00195}00195 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00196}00196     \textcolor{keywordflow}{return} !(b < a);}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00197}00197 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_a8580df251c76ac9b0a1561cbfda93274}\label{namespaceevmc_a8580df251c76ac9b0a1561cbfda93274}} 
+\index{evmc@{evmc}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily constexpr bool evmc\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{a,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+The \char`\"{}less than or equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1bytes32}{evmc\+::bytes32}} type. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00239}{239}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00240}00240 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00241}00241     \textcolor{keywordflow}{return} !(b < a);}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00242}00242 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_a3f6b3b885e1053cebe81913583212e70}\label{namespaceevmc_a3f6b3b885e1053cebe81913583212e70}} 
+\index{evmc@{evmc}!operator==@{operator==}}
+\index{operator==@{operator==}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily constexpr bool evmc\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{a,  }\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+The \char`\"{}equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}} type. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00164}{164}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00165}00165 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00166}00166     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceevmc_acd1275224a4eb5f6a672507d144065df}{load64le}}(\&a.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[0]) == \mbox{\hyperlink{namespaceevmc_acd1275224a4eb5f6a672507d144065df}{load64le}}(\&b.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[0]) \&\&}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00167}00167            \mbox{\hyperlink{namespaceevmc_acd1275224a4eb5f6a672507d144065df}{load64le}}(\&a.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[8]) == \mbox{\hyperlink{namespaceevmc_acd1275224a4eb5f6a672507d144065df}{load64le}}(\&b.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[8]) \&\&}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00168}00168            \mbox{\hyperlink{namespaceevmc_ada9ae3e2b40c36dbea8b6fe8ab70375b}{load32le}}(\&a.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[16]) == \mbox{\hyperlink{namespaceevmc_ada9ae3e2b40c36dbea8b6fe8ab70375b}{load32le}}(\&b.\mbox{\hyperlink{structevmc__address_ab43a790ce0efb282b7ed7eafff8ed614}{bytes}}[16]);}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00169}00169 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{namespaceevmc_a3f6b3b885e1053cebe81913583212e70_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceevmc_a338b7c7a6dd5c12c0e37e5e8ef729100}\label{namespaceevmc_a338b7c7a6dd5c12c0e37e5e8ef729100}} 
+\index{evmc@{evmc}!operator==@{operator==}}
+\index{operator==@{operator==}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily constexpr bool evmc\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{a,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+The \char`\"{}equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1bytes32}{evmc\+::bytes32}} type. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00206}{206}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00207}00207 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00208}00208     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceevmc_acd1275224a4eb5f6a672507d144065df}{load64le}}(\&a.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[0]) == \mbox{\hyperlink{namespaceevmc_acd1275224a4eb5f6a672507d144065df}{load64le}}(\&b.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[0]) \&\&}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00209}00209            \mbox{\hyperlink{namespaceevmc_acd1275224a4eb5f6a672507d144065df}{load64le}}(\&a.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[8]) == \mbox{\hyperlink{namespaceevmc_acd1275224a4eb5f6a672507d144065df}{load64le}}(\&b.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[8]) \&\&}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00210}00210            \mbox{\hyperlink{namespaceevmc_acd1275224a4eb5f6a672507d144065df}{load64le}}(\&a.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[16]) == \mbox{\hyperlink{namespaceevmc_acd1275224a4eb5f6a672507d144065df}{load64le}}(\&b.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[16]) \&\&}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00211}00211            \mbox{\hyperlink{namespaceevmc_acd1275224a4eb5f6a672507d144065df}{load64le}}(\&a.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[24]) == \mbox{\hyperlink{namespaceevmc_acd1275224a4eb5f6a672507d144065df}{load64le}}(\&b.\mbox{\hyperlink{structevmc__bytes32_a695eaf3c428daee54ce15c8252edc133}{bytes}}[24]);}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00212}00212 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{namespaceevmc_a338b7c7a6dd5c12c0e37e5e8ef729100_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceevmc_a44333e715985f766f2493b20ed665fbd}\label{namespaceevmc_a44333e715985f766f2493b20ed665fbd}} 
+\index{evmc@{evmc}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily constexpr bool evmc\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{a,  }\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+The \char`\"{}greater than\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}} type. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00188}{188}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00189}00189 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00190}00190     \textcolor{keywordflow}{return} b < a;}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00191}00191 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_a04835f698b6a2a5d2fbc3f8234518aed}\label{namespaceevmc_a04835f698b6a2a5d2fbc3f8234518aed}} 
+\index{evmc@{evmc}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily constexpr bool evmc\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{a,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+The \char`\"{}greater than\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1bytes32}{evmc\+::bytes32}} type. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00233}{233}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00234}00234 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00235}00235     \textcolor{keywordflow}{return} b < a;}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00236}00236 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_aa1739e6e990dbd1fd3d30b249b1d0d58}\label{namespaceevmc_aa1739e6e990dbd1fd3d30b249b1d0d58}} 
+\index{evmc@{evmc}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily constexpr bool evmc\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{a,  }\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+The \char`\"{}greater than or equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1address}{evmc\+::address}} type. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00200}{200}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00201}00201 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00202}00202     \textcolor{keywordflow}{return} !(a < b);}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00203}00203 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_ad830a8c519d4baf674a220480efc8ad3}\label{namespaceevmc_ad830a8c519d4baf674a220480efc8ad3}} 
+\index{evmc@{evmc}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily constexpr bool evmc\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{a,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+The \char`\"{}greater than or equal to\char`\"{} comparison operator for the \mbox{\hyperlink{structevmc_1_1bytes32}{evmc\+::bytes32}} type. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00245}{245}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00246}00246 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00247}00247     \textcolor{keywordflow}{return} !(a < b);}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00248}00248 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevmc_a773edff68f6e013b3c809bb4c6ea33d3}\label{namespaceevmc_a773edff68f6e013b3c809bb4c6ea33d3}} 
+\index{evmc@{evmc}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const char $\ast$ evmc\+::to\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__EVMC_gae5759b1590071966ccf6a505b52a0ef7}{evmc\+\_\+revision}}}]{rev }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the name of the \mbox{\hyperlink{group__EVMC_gae5759b1590071966ccf6a505b52a0ef7}{evmc\+\_\+revision}}. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00352}{352}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00353}00353 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00354}00354     \textcolor{keywordflow}{return} \mbox{\hyperlink{group__helpers_gad04bac3144296562478b0447bf3991ff}{evmc\_revision\_to\_string}}(rev);}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00355}00355 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{namespaceevmc_a773edff68f6e013b3c809bb4c6ea33d3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceevmc_a44c9aad0ac3f324d817e18720a1e37de}\label{namespaceevmc_a44c9aad0ac3f324d817e18720a1e37de}} 
+\index{evmc@{evmc}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const char $\ast$ evmc\+::to\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__EVMC_ga4c0be97f333c050ff45321fcaa34d920}{evmc\+\_\+status\+\_\+code}}}]{status\+\_\+code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns text representation of the \mbox{\hyperlink{group__EVMC_ga4c0be97f333c050ff45321fcaa34d920}{evmc\+\_\+status\+\_\+code}}. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00346}{346}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00347}00347 \{}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00348}00348     \textcolor{keywordflow}{return} \mbox{\hyperlink{group__helpers_gad9e0e4b4cf8323982572dc54d36f0b40}{evmc\_status\_code\_to\_string}}(status\_code);}
+\DoxyCodeLine{\Hypertarget{namespaceevmc_l00349}00349 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{namespaceevmc_a44c9aad0ac3f324d817e18720a1e37de_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceevmc_aad6a175f9f53ee5700cb0c233efba79b}\label{namespaceevmc_aad6a175f9f53ee5700cb0c233efba79b}} 
+\index{evmc@{evmc}!validate\_hex@{validate\_hex}}
+\index{validate\_hex@{validate\_hex}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{validate\_hex()}{validate\_hex()}}
+{\footnotesize\ttfamily std\+::error\+\_\+code evmc\+::validate\+\_\+hex (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{hex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Validates hex encoded string. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceevmc_a9843b267dc279832b0ff9578b7dacdb7}\label{namespaceevmc_a9843b267dc279832b0ff9578b7dacdb7}} 
+\index{evmc@{evmc}!make\_result@{make\_result}}
+\index{make\_result@{make\_result}!evmc@{evmc}}
+\doxysubsubsection{\texorpdfstring{make\_result}{make\_result}}
+{\footnotesize\ttfamily constexpr auto evmc\+::make\+\_\+result = \mbox{\hyperlink{group__helpers_ga1eb1facc9b5ddacda368ffdeb89d1a20}{evmc\+\_\+make\+\_\+result}}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Alias for \mbox{\hyperlink{group__helpers_ga1eb1facc9b5ddacda368ffdeb89d1a20}{evmc\+\_\+make\+\_\+result()}}. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00359}{359}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+

@@ -1,0 +1,2 @@
+#!/bin/bash
+cat Building-EVM-LLVM.md Compiling-smart-contracts.md Emitting-Program-Metadata.md Example:-Compiling-using-existing-language-frontend.md Function-Layouts.md Future-Works.md Handling-EVM-specific-operations.md Home.md Intrinsic-Functions.md Language-Frontend-Integration.md Running-integrated-tests-in-EVM-environment.md Stack-and-Memory-management.md The-EVM-Calling-Conventions.md Types-and-type-conversions.md > OMNIBUS.md

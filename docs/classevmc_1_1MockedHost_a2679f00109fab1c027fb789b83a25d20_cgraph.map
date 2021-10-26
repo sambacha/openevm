@@ -1,0 +1,4 @@
+<map id="evmc::MockedHost::copy_code" name="evmc::MockedHost::copy_code">
+<area shape="rect" id="node1" title="Copy the account&#39;s code to the given buffer (EVMC host method)." alt="" coords="5,13,212,39"/>
+<area shape="rect" id="node2" href="$classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1" title="Record an account access." alt="" coords="260,5,440,47"/>
+</map>

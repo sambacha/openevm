@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structevmc_1_1MockedAccount" xml:lang="en-US">
+<title>evmc::MockedAccount Struct Reference</title>
+<indexterm><primary>evmc::MockedAccount</primary></indexterm>
+<para>
+
+<para>Mocked account. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;mocked_host.hpp&gt;</computeroutput>
+</para>
+Collaboration diagram for evmc::MockedAccount:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="structevmc_1_1MockedAccount__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_structevmc_1_1MockedAccount_1ac757b616c2622fcf5a361a8a08ba2bde">set_balance</link> (uint64_t x) noexcept</para>
+
+<para>Helper method for setting balance by numeric type. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_structevmc_1_1MockedAccount_1a64c2a2707e01eed3806881e385b182ed">nonce</link> = 0</para>
+
+<para>The account nonce. </para>
+</listitem>
+            <listitem><para><link linkend="_namespaceevmc_1a092c09f674d9cb5f0ba31d0f86537f4a">bytes</link> <link linkend="_structevmc_1_1MockedAccount_1a6da53c27a9106c49a59582494f8ef37a">code</link></para>
+
+<para>The account code. </para>
+</listitem>
+            <listitem><para><link linkend="_structevmc_1_1bytes32">bytes32</link> <link linkend="_structevmc_1_1MockedAccount_1a4702798be7eb84d982ad66dd335d56a6">codehash</link></para>
+
+<para>The code hash. Can be a value not related to the actual code. </para>
+</listitem>
+            <listitem><para><link linkend="_namespaceevmc_1a92bc6b73f1ce3a2b2eea018cf902c4da">uint256be</link> <link linkend="_structevmc_1_1MockedAccount_1a70a90d4df3e2a1b3f37a670835f5179a">balance</link></para>
+
+<para>The account balance. </para>
+</listitem>
+            <listitem><para>std::unordered_map&lt; <link linkend="_structevmc_1_1bytes32">bytes32</link>, <link linkend="_structevmc_1_1storage__value">storage_value</link> &gt; <link linkend="_structevmc_1_1MockedAccount_1a969a6e55a2748908a48dd9f35c51e932">storage</link></para>
+
+<para>The account storage map. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Mocked account. </para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00044">44</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_structevmc_1_1MockedAccount_1ac757b616c2622fcf5a361a8a08ba2bde"/><section>
+    <title>set_balance()</title>
+<indexterm><primary>set_balance</primary><secondary>evmc::MockedAccount</secondary></indexterm>
+<indexterm><primary>evmc::MockedAccount</primary><secondary>set_balance</secondary></indexterm>
+<para><computeroutput>void evmc::MockedAccount::set_balance (uint64_t x)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Helper method for setting balance by numeric type. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00062">62</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_structevmc_1_1MockedAccount_1l00063"/>00063 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_structevmc_1_1MockedAccount_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1MockedAccount_1a70a90d4df3e2a1b3f37a670835f5179a">balance</link>&#32;=&#32;<link linkend="_namespaceevmc_1a92bc6b73f1ce3a2b2eea018cf902c4da">uint256be</link>{};
+<anchor xml:id="_structevmc_1_1MockedAccount_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(std::size_t&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;<emphasis role="keyword">sizeof</emphasis>(x);&#32;++i)
+<anchor xml:id="_structevmc_1_1MockedAccount_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1MockedAccount_1a70a90d4df3e2a1b3f37a670835f5179a">balance</link>.<link linkend="_structevmc__bytes32_1a695eaf3c428daee54ce15c8252edc133">bytes</link>[<emphasis role="keyword">sizeof</emphasis>(<link linkend="_structevmc_1_1MockedAccount_1a70a90d4df3e2a1b3f37a670835f5179a">balance</link>)&#32;-&#32;1&#32;-&#32;i]&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(x&#32;&gt;&gt;&#32;(8&#32;*&#32;i));
+<anchor xml:id="_structevmc_1_1MockedAccount_1l00067"/>00067 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_structevmc_1_1MockedAccount_1a70a90d4df3e2a1b3f37a670835f5179a"/><section>
+    <title>balance</title>
+<indexterm><primary>balance</primary><secondary>evmc::MockedAccount</secondary></indexterm>
+<indexterm><primary>evmc::MockedAccount</primary><secondary>balance</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceevmc_1a92bc6b73f1ce3a2b2eea018cf902c4da">uint256be</link> evmc::MockedAccount::balance</computeroutput></para><para>
+
+<para>The account balance. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00056">56</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_structevmc_1_1MockedAccount_1a6da53c27a9106c49a59582494f8ef37a"/><section>
+    <title>code</title>
+<indexterm><primary>code</primary><secondary>evmc::MockedAccount</secondary></indexterm>
+<indexterm><primary>evmc::MockedAccount</primary><secondary>code</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceevmc_1a092c09f674d9cb5f0ba31d0f86537f4a">bytes</link> evmc::MockedAccount::code</computeroutput></para><para>
+
+<para>The account code. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00050">50</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_structevmc_1_1MockedAccount_1a4702798be7eb84d982ad66dd335d56a6"/><section>
+    <title>codehash</title>
+<indexterm><primary>codehash</primary><secondary>evmc::MockedAccount</secondary></indexterm>
+<indexterm><primary>evmc::MockedAccount</primary><secondary>codehash</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc_1_1bytes32">bytes32</link> evmc::MockedAccount::codehash</computeroutput></para><para>
+
+<para>The code hash. Can be a value not related to the actual code. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00053">53</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_structevmc_1_1MockedAccount_1a64c2a2707e01eed3806881e385b182ed"/><section>
+    <title>nonce</title>
+<indexterm><primary>nonce</primary><secondary>evmc::MockedAccount</secondary></indexterm>
+<indexterm><primary>evmc::MockedAccount</primary><secondary>nonce</secondary></indexterm>
+<para><computeroutput>int evmc::MockedAccount::nonce = 0</computeroutput></para><para>
+
+<para>The account nonce. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00047">47</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<anchor xml:id="_structevmc_1_1MockedAccount_1a969a6e55a2748908a48dd9f35c51e932"/><section>
+    <title>storage</title>
+<indexterm><primary>storage</primary><secondary>evmc::MockedAccount</secondary></indexterm>
+<indexterm><primary>evmc::MockedAccount</primary><secondary>storage</secondary></indexterm>
+<para><computeroutput>std::unordered_map&lt;<link linkend="_structevmc_1_1bytes32">bytes32</link>, <link linkend="_structevmc_1_1storage__value">storage_value</link>&gt; evmc::MockedAccount::storage</computeroutput></para><para>
+
+<para>The account storage map. </para>
+</para>
+<para>
+Definition at line <link linkend="_mocked__host_8hpp_source_1l00059">59</link> of file <link linkend="_mocked__host_8hpp_source">mocked_host.hpp</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+include/evmc/<link linkend="_mocked__host_8hpp">mocked_host.hpp</link></section>
+</section>

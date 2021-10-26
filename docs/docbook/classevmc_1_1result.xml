@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classevmc_1_1result" xml:lang="en-US">
+<title>evmc::result Class Reference</title>
+<indexterm><primary>evmc::result</primary></indexterm>
+<para>
+
+<para>The EVM code execution result. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;evmc.hpp&gt;</computeroutput>
+</para>
+Inheritance diagram for evmc::result:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1result__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for evmc::result:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classevmc_1_1result__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classevmc_1_1result_1add9ddebaace1c5d35784cfc6966d8aa8">result</link> (<link linkend="_group__EVMC_1ga4c0be97f333c050ff45321fcaa34d920">evmc_status_code</link> _status_code, int64_t _gas_left, const uint8_t *_output_data, size_t _output_size) noexcept</para>
+
+<para>Creates the result from the provided arguments. </para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1result_1a4753030d0491d94c2b64b15f025d5055">result</link> (<link linkend="_structevmc__result">evmc_result</link> const &amp;res) noexcept</para>
+
+<para>Converting constructor from raw <link linkend="_structevmc__result">evmc_result</link>. </para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1result_1aee479c5093974fed2ec14f33bafcfd32">~result</link> () noexcept</para>
+
+<para>Destructor responsible for automatically releasing attached resources. </para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1result_1aeb05e759733ffba8140aef6b7a8dd550">result</link> (<link linkend="_classevmc_1_1result">result</link> &amp;&amp;other) noexcept</para>
+
+<para>Move constructor. </para>
+</listitem>
+            <listitem><para><link linkend="_classevmc_1_1result">result</link> &amp; <link linkend="_classevmc_1_1result_1a051c899a3492882b69cf70ebee0bd303">operator=</link> (<link linkend="_classevmc_1_1result">result</link> &amp;&amp;other) noexcept</para>
+
+<para>Move assignment operator. </para>
+</listitem>
+            <listitem><para><link linkend="_structevmc__result">evmc_result</link> <link linkend="_classevmc_1_1result_1a3b924b2e8ee361277753810ad65930c2">release_raw</link> () noexcept</para>
+
+<para>Releases the ownership and returns the raw copy of <link linkend="_structevmc__result">evmc_result</link>. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_structevmc__address">evmc_address</link> <link linkend="_classevmc_1_1result_1ae7f37ff7c9cfa3b58af2c89f4d610522">create_address</link></para>
+
+<para>The address of the contract created by create instructions. </para>
+</listitem>
+            <listitem><para>int64_t <link linkend="_classevmc_1_1result_1af8478c93dbcc3cb2876037c5a5afd4c0">gas_left</link></para>
+
+<para>The amount of gas left after the execution. </para>
+</listitem>
+            <listitem><para>const uint8_t * <link linkend="_classevmc_1_1result_1a61978e85f9d795a7b9695b9cbf1748d6">output_data</link></para>
+
+<para>The reference to output data. </para>
+</listitem>
+            <listitem><para>size_t <link linkend="_classevmc_1_1result_1a93bb7419aff492cdef754421c6d74e26">output_size</link></para>
+
+<para>The size of the output data. </para>
+</listitem>
+            <listitem><para>enum <link linkend="_group__EVMC_1ga4c0be97f333c050ff45321fcaa34d920">evmc_status_code</link> <link linkend="_classevmc_1_1result_1a759c4aaa4a1c002f5a8be09ccb0b6a1c">status_code</link></para>
+
+<para>The execution status code. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The EVM code execution result. </para>
+
+
+
+<para>This is a RAII wrapper for <link linkend="_structevmc__result">evmc_result</link> and objects of this type automatically release attached resources. </para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00365">365</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classevmc_1_1result_1add9ddebaace1c5d35784cfc6966d8aa8"/><section>
+    <title>result()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>result</primary><secondary>evmc::result</secondary></indexterm>
+<indexterm><primary>evmc::result</primary><secondary>result</secondary></indexterm>
+<para><computeroutput>evmc::result::result (<link linkend="_group__EVMC_1ga4c0be97f333c050ff45321fcaa34d920">evmc_status_code</link> _status_code, int64_t _gas_left, const uint8_t * _output_data, size_t _output_size)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Creates the result from the provided arguments. </para>
+</para>
+
+<para>The provided output is copied to memory allocated with malloc() and the <link linkend="_structevmc__result_1a8727ff83d372ab0067bcf6656d30b0ed">evmc_result::release</link> function is set to one invoking free().</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>_status_code</entry><entry>
+<para>The status code. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>_gas_left</entry><entry>
+<para>The amount of gas left. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>_output_data</entry><entry>
+<para>The pointer to the output. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>_output_size</entry><entry>
+<para>The output size. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00383">383</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1result_1l00387"/>00387 &#32;&#32;&#32;&#32;&#32;&#32;:&#32;<link linkend="_structevmc__result">evmc_result</link>{<link linkend="_namespaceevmc_1a9843b267dc279832b0ff9578b7dacdb7">make_result</link>(_status_code,&#32;_gas_left,&#32;_output_data,&#32;_output_size)}
+<anchor xml:id="_classevmc_1_1result_1l00388"/>00388 &#32;&#32;&#32;&#32;{}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1result_1a4753030d0491d94c2b64b15f025d5055"/><section>
+    <title>result()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>result</primary><secondary>evmc::result</secondary></indexterm>
+<indexterm><primary>evmc::result</primary><secondary>result</secondary></indexterm>
+<para><computeroutput>evmc::result::result (<link linkend="_structevmc__result">evmc_result</link> const &amp; res)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Converting constructor from raw <link linkend="_structevmc__result">evmc_result</link>. </para>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00391">391</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1result_1l00391"/>00391 :&#32;<link linkend="_structevmc__result">evmc_result</link>{res}&#32;{}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1result_1aee479c5093974fed2ec14f33bafcfd32"/><section>
+    <title>~result()</title>
+<indexterm><primary>~result</primary><secondary>evmc::result</secondary></indexterm>
+<indexterm><primary>evmc::result</primary><secondary>~result</secondary></indexterm>
+<para><computeroutput>evmc::result::~result ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Destructor responsible for automatically releasing attached resources. </para>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00394">394</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1result_1l00395"/>00395 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1result_1l00396"/>00396 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_structevmc__result_1a8727ff83d372ab0067bcf6656d30b0ed">release</link>&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="_classevmc_1_1result_1l00397"/>00397 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structevmc__result_1a8727ff83d372ab0067bcf6656d30b0ed">release</link>(<emphasis role="keyword">this</emphasis>);
+<anchor xml:id="_classevmc_1_1result_1l00398"/>00398 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1result_1aeb05e759733ffba8140aef6b7a8dd550"/><section>
+    <title>result()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>result</primary><secondary>evmc::result</secondary></indexterm>
+<indexterm><primary>evmc::result</primary><secondary>result</secondary></indexterm>
+<para><computeroutput>evmc::result::result (<link linkend="_classevmc_1_1result">result</link> &amp;&amp; other)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Move constructor. </para>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00401">401</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1result_1l00401"/>00401 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;<link linkend="_structevmc__result">evmc_result</link>{other}
+<anchor xml:id="_classevmc_1_1result_1l00402"/>00402 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1result_1l00403"/>00403 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;other.<link linkend="_structevmc__result_1a8727ff83d372ab0067bcf6656d30b0ed">release</link>&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;&#32;<emphasis role="comment">//&#32;Disable&#32;releasing&#32;of&#32;the&#32;rvalue&#32;object.</emphasis>
+<anchor xml:id="_classevmc_1_1result_1l00404"/>00404 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classevmc_1_1result_1a051c899a3492882b69cf70ebee0bd303"/><section>
+    <title>operator=()</title>
+<indexterm><primary>operator=</primary><secondary>evmc::result</secondary></indexterm>
+<indexterm><primary>evmc::result</primary><secondary>operator=</secondary></indexterm>
+<para><computeroutput><link linkend="_classevmc_1_1result">result</link> &amp; evmc::result::operator= (<link linkend="_classevmc_1_1result">result</link> &amp;&amp; other)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Move assignment operator. </para>
+</para>
+
+<para>The self-assigment MUST never happen.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>other</entry><entry>
+<para>The other result object. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The reference to the left-hand side object. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00412">412</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1result_1l00413"/>00413 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1result_1l00414"/>00414 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this-&gt;<link linkend="_classevmc_1_1result_1aee479c5093974fed2ec14f33bafcfd32">~result</link>();&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Release&#32;this&#32;object.</emphasis>
+<anchor xml:id="_classevmc_1_1result_1l00415"/>00415 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><link linkend="_structevmc__result">evmc_result</link>&amp;<emphasis role="keyword">&gt;</emphasis>(*this)&#32;=&#32;other;&#32;&#32;<emphasis role="comment">//&#32;Copy&#32;data.</emphasis>
+<anchor xml:id="_classevmc_1_1result_1l00416"/>00416 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;other.<link linkend="_structevmc__result_1a8727ff83d372ab0067bcf6656d30b0ed">release</link>&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Disable&#32;releasing&#32;of&#32;the&#32;rvalue&#32;object.</emphasis>
+<anchor xml:id="_classevmc_1_1result_1l00417"/>00417 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+<anchor xml:id="_classevmc_1_1result_1l00418"/>00418 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_classevmc_1_1result_1a3b924b2e8ee361277753810ad65930c2"/><section>
+    <title>release_raw()</title>
+<indexterm><primary>release_raw</primary><secondary>evmc::result</secondary></indexterm>
+<indexterm><primary>evmc::result</primary><secondary>release_raw</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc__result">evmc_result</link> evmc::result::release_raw ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Releases the ownership and returns the raw copy of <link linkend="_structevmc__result">evmc_result</link>. </para>
+</para>
+
+<para>This method drops the ownership of the result (result&apos;s resources are not going to be released when this object is destructed). It is the caller&apos;s responsibility having the returned copy of the result to release it. This object MUST NOT be used after this method is invoked.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The copy of this object converted to raw <link linkend="_structevmc__result">evmc_result</link>. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8hpp_source_1l00428">428</link> of file <link linkend="_evmc_8hpp_source">evmc.hpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_classevmc_1_1result_1l00429"/>00429 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_classevmc_1_1result_1l00430"/>00430 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;out&#32;=&#32;<link linkend="_structevmc__result">evmc_result</link>{*<emphasis role="keyword">this</emphasis>};&#32;&#32;<emphasis role="comment">//&#32;Copy&#32;data.</emphasis>
+<anchor xml:id="_classevmc_1_1result_1l00431"/>00431 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this-&gt;<link linkend="_structevmc__result_1a8727ff83d372ab0067bcf6656d30b0ed">release</link>&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Disable&#32;releasing&#32;of&#32;this&#32;object.</emphasis>
+<anchor xml:id="_classevmc_1_1result_1l00432"/>00432 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;out;
+<anchor xml:id="_classevmc_1_1result_1l00433"/>00433 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classevmc_1_1result_1ae7f37ff7c9cfa3b58af2c89f4d610522"/><section>
+    <title>create_address</title>
+<indexterm><primary>create_address</primary><secondary>evmc::result</secondary></indexterm>
+<indexterm><primary>evmc::result</primary><secondary>create_address</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc__address">evmc_address</link> evmc_result::create_address</computeroutput></para><para>
+
+<para>The address of the contract created by create instructions. </para>
+</para>
+
+<para>This field has valid value only if:<itemizedlist>
+<listitem>
+<para>it is a result of the <link linkend="_classevmc_1_1Host">Host</link> method <link linkend="_structevmc__host__interface_1a0acd6def9c08159acccfba9f9cbf9ca9">evmc_host_interface::call</link></para>
+</listitem><listitem>
+<para>and the result describes successful contract creation (<link linkend="_structevmc__result_1a759c4aaa4a1c002f5a8be09ccb0b6a1c">evmc_result::status_code</link> is <link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a4bc3069fec2bab2a55355a72b7db68b7">EVMC_SUCCESS</link>). In all other cases the address MUST be null bytes. </para>
+</listitem></itemizedlist>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00454">454</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1result_1af8478c93dbcc3cb2876037c5a5afd4c0"/><section>
+    <title>gas_left</title>
+<indexterm><primary>gas_left</primary><secondary>evmc::result</secondary></indexterm>
+<indexterm><primary>evmc::result</primary><secondary>gas_left</secondary></indexterm>
+<para><computeroutput>int64_t evmc_result::gas_left</computeroutput></para><para>
+
+<para>The amount of gas left after the execution. </para>
+</para>
+
+<para>If <link linkend="_structevmc__result_1a759c4aaa4a1c002f5a8be09ccb0b6a1c">evmc_result::status_code</link> is neither <link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a4bc3069fec2bab2a55355a72b7db68b7">EVMC_SUCCESS</link> nor <link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920aed708e84d49cc1270e54ec20b0ca0a05">EVMC_REVERT</link> the value MUST be 0. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00402">402</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1result_1a61978e85f9d795a7b9695b9cbf1748d6"/><section>
+    <title>output_data</title>
+<indexterm><primary>output_data</primary><secondary>evmc::result</secondary></indexterm>
+<indexterm><primary>evmc::result</primary><secondary>output_data</secondary></indexterm>
+<para><computeroutput>const uint8_t* evmc_result::output_data</computeroutput></para><para>
+
+<para>The reference to output data. </para>
+</para>
+
+<para>The output contains data coming from RETURN opcode (iff evmc_result::code field is <link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a4bc3069fec2bab2a55355a72b7db68b7">EVMC_SUCCESS</link>) or from REVERT opcode.</para>
+
+<para>The memory containing the output data is owned by EVM and has to be freed with <link linkend="_structevmc__result_1a8727ff83d372ab0067bcf6656d30b0ed">evmc_result::release()</link>.</para>
+
+<para>This MAY be NULL. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00415">415</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1result_1a93bb7419aff492cdef754421c6d74e26"/><section>
+    <title>output_size</title>
+<indexterm><primary>output_size</primary><secondary>evmc::result</secondary></indexterm>
+<indexterm><primary>evmc::result</primary><secondary>output_size</secondary></indexterm>
+<para><computeroutput>size_t evmc_result::output_size</computeroutput></para><para>
+
+<para>The size of the output data. </para>
+</para>
+
+<para>If output_data is NULL this MUST be 0. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00422">422</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_classevmc_1_1result_1a759c4aaa4a1c002f5a8be09ccb0b6a1c"/><section>
+    <title>status_code</title>
+<indexterm><primary>status_code</primary><secondary>evmc::result</secondary></indexterm>
+<indexterm><primary>evmc::result</primary><secondary>status_code</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_group__EVMC_1ga4c0be97f333c050ff45321fcaa34d920">evmc_status_code</link> evmc_result::status_code</computeroutput></para><para>
+
+<para>The execution status code. </para>
+</para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00394">394</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+include/evmc/<link linkend="_evmc_8hpp">evmc.hpp</link></section>
+</section>

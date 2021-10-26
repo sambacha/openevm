@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_mocked__host_8hpp" xml:lang="en-US">
+<title>include/evmc/mocked_host.hpp File Reference</title>
+<indexterm><primary>include/evmc/mocked_host.hpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;evmc/evmc.hpp&gt;
+#include &lt;algorithm&gt;
+#include &lt;string&gt;
+#include &lt;unordered_map&gt;
+#include &lt;vector&gt;
+</programlisting>Include dependency graph for mocked_host.hpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="mocked__host_8hpp__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structevmc_1_1storage__value">evmc::storage_value</link></para>
+
+<para>Extended value (by dirty flag) for account storage. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_structevmc_1_1MockedAccount">evmc::MockedAccount</link></para>
+
+<para>Mocked account. </para>
+</listitem>
+            <listitem><para>class <link linkend="_classevmc_1_1MockedHost">evmc::MockedHost</link></para>
+
+<para>Mocked EVMC <link linkend="_classevmc_1_1Host">Host</link> implementation. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_structevmc_1_1MockedHost_1_1log__record">evmc::MockedHost::log_record</link></para>
+
+<para>LOG record. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record">evmc::MockedHost::selfdestruct_record</link></para>
+
+<para>SELFDESTRUCT record. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespaceevmc">evmc</link></para>
+
+<para>EVMC C++ API - wrappers and bindings for C++. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

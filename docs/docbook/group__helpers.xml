@@ -1,0 +1,517 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__helpers" xml:lang="en-US">
+<title>EVMC Helpers</title>
+<indexterm><primary>EVMC Helpers</primary></indexterm>
+<para>
+
+<para>EVMC Helpers. </para>
+ 
+</para>
+Collaboration diagram for EVMC Helpers:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__helpers.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Modules    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_group__result__optional__storage">Result Optional Storage</link></para>
+
+<para>Helpers for optional storage of <link linkend="_structevmc__result">evmc_result</link>. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group__helpers_1gaad1a8fca9b52410cdc8f73739883cb93">EVMC_EXPORT</link>   __attribute__((visibility(&quot;default&quot;)))</para>
+
+<para>Marks a function to be exported from a shared library. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__helpers_1ga73d425fddf1083ef70d1ffd9a29522d4">EVMC_NOEXCEPT</link></para>
+
+<para>Safe way of marking a function with <computeroutput>noexcept</computeroutput> C++ specifier. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>static bool <link linkend="_group__helpers_1ga7e9c2c68b366dda89dba56566aab111d">evmc_is_abi_compatible</link> (struct <link linkend="_structevmc__vm">evmc_vm</link> *vm)</para>
+
+<para>Returns true if the VM has a compatible ABI version. </para>
+</listitem>
+            <listitem><para>static const char * <link linkend="_group__helpers_1gad7d1edccf65c57e7bbf5aa68399084bd">evmc_vm_name</link> (struct <link linkend="_structevmc__vm">evmc_vm</link> *vm)</para>
+
+<para>Returns the name of the VM. </para>
+</listitem>
+            <listitem><para>static const char * <link linkend="_group__helpers_1ga9b32326e83633f890e1c41fd2ec2f1fe">evmc_vm_version</link> (struct <link linkend="_structevmc__vm">evmc_vm</link> *vm)</para>
+
+<para>Returns the version of the VM. </para>
+</listitem>
+            <listitem><para>static bool <link linkend="_group__helpers_1ga5b05e2d9d24fa23dd648bfd8ed023f92">evmc_vm_has_capability</link> (struct <link linkend="_structevmc__vm">evmc_vm</link> *vm, enum <link linkend="_group__EVMC_1ga44f9ecb88cf6422a0072936494fd6ac7">evmc_capabilities</link> capability)</para>
+
+<para>Checks if the VM has the given capability. </para>
+</listitem>
+            <listitem><para>static void <link linkend="_group__helpers_1ga6204e6ae26e07377b509b2953a8094b2">evmc_destroy</link> (struct <link linkend="_structevmc__vm">evmc_vm</link> *vm)</para>
+
+<para>Destroys the VM instance. </para>
+</listitem>
+            <listitem><para>static enum <link linkend="_group__EVMC_1ga28d9f527bda67277bccccc100e32260a">evmc_set_option_result</link> <link linkend="_group__helpers_1gaee14c6797a91ae328e43b4f4916f6004">evmc_set_option</link> (struct <link linkend="_structevmc__vm">evmc_vm</link> *vm, char const *name, char const *value)</para>
+
+<para>Sets the option for the VM, if the feature is supported by the VM. </para>
+</listitem>
+            <listitem><para>static struct <link linkend="_structevmc__result">evmc_result</link> <link linkend="_group__helpers_1ga82fb11f4b40ceec377bf0093ffc1d416">evmc_execute</link> (struct <link linkend="_structevmc__vm">evmc_vm</link> *vm, const struct <link linkend="_structevmc__host__interface">evmc_host_interface</link> *host, struct <link linkend="_structevmc__host__context">evmc_host_context</link> *context, enum <link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link> rev, const struct <link linkend="_structevmc__message">evmc_message</link> *msg, uint8_t const *code, size_t code_size)</para>
+
+<para>Executes code in the VM instance. </para>
+</listitem>
+            <listitem><para>static void <link linkend="_group__helpers_1ga432ca3c26b4b03a175f2a0fbd0692dfa">evmc_free_result_memory</link> (const struct <link linkend="_structevmc__result">evmc_result</link> *result)</para>
+
+<para>The <link linkend="_structevmc__result">evmc_result</link> release function using free() for releasing the memory. </para>
+</listitem>
+            <listitem><para>static struct <link linkend="_structevmc__result">evmc_result</link> <link linkend="_group__helpers_1ga1eb1facc9b5ddacda368ffdeb89d1a20">evmc_make_result</link> (enum <link linkend="_group__EVMC_1ga4c0be97f333c050ff45321fcaa34d920">evmc_status_code</link> status_code, int64_t gas_left, const uint8_t *output_data, size_t output_size)</para>
+
+<para>Creates the result from the provided arguments. </para>
+</listitem>
+            <listitem><para>static void <link linkend="_group__helpers_1ga78a610e76b00c5868368bd915bdeffb8">evmc_release_result</link> (struct <link linkend="_structevmc__result">evmc_result</link> *result)</para>
+
+<para>Releases the resources allocated to the execution result. </para>
+</listitem>
+            <listitem><para>static const char * <link linkend="_group__helpers_1gad9e0e4b4cf8323982572dc54d36f0b40">evmc_status_code_to_string</link> (enum <link linkend="_group__EVMC_1ga4c0be97f333c050ff45321fcaa34d920">evmc_status_code</link> status_code)</para>
+
+<para>Returns text representation of the <link linkend="_group__EVMC_1ga4c0be97f333c050ff45321fcaa34d920">evmc_status_code</link>. </para>
+</listitem>
+            <listitem><para>static const char * <link linkend="_group__helpers_1gad04bac3144296562478b0447bf3991ff">evmc_revision_to_string</link> (enum <link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link> rev)</para>
+
+<para>Returns the name of the <link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link>. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>EVMC Helpers. </para>
+
+<para>A collection of C helper functions for invoking a VM instance methods. These are convenient for languages where invoking function pointers is &quot;ugly&quot; or impossible (such as Go).</para>
+
+<para>It also contains helpers (overloaded operators) for using EVMC types effectively in C++. </para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_group__helpers_1gaad1a8fca9b52410cdc8f73739883cb93"/><section>
+    <title>EVMC_EXPORT</title>
+<indexterm><primary>EVMC_EXPORT</primary><secondary>EVMC Helpers</secondary></indexterm>
+<indexterm><primary>EVMC Helpers</primary><secondary>EVMC_EXPORT</secondary></indexterm>
+<para><computeroutput>#define EVMC_EXPORT   __attribute__((visibility(&quot;default&quot;)))</computeroutput></para><para>
+
+<para>Marks a function to be exported from a shared library. </para>
+</para>
+<para>
+Definition at line <link linkend="_utils_8h_source_1l00023">23</link> of file <link linkend="_utils_8h_source">utils.h</link>.</para>
+</section>
+<anchor xml:id="_group__helpers_1ga73d425fddf1083ef70d1ffd9a29522d4"/><section>
+    <title>EVMC_NOEXCEPT</title>
+<indexterm><primary>EVMC_NOEXCEPT</primary><secondary>EVMC Helpers</secondary></indexterm>
+<indexterm><primary>EVMC Helpers</primary><secondary>EVMC_NOEXCEPT</secondary></indexterm>
+<para><computeroutput>#define EVMC_NOEXCEPT</computeroutput></para><para>
+
+<para>Safe way of marking a function with <computeroutput>noexcept</computeroutput> C++ specifier. </para>
+</para>
+<para>
+Definition at line <link linkend="_utils_8h_source_1l00033">33</link> of file <link linkend="_utils_8h_source">utils.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_group__helpers_1ga6204e6ae26e07377b509b2953a8094b2"/><section>
+    <title>evmc_destroy()</title>
+<indexterm><primary>evmc_destroy</primary><secondary>EVMC Helpers</secondary></indexterm>
+<indexterm><primary>EVMC Helpers</primary><secondary>evmc_destroy</secondary></indexterm>
+<para><computeroutput>static void evmc_destroy (struct <link linkend="_structevmc__vm">evmc_vm</link> * vm)<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Destroys the VM instance. </para>
+</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_group__EVMC_1ga1f54475fc7dc20a0c4d370272e39d755">evmc_destroy_fn</link> </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_helpers_8h_source_1l00063">63</link> of file <link linkend="_helpers_8h_source">helpers.h</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_group__helpers_1l00064"/>00064 {
+<anchor xml:id="_group__helpers_1l00065"/>00065 &#32;&#32;&#32;&#32;vm-&gt;<link linkend="_structevmc__vm_1ac78933134b4e14ca3dd4139ee061cc6b">destroy</link>(vm);
+<anchor xml:id="_group__helpers_1l00066"/>00066 }
+</programlisting></section>
+<anchor xml:id="_group__helpers_1ga82fb11f4b40ceec377bf0093ffc1d416"/><section>
+    <title>evmc_execute()</title>
+<indexterm><primary>evmc_execute</primary><secondary>EVMC Helpers</secondary></indexterm>
+<indexterm><primary>EVMC Helpers</primary><secondary>evmc_execute</secondary></indexterm>
+<para><computeroutput>static struct <link linkend="_structevmc__result">evmc_result</link> evmc_execute (struct <link linkend="_structevmc__vm">evmc_vm</link> * vm, const struct <link linkend="_structevmc__host__interface">evmc_host_interface</link> * host, struct <link linkend="_structevmc__host__context">evmc_host_context</link> * context, enum <link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link> rev, const struct <link linkend="_structevmc__message">evmc_message</link> * msg, uint8_t const * code, size_t code_size)<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Executes code in the VM instance. </para>
+</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_group__EVMC_1gaed9a4ab5609b55c5e3272d6d37d84ff7">evmc_execute_fn</link>. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_helpers_8h_source_1l00087">87</link> of file <link linkend="_helpers_8h_source">helpers.h</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_group__helpers_1l00094"/>00094 {
+<anchor xml:id="_group__helpers_1l00095"/>00095 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;vm-&gt;<link linkend="_structevmc__vm_1a8384d28338f2287a9f9e1508699c53f0">execute</link>(vm,&#32;host,&#32;context,&#32;rev,&#32;msg,&#32;code,&#32;code_size);
+<anchor xml:id="_group__helpers_1l00096"/>00096 }
+</programlisting></section>
+<anchor xml:id="_group__helpers_1ga432ca3c26b4b03a175f2a0fbd0692dfa"/><section>
+    <title>evmc_free_result_memory()</title>
+<indexterm><primary>evmc_free_result_memory</primary><secondary>EVMC Helpers</secondary></indexterm>
+<indexterm><primary>EVMC Helpers</primary><secondary>evmc_free_result_memory</secondary></indexterm>
+<para><computeroutput>static void evmc_free_result_memory (const struct <link linkend="_structevmc__result">evmc_result</link> * result)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>The <link linkend="_structevmc__result">evmc_result</link> release function using free() for releasing the memory. </para>
+</para>
+
+<para>This function is used in the <link linkend="_group__helpers_1ga1eb1facc9b5ddacda368ffdeb89d1a20">evmc_make_result()</link>, but may be also used in other case if convenient.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para>The result object. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_helpers_8h_source_1l00104">104</link> of file <link linkend="_helpers_8h_source">helpers.h</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_group__helpers_1l00105"/>00105 {
+<anchor xml:id="_group__helpers_1l00106"/>00106 &#32;&#32;&#32;&#32;free((uint8_t*)result-&gt;<link linkend="_structevmc__result_1a61978e85f9d795a7b9695b9cbf1748d6">output_data</link>);
+<anchor xml:id="_group__helpers_1l00107"/>00107 }
+</programlisting></section>
+<anchor xml:id="_group__helpers_1ga7e9c2c68b366dda89dba56566aab111d"/><section>
+    <title>evmc_is_abi_compatible()</title>
+<indexterm><primary>evmc_is_abi_compatible</primary><secondary>EVMC Helpers</secondary></indexterm>
+<indexterm><primary>EVMC Helpers</primary><secondary>evmc_is_abi_compatible</secondary></indexterm>
+<para><computeroutput>static bool evmc_is_abi_compatible (struct <link linkend="_structevmc__vm">evmc_vm</link> * vm)<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Returns true if the VM has a compatible ABI version. </para>
+</para>
+<para>
+Definition at line <link linkend="_helpers_8h_source_1l00027">27</link> of file <link linkend="_helpers_8h_source">helpers.h</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_group__helpers_1l00028"/>00028 {
+<anchor xml:id="_group__helpers_1l00029"/>00029 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;vm-&gt;<link linkend="_structevmc__vm_1acccbdf95110faffb4dc85624bb1d99b6">abi_version</link>&#32;==&#32;<link linkend="_group__EVMC_1gga06fc87d81c62e9abb8790b6e5713c55ba1db9144f8af4e62865f0c003c07a02bc">EVMC_ABI_VERSION</link>;
+<anchor xml:id="_group__helpers_1l00030"/>00030 }
+</programlisting></section>
+<anchor xml:id="_group__helpers_1ga1eb1facc9b5ddacda368ffdeb89d1a20"/><section>
+    <title>evmc_make_result()</title>
+<indexterm><primary>evmc_make_result</primary><secondary>EVMC Helpers</secondary></indexterm>
+<indexterm><primary>EVMC Helpers</primary><secondary>evmc_make_result</secondary></indexterm>
+<para><computeroutput>static struct <link linkend="_structevmc__result">evmc_result</link> evmc_make_result (enum <link linkend="_group__EVMC_1ga4c0be97f333c050ff45321fcaa34d920">evmc_status_code</link> status_code, int64_t gas_left, const uint8_t * output_data, size_t output_size)<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates the result from the provided arguments. </para>
+</para>
+
+<para>The provided output is copied to memory allocated with malloc() and the <link linkend="_structevmc__result_1a8727ff83d372ab0067bcf6656d30b0ed">evmc_result::release</link> function is set to one invoking free().</para>
+
+<para>In case of memory allocation failure, the result has all fields zeroed and only <link linkend="_structevmc__result_1a759c4aaa4a1c002f5a8be09ccb0b6a1c">evmc_result::status_code</link> is set to <link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a63aa9b3ac3af61c39c20562509347b86">EVMC_OUT_OF_MEMORY</link> internal error.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>status_code</entry><entry>
+<para>The status code. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>gas_left</entry><entry>
+<para>The amount of gas left. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>output_data</entry><entry>
+<para>The pointer to the output. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>output_size</entry><entry>
+<para>The output size. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_helpers_8h_source_1l00121">121</link> of file <link linkend="_helpers_8h_source">helpers.h</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_group__helpers_1l00125"/>00125 {
+<anchor xml:id="_group__helpers_1l00126"/>00126 &#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc__result">evmc_result</link>&#32;result;
+<anchor xml:id="_group__helpers_1l00127"/>00127 &#32;&#32;&#32;&#32;memset(&amp;result,&#32;0,&#32;<emphasis role="keyword">sizeof</emphasis>(result));
+<anchor xml:id="_group__helpers_1l00128"/>00128 
+<anchor xml:id="_group__helpers_1l00129"/>00129 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_structevmc__result_1a93bb7419aff492cdef754421c6d74e26">output_size</link>&#32;!=&#32;0)
+<anchor xml:id="_group__helpers_1l00130"/>00130 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_group__helpers_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t*&#32;buffer&#32;=&#32;(uint8_t*)malloc(<link linkend="_structevmc__result_1a93bb7419aff492cdef754421c6d74e26">output_size</link>);
+<anchor xml:id="_group__helpers_1l00132"/>00132 
+<anchor xml:id="_group__helpers_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!buffer)
+<anchor xml:id="_group__helpers_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_group__helpers_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;result.status_code&#32;=&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a63aa9b3ac3af61c39c20562509347b86">EVMC_OUT_OF_MEMORY</link>;
+<anchor xml:id="_group__helpers_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;result;
+<anchor xml:id="_group__helpers_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_group__helpers_1l00138"/>00138 
+<anchor xml:id="_group__helpers_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;memcpy(buffer,&#32;<link linkend="_structevmc__result_1a61978e85f9d795a7b9695b9cbf1748d6">output_data</link>,&#32;<link linkend="_structevmc__result_1a93bb7419aff492cdef754421c6d74e26">output_size</link>);
+<anchor xml:id="_group__helpers_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;result.output_data&#32;=&#32;buffer;
+<anchor xml:id="_group__helpers_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;result.output_size&#32;=&#32;<link linkend="_structevmc__result_1a93bb7419aff492cdef754421c6d74e26">output_size</link>;
+<anchor xml:id="_group__helpers_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;result.release&#32;=&#32;<link linkend="_group__helpers_1ga432ca3c26b4b03a175f2a0fbd0692dfa">evmc_free_result_memory</link>;
+<anchor xml:id="_group__helpers_1l00143"/>00143 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_group__helpers_1l00144"/>00144 
+<anchor xml:id="_group__helpers_1l00145"/>00145 &#32;&#32;&#32;&#32;result.status_code&#32;=&#32;<link linkend="_structevmc__result_1a759c4aaa4a1c002f5a8be09ccb0b6a1c">status_code</link>;
+<anchor xml:id="_group__helpers_1l00146"/>00146 &#32;&#32;&#32;&#32;result.gas_left&#32;=&#32;<link linkend="_structevmc__result_1af8478c93dbcc3cb2876037c5a5afd4c0">gas_left</link>;
+<anchor xml:id="_group__helpers_1l00147"/>00147 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;result;
+<anchor xml:id="_group__helpers_1l00148"/>00148 }
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__helpers_ga1eb1facc9b5ddacda368ffdeb89d1a20_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__helpers_1ga78a610e76b00c5868368bd915bdeffb8"/><section>
+    <title>evmc_release_result()</title>
+<indexterm><primary>evmc_release_result</primary><secondary>EVMC Helpers</secondary></indexterm>
+<indexterm><primary>EVMC Helpers</primary><secondary>evmc_release_result</secondary></indexterm>
+<para><computeroutput>static void evmc_release_result (struct <link linkend="_structevmc__result">evmc_result</link> * result)<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Releases the resources allocated to the execution result. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para>The result object to be released. MUST NOT be NULL.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para><link linkend="_structevmc__result_1a8727ff83d372ab0067bcf6656d30b0ed">evmc_result::release()</link> <link linkend="_group__EVMC_1ga297c7c7ca966c82296a54683143157b1">evmc_release_result_fn</link> </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_helpers_8h_source_1l00157">157</link> of file <link linkend="_helpers_8h_source">helpers.h</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_group__helpers_1l00158"/>00158 {
+<anchor xml:id="_group__helpers_1l00159"/>00159 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(result-&gt;<link linkend="_structevmc__result_1a8727ff83d372ab0067bcf6656d30b0ed">release</link>)
+<anchor xml:id="_group__helpers_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;result-&gt;<link linkend="_structevmc__result_1a8727ff83d372ab0067bcf6656d30b0ed">release</link>(result);
+<anchor xml:id="_group__helpers_1l00161"/>00161 }
+</programlisting></section>
+<anchor xml:id="_group__helpers_1gad04bac3144296562478b0447bf3991ff"/><section>
+    <title>evmc_revision_to_string()</title>
+<indexterm><primary>evmc_revision_to_string</primary><secondary>EVMC Helpers</secondary></indexterm>
+<indexterm><primary>EVMC Helpers</primary><secondary>evmc_revision_to_string</secondary></indexterm>
+<para><computeroutput>static const char * evmc_revision_to_string (enum <link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link> rev)<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Returns the name of the <link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link>. </para>
+</para>
+<para>
+Definition at line <link linkend="_helpers_8h_source_1l00264">264</link> of file <link linkend="_helpers_8h_source">helpers.h</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_group__helpers_1l00265"/>00265 {
+<anchor xml:id="_group__helpers_1l00266"/>00266 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(rev)
+<anchor xml:id="_group__helpers_1l00267"/>00267 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_group__helpers_1l00268"/>00268 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7a622480509359764aa2a258b074812a5f">EVMC_FRONTIER</link>:
+<anchor xml:id="_group__helpers_1l00269"/>00269 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Frontier&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00270"/>00270 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7a04f0bf686d2b1c50612f9a96480f70a9">EVMC_HOMESTEAD</link>:
+<anchor xml:id="_group__helpers_1l00271"/>00271 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Homestead&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00272"/>00272 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7a8305858ab32b80a6eced7bf177d6dee2">EVMC_TANGERINE_WHISTLE</link>:
+<anchor xml:id="_group__helpers_1l00273"/>00273 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Tangerine&#32;Whistle&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00274"/>00274 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7abbbcae1af73ad1efc570b40bb0363879">EVMC_SPURIOUS_DRAGON</link>:
+<anchor xml:id="_group__helpers_1l00275"/>00275 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Spurious&#32;Dragon&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00276"/>00276 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7ac4b0c9cfb5d408f17255a15e26938ea6">EVMC_BYZANTIUM</link>:
+<anchor xml:id="_group__helpers_1l00277"/>00277 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Byzantium&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00278"/>00278 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7a7a2ed5cf3d25c8c4a68691721bb969fc">EVMC_CONSTANTINOPLE</link>:
+<anchor xml:id="_group__helpers_1l00279"/>00279 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Constantinople&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00280"/>00280 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7a6d913d4917e87b1fc798b450735acdeb">EVMC_PETERSBURG</link>:
+<anchor xml:id="_group__helpers_1l00281"/>00281 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Petersburg&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00282"/>00282 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7a5f0e287935fd0afd65afea34b51dcf8c">EVMC_ISTANBUL</link>:
+<anchor xml:id="_group__helpers_1l00283"/>00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Istanbul&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00284"/>00284 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7af53e0cb0d793d60b5fb07c6b4c3c6ab7">EVMC_BERLIN</link>:
+<anchor xml:id="_group__helpers_1l00285"/>00285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Berlin&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00286"/>00286 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7acfe86739fa2a0882d49cf19a94d8ee09">EVMC_LONDON</link>:
+<anchor xml:id="_group__helpers_1l00287"/>00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;London&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00288"/>00288 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7ac79d6325f9e74fd00a6b98eaea3e30a5">EVMC_SHANGHAI</link>:
+<anchor xml:id="_group__helpers_1l00289"/>00289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Shanghai&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00290"/>00290 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_group__helpers_1l00291"/>00291 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;&lt;unknown&gt;&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00292"/>00292 }
+</programlisting></section>
+<anchor xml:id="_group__helpers_1gaee14c6797a91ae328e43b4f4916f6004"/><section>
+    <title>evmc_set_option()</title>
+<indexterm><primary>evmc_set_option</primary><secondary>EVMC Helpers</secondary></indexterm>
+<indexterm><primary>EVMC Helpers</primary><secondary>evmc_set_option</secondary></indexterm>
+<para><computeroutput>static enum <link linkend="_group__EVMC_1ga28d9f527bda67277bccccc100e32260a">evmc_set_option_result</link> evmc_set_option (struct <link linkend="_structevmc__vm">evmc_vm</link> * vm, char const * name, char const * value)<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Sets the option for the VM, if the feature is supported by the VM. </para>
+</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_group__EVMC_1ga5531cee5b83d76c71b06475454f4633b">evmc_set_option_fn</link> </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_helpers_8h_source_1l00073">73</link> of file <link linkend="_helpers_8h_source">helpers.h</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_group__helpers_1l00076"/>00076 {
+<anchor xml:id="_group__helpers_1l00077"/>00077 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(vm-&gt;<link linkend="_structevmc__vm_1a20fd85c822ba5f3296206fc8fe3e90b2">set_option</link>)
+<anchor xml:id="_group__helpers_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;vm-&gt;<link linkend="_structevmc__vm_1a20fd85c822ba5f3296206fc8fe3e90b2">set_option</link>(vm,&#32;name,&#32;value);
+<anchor xml:id="_group__helpers_1l00079"/>00079 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__EVMC_1gga28d9f527bda67277bccccc100e32260aa462712eea718b1a9088aaaf995bcb80e">EVMC_SET_OPTION_INVALID_NAME</link>;
+<anchor xml:id="_group__helpers_1l00080"/>00080 }
+</programlisting></section>
+<anchor xml:id="_group__helpers_1gad9e0e4b4cf8323982572dc54d36f0b40"/><section>
+    <title>evmc_status_code_to_string()</title>
+<indexterm><primary>evmc_status_code_to_string</primary><secondary>EVMC Helpers</secondary></indexterm>
+<indexterm><primary>EVMC Helpers</primary><secondary>evmc_status_code_to_string</secondary></indexterm>
+<para><computeroutput>static const char * evmc_status_code_to_string (enum <link linkend="_group__EVMC_1ga4c0be97f333c050ff45321fcaa34d920">evmc_status_code</link> status_code)<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Returns text representation of the <link linkend="_group__EVMC_1ga4c0be97f333c050ff45321fcaa34d920">evmc_status_code</link>. </para>
+</para>
+<para>
+Definition at line <link linkend="_helpers_8h_source_1l00213">213</link> of file <link linkend="_helpers_8h_source">helpers.h</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_group__helpers_1l00214"/>00214 {
+<anchor xml:id="_group__helpers_1l00215"/>00215 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(status_code)
+<anchor xml:id="_group__helpers_1l00216"/>00216 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_group__helpers_1l00217"/>00217 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a4bc3069fec2bab2a55355a72b7db68b7">EVMC_SUCCESS</link>:
+<anchor xml:id="_group__helpers_1l00218"/>00218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;success&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00219"/>00219 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920aed5b2a4afa5a47af732569445920a4a9">EVMC_FAILURE</link>:
+<anchor xml:id="_group__helpers_1l00220"/>00220 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;failure&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00221"/>00221 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920aed708e84d49cc1270e54ec20b0ca0a05">EVMC_REVERT</link>:
+<anchor xml:id="_group__helpers_1l00222"/>00222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;revert&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00223"/>00223 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920abfc47f75656c996c0b29c0553c00fc18">EVMC_OUT_OF_GAS</link>:
+<anchor xml:id="_group__helpers_1l00224"/>00224 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;out&#32;of&#32;gas&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00225"/>00225 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a8ea4f35a269f5fd3a722f2054c993637">EVMC_INVALID_INSTRUCTION</link>:
+<anchor xml:id="_group__helpers_1l00226"/>00226 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;invalid&#32;instruction&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00227"/>00227 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a443084a263a2325f1e4c629e97685367">EVMC_UNDEFINED_INSTRUCTION</link>:
+<anchor xml:id="_group__helpers_1l00228"/>00228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;undefined&#32;instruction&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00229"/>00229 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920ae1a613949fe1c994a36488b0bc4c86c4">EVMC_STACK_OVERFLOW</link>:
+<anchor xml:id="_group__helpers_1l00230"/>00230 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;stack&#32;overflow&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00231"/>00231 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a640106fdec78d04a1098c512898d4efc">EVMC_STACK_UNDERFLOW</link>:
+<anchor xml:id="_group__helpers_1l00232"/>00232 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;stack&#32;underflow&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00233"/>00233 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a6acf000dfa802a949063a87046f4bb26">EVMC_BAD_JUMP_DESTINATION</link>:
+<anchor xml:id="_group__helpers_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;bad&#32;jump&#32;destination&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00235"/>00235 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a2981ec30896486ac69bab7c0a1be591b">EVMC_INVALID_MEMORY_ACCESS</link>:
+<anchor xml:id="_group__helpers_1l00236"/>00236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;invalid&#32;memory&#32;access&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00237"/>00237 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920ac139d631ff852379d566c8a60f86ddc0">EVMC_CALL_DEPTH_EXCEEDED</link>:
+<anchor xml:id="_group__helpers_1l00238"/>00238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;call&#32;depth&#32;exceeded&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00239"/>00239 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a92ccaaeb3fd1ee5aa1ad022678c13bac">EVMC_STATIC_MODE_VIOLATION</link>:
+<anchor xml:id="_group__helpers_1l00240"/>00240 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;static&#32;mode&#32;violation&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00241"/>00241 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920ab960d50047f87925e540bee6230aafb7">EVMC_PRECOMPILE_FAILURE</link>:
+<anchor xml:id="_group__helpers_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;precompile&#32;failure&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00243"/>00243 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920ac0e1bf525f51da5b3d34d4f67ca549e1">EVMC_CONTRACT_VALIDATION_FAILURE</link>:
+<anchor xml:id="_group__helpers_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;contract&#32;validation&#32;failure&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00245"/>00245 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a1cc537c5875de1b42aa5d556f33223d8">EVMC_ARGUMENT_OUT_OF_RANGE</link>:
+<anchor xml:id="_group__helpers_1l00246"/>00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;argument&#32;out&#32;of&#32;range&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00247"/>00247 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920ac99fbd9645011663df070ae3c367eb4e">EVMC_WASM_UNREACHABLE_INSTRUCTION</link>:
+<anchor xml:id="_group__helpers_1l00248"/>00248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;wasm&#32;unreachable&#32;instruction&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00249"/>00249 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920aaf0c6c7a736ec498bd390884f143e57b">EVMC_WASM_TRAP</link>:
+<anchor xml:id="_group__helpers_1l00250"/>00250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;wasm&#32;trap&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00251"/>00251 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a12f7061f20d077ce0d14ca86b2d5975d">EVMC_INSUFFICIENT_BALANCE</link>:
+<anchor xml:id="_group__helpers_1l00252"/>00252 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;insufficient&#32;balance&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00253"/>00253 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920abb1dcac202eac2ed8fd3025645a2fb28">EVMC_INTERNAL_ERROR</link>:
+<anchor xml:id="_group__helpers_1l00254"/>00254 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;internal&#32;error&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00255"/>00255 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a2f3e0d8777f8d974ead27ae2a6eb2005">EVMC_REJECTED</link>:
+<anchor xml:id="_group__helpers_1l00256"/>00256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;rejected&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00257"/>00257 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__EVMC_1gga4c0be97f333c050ff45321fcaa34d920a63aa9b3ac3af61c39c20562509347b86">EVMC_OUT_OF_MEMORY</link>:
+<anchor xml:id="_group__helpers_1l00258"/>00258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;out&#32;of&#32;memory&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00259"/>00259 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_group__helpers_1l00260"/>00260 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;&lt;unknown&gt;&quot;</emphasis>;
+<anchor xml:id="_group__helpers_1l00261"/>00261 }
+</programlisting></section>
+<anchor xml:id="_group__helpers_1ga5b05e2d9d24fa23dd648bfd8ed023f92"/><section>
+    <title>evmc_vm_has_capability()</title>
+<indexterm><primary>evmc_vm_has_capability</primary><secondary>EVMC Helpers</secondary></indexterm>
+<indexterm><primary>EVMC Helpers</primary><secondary>evmc_vm_has_capability</secondary></indexterm>
+<para><computeroutput>static bool evmc_vm_has_capability (struct <link linkend="_structevmc__vm">evmc_vm</link> * vm, enum <link linkend="_group__EVMC_1ga44f9ecb88cf6422a0072936494fd6ac7">evmc_capabilities</link> capability)<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Checks if the VM has the given capability. </para>
+</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_group__EVMC_1ga9bac25459c5a09d42606e7bd9320445c">evmc_get_capabilities_fn</link> </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_helpers_8h_source_1l00053">53</link> of file <link linkend="_helpers_8h_source">helpers.h</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_group__helpers_1l00054"/>00054 {
+<anchor xml:id="_group__helpers_1l00055"/>00055 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(vm-&gt;<link linkend="_structevmc__vm_1a505d4e584a858c2eea7a026f3a94188b">get_capabilities</link>(vm)&#32;&amp;&#32;(<link linkend="_group__EVMC_1ga714bc8ca946adc759403fe072bdd2aa0">evmc_capabilities_flagset</link>)capability)&#32;!=&#32;0;
+<anchor xml:id="_group__helpers_1l00056"/>00056 }
+</programlisting></section>
+<anchor xml:id="_group__helpers_1gad7d1edccf65c57e7bbf5aa68399084bd"/><section>
+    <title>evmc_vm_name()</title>
+<indexterm><primary>evmc_vm_name</primary><secondary>EVMC Helpers</secondary></indexterm>
+<indexterm><primary>EVMC Helpers</primary><secondary>evmc_vm_name</secondary></indexterm>
+<para><computeroutput>static const char * evmc_vm_name (struct <link linkend="_structevmc__vm">evmc_vm</link> * vm)<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Returns the name of the VM. </para>
+</para>
+<para>
+Definition at line <link linkend="_helpers_8h_source_1l00035">35</link> of file <link linkend="_helpers_8h_source">helpers.h</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_group__helpers_1l00036"/>00036 {
+<anchor xml:id="_group__helpers_1l00037"/>00037 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;vm-&gt;<link linkend="_structevmc__vm_1ac29ccc98e89c8cab3ffc5bd51a2afaa8">name</link>;
+<anchor xml:id="_group__helpers_1l00038"/>00038 }
+</programlisting></section>
+<anchor xml:id="_group__helpers_1ga9b32326e83633f890e1c41fd2ec2f1fe"/><section>
+    <title>evmc_vm_version()</title>
+<indexterm><primary>evmc_vm_version</primary><secondary>EVMC Helpers</secondary></indexterm>
+<indexterm><primary>EVMC Helpers</primary><secondary>evmc_vm_version</secondary></indexterm>
+<para><computeroutput>static const char * evmc_vm_version (struct <link linkend="_structevmc__vm">evmc_vm</link> * vm)<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Returns the version of the VM. </para>
+</para>
+<para>
+Definition at line <link linkend="_helpers_8h_source_1l00043">43</link> of file <link linkend="_helpers_8h_source">helpers.h</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_group__helpers_1l00044"/>00044 {
+<anchor xml:id="_group__helpers_1l00045"/>00045 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;vm-&gt;<link linkend="_structevmc__vm_1af98936c214ed16f5da05ba3d6a619faa">version</link>;
+<anchor xml:id="_group__helpers_1l00046"/>00046 }
+</programlisting></section>
+</section>
+</section>

@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structevmc__message" xml:lang="en-US">
+<title>evmc_message Struct Reference</title>
+<indexterm><primary>evmc_message</primary></indexterm>
+<para>
+
+<para>The message describing an EVM call, including a zero-depth calls from a transaction origin. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;evmc.h&gt;</computeroutput>
+</para>
+Collaboration diagram for evmc_message:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="structevmc__message__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_group__EVMC_1gab2fa68a92a6828064a61e46060abc634">evmc_call_kind</link> <link linkend="_structevmc__message_1a691cb93e81d6dfd4fd7e2fa3d06a6bfa">kind</link></para>
+
+<para>The kind of the call. </para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structevmc__message_1aae59f288163f3d3b2da2b5fdeb29512a">flags</link></para>
+
+<para>Additional flags modifying the call execution behavior. </para>
+</listitem>
+            <listitem><para>int32_t <link linkend="_structevmc__message_1a75ea15f85573ea3638e8625bbba54d3a">depth</link></para>
+
+<para>The present depth of the message call stack. </para>
+</listitem>
+            <listitem><para>int64_t <link linkend="_structevmc__message_1ae8deff46588584fa27890e74c82db5e7">gas</link></para>
+
+<para>The amount of gas available to the message execution. </para>
+</listitem>
+            <listitem><para><link linkend="_structevmc__address">evmc_address</link> <link linkend="_structevmc__message_1a63643daa5f3a30df28d42360a20e39e2">recipient</link></para>
+
+<para>The recipient of the message. </para>
+</listitem>
+            <listitem><para><link linkend="_structevmc__address">evmc_address</link> <link linkend="_structevmc__message_1ae7f64ab994f49d9a5f028d56e80fd468">sender</link></para>
+
+<para>The sender of the message. </para>
+</listitem>
+            <listitem><para>const uint8_t * <link linkend="_structevmc__message_1a1adee3454b105eb29cd659ee0cf65c77">input_data</link></para>
+
+<para>The message input data. </para>
+</listitem>
+            <listitem><para>size_t <link linkend="_structevmc__message_1a2cf1deebd0dbbb20f25ecdfa299f4b5d">input_size</link></para>
+
+<para>The size of the message input data. </para>
+</listitem>
+            <listitem><para><link linkend="_group__EVMC_1ga260738d59f9a23d039dc7a290e0c0a3b">evmc_uint256be</link> <link linkend="_structevmc__message_1adc7e2442cb362417931524ee904ecb33">value</link></para>
+
+<para>The amount of Ether transferred with the message. </para>
+</listitem>
+            <listitem><para><link linkend="_structevmc__bytes32">evmc_bytes32</link> <link linkend="_structevmc__message_1a20cb5b3664de79d11159e4099b80747f">create2_salt</link></para>
+
+<para>The optional value used in new contract address construction. </para>
+</listitem>
+            <listitem><para><link linkend="_structevmc__address">evmc_address</link> <link linkend="_structevmc__message_1ac8cfdd4bc5d70de4deb0dacae4a6b536">code_address</link></para>
+
+<para>The address of the code to be executed. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The message describing an EVM call, including a zero-depth calls from a transaction origin. </para>
+
+
+
+<para>Most of the fields are modelled by the section 8. Message Call of the Ethereum Yellow Paper. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00096">96</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_structevmc__message_1ac8cfdd4bc5d70de4deb0dacae4a6b536"/><section>
+    <title>code_address</title>
+<indexterm><primary>code_address</primary><secondary>evmc_message</secondary></indexterm>
+<indexterm><primary>evmc_message</primary><secondary>code_address</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc__address">evmc_address</link> evmc_message::code_address</computeroutput></para><para>
+
+<para>The address of the code to be executed. </para>
+</para>
+
+<para>For <link linkend="_group__EVMC_1ggab2fa68a92a6828064a61e46060abc634ae9c5b431a0c823f368341c9f026642ef">EVMC_CALLCODE</link> or <link linkend="_group__EVMC_1ggab2fa68a92a6828064a61e46060abc634a6face22070bace91b429297e88d3ab1a">EVMC_DELEGATECALL</link> this may be different from the <link linkend="_structevmc__message_1a63643daa5f3a30df28d42360a20e39e2">evmc_message::recipient</link>. Not required when invoking <link linkend="_group__EVMC_1gaed9a4ab5609b55c5e3272d6d37d84ff7">evmc_execute_fn()</link>, only when invoking <link linkend="_group__EVMC_1ga54f569386b52be6eee15ca9e14ed1ef8">evmc_call_fn()</link>. Ignored if kind is <link linkend="_group__EVMC_1ggab2fa68a92a6828064a61e46060abc634a1d15450429f540677caea05143344d33">EVMC_CREATE</link> or <link linkend="_group__EVMC_1ggab2fa68a92a6828064a61e46060abc634a9ec7e0da8dde8e9bc420d806c621b418">EVMC_CREATE2</link>.</para>
+
+<para>In case of <link linkend="_group__EVMC_1gga44f9ecb88cf6422a0072936494fd6ac7a43ea2aa7b099a2d67bc53c118ff3683d">EVMC_CAPABILITY_PRECOMPILES</link> implementation, this fields should be inspected to identify the requested precompile.</para>
+
+<para>Defined as <computeroutput>c</computeroutput> in the Yellow Paper. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00189">189</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__message_1a20cb5b3664de79d11159e4099b80747f"/><section>
+    <title>create2_salt</title>
+<indexterm><primary>create2_salt</primary><secondary>evmc_message</secondary></indexterm>
+<indexterm><primary>evmc_message</primary><secondary>create2_salt</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc__bytes32">evmc_bytes32</link> evmc_message::create2_salt</computeroutput></para><para>
+
+<para>The optional value used in new contract address construction. </para>
+</para>
+
+<para>Needed only for a Host to calculate created address when kind is <link linkend="_group__EVMC_1ggab2fa68a92a6828064a61e46060abc634a9ec7e0da8dde8e9bc420d806c621b418">EVMC_CREATE2</link>. Ignored in <link linkend="_group__EVMC_1gaed9a4ab5609b55c5e3272d6d37d84ff7">evmc_execute_fn()</link>. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00174">174</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__message_1a75ea15f85573ea3638e8625bbba54d3a"/><section>
+    <title>depth</title>
+<indexterm><primary>depth</primary><secondary>evmc_message</secondary></indexterm>
+<indexterm><primary>evmc_message</primary><secondary>depth</secondary></indexterm>
+<para><computeroutput>int32_t evmc_message::depth</computeroutput></para><para>
+
+<para>The present depth of the message call stack. </para>
+</para>
+
+<para>Defined as <computeroutput>e</computeroutput> in the Yellow Paper. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00112">112</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__message_1aae59f288163f3d3b2da2b5fdeb29512a"/><section>
+    <title>flags</title>
+<indexterm><primary>flags</primary><secondary>evmc_message</secondary></indexterm>
+<indexterm><primary>evmc_message</primary><secondary>flags</secondary></indexterm>
+<para><computeroutput>uint32_t evmc_message::flags</computeroutput></para><para>
+
+<para>Additional flags modifying the call execution behavior. </para>
+</para>
+
+<para>In the current version the only valid values are <link linkend="_group__EVMC_1gga187a3a658849da19a0c4e8f7b51fa70da1d8bef8b2bd39a6bd1936e87b18e95bf">EVMC_STATIC</link> or 0. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00105">105</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__message_1ae8deff46588584fa27890e74c82db5e7"/><section>
+    <title>gas</title>
+<indexterm><primary>gas</primary><secondary>evmc_message</secondary></indexterm>
+<indexterm><primary>evmc_message</primary><secondary>gas</secondary></indexterm>
+<para><computeroutput>int64_t evmc_message::gas</computeroutput></para><para>
+
+<para>The amount of gas available to the message execution. </para>
+</para>
+
+<para>Defined as <computeroutput>g</computeroutput> in the Yellow Paper. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00119">119</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__message_1a1adee3454b105eb29cd659ee0cf65c77"/><section>
+    <title>input_data</title>
+<indexterm><primary>input_data</primary><secondary>evmc_message</secondary></indexterm>
+<indexterm><primary>evmc_message</primary><secondary>input_data</secondary></indexterm>
+<para><computeroutput>const uint8_t* evmc_message::input_data</computeroutput></para><para>
+
+<para>The message input data. </para>
+</para>
+
+<para>The arbitrary length byte array of the input data of the call, defined as <computeroutput>d</computeroutput> in the Yellow Paper. This MAY be NULL. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00151">151</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__message_1a2cf1deebd0dbbb20f25ecdfa299f4b5d"/><section>
+    <title>input_size</title>
+<indexterm><primary>input_size</primary><secondary>evmc_message</secondary></indexterm>
+<indexterm><primary>evmc_message</primary><secondary>input_size</secondary></indexterm>
+<para><computeroutput>size_t evmc_message::input_size</computeroutput></para><para>
+
+<para>The size of the message input data. </para>
+</para>
+
+<para>If input_data is NULL this MUST be 0. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00158">158</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__message_1a691cb93e81d6dfd4fd7e2fa3d06a6bfa"/><section>
+    <title>kind</title>
+<indexterm><primary>kind</primary><secondary>evmc_message</secondary></indexterm>
+<indexterm><primary>evmc_message</primary><secondary>kind</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_group__EVMC_1gab2fa68a92a6828064a61e46060abc634">evmc_call_kind</link> evmc_message::kind</computeroutput></para><para>
+
+<para>The kind of the call. </para>
+</para>
+
+<para>For zero-depth calls <link linkend="_group__EVMC_1ggab2fa68a92a6828064a61e46060abc634abcf3ae29d9a88ff70b98374fc665694a">EVMC_CALL</link> SHOULD be used. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00099">99</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__message_1a63643daa5f3a30df28d42360a20e39e2"/><section>
+    <title>recipient</title>
+<indexterm><primary>recipient</primary><secondary>evmc_message</secondary></indexterm>
+<indexterm><primary>evmc_message</primary><secondary>recipient</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc__address">evmc_address</link> evmc_message::recipient</computeroutput></para><para>
+
+<para>The recipient of the message. </para>
+</para>
+
+<para>This is the address of the account which storage/balance/nonce is going to be modified by the message execution. In case of <link linkend="_group__EVMC_1ggab2fa68a92a6828064a61e46060abc634abcf3ae29d9a88ff70b98374fc665694a">EVMC_CALL</link>, this is also the account where the message value <link linkend="_structevmc__message_1adc7e2442cb362417931524ee904ecb33">evmc_message::value</link> is going to be transferred. For <link linkend="_group__EVMC_1ggab2fa68a92a6828064a61e46060abc634ae9c5b431a0c823f368341c9f026642ef">EVMC_CALLCODE</link> or <link linkend="_group__EVMC_1ggab2fa68a92a6828064a61e46060abc634a6face22070bace91b429297e88d3ab1a">EVMC_DELEGATECALL</link>, this may be different from the <link linkend="_structevmc__message_1ac8cfdd4bc5d70de4deb0dacae4a6b536">evmc_message::code_address</link>.</para>
+
+<para>Defined as <computeroutput>r</computeroutput> in the Yellow Paper. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00132">132</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__message_1ae7f64ab994f49d9a5f028d56e80fd468"/><section>
+    <title>sender</title>
+<indexterm><primary>sender</primary><secondary>evmc_message</secondary></indexterm>
+<indexterm><primary>evmc_message</primary><secondary>sender</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc__address">evmc_address</link> evmc_message::sender</computeroutput></para><para>
+
+<para>The sender of the message. </para>
+</para>
+
+<para>The address of the sender of a message call defined as <computeroutput>s</computeroutput> in the Yellow Paper. This must be the message recipient of the message at the previous (lower) depth, except for the <link linkend="_group__EVMC_1ggab2fa68a92a6828064a61e46060abc634a6face22070bace91b429297e88d3ab1a">EVMC_DELEGATECALL</link> where recipient is the 2 levels above the present depth. At the depth 0 this must be the transaction origin. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00142">142</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<anchor xml:id="_structevmc__message_1adc7e2442cb362417931524ee904ecb33"/><section>
+    <title>value</title>
+<indexterm><primary>value</primary><secondary>evmc_message</secondary></indexterm>
+<indexterm><primary>evmc_message</primary><secondary>value</secondary></indexterm>
+<para><computeroutput><link linkend="_group__EVMC_1ga260738d59f9a23d039dc7a290e0c0a3b">evmc_uint256be</link> evmc_message::value</computeroutput></para><para>
+
+<para>The amount of Ether transferred with the message. </para>
+</para>
+
+<para>This is transferred value for <link linkend="_group__EVMC_1ggab2fa68a92a6828064a61e46060abc634abcf3ae29d9a88ff70b98374fc665694a">EVMC_CALL</link> or apparent value for <link linkend="_group__EVMC_1ggab2fa68a92a6828064a61e46060abc634a6face22070bace91b429297e88d3ab1a">EVMC_DELEGATECALL</link>. Defined as <computeroutput>v</computeroutput> or <computeroutput>v~</computeroutput> in the Yellow Paper. </para>
+<para>
+Definition at line <link linkend="_evmc_8h_source_1l00166">166</link> of file <link linkend="_evmc_8h_source">evmc.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+include/evmc/<link linkend="_evmc_8h">evmc.h</link></section>
+</section>

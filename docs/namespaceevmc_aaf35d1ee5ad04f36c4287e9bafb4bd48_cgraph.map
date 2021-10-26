@@ -1,0 +1,4 @@
+<map id="evmc::make_error_code" name="evmc::make_error_code">
+<area shape="rect" id="node1" title="Creates error_code object out of a hex error code value." alt="" coords="5,5,171,32"/>
+<area shape="rect" id="node2" href="$namespaceevmc.html#ab7adb84a6060aa244b75958d73752696" title="Obtains a reference to the static error category object for hex errors." alt="" coords="219,5,360,32"/>
+</map>

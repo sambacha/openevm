@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_example__host_8cpp" xml:lang="en-US">
+<title>examples/example_host.cpp File Reference</title>
+<indexterm><primary>examples/example_host.cpp</primary></indexterm>
+<para>
+
+<para>Example implementation of an EVMC Host. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;example_host.h&quot;
+#include &lt;evmc/evmc.hpp&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+#include &lt;vector&gt;
+</programlisting>Include dependency graph for example_host.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="example__host_8cpp__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structevmc_1_1account">evmc::account</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_classExampleHost">ExampleHost</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespaceevmc">evmc</link></para>
+
+<para>EVMC C++ API - wrappers and bindings for C++. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">evmc::accounts</link> = std::map&lt; <link linkend="_structevmc_1_1address">evmc::address</link>, account &gt;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_structevmc__host__interface">evmc_host_interface</link> * <link linkend="_example__host_8cpp_1a1aa8c09de78471976959763a62bf069c">example_host_get_interface</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_structevmc__host__context">evmc_host_context</link> * <link linkend="_example__host_8cpp_1a8009572826ed8abb88284e79cefb4987">example_host_create_context</link> (<link linkend="_structevmc__tx__context">evmc_tx_context</link> tx_context)</para>
+</listitem>
+            <listitem><para>void <link linkend="_example__host_8cpp_1a9ff72df98da6045af155bb8b9697da23">example_host_destroy_context</link> (<link linkend="_structevmc__host__context">evmc_host_context</link> *context)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Example implementation of an EVMC Host. </para>
+<para>
+Definition in file <link linkend="_example__host_8cpp_source">example_host.cpp</link>.</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_example__host_8cpp_1a8009572826ed8abb88284e79cefb4987"/><section>
+    <title>example_host_create_context()</title>
+<indexterm><primary>example_host_create_context</primary><secondary>example_host.cpp</secondary></indexterm>
+<indexterm><primary>example_host.cpp</primary><secondary>example_host_create_context</secondary></indexterm>
+<para><computeroutput><link linkend="_structevmc__host__context">evmc_host_context</link> * example_host_create_context (<link linkend="_structevmc__tx__context">evmc_tx_context</link> tx_context)</computeroutput></para><para>
+Definition at line <link linkend="_example__host_8cpp_source_1l00190">190</link> of file <link linkend="_example__host_8cpp_source">example_host.cpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_example__host_8cpp_1l00191"/>00191 {
+<anchor xml:id="_example__host_8cpp_1l00192"/>00192 &#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;host&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_classExampleHost">ExampleHost</link>{tx_context};
+<anchor xml:id="_example__host_8cpp_1l00193"/>00193 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;host-&gt;to_context();
+<anchor xml:id="_example__host_8cpp_1l00194"/>00194 }
+</programlisting></section>
+<anchor xml:id="_example__host_8cpp_1a9ff72df98da6045af155bb8b9697da23"/><section>
+    <title>example_host_destroy_context()</title>
+<indexterm><primary>example_host_destroy_context</primary><secondary>example_host.cpp</secondary></indexterm>
+<indexterm><primary>example_host.cpp</primary><secondary>example_host_destroy_context</secondary></indexterm>
+<para><computeroutput>void example_host_destroy_context (<link linkend="_structevmc__host__context">evmc_host_context</link> * context)</computeroutput></para><para>
+Definition at line <link linkend="_example__host_8cpp_source_1l00196">196</link> of file <link linkend="_example__host_8cpp_source">example_host.cpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_example__host_8cpp_1l00197"/>00197 {
+<anchor xml:id="_example__host_8cpp_1l00198"/>00198 &#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;evmc::Host::from_context&lt;ExampleHost&gt;(context);
+<anchor xml:id="_example__host_8cpp_1l00199"/>00199 }
+</programlisting></section>
+<anchor xml:id="_example__host_8cpp_1a1aa8c09de78471976959763a62bf069c"/><section>
+    <title>example_host_get_interface()</title>
+<indexterm><primary>example_host_get_interface</primary><secondary>example_host.cpp</secondary></indexterm>
+<indexterm><primary>example_host.cpp</primary><secondary>example_host_get_interface</secondary></indexterm>
+<para><computeroutput>const <link linkend="_structevmc__host__interface">evmc_host_interface</link> * example_host_get_interface ( )</computeroutput></para><para>
+Definition at line <link linkend="_example__host_8cpp_source_1l00185">185</link> of file <link linkend="_example__host_8cpp_source">example_host.cpp</link>.</para>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_example__host_8cpp_1l00186"/>00186 {
+<anchor xml:id="_example__host_8cpp_1l00187"/>00187 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;&amp;<link linkend="_classevmc_1_1Host_1afb96540fea288f02d83f01e185a78374">evmc::Host::get_interface</link>();
+<anchor xml:id="_example__host_8cpp_1l00188"/>00188 }
+</programlisting>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="example__host_8cpp_a1aa8c09de78471976959763a62bf069c_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

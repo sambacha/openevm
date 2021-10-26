@@ -1,0 +1,61 @@
+\hypertarget{hex_8hpp_source}{}\doxysection{hex.\+hpp}
+\label{hex_8hpp_source}\index{include/evmc/hex.hpp@{include/evmc/hex.hpp}}
+\mbox{\hyperlink{hex_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00001}00001 \textcolor{comment}{// EVMC: Ethereum Client-\/VM Connector API.}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00002}00002 \textcolor{comment}{// Copyright 2021 The EVMC Authors.}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00003}00003 \textcolor{comment}{// Licensed under the Apache License, Version 2.0.}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00004}00004 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00006}00006 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00007}00007 \textcolor{preprocessor}{\#include <iterator>}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00008}00008 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00009}00009 \textcolor{preprocessor}{\#include <string\_view>}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00010}00010 \textcolor{preprocessor}{\#include <system\_error>}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00012}00012 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceevmc}{evmc}}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00013}00013 \{}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00015}\mbox{\hyperlink{namespaceevmc_a092c09f674d9cb5f0ba31d0f86537f4a}{00015}} \textcolor{keyword}{using} \mbox{\hyperlink{namespaceevmc_a092c09f674d9cb5f0ba31d0f86537f4a}{bytes}} = std::basic\_string<uint8\_t>;}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00018}\mbox{\hyperlink{namespaceevmc_a539bc1335390844ee67ae697ec457720}{00018}} \textcolor{keyword}{using} \mbox{\hyperlink{namespaceevmc_a539bc1335390844ee67ae697ec457720}{bytes\_view}} = std::basic\_string\_view<uint8\_t>;}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00021}\mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4}{00021}} \textcolor{keyword}{enum class} \mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4}{hex\_errc}}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00022}00022 \{}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00024}00024     \mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4a52e6eb82c226e9bfa738fa47d7e359dd}{invalid\_hex\_digit}} = 1,}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00027}00027     \mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4aac6aff673f8bde724199fc07cea34f63}{incomplete\_hex\_byte\_pair}} = 2,}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00028}00028 \};}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00031}\mbox{\hyperlink{namespaceevmc_ab7adb84a6060aa244b75958d73752696}{00031}} \textcolor{keyword}{const} std::error\_category\& \mbox{\hyperlink{namespaceevmc_ab7adb84a6060aa244b75958d73752696}{hex\_category}}() noexcept;}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00034}\mbox{\hyperlink{namespaceevmc_aaf35d1ee5ad04f36c4287e9bafb4bd48}{00034}} inline std::error\_code \mbox{\hyperlink{namespaceevmc_aaf35d1ee5ad04f36c4287e9bafb4bd48}{make\_error\_code}}(\mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4}{hex\_errc}} errc) noexcept}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00035}00035 \{}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00036}00036     \textcolor{keywordflow}{return} \{\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(errc), \mbox{\hyperlink{namespaceevmc_ab7adb84a6060aa244b75958d73752696}{hex\_category}}()\};}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00037}00037 \}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00040}\mbox{\hyperlink{structevmc_1_1hex__error}{00040}} \textcolor{keyword}{struct }\mbox{\hyperlink{structevmc_1_1hex__error}{hex\_error}} : std::system\_error}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00041}00041 \{}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00042}00042     \textcolor{keyword}{using} system\_error::system\_error;}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00043}00043 \};}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00046}\mbox{\hyperlink{namespaceevmc_a19a82782b528ebd37782eb145cf4152c}{00046}} \textcolor{keyword}{inline} std::string \mbox{\hyperlink{namespaceevmc_a19a82782b528ebd37782eb145cf4152c}{hex}}(uint8\_t b) \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00047}00047 \{}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00048}00048     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} hex\_chars = \textcolor{stringliteral}{"{}0123456789abcdef"{}};}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00049}00049     \textcolor{keywordflow}{return} \{hex\_chars[b >> 4], hex\_chars[b \& 0xf]\};}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00050}00050 \}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00053}\mbox{\hyperlink{namespaceevmc_aad6a175f9f53ee5700cb0c233efba79b}{00053}} std::error\_code \mbox{\hyperlink{namespaceevmc_aad6a175f9f53ee5700cb0c233efba79b}{validate\_hex}}(std::string\_view \mbox{\hyperlink{namespaceevmc_a19a82782b528ebd37782eb145cf4152c}{hex}}) \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00058}\mbox{\hyperlink{namespaceevmc_a4d4e349e08f3fed84bbd6424208a43cf}{00058}} \mbox{\hyperlink{namespaceevmc_a092c09f674d9cb5f0ba31d0f86537f4a}{bytes}} \mbox{\hyperlink{namespaceevmc_a4d4e349e08f3fed84bbd6424208a43cf}{from\_hex}}(std::string\_view \mbox{\hyperlink{namespaceevmc_a19a82782b528ebd37782eb145cf4152c}{hex}});}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00061}\mbox{\hyperlink{namespaceevmc_adb1773c2909e66879ce13de2a49c5fee}{00061}} std::string \mbox{\hyperlink{namespaceevmc_a19a82782b528ebd37782eb145cf4152c}{hex}}(\mbox{\hyperlink{namespaceevmc_a539bc1335390844ee67ae697ec457720}{bytes\_view}} bs);}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00062}00062 \}  \textcolor{comment}{// namespace evmc}}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00064}00064 \textcolor{keyword}{namespace }std}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00065}00065 \{}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00068}00068 \textcolor{keyword}{template} <>}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00069}00069 \textcolor{keyword}{struct }is\_error\_code\_enum<\mbox{\hyperlink{namespaceevmc}{evmc}}::\mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4}{hex\_errc}}> : true\_type}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00070}00070 \{\};}
+\DoxyCodeLine{\Hypertarget{hex_8hpp_source_l00071}00071 \}  \textcolor{comment}{// namespace std}}
+
+\end{DoxyCode}

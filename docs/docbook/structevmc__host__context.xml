@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structevmc__host__context" xml:lang="en-US">
+<title>evmc_host_context Struct Reference</title>
+<indexterm><primary>evmc_host_context</primary></indexterm>
+<para>
+
+<para>The opaque data type representing the Host execution context. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;evmc.h&gt;</computeroutput>
+</para>
+<section>
+<title>Detailed Description</title>
+
+<para>The opaque data type representing the Host execution context. </para>
+
+
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_group__EVMC_1gaed9a4ab5609b55c5e3272d6d37d84ff7">evmc_execute_fn()</link>. </para>
+</formalpara>
+</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+include/evmc/<link linkend="_evmc_8h">evmc.h</link></section>
+</section>

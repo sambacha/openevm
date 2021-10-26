@@ -1,0 +1,879 @@
+\hypertarget{classevmc_1_1MockedHost}{}\doxysection{evmc\+::Mocked\+Host Class Reference}
+\label{classevmc_1_1MockedHost}\index{evmc::MockedHost@{evmc::MockedHost}}
+
+
+Mocked EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}} implementation.  
+
+
+
+
+{\ttfamily \#include $<$mocked\+\_\+host.\+hpp$>$}
+
+
+
+Inheritance diagram for evmc\+::Mocked\+Host\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{classevmc_1_1MockedHost__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for evmc\+::Mocked\+Host\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classevmc_1_1MockedHost__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structevmc_1_1MockedHost_1_1log__record}{log\+\_\+record}}
+\begin{DoxyCompactList}\small\item\em LOG record. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structevmc_1_1MockedHost_1_1selfdestruct__record}{selfdestruct\+\_\+record}}
+\begin{DoxyCompactList}\small\item\em SELFDESTRUCT record. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classevmc_1_1MockedHost_a53a463e19e4908022137ce53715c2dce}{account\+\_\+exists}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr) const noexcept override
+\begin{DoxyCompactList}\small\item\em Returns true if an account exists (EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}} method). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \mbox{\hyperlink{classevmc_1_1MockedHost_a6336919efaf07ad1e9e4f725a86ebdca}{get\+\_\+storage}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&key) const noexcept override
+\begin{DoxyCompactList}\small\item\em Get the account\textquotesingle{}s storage value at the given key (EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}} method). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__EVMC_gae012fd6b8e5c23806b507c2d3e9fb1aa}{evmc\+\_\+storage\+\_\+status}} \mbox{\hyperlink{classevmc_1_1MockedHost_aad63cd61357052ab1fa87e6ff372b3d7}{set\+\_\+storage}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&key, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&value) noexcept override
+\begin{DoxyCompactList}\small\item\em Set the account\textquotesingle{}s storage value (EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}} method). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceevmc_a92bc6b73f1ce3a2b2eea018cf902c4da}{uint256be}} \mbox{\hyperlink{classevmc_1_1MockedHost_a401e74178baba9772638e6b4309e9bee}{get\+\_\+balance}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr) const noexcept override
+\begin{DoxyCompactList}\small\item\em Get the account\textquotesingle{}s balance (EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}} method). \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classevmc_1_1MockedHost_a0ecf2503e3af4ed98cce8eff45385a33}{get\+\_\+code\+\_\+size}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr) const noexcept override
+\begin{DoxyCompactList}\small\item\em Get the account\textquotesingle{}s code size (EVMC host method). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \mbox{\hyperlink{classevmc_1_1MockedHost_a776687379553c67540c8c16df9e8f226}{get\+\_\+code\+\_\+hash}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr) const noexcept override
+\begin{DoxyCompactList}\small\item\em Get the account\textquotesingle{}s code hash (EVMC host method). \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classevmc_1_1MockedHost_a2679f00109fab1c027fb789b83a25d20}{copy\+\_\+code}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr, size\+\_\+t code\+\_\+offset, uint8\+\_\+t $\ast$buffer\+\_\+data, size\+\_\+t buffer\+\_\+size) const noexcept override
+\begin{DoxyCompactList}\small\item\em Copy the account\textquotesingle{}s code to the given buffer (EVMC host method). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classevmc_1_1MockedHost_aa0b0cfd19450eaf220cde06ab1d96858}{selfdestruct}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr, const \mbox{\hyperlink{structevmc_1_1address}{address}} \&beneficiary) noexcept override
+\begin{DoxyCompactList}\small\item\em Selfdestruct the account (EVMC host method). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevmc_1_1result}{result}} \mbox{\hyperlink{classevmc_1_1MockedHost_ad7f341e9bc49fe73286c65bfc3d56ec3}{call}} (const \mbox{\hyperlink{structevmc__message}{evmc\+\_\+message}} \&msg) noexcept override
+\begin{DoxyCompactList}\small\item\em Call/create other contract (EVMC host method). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structevmc__tx__context}{evmc\+\_\+tx\+\_\+context}} \mbox{\hyperlink{classevmc_1_1MockedHost_a45187586bde530ca7beb157467c12733}{get\+\_\+tx\+\_\+context}} () const noexcept override
+\begin{DoxyCompactList}\small\item\em Get transaction context (EVMC host method). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \mbox{\hyperlink{classevmc_1_1MockedHost_ace3ba78141acc06849d3b34382466e36}{get\+\_\+block\+\_\+hash}} (int64\+\_\+t block\+\_\+number) const noexcept override
+\begin{DoxyCompactList}\small\item\em Get the block header hash (EVMC host method). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classevmc_1_1MockedHost_a4263c29b321dbecfcbb4357a469a3bee}{emit\+\_\+log}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr, const uint8\+\_\+t $\ast$data, size\+\_\+t data\+\_\+size, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} topics\mbox{[}$\,$\mbox{]}, size\+\_\+t topics\+\_\+count) noexcept override
+\begin{DoxyCompactList}\small\item\em Emit LOG (EVMC host method). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__EVMC_ga9f71195f3873f9979d81d7a5e1b3aaf0}{evmc\+\_\+access\+\_\+status}} \mbox{\hyperlink{classevmc_1_1MockedHost_a51f9acf40acec535549d32c7ab079b9e}{access\+\_\+account}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr) noexcept override
+\begin{DoxyCompactList}\small\item\em Record an account access. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__EVMC_ga9f71195f3873f9979d81d7a5e1b3aaf0}{evmc\+\_\+access\+\_\+status}} \mbox{\hyperlink{classevmc_1_1MockedHost_a759d289a03d7ebeac0b727938d9ee521}{access\+\_\+storage}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr, const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&key) noexcept override
+\begin{DoxyCompactList}\small\item\em Access the account\textquotesingle{}s storage value at the given key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{structevmc_1_1address}{address}}, \mbox{\hyperlink{structevmc_1_1MockedAccount}{Mocked\+Account}} $>$ \mbox{\hyperlink{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}{accounts}}
+\begin{DoxyCompactList}\small\item\em The set of all accounts in the \mbox{\hyperlink{classevmc_1_1Host}{Host}}, organized by their addresses. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structevmc__tx__context}{evmc\+\_\+tx\+\_\+context}} \mbox{\hyperlink{classevmc_1_1MockedHost_addf01838d4c15228e746caa0a645a3b1}{tx\+\_\+context}} = \{\}
+\begin{DoxyCompactList}\small\item\em The EVMC transaction context to be returned by \mbox{\hyperlink{classevmc_1_1MockedHost_a45187586bde530ca7beb157467c12733}{get\+\_\+tx\+\_\+context()}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \mbox{\hyperlink{classevmc_1_1MockedHost_a4cdb6de6b81f9845eb6079f5729e0805}{block\+\_\+hash}} = \{\}
+\begin{DoxyCompactList}\small\item\em The block header hash value to be returned by \mbox{\hyperlink{classevmc_1_1MockedHost_ace3ba78141acc06849d3b34382466e36}{get\+\_\+block\+\_\+hash()}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}} \mbox{\hyperlink{classevmc_1_1MockedHost_a473ec63bcb8b786c5fb1b097cfcfb8c0}{call\+\_\+result}} = \{\}
+\begin{DoxyCompactList}\small\item\em The call result to be returned by the \mbox{\hyperlink{classevmc_1_1MockedHost_ad7f341e9bc49fe73286c65bfc3d56ec3}{call()}} method. \end{DoxyCompactList}\item 
+std\+::vector$<$ int64\+\_\+t $>$ \mbox{\hyperlink{classevmc_1_1MockedHost_ac4acf299c63beb5134fede0d0a5f7c1f}{recorded\+\_\+blockhashes}}
+\begin{DoxyCompactList}\small\item\em The record of all block numbers for which \mbox{\hyperlink{classevmc_1_1MockedHost_ace3ba78141acc06849d3b34382466e36}{get\+\_\+block\+\_\+hash()}} was called. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structevmc_1_1address}{address}} $>$ \mbox{\hyperlink{classevmc_1_1MockedHost_aee945d218d656a7788d4fce5f30db3ca}{recorded\+\_\+account\+\_\+accesses}}
+\begin{DoxyCompactList}\small\item\em The record of all account accesses. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structevmc__message}{evmc\+\_\+message}} $>$ \mbox{\hyperlink{classevmc_1_1MockedHost_af4487c7cb827ef8ce54da187d109189a}{recorded\+\_\+calls}}
+\begin{DoxyCompactList}\small\item\em The record of all call messages requested in the \mbox{\hyperlink{classevmc_1_1MockedHost_ad7f341e9bc49fe73286c65bfc3d56ec3}{call()}} method. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structevmc_1_1MockedHost_1_1log__record}{log\+\_\+record}} $>$ \mbox{\hyperlink{classevmc_1_1MockedHost_a6f6b51ddda349341a158456a180f7d9e}{recorded\+\_\+logs}}
+\begin{DoxyCompactList}\small\item\em The record of all LOGs passed to the \mbox{\hyperlink{classevmc_1_1MockedHost_a4263c29b321dbecfcbb4357a469a3bee}{emit\+\_\+log()}} method. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structevmc_1_1MockedHost_1_1selfdestruct__record}{selfdestruct\+\_\+record}} $>$ \mbox{\hyperlink{classevmc_1_1MockedHost_a0456263e1326f91a27c0e3a0381d967f}{recorded\+\_\+selfdestructs}}
+\begin{DoxyCompactList}\small\item\em The record of all SELFDESTRUCTs from the \mbox{\hyperlink{classevmc_1_1MockedHost_aa0b0cfd19450eaf220cde06ab1d96858}{selfdestruct()}} method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{classevmc_1_1MockedHost_a5ab49cfd8bc76f9dab117946a5c12efa}{max\+\_\+recorded\+\_\+account\+\_\+accesses}} = 200
+\begin{DoxyCompactList}\small\item\em The maximum number of entries in recorded\+\_\+account\+\_\+accesses record. \end{DoxyCompactList}\item 
+static constexpr auto \mbox{\hyperlink{classevmc_1_1MockedHost_a78ad202959aa8d416faf715ab6f7f687}{max\+\_\+recorded\+\_\+calls}} = 100
+\begin{DoxyCompactList}\small\item\em The maximum number of entries in recorded\+\_\+calls record. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classevmc_1_1MockedHost_a0c00a74cb2326e57a3a6a844432d72e1}{record\+\_\+account\+\_\+access}} (const \mbox{\hyperlink{structevmc_1_1address}{address}} \&addr) const
+\begin{DoxyCompactList}\small\item\em Record an account access. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespaceevmc_a092c09f674d9cb5f0ba31d0f86537f4a}{bytes}} $>$ \mbox{\hyperlink{classevmc_1_1MockedHost_a07d9cb06c3f78bbb2323467271709467}{m\+\_\+recorded\+\_\+calls\+\_\+inputs}}
+\begin{DoxyCompactList}\small\item\em The copy of call inputs for the recorded\+\_\+calls record. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Mocked EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}} implementation. 
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a51f9acf40acec535549d32c7ab079b9e}\label{classevmc_1_1MockedHost_a51f9acf40acec535549d32c7ab079b9e}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!access\_account@{access\_account}}
+\index{access\_account@{access\_account}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{access\_account()}{access\_account()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__EVMC_ga9f71195f3873f9979d81d7a5e1b3aaf0}{evmc\+\_\+access\+\_\+status}} evmc\+::\+Mocked\+Host\+::access\+\_\+account (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Record an account access. 
+
+This method is required by EIP-\/2929 introduced in \mbox{\hyperlink{group__EVMC_ggae5759b1590071966ccf6a505b52a0ef7af53e0cb0d793d60b5fb07c6b4c3c6ab7}{EVMC\+\_\+\+BERLIN}}. It will record the account access in \mbox{\hyperlink{classevmc_1_1MockedHost_aee945d218d656a7788d4fce5f30db3ca}{Mocked\+Host\+::recorded\+\_\+account\+\_\+accesses}} and return previous access status. This methods returns \mbox{\hyperlink{group__EVMC_gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994}{EVMC\+\_\+\+ACCESS\+\_\+\+WARM}} for known addresses of precompiles. The EIP-\/2929 specifies that \mbox{\hyperlink{structevmc__message_ae7f64ab994f49d9a5f028d56e80fd468}{evmc\+\_\+message\+::sender}} and \mbox{\hyperlink{structevmc__message_a63643daa5f3a30df28d42360a20e39e2}{evmc\+\_\+message\+::recipient}} are always \mbox{\hyperlink{group__EVMC_gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994}{EVMC\+\_\+\+ACCESS\+\_\+\+WARM}}. Therefore, you should init the \mbox{\hyperlink{classevmc_1_1MockedHost}{Mocked\+Host}} with\+: \begin{DoxyVerb}mocked_host.access_account(msg.sender);
+mocked_host.access_account(msg.recipient);
+\end{DoxyVerb}
+ The same way you can mock transaction access list (EIP-\/2930) for account addresses.
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & The address of the accessed account. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{group__EVMC_gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994}{EVMC\+\_\+\+ACCESS\+\_\+\+WARM}} if the account has been accessed before, the \mbox{\hyperlink{group__EVMC_gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76}{EVMC\+\_\+\+ACCESS\+\_\+\+COLD}} otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classevmc_1_1HostInterface_ab5ec93cb9fc439fd22cacecc468ed9f8}{evmc\+::\+Host\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00341}{341}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00342}00342     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00343}00343         \textcolor{comment}{// Check if the address have been already accessed.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00344}00344         \textcolor{keyword}{const} \textcolor{keyword}{auto} already\_accessed =}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00345}00345             std::find(\mbox{\hyperlink{classevmc_1_1MockedHost_aee945d218d656a7788d4fce5f30db3ca}{recorded\_account\_accesses}}.begin(), \mbox{\hyperlink{classevmc_1_1MockedHost_aee945d218d656a7788d4fce5f30db3ca}{recorded\_account\_accesses}}.end(), addr) !=}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00346}00346             \mbox{\hyperlink{classevmc_1_1MockedHost_aee945d218d656a7788d4fce5f30db3ca}{recorded\_account\_accesses}}.end();}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00347}00347 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00348}00348         \mbox{\hyperlink{classevmc_1_1MockedHost_a0c00a74cb2326e57a3a6a844432d72e1}{record\_account\_access}}(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00349}00349 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00350}00350         \textcolor{comment}{// Accessing precompiled contracts is always warm.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00351}00351         \textcolor{keywordflow}{if} (addr >= 0x0000000000000000000000000000000000000001\_address \&\&}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00352}00352             addr <= 0x0000000000000000000000000000000000000009\_address)}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00353}00353             \textcolor{keywordflow}{return} \mbox{\hyperlink{group__EVMC_gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994}{EVMC\_ACCESS\_WARM}};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00354}00354 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00355}00355         \textcolor{keywordflow}{return} already\_accessed ? \mbox{\hyperlink{group__EVMC_gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994}{EVMC\_ACCESS\_WARM}} : \mbox{\hyperlink{group__EVMC_gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76}{EVMC\_ACCESS\_COLD}};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00356}00356     \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classevmc_1_1MockedHost_a51f9acf40acec535549d32c7ab079b9e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a759d289a03d7ebeac0b727938d9ee521}\label{classevmc_1_1MockedHost_a759d289a03d7ebeac0b727938d9ee521}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!access\_storage@{access\_storage}}
+\index{access\_storage@{access\_storage}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{access\_storage()}{access\_storage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__EVMC_ga9f71195f3873f9979d81d7a5e1b3aaf0}{evmc\+\_\+access\+\_\+status}} evmc\+::\+Mocked\+Host\+::access\+\_\+storage (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Access the account\textquotesingle{}s storage value at the given key. 
+
+This method is required by EIP-\/2929 introduced in \mbox{\hyperlink{group__EVMC_ggae5759b1590071966ccf6a505b52a0ef7af53e0cb0d793d60b5fb07c6b4c3c6ab7}{EVMC\+\_\+\+BERLIN}}. In records that the given account\textquotesingle{}s storage key has been access and returns the previous access status. To mock storage access list (EIP-\/2930), you can pre-\/init account\textquotesingle{}s storage values with the \mbox{\hyperlink{group__EVMC_gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994}{EVMC\+\_\+\+ACCESS\+\_\+\+WARM}} flag\+: \begin{DoxyVerb}mocked_host.accounts[msg.recipient].storage[key] = {value, EVMC_ACCESS_WARM};
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}{Parameters}
+{\em addr} & The account address. \\
+\hline
+{\em key} & The account\textquotesingle{}s storage key. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{group__EVMC_gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994}{EVMC\+\_\+\+ACCESS\+\_\+\+WARM}} if the storage key has been accessed before, the \mbox{\hyperlink{group__EVMC_gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76}{EVMC\+\_\+\+ACCESS\+\_\+\+COLD}} otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classevmc_1_1HostInterface_ac0192ce7575fe86b7466405e93484ad8}{evmc\+::\+Host\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00371}{371}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00372}00372     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00373}00373         \textcolor{keyword}{auto}\& value = \mbox{\hyperlink{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}{accounts}}[addr].storage[key];}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00374}00374         \textcolor{keyword}{const} \textcolor{keyword}{auto} access\_status = value.access\_status;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00375}00375         value.access\_status = \mbox{\hyperlink{group__EVMC_gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994}{EVMC\_ACCESS\_WARM}};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00376}00376         \textcolor{keywordflow}{return} access\_status;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00377}00377     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a53a463e19e4908022137ce53715c2dce}\label{classevmc_1_1MockedHost_a53a463e19e4908022137ce53715c2dce}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!account\_exists@{account\_exists}}
+\index{account\_exists@{account\_exists}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{account\_exists()}{account\_exists()}}
+{\footnotesize\ttfamily bool evmc\+::\+Mocked\+Host\+::account\+\_\+exists (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Returns true if an account exists (EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}} method). 
+
+
+
+Implements \mbox{\hyperlink{classevmc_1_1HostInterface_ae735474dc8425b49b3eb0ef12212fae7}{evmc\+::\+Host\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00161}{161}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00162}00162     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00163}00163         \mbox{\hyperlink{classevmc_1_1MockedHost_a0c00a74cb2326e57a3a6a844432d72e1}{record\_account\_access}}(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00164}00164         \textcolor{keywordflow}{return} \mbox{\hyperlink{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}{accounts}}.count(addr) != 0;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00165}00165     \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classevmc_1_1MockedHost_a53a463e19e4908022137ce53715c2dce_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_ad7f341e9bc49fe73286c65bfc3d56ec3}\label{classevmc_1_1MockedHost_ad7f341e9bc49fe73286c65bfc3d56ec3}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!call@{call}}
+\index{call@{call}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{call()}{call()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classevmc_1_1result}{result}} evmc\+::\+Mocked\+Host\+::call (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc__message}{evmc\+\_\+message}} \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Call/create other contract (EVMC host method). 
+
+
+
+Implements \mbox{\hyperlink{classevmc_1_1HostInterface_a392feba1f27c9352c85bf2559c1fbcb2}{evmc\+::\+Host\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00281}{281}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00282}00282     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00283}00283         \mbox{\hyperlink{classevmc_1_1MockedHost_a0c00a74cb2326e57a3a6a844432d72e1}{record\_account\_access}}(msg.\mbox{\hyperlink{structevmc__message_a63643daa5f3a30df28d42360a20e39e2}{recipient}});}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00284}00284 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00285}00285         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevmc_1_1MockedHost_af4487c7cb827ef8ce54da187d109189a}{recorded\_calls}}.empty())}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00286}00286         \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00287}00287             \mbox{\hyperlink{classevmc_1_1MockedHost_af4487c7cb827ef8ce54da187d109189a}{recorded\_calls}}.reserve(\mbox{\hyperlink{classevmc_1_1MockedHost_a78ad202959aa8d416faf715ab6f7f687}{max\_recorded\_calls}});}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00288}00288             \mbox{\hyperlink{classevmc_1_1MockedHost_a07d9cb06c3f78bbb2323467271709467}{m\_recorded\_calls\_inputs}}.reserve(\mbox{\hyperlink{classevmc_1_1MockedHost_a78ad202959aa8d416faf715ab6f7f687}{max\_recorded\_calls}});  \textcolor{comment}{// Iterators will not invalidate.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00289}00289         \}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00290}00290 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00291}00291         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevmc_1_1MockedHost_af4487c7cb827ef8ce54da187d109189a}{recorded\_calls}}.size() < \mbox{\hyperlink{classevmc_1_1MockedHost_a78ad202959aa8d416faf715ab6f7f687}{max\_recorded\_calls}})}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00292}00292         \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00293}00293             \mbox{\hyperlink{classevmc_1_1MockedHost_af4487c7cb827ef8ce54da187d109189a}{recorded\_calls}}.emplace\_back(msg);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00294}00294             \textcolor{keyword}{auto}\& call\_msg = \mbox{\hyperlink{classevmc_1_1MockedHost_af4487c7cb827ef8ce54da187d109189a}{recorded\_calls}}.back();}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00295}00295             \textcolor{keywordflow}{if} (call\_msg.input\_size > 0)}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00296}00296             \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00297}00297                 \mbox{\hyperlink{classevmc_1_1MockedHost_a07d9cb06c3f78bbb2323467271709467}{m\_recorded\_calls\_inputs}}.emplace\_back(call\_msg.input\_data, call\_msg.input\_size);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00298}00298                 \textcolor{keyword}{const} \textcolor{keyword}{auto}\& input\_copy = \mbox{\hyperlink{classevmc_1_1MockedHost_a07d9cb06c3f78bbb2323467271709467}{m\_recorded\_calls\_inputs}}.back();}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00299}00299                 call\_msg.input\_data = input\_copy.data();}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00300}00300             \}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00301}00301         \}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00302}00302         \textcolor{keywordflow}{return} result\{\mbox{\hyperlink{classevmc_1_1MockedHost_a473ec63bcb8b786c5fb1b097cfcfb8c0}{call\_result}}\};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00303}00303     \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classevmc_1_1MockedHost_ad7f341e9bc49fe73286c65bfc3d56ec3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a2679f00109fab1c027fb789b83a25d20}\label{classevmc_1_1MockedHost_a2679f00109fab1c027fb789b83a25d20}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!copy\_code@{copy\_code}}
+\index{copy\_code@{copy\_code}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{copy\_code()}{copy\_code()}}
+{\footnotesize\ttfamily size\+\_\+t evmc\+::\+Mocked\+Host\+::copy\+\_\+code (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr,  }\item[{size\+\_\+t}]{code\+\_\+offset,  }\item[{uint8\+\_\+t $\ast$}]{buffer\+\_\+data,  }\item[{size\+\_\+t}]{buffer\+\_\+size }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Copy the account\textquotesingle{}s code to the given buffer (EVMC host method). 
+
+
+
+Implements \mbox{\hyperlink{classevmc_1_1HostInterface_ace3dcf2b277c60cb422f3af1d63dd36b}{evmc\+::\+Host\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00251}{251}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00255}00255     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00256}00256         \mbox{\hyperlink{classevmc_1_1MockedHost_a0c00a74cb2326e57a3a6a844432d72e1}{record\_account\_access}}(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00257}00257         \textcolor{keyword}{const} \textcolor{keyword}{auto} it = \mbox{\hyperlink{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}{accounts}}.find(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00258}00258         \textcolor{keywordflow}{if} (it == \mbox{\hyperlink{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}{accounts}}.end())}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00259}00259             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00260}00260 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00261}00261         \textcolor{keyword}{const} \textcolor{keyword}{auto}\& code = it-\/>second.code;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00262}00262 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00263}00263         \textcolor{keywordflow}{if} (code\_offset >= code.size())}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00264}00264             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00265}00265 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00266}00266         \textcolor{keyword}{const} \textcolor{keyword}{auto} n = std::min(buffer\_size, code.size() -\/ code\_offset);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00267}00267 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00268}00268         \textcolor{keywordflow}{if} (n > 0)}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00269}00269             std::copy\_n(\&code[code\_offset], n, buffer\_data);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00270}00270         \textcolor{keywordflow}{return} n;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00271}00271     \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classevmc_1_1MockedHost_a2679f00109fab1c027fb789b83a25d20_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a4263c29b321dbecfcbb4357a469a3bee}\label{classevmc_1_1MockedHost_a4263c29b321dbecfcbb4357a469a3bee}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!emit\_log@{emit\_log}}
+\index{emit\_log@{emit\_log}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{emit\_log()}{emit\_log()}}
+{\footnotesize\ttfamily void evmc\+::\+Mocked\+Host\+::emit\+\_\+log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr,  }\item[{const uint8\+\_\+t $\ast$}]{data,  }\item[{size\+\_\+t}]{data\+\_\+size,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}}}]{topics\mbox{[}$\,$\mbox{]},  }\item[{size\+\_\+t}]{topics\+\_\+count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Emit LOG (EVMC host method). 
+
+
+
+Implements \mbox{\hyperlink{classevmc_1_1HostInterface_a1f95317392e4615e29ad038fe4ff049d}{evmc\+::\+Host\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00316}{316}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00321}00321     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00322}00322         \mbox{\hyperlink{classevmc_1_1MockedHost_a6f6b51ddda349341a158456a180f7d9e}{recorded\_logs}}.push\_back(\{addr, \{data, data\_size\}, \{topics, topics + topics\_count\}\});}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00323}00323     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a401e74178baba9772638e6b4309e9bee}\label{classevmc_1_1MockedHost_a401e74178baba9772638e6b4309e9bee}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!get\_balance@{get\_balance}}
+\index{get\_balance@{get\_balance}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{get\_balance()}{get\_balance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceevmc_a92bc6b73f1ce3a2b2eea018cf902c4da}{uint256be}} evmc\+::\+Mocked\+Host\+::get\+\_\+balance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Get the account\textquotesingle{}s balance (EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}} method). 
+
+
+
+Implements \mbox{\hyperlink{classevmc_1_1HostInterface_ac30e7e938793a2c46e3d5d416e15c3f5}{evmc\+::\+Host\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00220}{220}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00221}00221     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00222}00222         \mbox{\hyperlink{classevmc_1_1MockedHost_a0c00a74cb2326e57a3a6a844432d72e1}{record\_account\_access}}(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00223}00223         \textcolor{keyword}{const} \textcolor{keyword}{auto} it = \mbox{\hyperlink{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}{accounts}}.find(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00224}00224         \textcolor{keywordflow}{if} (it == \mbox{\hyperlink{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}{accounts}}.end())}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00225}00225             \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00226}00226 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00227}00227         \textcolor{keywordflow}{return} it-\/>second.balance;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00228}00228     \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classevmc_1_1MockedHost_a401e74178baba9772638e6b4309e9bee_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_ace3ba78141acc06849d3b34382466e36}\label{classevmc_1_1MockedHost_ace3ba78141acc06849d3b34382466e36}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!get\_block\_hash@{get\_block\_hash}}
+\index{get\_block\_hash@{get\_block\_hash}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{get\_block\_hash()}{get\_block\_hash()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} evmc\+::\+Mocked\+Host\+::get\+\_\+block\+\_\+hash (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{block\+\_\+number }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Get the block header hash (EVMC host method). 
+
+
+
+Implements \mbox{\hyperlink{classevmc_1_1HostInterface_ab4fcbbe88b9490f78e0f99c7ce2b167f}{evmc\+::\+Host\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00309}{309}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00310}00310     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00311}00311         \mbox{\hyperlink{classevmc_1_1MockedHost_ac4acf299c63beb5134fede0d0a5f7c1f}{recorded\_blockhashes}}.emplace\_back(block\_number);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00312}00312         \textcolor{keywordflow}{return} \mbox{\hyperlink{classevmc_1_1MockedHost_a4cdb6de6b81f9845eb6079f5729e0805}{block\_hash}};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00313}00313     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a776687379553c67540c8c16df9e8f226}\label{classevmc_1_1MockedHost_a776687379553c67540c8c16df9e8f226}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!get\_code\_hash@{get\_code\_hash}}
+\index{get\_code\_hash@{get\_code\_hash}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{get\_code\_hash()}{get\_code\_hash()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} evmc\+::\+Mocked\+Host\+::get\+\_\+code\+\_\+hash (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Get the account\textquotesingle{}s code hash (EVMC host method). 
+
+
+
+Implements \mbox{\hyperlink{classevmc_1_1HostInterface_a748a36bc934302492f54e3fc90cdca88}{evmc\+::\+Host\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00241}{241}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00242}00242     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00243}00243         \mbox{\hyperlink{classevmc_1_1MockedHost_a0c00a74cb2326e57a3a6a844432d72e1}{record\_account\_access}}(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00244}00244         \textcolor{keyword}{const} \textcolor{keyword}{auto} it = \mbox{\hyperlink{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}{accounts}}.find(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00245}00245         \textcolor{keywordflow}{if} (it == \mbox{\hyperlink{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}{accounts}}.end())}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00246}00246             \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00247}00247         \textcolor{keywordflow}{return} it-\/>second.codehash;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00248}00248     \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classevmc_1_1MockedHost_a776687379553c67540c8c16df9e8f226_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a0ecf2503e3af4ed98cce8eff45385a33}\label{classevmc_1_1MockedHost_a0ecf2503e3af4ed98cce8eff45385a33}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!get\_code\_size@{get\_code\_size}}
+\index{get\_code\_size@{get\_code\_size}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{get\_code\_size()}{get\_code\_size()}}
+{\footnotesize\ttfamily size\+\_\+t evmc\+::\+Mocked\+Host\+::get\+\_\+code\+\_\+size (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Get the account\textquotesingle{}s code size (EVMC host method). 
+
+
+
+Implements \mbox{\hyperlink{classevmc_1_1HostInterface_a8cb4656ab4c478d5fe152b4f6c4b6dc4}{evmc\+::\+Host\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00231}{231}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00232}00232     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00233}00233         \mbox{\hyperlink{classevmc_1_1MockedHost_a0c00a74cb2326e57a3a6a844432d72e1}{record\_account\_access}}(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00234}00234         \textcolor{keyword}{const} \textcolor{keyword}{auto} it = \mbox{\hyperlink{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}{accounts}}.find(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00235}00235         \textcolor{keywordflow}{if} (it == \mbox{\hyperlink{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}{accounts}}.end())}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00236}00236             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00237}00237         \textcolor{keywordflow}{return} it-\/>second.code.size();}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00238}00238     \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classevmc_1_1MockedHost_a0ecf2503e3af4ed98cce8eff45385a33_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a6336919efaf07ad1e9e4f725a86ebdca}\label{classevmc_1_1MockedHost_a6336919efaf07ad1e9e4f725a86ebdca}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!get\_storage@{get\_storage}}
+\index{get\_storage@{get\_storage}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{get\_storage()}{get\_storage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} evmc\+::\+Mocked\+Host\+::get\+\_\+storage (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Get the account\textquotesingle{}s storage value at the given key (EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}} method). 
+
+
+
+Implements \mbox{\hyperlink{classevmc_1_1HostInterface_a020f849f737fcd841681f73f74514b4d}{evmc\+::\+Host\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00168}{168}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00169}00169     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00170}00170         \mbox{\hyperlink{classevmc_1_1MockedHost_a0c00a74cb2326e57a3a6a844432d72e1}{record\_account\_access}}(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00172}00172         \textcolor{keyword}{const} \textcolor{keyword}{auto} account\_iter = \mbox{\hyperlink{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}{accounts}}.find(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00173}00173         \textcolor{keywordflow}{if} (account\_iter == \mbox{\hyperlink{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}{accounts}}.end())}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00174}00174             \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00175}00175 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00176}00176         \textcolor{keyword}{const} \textcolor{keyword}{auto} storage\_iter = account\_iter-\/>second.storage.find(key);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00177}00177         \textcolor{keywordflow}{if} (storage\_iter != account\_iter-\/>second.storage.end())}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00178}00178             \textcolor{keywordflow}{return} storage\_iter-\/>second.value;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00179}00179         \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00180}00180     \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classevmc_1_1MockedHost_a6336919efaf07ad1e9e4f725a86ebdca_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a45187586bde530ca7beb157467c12733}\label{classevmc_1_1MockedHost_a45187586bde530ca7beb157467c12733}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!get\_tx\_context@{get\_tx\_context}}
+\index{get\_tx\_context@{get\_tx\_context}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{get\_tx\_context()}{get\_tx\_context()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc__tx__context}{evmc\+\_\+tx\+\_\+context}} evmc\+::\+Mocked\+Host\+::get\+\_\+tx\+\_\+context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Get transaction context (EVMC host method). 
+
+
+
+Implements \mbox{\hyperlink{classevmc_1_1HostInterface_a2e958d4265e17048b817626f6fd3cdcc}{evmc\+::\+Host\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00306}{306}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00306}00306 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classevmc_1_1MockedHost_addf01838d4c15228e746caa0a645a3b1}{tx\_context}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a0c00a74cb2326e57a3a6a844432d72e1}\label{classevmc_1_1MockedHost_a0c00a74cb2326e57a3a6a844432d72e1}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!record\_account\_access@{record\_account\_access}}
+\index{record\_account\_access@{record\_account\_access}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{record\_account\_access()}{record\_account\_access()}}
+{\footnotesize\ttfamily void evmc\+::\+Mocked\+Host\+::record\+\_\+account\+\_\+access (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Record an account access. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & The address of the accessed account. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00150}{150}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00151}00151     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00152}00152         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevmc_1_1MockedHost_aee945d218d656a7788d4fce5f30db3ca}{recorded\_account\_accesses}}.empty())}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00153}00153             \mbox{\hyperlink{classevmc_1_1MockedHost_aee945d218d656a7788d4fce5f30db3ca}{recorded\_account\_accesses}}.reserve(\mbox{\hyperlink{classevmc_1_1MockedHost_a5ab49cfd8bc76f9dab117946a5c12efa}{max\_recorded\_account\_accesses}});}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00155}00155         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevmc_1_1MockedHost_aee945d218d656a7788d4fce5f30db3ca}{recorded\_account\_accesses}}.size() < \mbox{\hyperlink{classevmc_1_1MockedHost_a5ab49cfd8bc76f9dab117946a5c12efa}{max\_recorded\_account\_accesses}})}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00156}00156             \mbox{\hyperlink{classevmc_1_1MockedHost_aee945d218d656a7788d4fce5f30db3ca}{recorded\_account\_accesses}}.emplace\_back(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00157}00157     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_aa0b0cfd19450eaf220cde06ab1d96858}\label{classevmc_1_1MockedHost_aa0b0cfd19450eaf220cde06ab1d96858}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!selfdestruct@{selfdestruct}}
+\index{selfdestruct@{selfdestruct}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{selfdestruct()}{selfdestruct()}}
+{\footnotesize\ttfamily void evmc\+::\+Mocked\+Host\+::selfdestruct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr,  }\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{beneficiary }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Selfdestruct the account (EVMC host method). 
+
+
+
+Implements \mbox{\hyperlink{classevmc_1_1HostInterface_afd78f82767a70ed1e4e68fce6007ad0b}{evmc\+::\+Host\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00274}{274}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00275}00275     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00276}00276         \mbox{\hyperlink{classevmc_1_1MockedHost_a0c00a74cb2326e57a3a6a844432d72e1}{record\_account\_access}}(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00277}00277         \mbox{\hyperlink{classevmc_1_1MockedHost_a0456263e1326f91a27c0e3a0381d967f}{recorded\_selfdestructs}}.push\_back(\{addr, beneficiary\});}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00278}00278     \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classevmc_1_1MockedHost_aa0b0cfd19450eaf220cde06ab1d96858_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_aad63cd61357052ab1fa87e6ff372b3d7}\label{classevmc_1_1MockedHost_aad63cd61357052ab1fa87e6ff372b3d7}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!set\_storage@{set\_storage}}
+\index{set\_storage@{set\_storage}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{set\_storage()}{set\_storage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__EVMC_gae012fd6b8e5c23806b507c2d3e9fb1aa}{evmc\+\_\+storage\+\_\+status}} evmc\+::\+Mocked\+Host\+::set\+\_\+storage (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc_1_1address}{address}} \&}]{addr,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{key,  }\item[{const \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Set the account\textquotesingle{}s storage value (EVMC \mbox{\hyperlink{classevmc_1_1Host}{Host}} method). 
+
+
+
+Implements \mbox{\hyperlink{classevmc_1_1HostInterface_ab302ebc0c838560a6c4b8b1aec21815a}{evmc\+::\+Host\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00183}{183}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00186}00186     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00187}00187         \mbox{\hyperlink{classevmc_1_1MockedHost_a0c00a74cb2326e57a3a6a844432d72e1}{record\_account\_access}}(addr);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00188}00188 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00189}00189         \textcolor{comment}{// Get the reference to the old value.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00190}00190         \textcolor{comment}{// This will create the account in case it was not present.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00191}00191         \textcolor{comment}{// This is convenient for unit testing and standalone EVM execution to preserve the}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00192}00192         \textcolor{comment}{// storage values after the execution terminates.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00193}00193         \textcolor{keyword}{auto}\& old = \mbox{\hyperlink{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}{accounts}}[addr].storage[key];}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00194}00194 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00195}00195         \textcolor{comment}{// Follow https://eips.ethereum.org/EIPS/eip-\/1283 specification.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00196}00196         \textcolor{comment}{// WARNING! This is not complete implementation as refund is not handled here.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00197}00197 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00198}00198         \textcolor{keywordflow}{if} (old.value == value)}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00199}00199             \textcolor{keywordflow}{return} \mbox{\hyperlink{group__EVMC_ggae012fd6b8e5c23806b507c2d3e9fb1aaad6d527edcbe8a63edad5be80f252330c}{EVMC\_STORAGE\_UNCHANGED}};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00200}00200 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00201}00201         \mbox{\hyperlink{group__EVMC_gae012fd6b8e5c23806b507c2d3e9fb1aa}{evmc\_storage\_status}} status\{\};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00202}00202         \textcolor{keywordflow}{if} (!old.dirty)}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00203}00203         \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00204}00204             old.dirty = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00205}00205             \textcolor{keywordflow}{if} (!old.value)}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00206}00206                 status = \mbox{\hyperlink{group__EVMC_ggae012fd6b8e5c23806b507c2d3e9fb1aaa8afd1741edf799d44264654d9f04a5a9}{EVMC\_STORAGE\_ADDED}};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00207}00207             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value)}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00208}00208                 status = \mbox{\hyperlink{group__EVMC_ggae012fd6b8e5c23806b507c2d3e9fb1aaaf102ce749767d5277923c221089da2c6}{EVMC\_STORAGE\_MODIFIED}};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00209}00209             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00210}00210                 status = \mbox{\hyperlink{group__EVMC_ggae012fd6b8e5c23806b507c2d3e9fb1aaae5b6ea5ec988f3b3ceb323ce3c0fa53f}{EVMC\_STORAGE\_DELETED}};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00211}00211         \}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00212}00212         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00213}00213             status = \mbox{\hyperlink{group__EVMC_ggae012fd6b8e5c23806b507c2d3e9fb1aaa072394aca7925f8de8facf8f8a5e477c}{EVMC\_STORAGE\_MODIFIED\_AGAIN}};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00214}00214 }
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00215}00215         old.value = value;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00216}00216         \textcolor{keywordflow}{return} status;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1MockedHost_l00217}00217     \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classevmc_1_1MockedHost_aad63cd61357052ab1fa87e6ff372b3d7_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}\label{classevmc_1_1MockedHost_a5bc5bfc2b23104dc5554f87c51383b47}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!accounts@{accounts}}
+\index{accounts@{accounts}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{accounts}{accounts}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$\mbox{\hyperlink{structevmc_1_1address}{address}}, \mbox{\hyperlink{structevmc_1_1MockedAccount}{Mocked\+Account}}$>$ evmc\+::\+Mocked\+Host\+::accounts}
+
+
+
+The set of all accounts in the \mbox{\hyperlink{classevmc_1_1Host}{Host}}, organized by their addresses. 
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00110}{110}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a4cdb6de6b81f9845eb6079f5729e0805}\label{classevmc_1_1MockedHost_a4cdb6de6b81f9845eb6079f5729e0805}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!block\_hash@{block\_hash}}
+\index{block\_hash@{block\_hash}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{block\_hash}{block\_hash}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc_1_1bytes32}{bytes32}} evmc\+::\+Mocked\+Host\+::block\+\_\+hash = \{\}}
+
+
+
+The block header hash value to be returned by \mbox{\hyperlink{classevmc_1_1MockedHost_ace3ba78141acc06849d3b34382466e36}{get\+\_\+block\+\_\+hash()}}. 
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00116}{116}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a473ec63bcb8b786c5fb1b097cfcfb8c0}\label{classevmc_1_1MockedHost_a473ec63bcb8b786c5fb1b097cfcfb8c0}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!call\_result@{call\_result}}
+\index{call\_result@{call\_result}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{call\_result}{call\_result}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc__result}{evmc\+\_\+result}} evmc\+::\+Mocked\+Host\+::call\+\_\+result = \{\}}
+
+
+
+The call result to be returned by the \mbox{\hyperlink{classevmc_1_1MockedHost_ad7f341e9bc49fe73286c65bfc3d56ec3}{call()}} method. 
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00119}{119}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a07d9cb06c3f78bbb2323467271709467}\label{classevmc_1_1MockedHost_a07d9cb06c3f78bbb2323467271709467}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!m\_recorded\_calls\_inputs@{m\_recorded\_calls\_inputs}}
+\index{m\_recorded\_calls\_inputs@{m\_recorded\_calls\_inputs}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{m\_recorded\_calls\_inputs}{m\_recorded\_calls\_inputs}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{namespaceevmc_a092c09f674d9cb5f0ba31d0f86537f4a}{bytes}}$>$ evmc\+::\+Mocked\+Host\+::m\+\_\+recorded\+\_\+calls\+\_\+inputs\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The copy of call inputs for the recorded\+\_\+calls record. 
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00146}{146}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a5ab49cfd8bc76f9dab117946a5c12efa}\label{classevmc_1_1MockedHost_a5ab49cfd8bc76f9dab117946a5c12efa}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!max\_recorded\_account\_accesses@{max\_recorded\_account\_accesses}}
+\index{max\_recorded\_account\_accesses@{max\_recorded\_account\_accesses}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{max\_recorded\_account\_accesses}{max\_recorded\_account\_accesses}}
+{\footnotesize\ttfamily constexpr auto evmc\+::\+Mocked\+Host\+::max\+\_\+recorded\+\_\+account\+\_\+accesses = 200\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The maximum number of entries in recorded\+\_\+account\+\_\+accesses record. 
+
+This is arbitrary value useful in fuzzing when we don\textquotesingle{}t want the record to explode. 
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00129}{129}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a78ad202959aa8d416faf715ab6f7f687}\label{classevmc_1_1MockedHost_a78ad202959aa8d416faf715ab6f7f687}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!max\_recorded\_calls@{max\_recorded\_calls}}
+\index{max\_recorded\_calls@{max\_recorded\_calls}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{max\_recorded\_calls}{max\_recorded\_calls}}
+{\footnotesize\ttfamily constexpr auto evmc\+::\+Mocked\+Host\+::max\+\_\+recorded\+\_\+calls = 100\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The maximum number of entries in recorded\+\_\+calls record. 
+
+This is arbitrary value useful in fuzzing when we don\textquotesingle{}t want the record to explode. 
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00136}{136}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+\mbox{\Hypertarget{classevmc_1_1MockedHost_aee945d218d656a7788d4fce5f30db3ca}\label{classevmc_1_1MockedHost_aee945d218d656a7788d4fce5f30db3ca}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!recorded\_account\_accesses@{recorded\_account\_accesses}}
+\index{recorded\_account\_accesses@{recorded\_account\_accesses}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{recorded\_account\_accesses}{recorded\_account\_accesses}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structevmc_1_1address}{address}}$>$ evmc\+::\+Mocked\+Host\+::recorded\+\_\+account\+\_\+accesses\hspace{0.3cm}{\ttfamily [mutable]}}
+
+
+
+The record of all account accesses. 
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00125}{125}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+\mbox{\Hypertarget{classevmc_1_1MockedHost_ac4acf299c63beb5134fede0d0a5f7c1f}\label{classevmc_1_1MockedHost_ac4acf299c63beb5134fede0d0a5f7c1f}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!recorded\_blockhashes@{recorded\_blockhashes}}
+\index{recorded\_blockhashes@{recorded\_blockhashes}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{recorded\_blockhashes}{recorded\_blockhashes}}
+{\footnotesize\ttfamily std\+::vector$<$int64\+\_\+t$>$ evmc\+::\+Mocked\+Host\+::recorded\+\_\+blockhashes\hspace{0.3cm}{\ttfamily [mutable]}}
+
+
+
+The record of all block numbers for which \mbox{\hyperlink{classevmc_1_1MockedHost_ace3ba78141acc06849d3b34382466e36}{get\+\_\+block\+\_\+hash()}} was called. 
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00122}{122}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+\mbox{\Hypertarget{classevmc_1_1MockedHost_af4487c7cb827ef8ce54da187d109189a}\label{classevmc_1_1MockedHost_af4487c7cb827ef8ce54da187d109189a}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!recorded\_calls@{recorded\_calls}}
+\index{recorded\_calls@{recorded\_calls}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{recorded\_calls}{recorded\_calls}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structevmc__message}{evmc\+\_\+message}}$>$ evmc\+::\+Mocked\+Host\+::recorded\+\_\+calls}
+
+
+
+The record of all call messages requested in the \mbox{\hyperlink{classevmc_1_1MockedHost_ad7f341e9bc49fe73286c65bfc3d56ec3}{call()}} method. 
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00132}{132}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a6f6b51ddda349341a158456a180f7d9e}\label{classevmc_1_1MockedHost_a6f6b51ddda349341a158456a180f7d9e}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!recorded\_logs@{recorded\_logs}}
+\index{recorded\_logs@{recorded\_logs}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{recorded\_logs}{recorded\_logs}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structevmc_1_1MockedHost_1_1log__record}{log\+\_\+record}}$>$ evmc\+::\+Mocked\+Host\+::recorded\+\_\+logs}
+
+
+
+The record of all LOGs passed to the \mbox{\hyperlink{classevmc_1_1MockedHost_a4263c29b321dbecfcbb4357a469a3bee}{emit\+\_\+log()}} method. 
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00139}{139}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+\mbox{\Hypertarget{classevmc_1_1MockedHost_a0456263e1326f91a27c0e3a0381d967f}\label{classevmc_1_1MockedHost_a0456263e1326f91a27c0e3a0381d967f}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!recorded\_selfdestructs@{recorded\_selfdestructs}}
+\index{recorded\_selfdestructs@{recorded\_selfdestructs}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{recorded\_selfdestructs}{recorded\_selfdestructs}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structevmc_1_1MockedHost_1_1selfdestruct__record}{selfdestruct\+\_\+record}}$>$ evmc\+::\+Mocked\+Host\+::recorded\+\_\+selfdestructs}
+
+
+
+The record of all SELFDESTRUCTs from the \mbox{\hyperlink{classevmc_1_1MockedHost_aa0b0cfd19450eaf220cde06ab1d96858}{selfdestruct()}} method. 
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00142}{142}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+\mbox{\Hypertarget{classevmc_1_1MockedHost_addf01838d4c15228e746caa0a645a3b1}\label{classevmc_1_1MockedHost_addf01838d4c15228e746caa0a645a3b1}} 
+\index{evmc::MockedHost@{evmc::MockedHost}!tx\_context@{tx\_context}}
+\index{tx\_context@{tx\_context}!evmc::MockedHost@{evmc::MockedHost}}
+\doxysubsubsection{\texorpdfstring{tx\_context}{tx\_context}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc__tx__context}{evmc\+\_\+tx\+\_\+context}} evmc\+::\+Mocked\+Host\+::tx\+\_\+context = \{\}}
+
+
+
+The EVMC transaction context to be returned by \mbox{\hyperlink{classevmc_1_1MockedHost_a45187586bde530ca7beb157467c12733}{get\+\_\+tx\+\_\+context()}}. 
+
+
+
+Definition at line \mbox{\hyperlink{mocked__host_8hpp_source_l00113}{113}} of file \mbox{\hyperlink{mocked__host_8hpp_source}{mocked\+\_\+host.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/evmc/\mbox{\hyperlink{mocked__host_8hpp}{mocked\+\_\+host.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_hostguide" xml:lang="en-US">
+
+<para><anchor xml:id="_hostguide_1md_docs_Host_Guide"/> <blockquote>
+<para>How to bring EVMC support to Your Ethereum Client. </para>
+</blockquote></para>
+<section xml:id="_hostguide_1autotoc_md5">
+<title>Host interface</title>
+
+<para>First of all, you have to implement the Host interface. The Host interface allows VMs to query and modify Ethereum state during the execution.</para>
+
+<para>The implementation can be done in object-oriented manner. The <link linkend="_structevmc__host__interface">evmc_host_interface</link> lists the methods any Host must implement.</para>
+
+<para>Moreover, each of the methods has a pointer to <link linkend="_structevmc__host__context">evmc_host_context</link> as a parameter. The context is owned entirely by the Host allowing a Host instance to behave as an object with data.</para>
+</section>
+<section xml:id="_hostguide_1autotoc_md6">
+<title>VM usage</title>
+
+<para>When Host implementation is ready it&apos;s time to start using EVMC VMs.</para>
+
+<para><orderedlist>
+<listitem>
+<para>Firstly, create a VM instance. You need to know what is the name of the &quot;create&quot; function in particular VM implementation. The EVMC recommends to name the function by the VM codename, e.g. <link linkend="_group__EVMC_1ga4ba5aae5d0250d9c4f6987a78602e795">evmc_create_example_vm()</link>. Invoking the create function will give you the VM instance (<link linkend="_structevmc__vm">evmc_vm</link>). It is recommended to create the VM instance once.</para>
+</listitem><listitem>
+<para>If you are interested in loading VMs dynamically (i.e. to use DLLs) check out the <link linkend="_group__loader">EVMC Loader</link> library.</para>
+</listitem><listitem>
+<para>The <link linkend="_structevmc__vm">evmc_vm</link> contains information about the VM like name (<link linkend="_structevmc__vm_1ac29ccc98e89c8cab3ffc5bd51a2afaa8">evmc_vm::name</link>) or ABI version (<link linkend="_structevmc__vm_1acccbdf95110faffb4dc85624bb1d99b6">evmc_vm::abi_version</link>) and methods.</para>
+</listitem><listitem>
+<para>To execute code in the VM use the &quot;execute()&quot; method (<link linkend="_structevmc__vm_1a8384d28338f2287a9f9e1508699c53f0">evmc_vm::execute</link>). You will need:<itemizedlist>
+<listitem>
+<para>the code to execute,</para>
+</listitem><listitem>
+<para>the message (<link linkend="_structevmc__message">evmc_message</link>) object that describes the execution context,</para>
+</listitem><listitem>
+<para>the Host instance, passed as <link linkend="_structevmc__host__context">evmc_host_context</link> pointer.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>When execution finishes you will receive <link linkend="_structevmc__result">evmc_result</link> object that describes the results of the execution.</para>
+</listitem></orderedlist>
+</para>
+
+<para>Have fun! </para>
+</section>
+</section>

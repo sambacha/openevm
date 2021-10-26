@@ -1,0 +1,5 @@
+<map id="evmc::MockedAccount" name="evmc::MockedAccount">
+<area shape="rect" id="node1" title="Mocked account." alt="" coords="5,185,161,212"/>
+<area shape="rect" id="node2" href="$structevmc_1_1bytes32.html" title="The fixed size array of 32 bytes for storing 256&#45;bit EVM values." alt="" coords="29,81,137,108"/>
+<area shape="rect" id="node3" href="$structevmc__bytes32.html" title="The fixed size array of 32 bytes." alt="" coords="29,5,137,32"/>
+</map>

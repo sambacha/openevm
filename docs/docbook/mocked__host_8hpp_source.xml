@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_mocked__host_8hpp_source" xml:lang="en-US">
+<title>mocked_host.hpp</title>
+<indexterm><primary>include/evmc/mocked_host.hpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_mocked__host_8hpp_source_1l00001"/>00001 <emphasis role="comment">//&#32;EVMC:&#32;Ethereum&#32;Client-VM&#32;Connector&#32;API.</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00002"/>00002 <emphasis role="comment">//&#32;Copyright&#32;2019&#32;The&#32;EVMC&#32;Authors.</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00003"/>00003 <emphasis role="comment">//&#32;Licensed&#32;under&#32;the&#32;Apache&#32;License,&#32;Version&#32;2.0.</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00004"/>00004 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00005"/>00005 
+<anchor xml:id="_mocked__host_8hpp_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&lt;<link linkend="_evmc_8hpp">evmc/evmc.hpp</link>&gt;</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&lt;algorithm&gt;</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&lt;string&gt;</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&lt;unordered_map&gt;</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&lt;vector&gt;</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00011"/>00011 
+<anchor xml:id="_mocked__host_8hpp_source_1l00012"/>00012 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespaceevmc">evmc</link>
+<anchor xml:id="_mocked__host_8hpp_source_1l00013"/>00013 {
+<anchor xml:id="_mocked__host_8hpp_source_1l00015"/>00015 <emphasis role="keyword">using</emphasis>&#32;<link linkend="_namespaceevmc_1a092c09f674d9cb5f0ba31d0f86537f4a">bytes</link>&#32;=&#32;std::basic_string&lt;uint8_t&gt;;
+<anchor xml:id="_mocked__host_8hpp_source_1l00016"/>00016 
+<anchor xml:id="_mocked__host_8hpp_source_1l00018"/><link linkend="_structevmc_1_1storage__value">00018</link> <emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc_1_1storage__value">storage_value</link>
+<anchor xml:id="_mocked__host_8hpp_source_1l00019"/>00019 {
+<anchor xml:id="_mocked__host_8hpp_source_1l00021"/><link linkend="_structevmc_1_1storage__value_1a1d0d184e83df0d134fc9353f3cd7ced2">00021</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;<link linkend="_structevmc_1_1storage__value_1a1d0d184e83df0d134fc9353f3cd7ced2">value</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00022"/>00022 
+<anchor xml:id="_mocked__host_8hpp_source_1l00024"/><link linkend="_structevmc_1_1storage__value_1addde518355892c58bdbbf6383b6a6993">00024</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_structevmc_1_1storage__value_1addde518355892c58bdbbf6383b6a6993">dirty</link>{<emphasis role="keyword">false</emphasis>};
+<anchor xml:id="_mocked__host_8hpp_source_1l00025"/>00025 
+<anchor xml:id="_mocked__host_8hpp_source_1l00027"/><link linkend="_structevmc_1_1storage__value_1a3da155b6ec6cfa5cbd0b1bafb0927b70">00027</link> &#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link>&#32;<link linkend="_structevmc_1_1storage__value_1a3da155b6ec6cfa5cbd0b1bafb0927b70">access_status</link>{<link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76">EVMC_ACCESS_COLD</link>};
+<anchor xml:id="_mocked__host_8hpp_source_1l00028"/>00028 
+<anchor xml:id="_mocked__host_8hpp_source_1l00030"/><link linkend="_structevmc_1_1storage__value_1a30176a848e7fbe3a6fd362af8de8d335">00030</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1storage__value_1a30176a848e7fbe3a6fd362af8de8d335">storage_value</link>()&#32;noexcept&#32;=&#32;default;
+<anchor xml:id="_mocked__host_8hpp_source_1l00031"/>00031 
+<anchor xml:id="_mocked__host_8hpp_source_1l00033"/><link linkend="_structevmc_1_1storage__value_1a792d042c12bd60330a86035a2f35e1eb">00033</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1storage__value">storage_value</link>(const&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;_value,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;_dirty&#32;=&#32;false)&#32;noexcept&#32;&#32;<emphasis role="comment">//&#32;NOLINT</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;:&#32;<link linkend="_structevmc_1_1storage__value_1a1d0d184e83df0d134fc9353f3cd7ced2">value</link>{_value},&#32;<link linkend="_structevmc_1_1storage__value_1addde518355892c58bdbbf6383b6a6993">dirty</link>{_dirty}
+<anchor xml:id="_mocked__host_8hpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;{}
+<anchor xml:id="_mocked__host_8hpp_source_1l00036"/>00036 
+<anchor xml:id="_mocked__host_8hpp_source_1l00038"/><link linkend="_structevmc_1_1storage__value_1a163f2a136412c940f283fc6544ae5bed">00038</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1storage__value_1a163f2a136412c940f283fc6544ae5bed">storage_value</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;_value,&#32;<link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link>&#32;_access_status)&#32;noexcept
+<anchor xml:id="_mocked__host_8hpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;:&#32;<link linkend="_structevmc_1_1storage__value_1a1d0d184e83df0d134fc9353f3cd7ced2">value</link>{_value},&#32;<link linkend="_structevmc_1_1storage__value_1a3da155b6ec6cfa5cbd0b1bafb0927b70">access_status</link>{_access_status}
+<anchor xml:id="_mocked__host_8hpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;{}
+<anchor xml:id="_mocked__host_8hpp_source_1l00041"/>00041 };
+<anchor xml:id="_mocked__host_8hpp_source_1l00042"/>00042 
+<anchor xml:id="_mocked__host_8hpp_source_1l00044"/><link linkend="_structevmc_1_1MockedAccount">00044</link> <emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc_1_1MockedAccount">MockedAccount</link>
+<anchor xml:id="_mocked__host_8hpp_source_1l00045"/>00045 {
+<anchor xml:id="_mocked__host_8hpp_source_1l00047"/><link linkend="_structevmc_1_1MockedAccount_1a64c2a2707e01eed3806881e385b182ed">00047</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_structevmc_1_1MockedAccount_1a64c2a2707e01eed3806881e385b182ed">nonce</link>&#32;=&#32;0;
+<anchor xml:id="_mocked__host_8hpp_source_1l00048"/>00048 
+<anchor xml:id="_mocked__host_8hpp_source_1l00050"/><link linkend="_structevmc_1_1MockedAccount_1a6da53c27a9106c49a59582494f8ef37a">00050</link> &#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1a092c09f674d9cb5f0ba31d0f86537f4a">bytes</link>&#32;<link linkend="_structevmc_1_1MockedAccount_1a6da53c27a9106c49a59582494f8ef37a">code</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00051"/>00051 
+<anchor xml:id="_mocked__host_8hpp_source_1l00053"/><link linkend="_structevmc_1_1MockedAccount_1a4702798be7eb84d982ad66dd335d56a6">00053</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;<link linkend="_structevmc_1_1MockedAccount_1a4702798be7eb84d982ad66dd335d56a6">codehash</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00054"/>00054 
+<anchor xml:id="_mocked__host_8hpp_source_1l00056"/><link linkend="_structevmc_1_1MockedAccount_1a70a90d4df3e2a1b3f37a670835f5179a">00056</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">uint256be</link>&#32;<link linkend="_structevmc_1_1MockedAccount_1a70a90d4df3e2a1b3f37a670835f5179a">balance</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00057"/>00057 
+<anchor xml:id="_mocked__host_8hpp_source_1l00059"/><link linkend="_structevmc_1_1MockedAccount_1a969a6e55a2748908a48dd9f35c51e932">00059</link> &#32;&#32;&#32;&#32;std::unordered_map&lt;bytes32,&#32;storage_value&gt;&#32;<link linkend="_structevmc_1_1MockedAccount_1a969a6e55a2748908a48dd9f35c51e932">storage</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00060"/>00060 
+<anchor xml:id="_mocked__host_8hpp_source_1l00062"/><link linkend="_structevmc_1_1MockedAccount_1ac757b616c2622fcf5a361a8a08ba2bde">00062</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_structevmc_1_1MockedAccount_1ac757b616c2622fcf5a361a8a08ba2bde">set_balance</link>(uint64_t&#32;x)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1MockedAccount_1a70a90d4df3e2a1b3f37a670835f5179a">balance</link>&#32;=&#32;<link linkend="_structevmc_1_1bytes32">uint256be</link>{};
+<anchor xml:id="_mocked__host_8hpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(std::size_t&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;<emphasis role="keyword">sizeof</emphasis>(x);&#32;++i)
+<anchor xml:id="_mocked__host_8hpp_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1MockedAccount_1a70a90d4df3e2a1b3f37a670835f5179a">balance</link>.<link linkend="_structevmc__bytes32_1a695eaf3c428daee54ce15c8252edc133">bytes</link>[<emphasis role="keyword">sizeof</emphasis>(<link linkend="_structevmc_1_1MockedAccount_1a70a90d4df3e2a1b3f37a670835f5179a">balance</link>)&#32;-&#32;1&#32;-&#32;i]&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(x&#32;&gt;&gt;&#32;(8&#32;*&#32;i));
+<anchor xml:id="_mocked__host_8hpp_source_1l00067"/>00067 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00068"/>00068 };
+<anchor xml:id="_mocked__host_8hpp_source_1l00069"/>00069 
+<anchor xml:id="_mocked__host_8hpp_source_1l00071"/><link linkend="_classevmc_1_1MockedHost">00071</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classevmc_1_1MockedHost">MockedHost</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_classevmc_1_1Host">Host</link>
+<anchor xml:id="_mocked__host_8hpp_source_1l00072"/>00072 {
+<anchor xml:id="_mocked__host_8hpp_source_1l00073"/>00073 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_mocked__host_8hpp_source_1l00075"/><link linkend="_structevmc_1_1MockedHost_1_1log__record">00075</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc_1_1MockedHost_1_1log__record">log_record</link>
+<anchor xml:id="_mocked__host_8hpp_source_1l00076"/>00076 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00078"/><link linkend="_structevmc_1_1MockedHost_1_1log__record_1a968c68ed59820fcb7d3cfc2d9f18edaa">00078</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1address">address</link>&#32;<link linkend="_structevmc_1_1MockedHost_1_1log__record_1a968c68ed59820fcb7d3cfc2d9f18edaa">creator</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00079"/>00079 
+<anchor xml:id="_mocked__host_8hpp_source_1l00081"/><link linkend="_structevmc_1_1MockedHost_1_1log__record_1af14109822fc0d0cbc98da01a4474ad3d">00081</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1a092c09f674d9cb5f0ba31d0f86537f4a">bytes</link>&#32;<link linkend="_structevmc_1_1MockedHost_1_1log__record_1af14109822fc0d0cbc98da01a4474ad3d">data</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00082"/>00082 
+<anchor xml:id="_mocked__host_8hpp_source_1l00084"/><link linkend="_structevmc_1_1MockedHost_1_1log__record_1ad25378459fe50c4f317aeff51ebb30c0">00084</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;bytes32&gt;&#32;<link linkend="_structevmc_1_1MockedHost_1_1log__record_1ad25378459fe50c4f317aeff51ebb30c0">topics</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00085"/>00085 
+<anchor xml:id="_mocked__host_8hpp_source_1l00087"/><link linkend="_structevmc_1_1MockedHost_1_1log__record_1ab83bb9261867dde22d6079e5ce31c334">00087</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_structevmc_1_1MockedHost_1_1log__record_1ab83bb9261867dde22d6079e5ce31c334">operator==</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1MockedHost_1_1log__record">log_record</link>&amp;&#32;other)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_structevmc_1_1MockedHost_1_1log__record_1a968c68ed59820fcb7d3cfc2d9f18edaa">creator</link>&#32;==&#32;other.creator&#32;&amp;&amp;&#32;<link linkend="_structevmc_1_1MockedHost_1_1log__record_1af14109822fc0d0cbc98da01a4474ad3d">data</link>&#32;==&#32;other.data&#32;&amp;&amp;&#32;<link linkend="_structevmc_1_1MockedHost_1_1log__record_1ad25378459fe50c4f317aeff51ebb30c0">topics</link>&#32;==&#32;other.topics;
+<anchor xml:id="_mocked__host_8hpp_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;};
+<anchor xml:id="_mocked__host_8hpp_source_1l00092"/>00092 
+<anchor xml:id="_mocked__host_8hpp_source_1l00094"/><link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record">00094</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record">selfdestruct_record</link>
+<anchor xml:id="_mocked__host_8hpp_source_1l00095"/>00095 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00097"/><link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record_1a251b6d2036724f1928d45a6b28b7b28c">00097</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1address">address</link>&#32;<link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record_1a251b6d2036724f1928d45a6b28b7b28c">selfdestructed</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00098"/>00098 
+<anchor xml:id="_mocked__host_8hpp_source_1l00100"/><link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record_1a2fff44cb856c4cd971d94f2ac0b5e145">00100</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1address">address</link>&#32;<link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record_1a2fff44cb856c4cd971d94f2ac0b5e145">beneficiary</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00101"/>00101 
+<anchor xml:id="_mocked__host_8hpp_source_1l00103"/><link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record_1a48f39f0a1b0fe63542ec8146a1e1f6c4">00103</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record_1a48f39f0a1b0fe63542ec8146a1e1f6c4">operator==</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record">selfdestruct_record</link>&amp;&#32;other)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record_1a251b6d2036724f1928d45a6b28b7b28c">selfdestructed</link>&#32;==&#32;other.selfdestructed&#32;&amp;&amp;&#32;<link linkend="_structevmc_1_1MockedHost_1_1selfdestruct__record_1a2fff44cb856c4cd971d94f2ac0b5e145">beneficiary</link>&#32;==&#32;other.beneficiary;
+<anchor xml:id="_mocked__host_8hpp_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00107"/>00107 &#32;&#32;&#32;&#32;};
+<anchor xml:id="_mocked__host_8hpp_source_1l00108"/>00108 
+<anchor xml:id="_mocked__host_8hpp_source_1l00110"/><link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">00110</link> &#32;&#32;&#32;&#32;std::unordered_map&lt;address,&#32;MockedAccount&gt;&#32;<link linkend="_classevmc_1_1MockedHost_1a5bc5bfc2b23104dc5554f87c51383b47">accounts</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00111"/>00111 
+<anchor xml:id="_mocked__host_8hpp_source_1l00113"/><link linkend="_classevmc_1_1MockedHost_1addf01838d4c15228e746caa0a645a3b1">00113</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc__tx__context">evmc_tx_context</link>&#32;<link linkend="_classevmc_1_1MockedHost_1addf01838d4c15228e746caa0a645a3b1">tx_context</link>&#32;=&#32;{};
+<anchor xml:id="_mocked__host_8hpp_source_1l00114"/>00114 
+<anchor xml:id="_mocked__host_8hpp_source_1l00116"/><link linkend="_classevmc_1_1MockedHost_1a4cdb6de6b81f9845eb6079f5729e0805">00116</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;<link linkend="_classevmc_1_1MockedHost_1a4cdb6de6b81f9845eb6079f5729e0805">block_hash</link>&#32;=&#32;{};
+<anchor xml:id="_mocked__host_8hpp_source_1l00117"/>00117 
+<anchor xml:id="_mocked__host_8hpp_source_1l00119"/><link linkend="_classevmc_1_1MockedHost_1a473ec63bcb8b786c5fb1b097cfcfb8c0">00119</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc__result">evmc_result</link>&#32;<link linkend="_classevmc_1_1MockedHost_1a473ec63bcb8b786c5fb1b097cfcfb8c0">call_result</link>&#32;=&#32;{};
+<anchor xml:id="_mocked__host_8hpp_source_1l00120"/>00120 
+<anchor xml:id="_mocked__host_8hpp_source_1l00122"/><link linkend="_classevmc_1_1MockedHost_1ac4acf299c63beb5134fede0d0a5f7c1f">00122</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">mutable</emphasis>&#32;std::vector&lt;int64_t&gt;&#32;<link linkend="_classevmc_1_1MockedHost_1ac4acf299c63beb5134fede0d0a5f7c1f">recorded_blockhashes</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00123"/>00123 
+<anchor xml:id="_mocked__host_8hpp_source_1l00125"/><link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">00125</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">mutable</emphasis>&#32;std::vector&lt;address&gt;&#32;<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00126"/>00126 
+<anchor xml:id="_mocked__host_8hpp_source_1l00129"/><link linkend="_classevmc_1_1MockedHost_1a5ab49cfd8bc76f9dab117946a5c12efa">00129</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;<link linkend="_classevmc_1_1MockedHost_1a5ab49cfd8bc76f9dab117946a5c12efa">max_recorded_account_accesses</link>&#32;=&#32;200;
+<anchor xml:id="_mocked__host_8hpp_source_1l00130"/>00130 
+<anchor xml:id="_mocked__host_8hpp_source_1l00132"/><link linkend="_classevmc_1_1MockedHost_1af4487c7cb827ef8ce54da187d109189a">00132</link> &#32;&#32;&#32;&#32;std::vector&lt;evmc_message&gt;&#32;<link linkend="_classevmc_1_1MockedHost_1af4487c7cb827ef8ce54da187d109189a">recorded_calls</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00133"/>00133 
+<anchor xml:id="_mocked__host_8hpp_source_1l00136"/><link linkend="_classevmc_1_1MockedHost_1a78ad202959aa8d416faf715ab6f7f687">00136</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;<link linkend="_classevmc_1_1MockedHost_1a78ad202959aa8d416faf715ab6f7f687">max_recorded_calls</link>&#32;=&#32;100;
+<anchor xml:id="_mocked__host_8hpp_source_1l00137"/>00137 
+<anchor xml:id="_mocked__host_8hpp_source_1l00139"/><link linkend="_classevmc_1_1MockedHost_1a6f6b51ddda349341a158456a180f7d9e">00139</link> &#32;&#32;&#32;&#32;std::vector&lt;log_record&gt;&#32;<link linkend="_classevmc_1_1MockedHost_1a6f6b51ddda349341a158456a180f7d9e">recorded_logs</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00140"/>00140 
+<anchor xml:id="_mocked__host_8hpp_source_1l00142"/><link linkend="_classevmc_1_1MockedHost_1a0456263e1326f91a27c0e3a0381d967f">00142</link> &#32;&#32;&#32;&#32;std::vector&lt;selfdestruct_record&gt;&#32;<link linkend="_classevmc_1_1MockedHost_1a0456263e1326f91a27c0e3a0381d967f">recorded_selfdestructs</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00143"/>00143 
+<anchor xml:id="_mocked__host_8hpp_source_1l00144"/>00144 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_mocked__host_8hpp_source_1l00146"/><link linkend="_classevmc_1_1MockedHost_1a07d9cb06c3f78bbb2323467271709467">00146</link> &#32;&#32;&#32;&#32;std::vector&lt;bytes&gt;&#32;<link linkend="_classevmc_1_1MockedHost_1a07d9cb06c3f78bbb2323467271709467">m_recorded_calls_inputs</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00147"/>00147 
+<anchor xml:id="_mocked__host_8hpp_source_1l00150"/><link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">00150</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr)<emphasis role="keyword">&#32;const</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00151"/>00151 <emphasis role="keyword">&#32;&#32;&#32;&#32;</emphasis>{
+<anchor xml:id="_mocked__host_8hpp_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>.empty())
+<anchor xml:id="_mocked__host_8hpp_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>.reserve(<link linkend="_classevmc_1_1MockedHost_1a5ab49cfd8bc76f9dab117946a5c12efa">max_recorded_account_accesses</link>);
+<anchor xml:id="_mocked__host_8hpp_source_1l00154"/>00154 
+<anchor xml:id="_mocked__host_8hpp_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>.size()&#32;&lt;&#32;<link linkend="_classevmc_1_1MockedHost_1a5ab49cfd8bc76f9dab117946a5c12efa">max_recorded_account_accesses</link>)
+<anchor xml:id="_mocked__host_8hpp_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>.emplace_back(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00157"/>00157 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00158"/>00158 
+<anchor xml:id="_mocked__host_8hpp_source_1l00159"/>00159 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_mocked__host_8hpp_source_1l00161"/><link linkend="_classevmc_1_1MockedHost_1a53a463e19e4908022137ce53715c2dce">00161</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classevmc_1_1MockedHost_1a53a463e19e4908022137ce53715c2dce">account_exists</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">override</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00162"/>00162 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">accounts</link>.count(addr)&#32;!=&#32;0;
+<anchor xml:id="_mocked__host_8hpp_source_1l00165"/>00165 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00166"/>00166 
+<anchor xml:id="_mocked__host_8hpp_source_1l00168"/><link linkend="_classevmc_1_1MockedHost_1a6336919efaf07ad1e9e4f725a86ebdca">00168</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;<link linkend="_classevmc_1_1MockedHost_1a6336919efaf07ad1e9e4f725a86ebdca">get_storage</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;key)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">override</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00169"/>00169 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00171"/>00171 
+<anchor xml:id="_mocked__host_8hpp_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;account_iter&#32;=&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">accounts</link>.find(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(account_iter&#32;==&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">accounts</link>.end())
+<anchor xml:id="_mocked__host_8hpp_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{};
+<anchor xml:id="_mocked__host_8hpp_source_1l00175"/>00175 
+<anchor xml:id="_mocked__host_8hpp_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;storage_iter&#32;=&#32;account_iter-&gt;second.storage.find(key);
+<anchor xml:id="_mocked__host_8hpp_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(storage_iter&#32;!=&#32;account_iter-&gt;second.storage.end())
+<anchor xml:id="_mocked__host_8hpp_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;storage_iter-&gt;second.value;
+<anchor xml:id="_mocked__host_8hpp_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{};
+<anchor xml:id="_mocked__host_8hpp_source_1l00180"/>00180 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00181"/>00181 
+<anchor xml:id="_mocked__host_8hpp_source_1l00183"/><link linkend="_classevmc_1_1MockedHost_1aad63cd61357052ab1fa87e6ff372b3d7">00183</link> &#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1gae012fd6b8e5c23806b507c2d3e9fb1aa">evmc_storage_status</link>&#32;<link linkend="_classevmc_1_1MockedHost_1aad63cd61357052ab1fa87e6ff372b3d7">set_storage</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr,
+<anchor xml:id="_mocked__host_8hpp_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;key,
+<anchor xml:id="_mocked__host_8hpp_source_1l00185"/>00185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;value)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">override</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00186"/>00186 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00187"/>00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00188"/>00188 
+<anchor xml:id="_mocked__host_8hpp_source_1l00189"/>00189 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Get&#32;the&#32;reference&#32;to&#32;the&#32;old&#32;value.</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;This&#32;will&#32;create&#32;the&#32;account&#32;in&#32;case&#32;it&#32;was&#32;not&#32;present.</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00191"/>00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;This&#32;is&#32;convenient&#32;for&#32;unit&#32;testing&#32;and&#32;standalone&#32;EVM&#32;execution&#32;to&#32;preserve&#32;the</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00192"/>00192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;storage&#32;values&#32;after&#32;the&#32;execution&#32;terminates.</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;old&#32;=&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">accounts</link>[addr].storage[key];
+<anchor xml:id="_mocked__host_8hpp_source_1l00194"/>00194 
+<anchor xml:id="_mocked__host_8hpp_source_1l00195"/>00195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Follow&#32;https://eips.ethereum.org/EIPS/eip-1283&#32;specification.</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00196"/>00196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;WARNING!&#32;This&#32;is&#32;not&#32;complete&#32;implementation&#32;as&#32;refund&#32;is&#32;not&#32;handled&#32;here.</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00197"/>00197 
+<anchor xml:id="_mocked__host_8hpp_source_1l00198"/>00198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(old.value&#32;==&#32;value)
+<anchor xml:id="_mocked__host_8hpp_source_1l00199"/>00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__EVMC_1ggae012fd6b8e5c23806b507c2d3e9fb1aaad6d527edcbe8a63edad5be80f252330c">EVMC_STORAGE_UNCHANGED</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00200"/>00200 
+<anchor xml:id="_mocked__host_8hpp_source_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1gae012fd6b8e5c23806b507c2d3e9fb1aa">evmc_storage_status</link>&#32;status{};
+<anchor xml:id="_mocked__host_8hpp_source_1l00202"/>00202 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!old.dirty)
+<anchor xml:id="_mocked__host_8hpp_source_1l00203"/>00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00204"/>00204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;old.dirty&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!old.value)
+<anchor xml:id="_mocked__host_8hpp_source_1l00206"/>00206 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;status&#32;=&#32;<link linkend="_group__EVMC_1ggae012fd6b8e5c23806b507c2d3e9fb1aaa8afd1741edf799d44264654d9f04a5a9">EVMC_STORAGE_ADDED</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00207"/>00207 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(value)
+<anchor xml:id="_mocked__host_8hpp_source_1l00208"/>00208 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;status&#32;=&#32;<link linkend="_group__EVMC_1ggae012fd6b8e5c23806b507c2d3e9fb1aaaf102ce749767d5277923c221089da2c6">EVMC_STORAGE_MODIFIED</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00210"/>00210 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;status&#32;=&#32;<link linkend="_group__EVMC_1ggae012fd6b8e5c23806b507c2d3e9fb1aaae5b6ea5ec988f3b3ceb323ce3c0fa53f">EVMC_STORAGE_DELETED</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00211"/>00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00212"/>00212 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00213"/>00213 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;status&#32;=&#32;<link linkend="_group__EVMC_1ggae012fd6b8e5c23806b507c2d3e9fb1aaa072394aca7925f8de8facf8f8a5e477c">EVMC_STORAGE_MODIFIED_AGAIN</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00214"/>00214 
+<anchor xml:id="_mocked__host_8hpp_source_1l00215"/>00215 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;old.value&#32;=&#32;value;
+<anchor xml:id="_mocked__host_8hpp_source_1l00216"/>00216 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;status;
+<anchor xml:id="_mocked__host_8hpp_source_1l00217"/>00217 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00218"/>00218 
+<anchor xml:id="_mocked__host_8hpp_source_1l00220"/><link linkend="_classevmc_1_1MockedHost_1a401e74178baba9772638e6b4309e9bee">00220</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">uint256be</link>&#32;<link linkend="_classevmc_1_1MockedHost_1a401e74178baba9772638e6b4309e9bee">get_balance</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">override</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00221"/>00221 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00222"/>00222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00223"/>00223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">accounts</link>.find(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00224"/>00224 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(it&#32;==&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">accounts</link>.end())
+<anchor xml:id="_mocked__host_8hpp_source_1l00225"/>00225 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{};
+<anchor xml:id="_mocked__host_8hpp_source_1l00226"/>00226 
+<anchor xml:id="_mocked__host_8hpp_source_1l00227"/>00227 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;it-&gt;second.balance;
+<anchor xml:id="_mocked__host_8hpp_source_1l00228"/>00228 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00229"/>00229 
+<anchor xml:id="_mocked__host_8hpp_source_1l00231"/><link linkend="_classevmc_1_1MockedHost_1a0ecf2503e3af4ed98cce8eff45385a33">00231</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_classevmc_1_1MockedHost_1a0ecf2503e3af4ed98cce8eff45385a33">get_code_size</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">override</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00232"/>00232 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00233"/>00233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">accounts</link>.find(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(it&#32;==&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">accounts</link>.end())
+<anchor xml:id="_mocked__host_8hpp_source_1l00236"/>00236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_mocked__host_8hpp_source_1l00237"/>00237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;it-&gt;second.code.size();
+<anchor xml:id="_mocked__host_8hpp_source_1l00238"/>00238 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00239"/>00239 
+<anchor xml:id="_mocked__host_8hpp_source_1l00241"/><link linkend="_classevmc_1_1MockedHost_1a776687379553c67540c8c16df9e8f226">00241</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;<link linkend="_classevmc_1_1MockedHost_1a776687379553c67540c8c16df9e8f226">get_code_hash</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">override</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00242"/>00242 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00243"/>00243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">accounts</link>.find(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00245"/>00245 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(it&#32;==&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">accounts</link>.end())
+<anchor xml:id="_mocked__host_8hpp_source_1l00246"/>00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{};
+<anchor xml:id="_mocked__host_8hpp_source_1l00247"/>00247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;it-&gt;second.codehash;
+<anchor xml:id="_mocked__host_8hpp_source_1l00248"/>00248 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00249"/>00249 
+<anchor xml:id="_mocked__host_8hpp_source_1l00251"/><link linkend="_classevmc_1_1MockedHost_1a2679f00109fab1c027fb789b83a25d20">00251</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_classevmc_1_1MockedHost_1a2679f00109fab1c027fb789b83a25d20">copy_code</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr,
+<anchor xml:id="_mocked__host_8hpp_source_1l00252"/>00252 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;code_offset,
+<anchor xml:id="_mocked__host_8hpp_source_1l00253"/>00253 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t*&#32;buffer_data,
+<anchor xml:id="_mocked__host_8hpp_source_1l00254"/>00254 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;buffer_size)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">override</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00255"/>00255 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00256"/>00256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00257"/>00257 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">accounts</link>.find(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00258"/>00258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(it&#32;==&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">accounts</link>.end())
+<anchor xml:id="_mocked__host_8hpp_source_1l00259"/>00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_mocked__host_8hpp_source_1l00260"/>00260 
+<anchor xml:id="_mocked__host_8hpp_source_1l00261"/>00261 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;code&#32;=&#32;it-&gt;second.code;
+<anchor xml:id="_mocked__host_8hpp_source_1l00262"/>00262 
+<anchor xml:id="_mocked__host_8hpp_source_1l00263"/>00263 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(code_offset&#32;&gt;=&#32;code.size())
+<anchor xml:id="_mocked__host_8hpp_source_1l00264"/>00264 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_mocked__host_8hpp_source_1l00265"/>00265 
+<anchor xml:id="_mocked__host_8hpp_source_1l00266"/>00266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;n&#32;=&#32;std::min(buffer_size,&#32;code.size()&#32;-&#32;code_offset);
+<anchor xml:id="_mocked__host_8hpp_source_1l00267"/>00267 
+<anchor xml:id="_mocked__host_8hpp_source_1l00268"/>00268 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(n&#32;&gt;&#32;0)
+<anchor xml:id="_mocked__host_8hpp_source_1l00269"/>00269 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::copy_n(&amp;code[code_offset],&#32;n,&#32;buffer_data);
+<anchor xml:id="_mocked__host_8hpp_source_1l00270"/>00270 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;n;
+<anchor xml:id="_mocked__host_8hpp_source_1l00271"/>00271 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00272"/>00272 
+<anchor xml:id="_mocked__host_8hpp_source_1l00274"/><link linkend="_classevmc_1_1MockedHost_1aa0b0cfd19450eaf220cde06ab1d96858">00274</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classevmc_1_1MockedHost_1aa0b0cfd19450eaf220cde06ab1d96858">selfdestruct</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;beneficiary)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">override</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00275"/>00275 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00276"/>00276 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00277"/>00277 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0456263e1326f91a27c0e3a0381d967f">recorded_selfdestructs</link>.push_back({addr,&#32;beneficiary});
+<anchor xml:id="_mocked__host_8hpp_source_1l00278"/>00278 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00279"/>00279 
+<anchor xml:id="_mocked__host_8hpp_source_1l00281"/><link linkend="_classevmc_1_1MockedHost_1ad7f341e9bc49fe73286c65bfc3d56ec3">00281</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1result">result</link>&#32;<link linkend="_classevmc_1_1MockedHost_1ad7f341e9bc49fe73286c65bfc3d56ec3">call</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__message">evmc_message</link>&amp;&#32;msg)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">override</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00282"/>00282 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00283"/>00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(msg.recipient);
+<anchor xml:id="_mocked__host_8hpp_source_1l00284"/>00284 
+<anchor xml:id="_mocked__host_8hpp_source_1l00285"/>00285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_classevmc_1_1MockedHost_1af4487c7cb827ef8ce54da187d109189a">recorded_calls</link>.empty())
+<anchor xml:id="_mocked__host_8hpp_source_1l00286"/>00286 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00287"/>00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1af4487c7cb827ef8ce54da187d109189a">recorded_calls</link>.reserve(<link linkend="_classevmc_1_1MockedHost_1a78ad202959aa8d416faf715ab6f7f687">max_recorded_calls</link>);
+<anchor xml:id="_mocked__host_8hpp_source_1l00288"/>00288 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a07d9cb06c3f78bbb2323467271709467">m_recorded_calls_inputs</link>.reserve(<link linkend="_classevmc_1_1MockedHost_1a78ad202959aa8d416faf715ab6f7f687">max_recorded_calls</link>);&#32;&#32;<emphasis role="comment">//&#32;Iterators&#32;will&#32;not&#32;invalidate.</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00289"/>00289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00290"/>00290 
+<anchor xml:id="_mocked__host_8hpp_source_1l00291"/>00291 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_classevmc_1_1MockedHost_1af4487c7cb827ef8ce54da187d109189a">recorded_calls</link>.size()&#32;&lt;&#32;<link linkend="_classevmc_1_1MockedHost_1a78ad202959aa8d416faf715ab6f7f687">max_recorded_calls</link>)
+<anchor xml:id="_mocked__host_8hpp_source_1l00292"/>00292 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00293"/>00293 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1af4487c7cb827ef8ce54da187d109189a">recorded_calls</link>.emplace_back(msg);
+<anchor xml:id="_mocked__host_8hpp_source_1l00294"/>00294 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;call_msg&#32;=&#32;<link linkend="_classevmc_1_1MockedHost_1af4487c7cb827ef8ce54da187d109189a">recorded_calls</link>.back();
+<anchor xml:id="_mocked__host_8hpp_source_1l00295"/>00295 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(call_msg.input_size&#32;&gt;&#32;0)
+<anchor xml:id="_mocked__host_8hpp_source_1l00296"/>00296 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00297"/>00297 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a07d9cb06c3f78bbb2323467271709467">m_recorded_calls_inputs</link>.emplace_back(call_msg.input_data,&#32;call_msg.input_size);
+<anchor xml:id="_mocked__host_8hpp_source_1l00298"/>00298 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;input_copy&#32;=&#32;<link linkend="_classevmc_1_1MockedHost_1a07d9cb06c3f78bbb2323467271709467">m_recorded_calls_inputs</link>.back();
+<anchor xml:id="_mocked__host_8hpp_source_1l00299"/>00299 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;call_msg.input_data&#32;=&#32;input_copy.data();
+<anchor xml:id="_mocked__host_8hpp_source_1l00300"/>00300 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00301"/>00301 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00302"/>00302 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1result">result</link>{<link linkend="_classevmc_1_1MockedHost_1a473ec63bcb8b786c5fb1b097cfcfb8c0">call_result</link>};
+<anchor xml:id="_mocked__host_8hpp_source_1l00303"/>00303 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00304"/>00304 
+<anchor xml:id="_mocked__host_8hpp_source_1l00306"/><link linkend="_classevmc_1_1MockedHost_1a45187586bde530ca7beb157467c12733">00306</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc__tx__context">evmc_tx_context</link>&#32;<link linkend="_classevmc_1_1MockedHost_1a45187586bde530ca7beb157467c12733">get_tx_context</link>()&#32;const&#32;noexcept<emphasis role="keyword">&#32;override&#32;</emphasis>{&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1MockedHost_1addf01838d4c15228e746caa0a645a3b1">tx_context</link>;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00307"/>00307 
+<anchor xml:id="_mocked__host_8hpp_source_1l00309"/><link linkend="_classevmc_1_1MockedHost_1ace3ba78141acc06849d3b34382466e36">00309</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;<link linkend="_classevmc_1_1MockedHost_1ace3ba78141acc06849d3b34382466e36">get_block_hash</link>(int64_t&#32;block_number)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">override</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00310"/>00310 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00311"/>00311 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1ac4acf299c63beb5134fede0d0a5f7c1f">recorded_blockhashes</link>.emplace_back(block_number);
+<anchor xml:id="_mocked__host_8hpp_source_1l00312"/>00312 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1MockedHost_1a4cdb6de6b81f9845eb6079f5729e0805">block_hash</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00313"/>00313 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00314"/>00314 
+<anchor xml:id="_mocked__host_8hpp_source_1l00316"/><link linkend="_classevmc_1_1MockedHost_1a4263c29b321dbecfcbb4357a469a3bee">00316</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classevmc_1_1MockedHost_1a4263c29b321dbecfcbb4357a469a3bee">emit_log</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr,
+<anchor xml:id="_mocked__host_8hpp_source_1l00317"/>00317 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t*&#32;data,
+<anchor xml:id="_mocked__host_8hpp_source_1l00318"/>00318 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;data_size,
+<anchor xml:id="_mocked__host_8hpp_source_1l00319"/>00319 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;topics[],
+<anchor xml:id="_mocked__host_8hpp_source_1l00320"/>00320 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;topics_count)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">override</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00321"/>00321 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00322"/>00322 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a6f6b51ddda349341a158456a180f7d9e">recorded_logs</link>.push_back({addr,&#32;{data,&#32;data_size},&#32;{topics,&#32;topics&#32;+&#32;topics_count}});
+<anchor xml:id="_mocked__host_8hpp_source_1l00323"/>00323 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00324"/>00324 
+<anchor xml:id="_mocked__host_8hpp_source_1l00341"/><link linkend="_classevmc_1_1MockedHost_1a51f9acf40acec535549d32c7ab079b9e">00341</link> &#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link>&#32;<link linkend="_classevmc_1_1MockedHost_1a51f9acf40acec535549d32c7ab079b9e">access_account</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">override</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00342"/>00342 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00343"/>00343 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Check&#32;if&#32;the&#32;address&#32;have&#32;been&#32;already&#32;accessed.</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00344"/>00344 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;already_accessed&#32;=
+<anchor xml:id="_mocked__host_8hpp_source_1l00345"/>00345 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::find(<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>.begin(),&#32;<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>.end(),&#32;addr)&#32;!=
+<anchor xml:id="_mocked__host_8hpp_source_1l00346"/>00346 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</link>.end();
+<anchor xml:id="_mocked__host_8hpp_source_1l00347"/>00347 
+<anchor xml:id="_mocked__host_8hpp_source_1l00348"/>00348 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1MockedHost_1a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</link>(addr);
+<anchor xml:id="_mocked__host_8hpp_source_1l00349"/>00349 
+<anchor xml:id="_mocked__host_8hpp_source_1l00350"/>00350 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Accessing&#32;precompiled&#32;contracts&#32;is&#32;always&#32;warm.</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00351"/>00351 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(addr&#32;&gt;=&#32;0x0000000000000000000000000000000000000001_address&#32;&amp;&amp;
+<anchor xml:id="_mocked__host_8hpp_source_1l00352"/>00352 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;addr&#32;&lt;=&#32;0x0000000000000000000000000000000000000009_address)
+<anchor xml:id="_mocked__host_8hpp_source_1l00353"/>00353 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994">EVMC_ACCESS_WARM</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00354"/>00354 
+<anchor xml:id="_mocked__host_8hpp_source_1l00355"/>00355 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;already_accessed&#32;?&#32;<link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994">EVMC_ACCESS_WARM</link>&#32;:&#32;<link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76">EVMC_ACCESS_COLD</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00356"/>00356 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00357"/>00357 
+<anchor xml:id="_mocked__host_8hpp_source_1l00371"/><link linkend="_classevmc_1_1MockedHost_1a759d289a03d7ebeac0b727938d9ee521">00371</link> &#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link>&#32;<link linkend="_classevmc_1_1MockedHost_1a759d289a03d7ebeac0b727938d9ee521">access_storage</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;key)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">override</emphasis>
+<anchor xml:id="_mocked__host_8hpp_source_1l00372"/>00372 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_mocked__host_8hpp_source_1l00373"/>00373 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;value&#32;=&#32;<link linkend="_namespaceevmc_1a85ff0436efd1c2e8b065f73b361269e1">accounts</link>[addr].storage[key];
+<anchor xml:id="_mocked__host_8hpp_source_1l00374"/>00374 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;access_status&#32;=&#32;value.access_status;
+<anchor xml:id="_mocked__host_8hpp_source_1l00375"/>00375 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;value.access_status&#32;=&#32;<link linkend="_group__EVMC_1gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994">EVMC_ACCESS_WARM</link>;
+<anchor xml:id="_mocked__host_8hpp_source_1l00376"/>00376 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;access_status;
+<anchor xml:id="_mocked__host_8hpp_source_1l00377"/>00377 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mocked__host_8hpp_source_1l00378"/>00378 };
+<anchor xml:id="_mocked__host_8hpp_source_1l00379"/>00379 }&#32;&#32;<emphasis role="comment">//&#32;namespace&#32;evmc</emphasis>
+</programlisting></section>

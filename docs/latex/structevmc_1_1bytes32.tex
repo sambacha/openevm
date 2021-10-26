@@ -1,0 +1,160 @@
+\hypertarget{structevmc_1_1bytes32}{}\doxysection{evmc\+::bytes32 Struct Reference}
+\label{structevmc_1_1bytes32}\index{evmc::bytes32@{evmc::bytes32}}
+
+
+The fixed size array of 32 bytes for storing 256-\/bit EVM values.  
+
+
+
+
+{\ttfamily \#include $<$evmc.\+hpp$>$}
+
+
+
+Inheritance diagram for evmc\+::bytes32\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{structevmc_1_1bytes32__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for evmc\+::bytes32\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{structevmc_1_1bytes32__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{structevmc_1_1bytes32_a6403d03e29edb4f87fb272cdbde1cdc6}{bytes32}} (\mbox{\hyperlink{structevmc__bytes32}{evmc\+\_\+bytes32}} init=\{\}) noexcept
+\begin{DoxyCompactList}\small\item\em Default and converting constructor. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{structevmc_1_1bytes32_acf31b9ad2a8140d04eddc560fccf005b}{bytes32}} (uint64\+\_\+t v) noexcept
+\begin{DoxyCompactList}\small\item\em Converting constructor from unsigned integer value. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{structevmc_1_1bytes32_a3b9c7873f62eec5ba22de9cdcf90587e}{operator bool}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Explicit operator converting to bool. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The fixed size array of 32 bytes for storing 256-\/bit EVM values. 
+
+This type wraps C \mbox{\hyperlink{structevmc__bytes32}{evmc\+\_\+bytes32}} to make sure objects of this type are always initialized. 
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00066}{66}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structevmc_1_1bytes32_a6403d03e29edb4f87fb272cdbde1cdc6}\label{structevmc_1_1bytes32_a6403d03e29edb4f87fb272cdbde1cdc6}} 
+\index{evmc::bytes32@{evmc::bytes32}!bytes32@{bytes32}}
+\index{bytes32@{bytes32}!evmc::bytes32@{evmc::bytes32}}
+\doxysubsubsection{\texorpdfstring{bytes32()}{bytes32()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily constexpr evmc\+::bytes32\+::bytes32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structevmc__bytes32}{evmc\+\_\+bytes32}}}]{init = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Default and converting constructor. 
+
+Initializes bytes to zeros if not other {\ttfamily init} value provided. 
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00071}00071 \{\}) \textcolor{keyword}{noexcept} : \mbox{\hyperlink{structevmc__bytes32}{evmc\_bytes32}}\{init\} \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structevmc_1_1bytes32_acf31b9ad2a8140d04eddc560fccf005b}\label{structevmc_1_1bytes32_acf31b9ad2a8140d04eddc560fccf005b}} 
+\index{evmc::bytes32@{evmc::bytes32}!bytes32@{bytes32}}
+\index{bytes32@{bytes32}!evmc::bytes32@{evmc::bytes32}}
+\doxysubsubsection{\texorpdfstring{bytes32()}{bytes32()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily constexpr evmc\+::bytes32\+::bytes32 (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Converting constructor from unsigned integer value. 
+
+This constructor assigns the {\ttfamily v} value to the last 8 bytes \mbox{[}24\+:31\mbox{]} in big-\/endian order. 
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00077}{77}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00078}00078       : \mbox{\hyperlink{structevmc__bytes32}{evmc\_bytes32}}\{\{0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00079}00079                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00080}00080                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00081}00081                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00082}00082                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00083}00083                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00084}00084                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00085}00085                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00086}00086                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00087}00087                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00088}00088                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00089}00089                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00090}00090                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00091}00091                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00092}00092                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00093}00093                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00094}00094                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00095}00095                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00096}00096                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00097}00097                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00098}00098                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00099}00099                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00100}00100                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00101}00101                       0,}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00102}00102                       \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(v >> 56),}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00103}00103                       \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(v >> 48),}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00104}00104                       \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(v >> 40),}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00105}00105                       \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(v >> 32),}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00106}00106                       \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(v >> 24),}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00107}00107                       \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(v >> 16),}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00108}00108                       \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(v >> 8),}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00109}00109                       \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(v >> 0)\}\}}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00110}00110     \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structevmc_1_1bytes32_a3b9c7873f62eec5ba22de9cdcf90587e}\label{structevmc_1_1bytes32_a3b9c7873f62eec5ba22de9cdcf90587e}} 
+\index{evmc::bytes32@{evmc::bytes32}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!evmc::bytes32@{evmc::bytes32}}
+\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily constexpr evmc\+::bytes32\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Explicit operator converting to bool. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00267}{267}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00268}00268 \{}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00269}00269     \textcolor{keywordflow}{return} !\mbox{\hyperlink{namespaceevmc_afc53d0e831bda94fbf31a64d224c8d24}{is\_zero}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{structevmc_1_1bytes32_l00270}00270 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{structevmc_1_1bytes32_a3b9c7873f62eec5ba22de9cdcf90587e_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/evmc/\mbox{\hyperlink{evmc_8hpp}{evmc.\+hpp}}\end{DoxyCompactItemize}

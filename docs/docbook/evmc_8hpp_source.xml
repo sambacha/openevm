@@ -1,0 +1,765 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_evmc_8hpp_source" xml:lang="en-US">
+<title>evmc.hpp</title>
+<indexterm><primary>include/evmc/evmc.hpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_evmc_8hpp_source_1l00001"/>00001 <emphasis role="comment">/*&#32;EVMC:&#32;Ethereum&#32;Client-VM&#32;Connector&#32;API.</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00002"/>00002 <emphasis role="comment">&#32;*&#32;Copyright&#32;2018-2020&#32;The&#32;EVMC&#32;Authors.</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00003"/>00003 <emphasis role="comment">&#32;*&#32;Licensed&#32;under&#32;the&#32;Apache&#32;License,&#32;Version&#32;2.0.</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00004"/>00004 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00005"/>00005 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00006"/>00006 
+<anchor xml:id="_evmc_8hpp_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&lt;<link linkend="_evmc_8h">evmc/evmc.h</link>&gt;</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&lt;<link linkend="_helpers_8h">evmc/helpers.h</link>&gt;</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00009"/>00009 
+<anchor xml:id="_evmc_8hpp_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&lt;functional&gt;</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&lt;initializer_list&gt;</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00012"/>00012 <emphasis role="preprocessor">#include&#32;&lt;ostream&gt;</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00013"/>00013 <emphasis role="preprocessor">#include&#32;&lt;utility&gt;</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00014"/>00014 
+<anchor xml:id="_evmc_8hpp_source_1l00015"/>00015 <emphasis role="keyword">static_assert</emphasis>(<link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7a0dd8bdd55816359290e8fb8648aeb03e">EVMC_LATEST_STABLE_REVISION</link>&#32;&lt;=&#32;<link linkend="_group__EVMC_1ggae5759b1590071966ccf6a505b52a0ef7a8b67f41f15bc079b8ad40dcd7156f576">EVMC_MAX_REVISION</link>,
+<anchor xml:id="_evmc_8hpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;latest&#32;stable&#32;revision&#32;ill-defined&quot;</emphasis>);
+<anchor xml:id="_evmc_8hpp_source_1l00017"/>00017 
+<anchor xml:id="_evmc_8hpp_source_1l00020"/>00020 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespaceevmc">evmc</link>
+<anchor xml:id="_evmc_8hpp_source_1l00021"/>00021 {
+<anchor xml:id="_evmc_8hpp_source_1l00025"/><link linkend="_structevmc_1_1address">00025</link> <emphasis role="keyword">struct&#32;</emphasis><link linkend="_structevmc_1_1address">address</link>&#32;:&#32;<link linkend="_structevmc__address">evmc_address</link>
+<anchor xml:id="_evmc_8hpp_source_1l00026"/>00026 {
+<anchor xml:id="_evmc_8hpp_source_1l00030"/><link linkend="_structevmc_1_1address_1a4efaacdd8a0de3a347b845a5b134bd47">00030</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<link linkend="_structevmc_1_1address_1a4efaacdd8a0de3a347b845a5b134bd47">address</link>(<link linkend="_structevmc__address">evmc_address</link>&#32;init&#32;=&#32;{})&#32;<emphasis role="keyword">noexcept</emphasis>&#32;:&#32;<link linkend="_structevmc__address">evmc_address</link>{init}&#32;{}
+<anchor xml:id="_evmc_8hpp_source_1l00031"/>00031 
+<anchor xml:id="_evmc_8hpp_source_1l00036"/><link linkend="_structevmc_1_1address_1aa58c7cf24b9fd2419a287e0329d75af2">00036</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_structevmc_1_1address_1aa58c7cf24b9fd2419a287e0329d75af2">address</link>(uint64_t&#32;v)&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;:&#32;<link linkend="_structevmc__address">evmc_address</link>{{0,
+<anchor xml:id="_evmc_8hpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;56),
+<anchor xml:id="_evmc_8hpp_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;48),
+<anchor xml:id="_evmc_8hpp_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;40),
+<anchor xml:id="_evmc_8hpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;32),
+<anchor xml:id="_evmc_8hpp_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;24),
+<anchor xml:id="_evmc_8hpp_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;16),
+<anchor xml:id="_evmc_8hpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;8),
+<anchor xml:id="_evmc_8hpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;0)}}
+<anchor xml:id="_evmc_8hpp_source_1l00057"/>00057 &#32;&#32;&#32;&#32;{}
+<anchor xml:id="_evmc_8hpp_source_1l00058"/>00058 
+<anchor xml:id="_evmc_8hpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keyword">explicit</emphasis>&#32;<emphasis role="keyword">operator</emphasis>&#32;bool()&#32;const&#32;noexcept;
+<anchor xml:id="_evmc_8hpp_source_1l00061"/>00061 };
+<anchor xml:id="_evmc_8hpp_source_1l00062"/>00062 
+<anchor xml:id="_evmc_8hpp_source_1l00066"/><link linkend="_structevmc_1_1bytes32">00066</link> struct&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;:&#32;<link linkend="_structevmc__bytes32">evmc_bytes32</link>
+<anchor xml:id="_evmc_8hpp_source_1l00067"/>00067 {
+<anchor xml:id="_evmc_8hpp_source_1l00071"/><link linkend="_structevmc_1_1bytes32_1a6403d03e29edb4f87fb272cdbde1cdc6">00071</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<link linkend="_structevmc_1_1bytes32_1a6403d03e29edb4f87fb272cdbde1cdc6">bytes32</link>(<link linkend="_structevmc__bytes32">evmc_bytes32</link>&#32;init&#32;=&#32;{})&#32;<emphasis role="keyword">noexcept</emphasis>&#32;:&#32;<link linkend="_structevmc__bytes32">evmc_bytes32</link>{init}&#32;{}
+<anchor xml:id="_evmc_8hpp_source_1l00072"/>00072 
+<anchor xml:id="_evmc_8hpp_source_1l00077"/><link linkend="_structevmc_1_1bytes32_1acf31b9ad2a8140d04eddc560fccf005b">00077</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_structevmc_1_1bytes32_1acf31b9ad2a8140d04eddc560fccf005b">bytes32</link>(uint64_t&#32;v)&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;:&#32;<link linkend="_structevmc__bytes32">evmc_bytes32</link>{{0,
+<anchor xml:id="_evmc_8hpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0,
+<anchor xml:id="_evmc_8hpp_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;56),
+<anchor xml:id="_evmc_8hpp_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;48),
+<anchor xml:id="_evmc_8hpp_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;40),
+<anchor xml:id="_evmc_8hpp_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;32),
+<anchor xml:id="_evmc_8hpp_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;24),
+<anchor xml:id="_evmc_8hpp_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;16),
+<anchor xml:id="_evmc_8hpp_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;8),
+<anchor xml:id="_evmc_8hpp_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(v&#32;&gt;&gt;&#32;0)}}
+<anchor xml:id="_evmc_8hpp_source_1l00110"/>00110 &#32;&#32;&#32;&#32;{}
+<anchor xml:id="_evmc_8hpp_source_1l00111"/>00111 
+<anchor xml:id="_evmc_8hpp_source_1l00113"/>00113 &#32;&#32;&#32;&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">explicit</emphasis>&#32;<emphasis role="keyword">operator</emphasis>&#32;bool()&#32;const&#32;noexcept;
+<anchor xml:id="_evmc_8hpp_source_1l00114"/>00114 };
+<anchor xml:id="_evmc_8hpp_source_1l00115"/>00115 
+<anchor xml:id="_evmc_8hpp_source_1l00117"/><link linkend="_namespaceevmc_1a92bc6b73f1ce3a2b2eea018cf902c4da">00117</link> using&#32;<link linkend="_structevmc_1_1bytes32">uint256be</link>&#32;=&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>;
+<anchor xml:id="_evmc_8hpp_source_1l00118"/>00118 
+<anchor xml:id="_evmc_8hpp_source_1l00119"/>00119 
+<anchor xml:id="_evmc_8hpp_source_1l00121"/><link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">00121</link> inline&#32;constexpr&#32;uint64_t&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(const&#32;uint8_t*&#32;data)&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00122"/>00122 {
+<anchor xml:id="_evmc_8hpp_source_1l00123"/>00123 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(uint64_t{data[0]}&#32;&lt;&lt;&#32;56)&#32;|&#32;(uint64_t{data[1]}&#32;&lt;&lt;&#32;48)&#32;|&#32;(uint64_t{data[2]}&#32;&lt;&lt;&#32;40)&#32;|
+<anchor xml:id="_evmc_8hpp_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(uint64_t{data[3]}&#32;&lt;&lt;&#32;32)&#32;|&#32;(uint64_t{data[4]}&#32;&lt;&lt;&#32;24)&#32;|&#32;(uint64_t{data[5]}&#32;&lt;&lt;&#32;16)&#32;|
+<anchor xml:id="_evmc_8hpp_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(uint64_t{data[6]}&#32;&lt;&lt;&#32;8)&#32;|&#32;uint64_t{data[7]};
+<anchor xml:id="_evmc_8hpp_source_1l00126"/>00126 }
+<anchor xml:id="_evmc_8hpp_source_1l00127"/>00127 
+<anchor xml:id="_evmc_8hpp_source_1l00129"/><link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">00129</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;uint64_t&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(<emphasis role="keyword">const</emphasis>&#32;uint8_t*&#32;data)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00130"/>00130 {
+<anchor xml:id="_evmc_8hpp_source_1l00131"/>00131 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;uint64_t{data[0]}&#32;|&#32;(uint64_t{data[1]}&#32;&lt;&lt;&#32;8)&#32;|&#32;(uint64_t{data[2]}&#32;&lt;&lt;&#32;16)&#32;|
+<anchor xml:id="_evmc_8hpp_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(uint64_t{data[3]}&#32;&lt;&lt;&#32;24)&#32;|&#32;(uint64_t{data[4]}&#32;&lt;&lt;&#32;32)&#32;|&#32;(uint64_t{data[5]}&#32;&lt;&lt;&#32;40)&#32;|
+<anchor xml:id="_evmc_8hpp_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(uint64_t{data[6]}&#32;&lt;&lt;&#32;48)&#32;|&#32;(uint64_t{data[7]}&#32;&lt;&lt;&#32;56);
+<anchor xml:id="_evmc_8hpp_source_1l00134"/>00134 }
+<anchor xml:id="_evmc_8hpp_source_1l00135"/>00135 
+<anchor xml:id="_evmc_8hpp_source_1l00137"/><link linkend="_namespaceevmc_1a2170432bbbef84b33ce6dda30904068e">00137</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;uint32_t&#32;<link linkend="_namespaceevmc_1a2170432bbbef84b33ce6dda30904068e">load32be</link>(<emphasis role="keyword">const</emphasis>&#32;uint8_t*&#32;data)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00138"/>00138 {
+<anchor xml:id="_evmc_8hpp_source_1l00139"/>00139 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(uint32_t{data[0]}&#32;&lt;&lt;&#32;24)&#32;|&#32;(uint32_t{data[1]}&#32;&lt;&lt;&#32;16)&#32;|&#32;(uint32_t{data[2]}&#32;&lt;&lt;&#32;8)&#32;|
+<anchor xml:id="_evmc_8hpp_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint32_t{data[3]};
+<anchor xml:id="_evmc_8hpp_source_1l00141"/>00141 }
+<anchor xml:id="_evmc_8hpp_source_1l00142"/>00142 
+<anchor xml:id="_evmc_8hpp_source_1l00144"/><link linkend="_namespaceevmc_1ada9ae3e2b40c36dbea8b6fe8ab70375b">00144</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;uint32_t&#32;<link linkend="_namespaceevmc_1ada9ae3e2b40c36dbea8b6fe8ab70375b">load32le</link>(<emphasis role="keyword">const</emphasis>&#32;uint8_t*&#32;data)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00145"/>00145 {
+<anchor xml:id="_evmc_8hpp_source_1l00146"/>00146 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;uint32_t{data[0]}&#32;|&#32;(uint32_t{data[1]}&#32;&lt;&lt;&#32;8)&#32;|&#32;(uint32_t{data[2]}&#32;&lt;&lt;&#32;16)&#32;|
+<anchor xml:id="_evmc_8hpp_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(uint32_t{data[3]}&#32;&lt;&lt;&#32;24);
+<anchor xml:id="_evmc_8hpp_source_1l00148"/>00148 }
+<anchor xml:id="_evmc_8hpp_source_1l00149"/>00149 
+<anchor xml:id="_evmc_8hpp_source_1l00150"/><link linkend="_namespaceevmc_1_1fnv">00150</link> <emphasis role="keyword">namespace&#32;</emphasis>fnv
+<anchor xml:id="_evmc_8hpp_source_1l00151"/>00151 {
+<anchor xml:id="_evmc_8hpp_source_1l00152"/><link linkend="_namespaceevmc_1_1fnv_1ae84e3cac71791be23e06c9a113f373d4">00152</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;<link linkend="_namespaceevmc_1_1fnv_1ae84e3cac71791be23e06c9a113f373d4">prime</link>&#32;=&#32;0x100000001b3;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_evmc_8hpp_source_1l00153"/><link linkend="_namespaceevmc_1_1fnv_1a5e866562fb1d26d46ec0bb750e762237">00153</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;<link linkend="_namespaceevmc_1_1fnv_1a5e866562fb1d26d46ec0bb750e762237">offset_basis</link>&#32;=&#32;0xcbf29ce484222325;&#32;&#32;
+<anchor xml:id="_evmc_8hpp_source_1l00154"/>00154 
+<anchor xml:id="_evmc_8hpp_source_1l00156"/><link linkend="_namespaceevmc_1_1fnv_1abd837c95e6df5b1f485f429e3b75050f">00156</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;uint64_t&#32;<link linkend="_namespaceevmc_1_1fnv_1abd837c95e6df5b1f485f429e3b75050f">fnv1a_by64</link>(uint64_t&#32;h,&#32;uint64_t&#32;x)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00157"/>00157 {
+<anchor xml:id="_evmc_8hpp_source_1l00158"/>00158 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(h&#32;^&#32;x)&#32;*&#32;<link linkend="_namespaceevmc_1_1fnv_1ae84e3cac71791be23e06c9a113f373d4">prime</link>;
+<anchor xml:id="_evmc_8hpp_source_1l00159"/>00159 }
+<anchor xml:id="_evmc_8hpp_source_1l00160"/>00160 }&#32;&#32;<emphasis role="comment">//&#32;namespace&#32;fnv</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00161"/>00161 
+<anchor xml:id="_evmc_8hpp_source_1l00162"/>00162 
+<anchor xml:id="_evmc_8hpp_source_1l00164"/><link linkend="_namespaceevmc_1a3f6b3b885e1053cebe81913583212e70">00164</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespaceevmc_1a3f6b3b885e1053cebe81913583212e70">operator==</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;a,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;b)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00165"/>00165 {
+<anchor xml:id="_evmc_8hpp_source_1l00166"/>00166 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;a.bytes[0])&#32;==&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;b.bytes[0])&#32;&amp;&amp;
+<anchor xml:id="_evmc_8hpp_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;a.bytes[8])&#32;==&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;b.bytes[8])&#32;&amp;&amp;
+<anchor xml:id="_evmc_8hpp_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1ada9ae3e2b40c36dbea8b6fe8ab70375b">load32le</link>(&amp;a.bytes[16])&#32;==&#32;<link linkend="_namespaceevmc_1ada9ae3e2b40c36dbea8b6fe8ab70375b">load32le</link>(&amp;b.bytes[16]);
+<anchor xml:id="_evmc_8hpp_source_1l00169"/>00169 }
+<anchor xml:id="_evmc_8hpp_source_1l00170"/>00170 
+<anchor xml:id="_evmc_8hpp_source_1l00172"/><link linkend="_namespaceevmc_1acef96efd7f9847cc089834dff73054bd">00172</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespaceevmc_1acef96efd7f9847cc089834dff73054bd">operator!=</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;a,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;b)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00173"/>00173 {
+<anchor xml:id="_evmc_8hpp_source_1l00174"/>00174 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;!(a&#32;==&#32;b);
+<anchor xml:id="_evmc_8hpp_source_1l00175"/>00175 }
+<anchor xml:id="_evmc_8hpp_source_1l00176"/>00176 
+<anchor xml:id="_evmc_8hpp_source_1l00178"/><link linkend="_namespaceevmc_1a0a5557fb3dc3c04da6ef466ec3bb4d4c">00178</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespaceevmc_1a0a5557fb3dc3c04da6ef466ec3bb4d4c">operator&lt;</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;a,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;b)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00179"/>00179 {
+<anchor xml:id="_evmc_8hpp_source_1l00180"/>00180 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;a.bytes[0])&#32;&lt;&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;b.bytes[0])&#32;||
+<anchor xml:id="_evmc_8hpp_source_1l00181"/>00181 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;a.bytes[0])&#32;==&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;b.bytes[0])&#32;&amp;&amp;
+<anchor xml:id="_evmc_8hpp_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;a.bytes[8])&#32;&lt;&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;b.bytes[8])&#32;||
+<anchor xml:id="_evmc_8hpp_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;a.bytes[8])&#32;==&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;b.bytes[8])&#32;&amp;&amp;
+<anchor xml:id="_evmc_8hpp_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1a2170432bbbef84b33ce6dda30904068e">load32be</link>(&amp;a.bytes[16])&#32;&lt;&#32;<link linkend="_namespaceevmc_1a2170432bbbef84b33ce6dda30904068e">load32be</link>(&amp;b.bytes[16]))));
+<anchor xml:id="_evmc_8hpp_source_1l00185"/>00185 }
+<anchor xml:id="_evmc_8hpp_source_1l00186"/>00186 
+<anchor xml:id="_evmc_8hpp_source_1l00188"/><link linkend="_namespaceevmc_1a44333e715985f766f2493b20ed665fbd">00188</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespaceevmc_1a44333e715985f766f2493b20ed665fbd">operator&gt;</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;a,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;b)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00189"/>00189 {
+<anchor xml:id="_evmc_8hpp_source_1l00190"/>00190 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;b&#32;&lt;&#32;a;
+<anchor xml:id="_evmc_8hpp_source_1l00191"/>00191 }
+<anchor xml:id="_evmc_8hpp_source_1l00192"/>00192 
+<anchor xml:id="_evmc_8hpp_source_1l00194"/><link linkend="_namespaceevmc_1ac0dc436fe57925210dcd0481a79e9784">00194</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespaceevmc_1ac0dc436fe57925210dcd0481a79e9784">operator&lt;=</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;a,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;b)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00195"/>00195 {
+<anchor xml:id="_evmc_8hpp_source_1l00196"/>00196 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;!(b&#32;&lt;&#32;a);
+<anchor xml:id="_evmc_8hpp_source_1l00197"/>00197 }
+<anchor xml:id="_evmc_8hpp_source_1l00198"/>00198 
+<anchor xml:id="_evmc_8hpp_source_1l00200"/><link linkend="_namespaceevmc_1aa1739e6e990dbd1fd3d30b249b1d0d58">00200</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespaceevmc_1aa1739e6e990dbd1fd3d30b249b1d0d58">operator&gt;=</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;a,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;b)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00201"/>00201 {
+<anchor xml:id="_evmc_8hpp_source_1l00202"/>00202 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;!(a&#32;&lt;&#32;b);
+<anchor xml:id="_evmc_8hpp_source_1l00203"/>00203 }
+<anchor xml:id="_evmc_8hpp_source_1l00204"/>00204 
+<anchor xml:id="_evmc_8hpp_source_1l00206"/><link linkend="_namespaceevmc_1a338b7c7a6dd5c12c0e37e5e8ef729100">00206</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespaceevmc_1a3f6b3b885e1053cebe81913583212e70">operator==</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;a,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;b)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00207"/>00207 {
+<anchor xml:id="_evmc_8hpp_source_1l00208"/>00208 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;a.bytes[0])&#32;==&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;b.bytes[0])&#32;&amp;&amp;
+<anchor xml:id="_evmc_8hpp_source_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;a.bytes[8])&#32;==&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;b.bytes[8])&#32;&amp;&amp;
+<anchor xml:id="_evmc_8hpp_source_1l00210"/>00210 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;a.bytes[16])&#32;==&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;b.bytes[16])&#32;&amp;&amp;
+<anchor xml:id="_evmc_8hpp_source_1l00211"/>00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;a.bytes[24])&#32;==&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;b.bytes[24]);
+<anchor xml:id="_evmc_8hpp_source_1l00212"/>00212 }
+<anchor xml:id="_evmc_8hpp_source_1l00213"/>00213 
+<anchor xml:id="_evmc_8hpp_source_1l00215"/><link linkend="_namespaceevmc_1a5917d256b4c67912a47d3a54f849f751">00215</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespaceevmc_1acef96efd7f9847cc089834dff73054bd">operator!=</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;a,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;b)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00216"/>00216 {
+<anchor xml:id="_evmc_8hpp_source_1l00217"/>00217 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;!(a&#32;==&#32;b);
+<anchor xml:id="_evmc_8hpp_source_1l00218"/>00218 }
+<anchor xml:id="_evmc_8hpp_source_1l00219"/>00219 
+<anchor xml:id="_evmc_8hpp_source_1l00221"/><link linkend="_namespaceevmc_1a4a0c61db81ebf11230c1506f7fc9e003">00221</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespaceevmc_1a0a5557fb3dc3c04da6ef466ec3bb4d4c">operator&lt;</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;a,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;b)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00222"/>00222 {
+<anchor xml:id="_evmc_8hpp_source_1l00223"/>00223 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;a.bytes[0])&#32;&lt;&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;b.bytes[0])&#32;||
+<anchor xml:id="_evmc_8hpp_source_1l00224"/>00224 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;a.bytes[0])&#32;==&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;b.bytes[0])&#32;&amp;&amp;
+<anchor xml:id="_evmc_8hpp_source_1l00225"/>00225 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;a.bytes[8])&#32;&lt;&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;b.bytes[8])&#32;||
+<anchor xml:id="_evmc_8hpp_source_1l00226"/>00226 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;a.bytes[8])&#32;==&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;b.bytes[8])&#32;&amp;&amp;
+<anchor xml:id="_evmc_8hpp_source_1l00227"/>00227 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;a.bytes[16])&#32;&lt;&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;b.bytes[16])&#32;||
+<anchor xml:id="_evmc_8hpp_source_1l00228"/>00228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;a.bytes[16])&#32;==&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;b.bytes[16])&#32;&amp;&amp;
+<anchor xml:id="_evmc_8hpp_source_1l00229"/>00229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;a.bytes[24])&#32;&lt;&#32;<link linkend="_namespaceevmc_1a1a253fea559bb97f713b91903ffc860e">load64be</link>(&amp;b.bytes[24]))))));
+<anchor xml:id="_evmc_8hpp_source_1l00230"/>00230 }
+<anchor xml:id="_evmc_8hpp_source_1l00231"/>00231 
+<anchor xml:id="_evmc_8hpp_source_1l00233"/><link linkend="_namespaceevmc_1a04835f698b6a2a5d2fbc3f8234518aed">00233</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespaceevmc_1a44333e715985f766f2493b20ed665fbd">operator&gt;</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;a,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;b)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00234"/>00234 {
+<anchor xml:id="_evmc_8hpp_source_1l00235"/>00235 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;b&#32;&lt;&#32;a;
+<anchor xml:id="_evmc_8hpp_source_1l00236"/>00236 }
+<anchor xml:id="_evmc_8hpp_source_1l00237"/>00237 
+<anchor xml:id="_evmc_8hpp_source_1l00239"/><link linkend="_namespaceevmc_1a8580df251c76ac9b0a1561cbfda93274">00239</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespaceevmc_1ac0dc436fe57925210dcd0481a79e9784">operator&lt;=</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;a,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;b)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00240"/>00240 {
+<anchor xml:id="_evmc_8hpp_source_1l00241"/>00241 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;!(b&#32;&lt;&#32;a);
+<anchor xml:id="_evmc_8hpp_source_1l00242"/>00242 }
+<anchor xml:id="_evmc_8hpp_source_1l00243"/>00243 
+<anchor xml:id="_evmc_8hpp_source_1l00245"/><link linkend="_namespaceevmc_1ad830a8c519d4baf674a220480efc8ad3">00245</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespaceevmc_1aa1739e6e990dbd1fd3d30b249b1d0d58">operator&gt;=</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;a,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;b)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00246"/>00246 {
+<anchor xml:id="_evmc_8hpp_source_1l00247"/>00247 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;!(a&#32;&lt;&#32;b);
+<anchor xml:id="_evmc_8hpp_source_1l00248"/>00248 }
+<anchor xml:id="_evmc_8hpp_source_1l00249"/>00249 
+<anchor xml:id="_evmc_8hpp_source_1l00251"/><link linkend="_namespaceevmc_1afc53d0e831bda94fbf31a64d224c8d24">00251</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespaceevmc_1afc53d0e831bda94fbf31a64d224c8d24">is_zero</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;a)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00252"/>00252 {
+<anchor xml:id="_evmc_8hpp_source_1l00253"/>00253 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;a&#32;==&#32;<link linkend="_structevmc_1_1address">address</link>{};
+<anchor xml:id="_evmc_8hpp_source_1l00254"/>00254 }
+<anchor xml:id="_evmc_8hpp_source_1l00255"/>00255 
+<anchor xml:id="_evmc_8hpp_source_1l00256"/><link linkend="_structevmc_1_1address_1a25c8ad356e94fd5ec048a0b37e3de0b0">00256</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;address::operator&#32;bool()&#32;const&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00257"/>00257 {
+<anchor xml:id="_evmc_8hpp_source_1l00258"/>00258 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;!<link linkend="_namespaceevmc_1afc53d0e831bda94fbf31a64d224c8d24">is_zero</link>(*<emphasis role="keyword">this</emphasis>);
+<anchor xml:id="_evmc_8hpp_source_1l00259"/>00259 }
+<anchor xml:id="_evmc_8hpp_source_1l00260"/>00260 
+<anchor xml:id="_evmc_8hpp_source_1l00262"/><link linkend="_namespaceevmc_1a2277f8eca7df22f45a4476d3fe6342fe">00262</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespaceevmc_1afc53d0e831bda94fbf31a64d224c8d24">is_zero</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;a)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00263"/>00263 {
+<anchor xml:id="_evmc_8hpp_source_1l00264"/>00264 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;a&#32;==&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>{};
+<anchor xml:id="_evmc_8hpp_source_1l00265"/>00265 }
+<anchor xml:id="_evmc_8hpp_source_1l00266"/>00266 
+<anchor xml:id="_evmc_8hpp_source_1l00267"/><link linkend="_structevmc_1_1bytes32_1a3b9c7873f62eec5ba22de9cdcf90587e">00267</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;bytes32::operator&#32;bool()&#32;const&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00268"/>00268 {
+<anchor xml:id="_evmc_8hpp_source_1l00269"/>00269 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;!<link linkend="_namespaceevmc_1afc53d0e831bda94fbf31a64d224c8d24">is_zero</link>(*<emphasis role="keyword">this</emphasis>);
+<anchor xml:id="_evmc_8hpp_source_1l00270"/>00270 }
+<anchor xml:id="_evmc_8hpp_source_1l00271"/>00271 
+<anchor xml:id="_evmc_8hpp_source_1l00272"/><link linkend="_namespaceevmc_1_1literals">00272</link> <emphasis role="keyword">namespace&#32;</emphasis>literals
+<anchor xml:id="_evmc_8hpp_source_1l00273"/>00273 {
+<anchor xml:id="_evmc_8hpp_source_1l00274"/>00274 <emphasis role="keyword">namespace&#32;</emphasis>internal
+<anchor xml:id="_evmc_8hpp_source_1l00275"/>00275 {
+<anchor xml:id="_evmc_8hpp_source_1l00276"/>00276 <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_namespaceevmc_1a4d4e349e08f3fed84bbd6424208a43cf">from_hex</link>(<emphasis role="keywordtype">char</emphasis>&#32;c)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00277"/>00277 {
+<anchor xml:id="_evmc_8hpp_source_1l00278"/>00278 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(c&#32;&gt;=&#32;<emphasis role="charliteral">&apos;a&apos;</emphasis>&#32;&amp;&amp;&#32;c&#32;&lt;=&#32;<emphasis role="charliteral">&apos;f&apos;</emphasis>)&#32;?&#32;c&#32;-&#32;(<emphasis role="charliteral">&apos;a&apos;</emphasis>&#32;-&#32;10)&#32;:
+<anchor xml:id="_evmc_8hpp_source_1l00279"/>00279 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(c&#32;&gt;=&#32;<emphasis role="charliteral">&apos;A&apos;</emphasis>&#32;&amp;&amp;&#32;c&#32;&lt;=&#32;<emphasis role="charliteral">&apos;F&apos;</emphasis>)&#32;?&#32;c&#32;-&#32;(<emphasis role="charliteral">&apos;A&apos;</emphasis>&#32;-&#32;10)&#32;:
+<anchor xml:id="_evmc_8hpp_source_1l00280"/>00280 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;c&#32;-&#32;<emphasis role="charliteral">&apos;0&apos;</emphasis>;
+<anchor xml:id="_evmc_8hpp_source_1l00281"/>00281 }
+<anchor xml:id="_evmc_8hpp_source_1l00282"/>00282 
+<anchor xml:id="_evmc_8hpp_source_1l00283"/>00283 <emphasis role="keyword">constexpr</emphasis>&#32;uint8_t&#32;byte(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;s,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;i)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00284"/>00284 {
+<anchor xml:id="_evmc_8hpp_source_1l00285"/>00285 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>((<link linkend="_namespaceevmc_1a4d4e349e08f3fed84bbd6424208a43cf">from_hex</link>(s[2&#32;*&#32;i])&#32;&lt;&lt;&#32;4)&#32;|&#32;<link linkend="_namespaceevmc_1a4d4e349e08f3fed84bbd6424208a43cf">from_hex</link>(s[2&#32;*&#32;i&#32;+&#32;1]));
+<anchor xml:id="_evmc_8hpp_source_1l00286"/>00286 }
+<anchor xml:id="_evmc_8hpp_source_1l00287"/>00287 
+<anchor xml:id="_evmc_8hpp_source_1l00288"/>00288 <emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">typename</emphasis>&#32;T&gt;
+<anchor xml:id="_evmc_8hpp_source_1l00289"/>00289 T&#32;<link linkend="_namespaceevmc_1a4d4e349e08f3fed84bbd6424208a43cf">from_hex</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*)&#32;<emphasis role="keyword">noexcept</emphasis>;
+<anchor xml:id="_evmc_8hpp_source_1l00290"/>00290 
+<anchor xml:id="_evmc_8hpp_source_1l00291"/>00291 <emphasis role="keyword">template</emphasis>&#32;&lt;&gt;
+<anchor xml:id="_evmc_8hpp_source_1l00292"/>00292 <emphasis role="keyword">constexpr</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;from_hex&lt;bytes32&gt;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;s)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00293"/>00293 {
+<anchor xml:id="_evmc_8hpp_source_1l00294"/>00294 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00295"/>00295 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{{byte(s,&#32;0),&#32;&#32;byte(s,&#32;1),&#32;&#32;byte(s,&#32;2),&#32;&#32;byte(s,&#32;3),&#32;&#32;byte(s,&#32;4),&#32;&#32;byte(s,&#32;5),&#32;&#32;byte(s,&#32;6),
+<anchor xml:id="_evmc_8hpp_source_1l00296"/>00296 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;byte(s,&#32;7),&#32;&#32;byte(s,&#32;8),&#32;&#32;byte(s,&#32;9),&#32;&#32;byte(s,&#32;10),&#32;byte(s,&#32;11),&#32;byte(s,&#32;12),&#32;byte(s,&#32;13),
+<anchor xml:id="_evmc_8hpp_source_1l00297"/>00297 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;byte(s,&#32;14),&#32;byte(s,&#32;15),&#32;byte(s,&#32;16),&#32;byte(s,&#32;17),&#32;byte(s,&#32;18),&#32;byte(s,&#32;19),&#32;byte(s,&#32;20),
+<anchor xml:id="_evmc_8hpp_source_1l00298"/>00298 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;byte(s,&#32;21),&#32;byte(s,&#32;22),&#32;byte(s,&#32;23),&#32;byte(s,&#32;24),&#32;byte(s,&#32;25),&#32;byte(s,&#32;26),&#32;byte(s,&#32;27),
+<anchor xml:id="_evmc_8hpp_source_1l00299"/>00299 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;byte(s,&#32;28),&#32;byte(s,&#32;29),&#32;byte(s,&#32;30),&#32;byte(s,&#32;31)}}};
+<anchor xml:id="_evmc_8hpp_source_1l00300"/>00300 }
+<anchor xml:id="_evmc_8hpp_source_1l00301"/>00301 
+<anchor xml:id="_evmc_8hpp_source_1l00302"/>00302 <emphasis role="keyword">template</emphasis>&#32;&lt;&gt;
+<anchor xml:id="_evmc_8hpp_source_1l00303"/>00303 <emphasis role="keyword">constexpr</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&#32;from_hex&lt;address&gt;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;s)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00304"/>00304 {
+<anchor xml:id="_evmc_8hpp_source_1l00305"/>00305 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00306"/>00306 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{{byte(s,&#32;0),&#32;&#32;byte(s,&#32;1),&#32;&#32;byte(s,&#32;2),&#32;&#32;byte(s,&#32;3),&#32;&#32;byte(s,&#32;4),&#32;&#32;byte(s,&#32;5),&#32;&#32;byte(s,&#32;6),
+<anchor xml:id="_evmc_8hpp_source_1l00307"/>00307 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;byte(s,&#32;7),&#32;&#32;byte(s,&#32;8),&#32;&#32;byte(s,&#32;9),&#32;&#32;byte(s,&#32;10),&#32;byte(s,&#32;11),&#32;byte(s,&#32;12),&#32;byte(s,&#32;13),
+<anchor xml:id="_evmc_8hpp_source_1l00308"/>00308 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;byte(s,&#32;14),&#32;byte(s,&#32;15),&#32;byte(s,&#32;16),&#32;byte(s,&#32;17),&#32;byte(s,&#32;18),&#32;byte(s,&#32;19)}}};
+<anchor xml:id="_evmc_8hpp_source_1l00309"/>00309 }
+<anchor xml:id="_evmc_8hpp_source_1l00310"/>00310 
+<anchor xml:id="_evmc_8hpp_source_1l00311"/>00311 <emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">typename</emphasis>&#32;T,&#32;<emphasis role="keywordtype">char</emphasis>...&#32;c&gt;
+<anchor xml:id="_evmc_8hpp_source_1l00312"/>00312 <emphasis role="keyword">constexpr</emphasis>&#32;T&#32;from_literal()&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00313"/>00313 {
+<anchor xml:id="_evmc_8hpp_source_1l00314"/>00314 &#32;&#32;&#32;&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;size&#32;=&#32;<emphasis role="keyword">sizeof</emphasis>...(c);
+<anchor xml:id="_evmc_8hpp_source_1l00315"/>00315 &#32;&#32;&#32;&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;literal[]&#32;=&#32;{c...};
+<anchor xml:id="_evmc_8hpp_source_1l00316"/>00316 &#32;&#32;&#32;&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;is_simple_zero&#32;=&#32;size&#32;==&#32;1&#32;&amp;&amp;&#32;literal[0]&#32;==&#32;<emphasis role="charliteral">&apos;0&apos;</emphasis>;
+<anchor xml:id="_evmc_8hpp_source_1l00317"/>00317 
+<anchor xml:id="_evmc_8hpp_source_1l00318"/>00318 &#32;&#32;&#32;&#32;<emphasis role="keyword">static_assert</emphasis>(is_simple_zero&#32;||&#32;(literal[0]&#32;==&#32;<emphasis role="charliteral">&apos;0&apos;</emphasis>&#32;&amp;&amp;&#32;literal[1]&#32;==&#32;<emphasis role="charliteral">&apos;x&apos;</emphasis>),
+<anchor xml:id="_evmc_8hpp_source_1l00319"/>00319 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;literal&#32;must&#32;be&#32;in&#32;hexadecimal&#32;notation&quot;</emphasis>);
+<anchor xml:id="_evmc_8hpp_source_1l00320"/>00320 &#32;&#32;&#32;&#32;<emphasis role="keyword">static_assert</emphasis>(is_simple_zero&#32;||&#32;size&#32;==&#32;2&#32;*&#32;<emphasis role="keyword">sizeof</emphasis>(T)&#32;+&#32;2,
+<anchor xml:id="_evmc_8hpp_source_1l00321"/>00321 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;literal&#32;must&#32;match&#32;the&#32;result&#32;type&#32;size&quot;</emphasis>);
+<anchor xml:id="_evmc_8hpp_source_1l00322"/>00322 
+<anchor xml:id="_evmc_8hpp_source_1l00323"/>00323 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;is_simple_zero&#32;?&#32;T{}&#32;:&#32;from_hex&lt;T&gt;(&amp;literal[2]);
+<anchor xml:id="_evmc_8hpp_source_1l00324"/>00324 }
+<anchor xml:id="_evmc_8hpp_source_1l00325"/>00325 }&#32;&#32;<emphasis role="comment">//&#32;namespace&#32;internal</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00326"/>00326 
+<anchor xml:id="_evmc_8hpp_source_1l00328"/>00328 <emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keywordtype">char</emphasis>...&#32;c&gt;
+<anchor xml:id="_evmc_8hpp_source_1l00329"/><link linkend="_namespaceevmc_1_1literals_1aec0a89f0e7f971c6704e25b8c3146e28">00329</link> <emphasis role="keyword">constexpr</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&#32;<emphasis role="keyword">operator</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>_address()&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00330"/>00330 {
+<anchor xml:id="_evmc_8hpp_source_1l00331"/>00331 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;internal::from_literal&lt;<link linkend="_structevmc_1_1address_1a4efaacdd8a0de3a347b845a5b134bd47">address</link>,&#32;c...&gt;();
+<anchor xml:id="_evmc_8hpp_source_1l00332"/>00332 }
+<anchor xml:id="_evmc_8hpp_source_1l00333"/>00333 
+<anchor xml:id="_evmc_8hpp_source_1l00335"/>00335 <emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keywordtype">char</emphasis>...&#32;c&gt;
+<anchor xml:id="_evmc_8hpp_source_1l00336"/><link linkend="_namespaceevmc_1_1literals_1a3211e8fa6dbfe53bcd7102b1d58ed495">00336</link> <emphasis role="keyword">constexpr</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;<emphasis role="keyword">operator</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>_bytes32()&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00337"/>00337 {
+<anchor xml:id="_evmc_8hpp_source_1l00338"/>00338 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;internal::from_literal&lt;<link linkend="_structevmc_1_1bytes32">bytes32</link>,&#32;c...&gt;();
+<anchor xml:id="_evmc_8hpp_source_1l00339"/>00339 }
+<anchor xml:id="_evmc_8hpp_source_1l00340"/>00340 }&#32;&#32;<emphasis role="comment">//&#32;namespace&#32;literals</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00341"/>00341 
+<anchor xml:id="_evmc_8hpp_source_1l00342"/>00342 <emphasis role="keyword">using&#32;namespace&#32;</emphasis>literals;
+<anchor xml:id="_evmc_8hpp_source_1l00343"/>00343 
+<anchor xml:id="_evmc_8hpp_source_1l00344"/>00344 
+<anchor xml:id="_evmc_8hpp_source_1l00346"/><link linkend="_namespaceevmc_1a44c9aad0ac3f324d817e18720a1e37de">00346</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_namespaceevmc_1a44c9aad0ac3f324d817e18720a1e37de">to_string</link>(<link linkend="_group__EVMC_1ga4c0be97f333c050ff45321fcaa34d920">evmc_status_code</link>&#32;status_code)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00347"/>00347 {
+<anchor xml:id="_evmc_8hpp_source_1l00348"/>00348 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__helpers_1gad9e0e4b4cf8323982572dc54d36f0b40">evmc_status_code_to_string</link>(status_code);
+<anchor xml:id="_evmc_8hpp_source_1l00349"/>00349 }
+<anchor xml:id="_evmc_8hpp_source_1l00350"/>00350 
+<anchor xml:id="_evmc_8hpp_source_1l00352"/><link linkend="_namespaceevmc_1a773edff68f6e013b3c809bb4c6ea33d3">00352</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_namespaceevmc_1a44c9aad0ac3f324d817e18720a1e37de">to_string</link>(<link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link>&#32;rev)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00353"/>00353 {
+<anchor xml:id="_evmc_8hpp_source_1l00354"/>00354 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__helpers_1gad04bac3144296562478b0447bf3991ff">evmc_revision_to_string</link>(rev);
+<anchor xml:id="_evmc_8hpp_source_1l00355"/>00355 }
+<anchor xml:id="_evmc_8hpp_source_1l00356"/>00356 
+<anchor xml:id="_evmc_8hpp_source_1l00357"/>00357 
+<anchor xml:id="_evmc_8hpp_source_1l00359"/><link linkend="_namespaceevmc_1a9843b267dc279832b0ff9578b7dacdb7">00359</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;<link linkend="_namespaceevmc_1a9843b267dc279832b0ff9578b7dacdb7">make_result</link>&#32;=&#32;<link linkend="_group__helpers_1ga1eb1facc9b5ddacda368ffdeb89d1a20">evmc_make_result</link>;
+<anchor xml:id="_evmc_8hpp_source_1l00360"/>00360 
+<anchor xml:id="_evmc_8hpp_source_1l00365"/><link linkend="_classevmc_1_1result">00365</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classevmc_1_1result">result</link>&#32;:&#32;<emphasis role="keyword">private</emphasis>&#32;<link linkend="_structevmc__result">evmc_result</link>
+<anchor xml:id="_evmc_8hpp_source_1l00366"/>00366 {
+<anchor xml:id="_evmc_8hpp_source_1l00367"/>00367 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_evmc_8hpp_source_1l00368"/>00368 &#32;&#32;&#32;&#32;<emphasis role="keyword">using</emphasis>&#32;<link linkend="_structevmc__result_1ae7f37ff7c9cfa3b58af2c89f4d610522">evmc_result::create_address</link>;
+<anchor xml:id="_evmc_8hpp_source_1l00369"/>00369 &#32;&#32;&#32;&#32;<emphasis role="keyword">using</emphasis>&#32;<link linkend="_structevmc__result_1af8478c93dbcc3cb2876037c5a5afd4c0">evmc_result::gas_left</link>;
+<anchor xml:id="_evmc_8hpp_source_1l00370"/>00370 &#32;&#32;&#32;&#32;<emphasis role="keyword">using</emphasis>&#32;<link linkend="_structevmc__result_1a61978e85f9d795a7b9695b9cbf1748d6">evmc_result::output_data</link>;
+<anchor xml:id="_evmc_8hpp_source_1l00371"/>00371 &#32;&#32;&#32;&#32;<emphasis role="keyword">using</emphasis>&#32;<link linkend="_structevmc__result_1a93bb7419aff492cdef754421c6d74e26">evmc_result::output_size</link>;
+<anchor xml:id="_evmc_8hpp_source_1l00372"/>00372 &#32;&#32;&#32;&#32;<emphasis role="keyword">using</emphasis>&#32;<link linkend="_structevmc__result_1a759c4aaa4a1c002f5a8be09ccb0b6a1c">evmc_result::status_code</link>;
+<anchor xml:id="_evmc_8hpp_source_1l00373"/>00373 
+<anchor xml:id="_evmc_8hpp_source_1l00383"/><link linkend="_classevmc_1_1result_1add9ddebaace1c5d35784cfc6966d8aa8">00383</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1result_1add9ddebaace1c5d35784cfc6966d8aa8">result</link>(<link linkend="_group__EVMC_1ga4c0be97f333c050ff45321fcaa34d920">evmc_status_code</link>&#32;_status_code,
+<anchor xml:id="_evmc_8hpp_source_1l00384"/>00384 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;int64_t&#32;_gas_left,
+<anchor xml:id="_evmc_8hpp_source_1l00385"/>00385 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t*&#32;_output_data,
+<anchor xml:id="_evmc_8hpp_source_1l00386"/>00386 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;_output_size)&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00387"/>00387 &#32;&#32;&#32;&#32;&#32;&#32;:&#32;<link linkend="_structevmc__result">evmc_result</link>{<link linkend="_namespaceevmc_1a9843b267dc279832b0ff9578b7dacdb7">make_result</link>(_status_code,&#32;_gas_left,&#32;_output_data,&#32;_output_size)}
+<anchor xml:id="_evmc_8hpp_source_1l00388"/>00388 &#32;&#32;&#32;&#32;{}
+<anchor xml:id="_evmc_8hpp_source_1l00389"/>00389 
+<anchor xml:id="_evmc_8hpp_source_1l00391"/><link linkend="_classevmc_1_1result_1a4753030d0491d94c2b64b15f025d5055">00391</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_classevmc_1_1result_1a4753030d0491d94c2b64b15f025d5055">result</link>(<link linkend="_structevmc__result">evmc_result</link>&#32;<emphasis role="keyword">const</emphasis>&amp;&#32;res)&#32;noexcept&#32;:&#32;<link linkend="_structevmc__result">evmc_result</link>{res}&#32;{}
+<anchor xml:id="_evmc_8hpp_source_1l00392"/>00392 
+<anchor xml:id="_evmc_8hpp_source_1l00394"/><link linkend="_classevmc_1_1result_1aee479c5093974fed2ec14f33bafcfd32">00394</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1result_1aee479c5093974fed2ec14f33bafcfd32">~result</link>()&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00395"/>00395 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00396"/>00396 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(release&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="_evmc_8hpp_source_1l00397"/>00397 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;release(<emphasis role="keyword">this</emphasis>);
+<anchor xml:id="_evmc_8hpp_source_1l00398"/>00398 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00399"/>00399 
+<anchor xml:id="_evmc_8hpp_source_1l00401"/><link linkend="_classevmc_1_1result_1aeb05e759733ffba8140aef6b7a8dd550">00401</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1result_1aeb05e759733ffba8140aef6b7a8dd550">result</link>(<link linkend="_classevmc_1_1result">result</link>&amp;&amp;&#32;other)&#32;noexcept&#32;:&#32;<link linkend="_structevmc__result">evmc_result</link>{other}
+<anchor xml:id="_evmc_8hpp_source_1l00402"/>00402 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00403"/>00403 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;other.<link linkend="_structevmc__result_1a8727ff83d372ab0067bcf6656d30b0ed">release</link>&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;&#32;<emphasis role="comment">//&#32;Disable&#32;releasing&#32;of&#32;the&#32;rvalue&#32;object.</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00404"/>00404 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00405"/>00405 
+<anchor xml:id="_evmc_8hpp_source_1l00412"/><link linkend="_classevmc_1_1result_1a051c899a3492882b69cf70ebee0bd303">00412</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1result">result</link>&amp;&#32;<link linkend="_classevmc_1_1result_1a051c899a3492882b69cf70ebee0bd303">operator=</link>(<link linkend="_classevmc_1_1result">result</link>&amp;&amp;&#32;other)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00413"/>00413 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00414"/>00414 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this-&gt;<link linkend="_classevmc_1_1result">~result</link>();&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Release&#32;this&#32;object.</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00415"/>00415 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><link linkend="_structevmc__result">evmc_result</link>&amp;<emphasis role="keyword">&gt;</emphasis>(*this)&#32;=&#32;other;&#32;&#32;<emphasis role="comment">//&#32;Copy&#32;data.</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00416"/>00416 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;other.<link linkend="_structevmc__result_1a8727ff83d372ab0067bcf6656d30b0ed">release</link>&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Disable&#32;releasing&#32;of&#32;the&#32;rvalue&#32;object.</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00417"/>00417 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+<anchor xml:id="_evmc_8hpp_source_1l00418"/>00418 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00419"/>00419 
+<anchor xml:id="_evmc_8hpp_source_1l00428"/><link linkend="_classevmc_1_1result_1a3b924b2e8ee361277753810ad65930c2">00428</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc__result">evmc_result</link>&#32;<link linkend="_classevmc_1_1result_1a3b924b2e8ee361277753810ad65930c2">release_raw</link>()&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00429"/>00429 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00430"/>00430 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;out&#32;=&#32;<link linkend="_structevmc__result">evmc_result</link>{*<emphasis role="keyword">this</emphasis>};&#32;&#32;<emphasis role="comment">//&#32;Copy&#32;data.</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00431"/>00431 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this-&gt;release&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Disable&#32;releasing&#32;of&#32;this&#32;object.</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00432"/>00432 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;out;
+<anchor xml:id="_evmc_8hpp_source_1l00433"/>00433 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00434"/>00434 };
+<anchor xml:id="_evmc_8hpp_source_1l00435"/>00435 
+<anchor xml:id="_evmc_8hpp_source_1l00436"/>00436 
+<anchor xml:id="_evmc_8hpp_source_1l00438"/><link linkend="_classevmc_1_1HostInterface">00438</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classevmc_1_1HostInterface">HostInterface</link>
+<anchor xml:id="_evmc_8hpp_source_1l00439"/>00439 {
+<anchor xml:id="_evmc_8hpp_source_1l00440"/>00440 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_evmc_8hpp_source_1l00441"/><link linkend="_classevmc_1_1HostInterface_1a665ab0274f11c55269c08dc8c056d061">00441</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_classevmc_1_1HostInterface_1a665ab0274f11c55269c08dc8c056d061">~HostInterface</link>()&#32;noexcept&#32;=&#32;default;
+<anchor xml:id="_evmc_8hpp_source_1l00442"/>00442 
+<anchor xml:id="_evmc_8hpp_source_1l00444"/><link linkend="_classevmc_1_1HostInterface_1ae735474dc8425b49b3eb0ef12212fae7">00444</link> &#32;&#32;&#32;&#32;virtual&#32;<emphasis role="keywordtype">bool</emphasis>&#32;account_exists(const&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr)&#32;const&#32;noexcept&#32;=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00445"/>00445 
+<anchor xml:id="_evmc_8hpp_source_1l00447"/><link linkend="_classevmc_1_1HostInterface_1a020f849f737fcd841681f73f74514b4d">00447</link> &#32;&#32;&#32;&#32;virtual&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;get_storage(const&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr,&#32;const&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;key)&#32;const&#32;noexcept&#32;=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00448"/>00448 
+<anchor xml:id="_evmc_8hpp_source_1l00450"/><link linkend="_classevmc_1_1HostInterface_1ab302ebc0c838560a6c4b8b1aec21815a">00450</link> &#32;&#32;&#32;&#32;virtual&#32;<link linkend="_group__EVMC_1gae012fd6b8e5c23806b507c2d3e9fb1aa">evmc_storage_status</link>&#32;set_storage(const&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr,
+<anchor xml:id="_evmc_8hpp_source_1l00451"/>00451 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;const&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;key,
+<anchor xml:id="_evmc_8hpp_source_1l00452"/>00452 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;const&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;value)&#32;noexcept&#32;=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00453"/>00453 
+<anchor xml:id="_evmc_8hpp_source_1l00455"/><link linkend="_classevmc_1_1HostInterface_1ac30e7e938793a2c46e3d5d416e15c3f5">00455</link> &#32;&#32;&#32;&#32;virtual&#32;<link linkend="_structevmc_1_1bytes32">uint256be</link>&#32;get_balance(const&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr)&#32;const&#32;noexcept&#32;=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00456"/>00456 
+<anchor xml:id="_evmc_8hpp_source_1l00458"/><link linkend="_classevmc_1_1HostInterface_1a8cb4656ab4c478d5fe152b4f6c4b6dc4">00458</link> &#32;&#32;&#32;&#32;virtual&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;get_code_size(const&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr)&#32;const&#32;noexcept&#32;=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00459"/>00459 
+<anchor xml:id="_evmc_8hpp_source_1l00461"/><link linkend="_classevmc_1_1HostInterface_1a748a36bc934302492f54e3fc90cdca88">00461</link> &#32;&#32;&#32;&#32;virtual&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;get_code_hash(const&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr)&#32;const&#32;noexcept&#32;=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00462"/>00462 
+<anchor xml:id="_evmc_8hpp_source_1l00464"/><link linkend="_classevmc_1_1HostInterface_1ace3dcf2b277c60cb422f3af1d63dd36b">00464</link> &#32;&#32;&#32;&#32;virtual&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;copy_code(const&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr,
+<anchor xml:id="_evmc_8hpp_source_1l00465"/>00465 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;code_offset,
+<anchor xml:id="_evmc_8hpp_source_1l00466"/>00466 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t*&#32;buffer_data,
+<anchor xml:id="_evmc_8hpp_source_1l00467"/>00467 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;buffer_size)&#32;const&#32;noexcept&#32;=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00468"/>00468 
+<anchor xml:id="_evmc_8hpp_source_1l00470"/><link linkend="_classevmc_1_1HostInterface_1afd78f82767a70ed1e4e68fce6007ad0b">00470</link> &#32;&#32;&#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;selfdestruct(const&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr,&#32;const&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;beneficiary)&#32;noexcept&#32;=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00471"/>00471 
+<anchor xml:id="_evmc_8hpp_source_1l00473"/><link linkend="_classevmc_1_1HostInterface_1a392feba1f27c9352c85bf2559c1fbcb2">00473</link> &#32;&#32;&#32;&#32;virtual&#32;<link linkend="_classevmc_1_1result">result</link>&#32;call(const&#32;<link linkend="_structevmc__message">evmc_message</link>&amp;&#32;msg)&#32;noexcept&#32;=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00474"/>00474 
+<anchor xml:id="_evmc_8hpp_source_1l00476"/><link linkend="_classevmc_1_1HostInterface_1a2e958d4265e17048b817626f6fd3cdcc">00476</link> &#32;&#32;&#32;&#32;virtual&#32;<link linkend="_structevmc__tx__context">evmc_tx_context</link>&#32;get_tx_context()&#32;const&#32;noexcept&#32;=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00477"/>00477 
+<anchor xml:id="_evmc_8hpp_source_1l00479"/><link linkend="_classevmc_1_1HostInterface_1ab4fcbbe88b9490f78e0f99c7ce2b167f">00479</link> &#32;&#32;&#32;&#32;virtual&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;get_block_hash(int64_t&#32;block_number)&#32;const&#32;noexcept&#32;=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00480"/>00480 
+<anchor xml:id="_evmc_8hpp_source_1l00482"/><link linkend="_classevmc_1_1HostInterface_1a1f95317392e4615e29ad038fe4ff049d">00482</link> &#32;&#32;&#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;emit_log(const&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr,
+<anchor xml:id="_evmc_8hpp_source_1l00483"/>00483 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;const&#32;uint8_t*&#32;data,
+<anchor xml:id="_evmc_8hpp_source_1l00484"/>00484 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;data_size,
+<anchor xml:id="_evmc_8hpp_source_1l00485"/>00485 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;const&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;topics[],
+<anchor xml:id="_evmc_8hpp_source_1l00486"/>00486 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;num_topics)&#32;noexcept&#32;=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00487"/>00487 
+<anchor xml:id="_evmc_8hpp_source_1l00489"/><link linkend="_classevmc_1_1HostInterface_1ab5ec93cb9fc439fd22cacecc468ed9f8">00489</link> &#32;&#32;&#32;&#32;virtual&#32;<link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link>&#32;access_account(const&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr)&#32;noexcept&#32;=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00490"/>00490 
+<anchor xml:id="_evmc_8hpp_source_1l00492"/><link linkend="_classevmc_1_1HostInterface_1ac0192ce7575fe86b7466405e93484ad8">00492</link> &#32;&#32;&#32;&#32;virtual&#32;<link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link>&#32;access_storage(const&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr,&#32;const&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;key)&#32;noexcept&#32;=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00493"/>00493 };
+<anchor xml:id="_evmc_8hpp_source_1l00494"/>00494 
+<anchor xml:id="_evmc_8hpp_source_1l00495"/>00495 
+<anchor xml:id="_evmc_8hpp_source_1l00499"/><link linkend="_classevmc_1_1HostContext">00499</link> class&#32;<link linkend="_classevmc_1_1HostContext">HostContext</link>&#32;:&#32;public&#32;<link linkend="_classevmc_1_1HostInterface">HostInterface</link>
+<anchor xml:id="_evmc_8hpp_source_1l00500"/>00500 {
+<anchor xml:id="_evmc_8hpp_source_1l00501"/><link linkend="_classevmc_1_1HostContext_1ae0dd7ed33e2adf24413a10acc9c0bb9a">00501</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__host__interface">evmc_host_interface</link>*&#32;host&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_evmc_8hpp_source_1l00502"/><link linkend="_classevmc_1_1HostContext_1a05bbbf5a779852594e075b64656e3f65">00502</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;context&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_evmc_8hpp_source_1l00503"/><link linkend="_classevmc_1_1HostContext_1ac165f0cb7934b5efdeff35b52be50b94">00503</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">mutable</emphasis>&#32;<link linkend="_structevmc__tx__context">evmc_tx_context</link>&#32;tx_context&#32;=&#32;{};
+<anchor xml:id="_evmc_8hpp_source_1l00504"/>00504 
+<anchor xml:id="_evmc_8hpp_source_1l00505"/>00505 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_evmc_8hpp_source_1l00507"/><link linkend="_classevmc_1_1HostContext_1a2a04dc538a47cd599d6e3f9e389aa960">00507</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1HostContext_1a2a04dc538a47cd599d6e3f9e389aa960">HostContext</link>()&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="_evmc_8hpp_source_1l00508"/>00508 
+<anchor xml:id="_evmc_8hpp_source_1l00512"/><link linkend="_classevmc_1_1HostContext_1a3c2eeff87915c8aa8652c5dc2a17f51a">00512</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1HostContext_1a3c2eeff87915c8aa8652c5dc2a17f51a">HostContext</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__host__interface">evmc_host_interface</link>&amp;&#32;interface,&#32;<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;ctx)&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00513"/>00513 &#32;&#32;&#32;&#32;&#32;&#32;:&#32;host{&amp;interface},&#32;context{ctx}
+<anchor xml:id="_evmc_8hpp_source_1l00514"/>00514 &#32;&#32;&#32;&#32;{}
+<anchor xml:id="_evmc_8hpp_source_1l00515"/>00515 
+<anchor xml:id="_evmc_8hpp_source_1l00516"/><link linkend="_classevmc_1_1HostContext_1a08a0b1cc1f03aff697e9344865047e56">00516</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classevmc_1_1HostContext_1a08a0b1cc1f03aff697e9344865047e56">account_exists</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;<link linkend="_structevmc_1_1address">address</link>)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00517"/>00517 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00518"/>00518 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;host-&gt;<link linkend="_structevmc__host__interface_1ac3b71b9670621dd55e8bc047cd289e1a">account_exists</link>(context,&#32;&amp;<link linkend="_structevmc_1_1address">address</link>);
+<anchor xml:id="_evmc_8hpp_source_1l00519"/>00519 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00520"/>00520 
+<anchor xml:id="_evmc_8hpp_source_1l00521"/><link linkend="_classevmc_1_1HostContext_1afb6bc0d98a19cf760ef9e886366e4108">00521</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;<link linkend="_classevmc_1_1HostContext_1afb6bc0d98a19cf760ef9e886366e4108">get_storage</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;<link linkend="_structevmc_1_1address">address</link>,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;key)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00522"/>00522 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00523"/>00523 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;host-&gt;<link linkend="_structevmc__host__interface_1a1cfd339e26ceaba522aece2e1a06c6ef">get_storage</link>(context,&#32;&amp;<link linkend="_structevmc_1_1address">address</link>,&#32;&amp;key);
+<anchor xml:id="_evmc_8hpp_source_1l00524"/>00524 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00525"/>00525 
+<anchor xml:id="_evmc_8hpp_source_1l00526"/><link linkend="_classevmc_1_1HostContext_1accce7c534c0f1e50f70d52a50d2ff659">00526</link> &#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1gae012fd6b8e5c23806b507c2d3e9fb1aa">evmc_storage_status</link>&#32;<link linkend="_classevmc_1_1HostContext_1accce7c534c0f1e50f70d52a50d2ff659">set_storage</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;<link linkend="_structevmc_1_1address">address</link>,
+<anchor xml:id="_evmc_8hpp_source_1l00527"/>00527 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;key,
+<anchor xml:id="_evmc_8hpp_source_1l00528"/>00528 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;value)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00529"/>00529 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00530"/>00530 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;host-&gt;<link linkend="_structevmc__host__interface_1ad24670503f09df720cc008e361a91277">set_storage</link>(context,&#32;&amp;<link linkend="_structevmc_1_1address">address</link>,&#32;&amp;key,&#32;&amp;value);
+<anchor xml:id="_evmc_8hpp_source_1l00531"/>00531 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00532"/>00532 
+<anchor xml:id="_evmc_8hpp_source_1l00533"/><link linkend="_classevmc_1_1HostContext_1a2e50fd490162237ac04f26cbd8c9e916">00533</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">uint256be</link>&#32;<link linkend="_classevmc_1_1HostContext_1a2e50fd490162237ac04f26cbd8c9e916">get_balance</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;<link linkend="_structevmc_1_1address">address</link>)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00534"/>00534 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00535"/>00535 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;host-&gt;<link linkend="_structevmc__host__interface_1acfb80d38a19c3c5a267a68520dae8020">get_balance</link>(context,&#32;&amp;<link linkend="_structevmc_1_1address">address</link>);
+<anchor xml:id="_evmc_8hpp_source_1l00536"/>00536 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00537"/>00537 
+<anchor xml:id="_evmc_8hpp_source_1l00538"/><link linkend="_classevmc_1_1HostContext_1a278e6c530fce8397b1dc2de07ba0b26d">00538</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_classevmc_1_1HostContext_1a278e6c530fce8397b1dc2de07ba0b26d">get_code_size</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;<link linkend="_structevmc_1_1address">address</link>)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00539"/>00539 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00540"/>00540 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;host-&gt;<link linkend="_structevmc__host__interface_1a35897228fa9270f59b7fca4bc373e860">get_code_size</link>(context,&#32;&amp;<link linkend="_structevmc_1_1address">address</link>);
+<anchor xml:id="_evmc_8hpp_source_1l00541"/>00541 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00542"/>00542 
+<anchor xml:id="_evmc_8hpp_source_1l00543"/><link linkend="_classevmc_1_1HostContext_1a06c2f1a5f29be3384b4e48c70198b563">00543</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;<link linkend="_classevmc_1_1HostContext_1a06c2f1a5f29be3384b4e48c70198b563">get_code_hash</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;<link linkend="_structevmc_1_1address">address</link>)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00544"/>00544 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00545"/>00545 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;host-&gt;<link linkend="_structevmc__host__interface_1a058d2f129c4f4e840258127137801eaf">get_code_hash</link>(context,&#32;&amp;<link linkend="_structevmc_1_1address">address</link>);
+<anchor xml:id="_evmc_8hpp_source_1l00546"/>00546 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00547"/>00547 
+<anchor xml:id="_evmc_8hpp_source_1l00548"/><link linkend="_classevmc_1_1HostContext_1a62742a0675d8675dd8ee155b5def02dc">00548</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_classevmc_1_1HostContext_1a62742a0675d8675dd8ee155b5def02dc">copy_code</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;<link linkend="_structevmc_1_1address">address</link>,
+<anchor xml:id="_evmc_8hpp_source_1l00549"/>00549 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;code_offset,
+<anchor xml:id="_evmc_8hpp_source_1l00550"/>00550 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t*&#32;buffer_data,
+<anchor xml:id="_evmc_8hpp_source_1l00551"/>00551 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;buffer_size)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00552"/>00552 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00553"/>00553 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;host-&gt;<link linkend="_structevmc__host__interface_1a21b53f1aea01f97eeb29ff5d3b5910ea">copy_code</link>(context,&#32;&amp;<link linkend="_structevmc_1_1address">address</link>,&#32;code_offset,&#32;buffer_data,&#32;buffer_size);
+<anchor xml:id="_evmc_8hpp_source_1l00554"/>00554 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00555"/>00555 
+<anchor xml:id="_evmc_8hpp_source_1l00556"/><link linkend="_classevmc_1_1HostContext_1a150580ee3efd12661656c4e3ab350457">00556</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classevmc_1_1HostContext_1a150580ee3efd12661656c4e3ab350457">selfdestruct</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;beneficiary)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00557"/>00557 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00558"/>00558 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;host-&gt;<link linkend="_structevmc__host__interface_1a189b040cb7db22778e81d4eb19e87849">selfdestruct</link>(context,&#32;&amp;addr,&#32;&amp;beneficiary);
+<anchor xml:id="_evmc_8hpp_source_1l00559"/>00559 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00560"/>00560 
+<anchor xml:id="_evmc_8hpp_source_1l00561"/><link linkend="_classevmc_1_1HostContext_1a47884bf60bd9f503300fae10bdc058f2">00561</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1result">result</link>&#32;<link linkend="_classevmc_1_1HostContext_1a47884bf60bd9f503300fae10bdc058f2">call</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__message">evmc_message</link>&amp;&#32;message)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00562"/>00562 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00563"/>00563 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1result">result</link>{host-&gt;<link linkend="_structevmc__host__interface_1a0acd6def9c08159acccfba9f9cbf9ca9">call</link>(context,&#32;&amp;message)};
+<anchor xml:id="_evmc_8hpp_source_1l00564"/>00564 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00565"/>00565 
+<anchor xml:id="_evmc_8hpp_source_1l00572"/><link linkend="_classevmc_1_1HostContext_1af51f231f8607e7a506a25d8b21874cd1">00572</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc__tx__context">evmc_tx_context</link>&#32;<link linkend="_classevmc_1_1HostContext_1af51f231f8607e7a506a25d8b21874cd1">get_tx_context</link>()&#32;const&#32;noexcept&#32;final
+<anchor xml:id="_evmc_8hpp_source_1l00573"/>00573 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00574"/>00574 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(tx_context.<link linkend="_structevmc__tx__context_1a2391863eab970821d67a08341d9d3440">block_timestamp</link>&#32;==&#32;0)
+<anchor xml:id="_evmc_8hpp_source_1l00575"/>00575 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tx_context&#32;=&#32;host-&gt;<link linkend="_structevmc__host__interface_1aecdea81d0643b6988e2dc6f57c936ffe">get_tx_context</link>(context);
+<anchor xml:id="_evmc_8hpp_source_1l00576"/>00576 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;tx_context;
+<anchor xml:id="_evmc_8hpp_source_1l00577"/>00577 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00578"/>00578 
+<anchor xml:id="_evmc_8hpp_source_1l00579"/><link linkend="_classevmc_1_1HostContext_1ac7ce942550fee4d6e801af880484e271">00579</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;<link linkend="_classevmc_1_1HostContext_1ac7ce942550fee4d6e801af880484e271">get_block_hash</link>(int64_t&#32;number)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00580"/>00580 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00581"/>00581 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;host-&gt;<link linkend="_structevmc__host__interface_1a9cdde67ef20f42f60d3b8949230e8852">get_block_hash</link>(context,&#32;number);
+<anchor xml:id="_evmc_8hpp_source_1l00582"/>00582 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00583"/>00583 
+<anchor xml:id="_evmc_8hpp_source_1l00584"/><link linkend="_classevmc_1_1HostContext_1acb1f7dabab3134e4ac80f9f6ada590a9">00584</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classevmc_1_1HostContext_1acb1f7dabab3134e4ac80f9f6ada590a9">emit_log</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;addr,
+<anchor xml:id="_evmc_8hpp_source_1l00585"/>00585 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t*&#32;data,
+<anchor xml:id="_evmc_8hpp_source_1l00586"/>00586 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;data_size,
+<anchor xml:id="_evmc_8hpp_source_1l00587"/>00587 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&#32;topics[],
+<anchor xml:id="_evmc_8hpp_source_1l00588"/>00588 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;topics_count)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00589"/>00589 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00590"/>00590 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;host-&gt;<link linkend="_structevmc__host__interface_1aaa3feda20b9b50381a359b2d4f591f0c">emit_log</link>(context,&#32;&amp;addr,&#32;data,&#32;data_size,&#32;topics,&#32;topics_count);
+<anchor xml:id="_evmc_8hpp_source_1l00591"/>00591 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00592"/>00592 
+<anchor xml:id="_evmc_8hpp_source_1l00593"/><link linkend="_classevmc_1_1HostContext_1a703bce4ebfcec7bd8b804e30f7b0d965">00593</link> &#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link>&#32;<link linkend="_classevmc_1_1HostContext_1a703bce4ebfcec7bd8b804e30f7b0d965">access_account</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;<link linkend="_structevmc_1_1address">address</link>)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00594"/>00594 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00595"/>00595 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;host-&gt;<link linkend="_structevmc__host__interface_1ac5e64cdd3216485a1e20e1f039e5c33a">access_account</link>(context,&#32;&amp;<link linkend="_structevmc_1_1address">address</link>);
+<anchor xml:id="_evmc_8hpp_source_1l00596"/>00596 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00597"/>00597 
+<anchor xml:id="_evmc_8hpp_source_1l00598"/><link linkend="_classevmc_1_1HostContext_1a4132fc7dd93405c5c2fcd2729d7a2be8">00598</link> &#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link>&#32;<link linkend="_classevmc_1_1HostContext_1a4132fc7dd93405c5c2fcd2729d7a2be8">access_storage</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">address</link>&amp;&#32;<link linkend="_structevmc_1_1address">address</link>,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">bytes32</link>&amp;&#32;key)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;<emphasis role="keyword">final</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00599"/>00599 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00600"/>00600 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;host-&gt;<link linkend="_structevmc__host__interface_1afd574060cfe3eebacbd2c3637e9a60d0">access_storage</link>(context,&#32;&amp;<link linkend="_structevmc_1_1address">address</link>,&#32;&amp;key);
+<anchor xml:id="_evmc_8hpp_source_1l00601"/>00601 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00602"/>00602 };
+<anchor xml:id="_evmc_8hpp_source_1l00603"/>00603 
+<anchor xml:id="_evmc_8hpp_source_1l00604"/>00604 
+<anchor xml:id="_evmc_8hpp_source_1l00610"/><link linkend="_classevmc_1_1Host">00610</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classevmc_1_1Host">Host</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_classevmc_1_1HostInterface">HostInterface</link>
+<anchor xml:id="_evmc_8hpp_source_1l00611"/>00611 {
+<anchor xml:id="_evmc_8hpp_source_1l00612"/>00612 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_evmc_8hpp_source_1l00615"/>00615 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__host__interface">evmc_host_interface</link>&amp;&#32;get_interface()&#32;<emphasis role="keyword">noexcept</emphasis>;
+<anchor xml:id="_evmc_8hpp_source_1l00616"/>00616 
+<anchor xml:id="_evmc_8hpp_source_1l00619"/><link linkend="_classevmc_1_1Host_1abd96a61aa3b45d949cb41cf7778fdf6d">00619</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;<link linkend="_classevmc_1_1Host_1abd96a61aa3b45d949cb41cf7778fdf6d">to_context</link>()&#32;noexcept&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">reinterpret_cast&lt;</emphasis><link linkend="_structevmc__host__context">evmc_host_context</link>*<emphasis role="keyword">&gt;</emphasis>(<emphasis role="keyword">this</emphasis>);&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00620"/>00620 
+<anchor xml:id="_evmc_8hpp_source_1l00625"/>00625 &#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">typename</emphasis>&#32;DerivedClass&#32;=&#32;Host&gt;
+<anchor xml:id="_evmc_8hpp_source_1l00626"/><link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">00626</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;DerivedClass*&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">from_context</link>(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;context)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00627"/>00627 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00628"/>00628 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Get&#32;pointer&#32;of&#32;the&#32;Host&#32;base&#32;class.</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00629"/>00629 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>*&#32;h&#32;=&#32;<emphasis role="keyword">reinterpret_cast&lt;</emphasis><link linkend="_classevmc_1_1Host">Host</link>*<emphasis role="keyword">&gt;</emphasis>(context);
+<anchor xml:id="_evmc_8hpp_source_1l00630"/>00630 
+<anchor xml:id="_evmc_8hpp_source_1l00631"/>00631 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Additional&#32;downcast,&#32;only&#32;possible&#32;if&#32;DerivedClass&#32;inherits&#32;from&#32;Host.</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00632"/>00632 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">static_cast&lt;</emphasis>DerivedClass*<emphasis role="keyword">&gt;</emphasis>(h);
+<anchor xml:id="_evmc_8hpp_source_1l00633"/>00633 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00634"/>00634 };
+<anchor xml:id="_evmc_8hpp_source_1l00635"/>00635 
+<anchor xml:id="_evmc_8hpp_source_1l00636"/>00636 
+<anchor xml:id="_evmc_8hpp_source_1l00641"/><link linkend="_classevmc_1_1VM">00641</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classevmc_1_1VM">VM</link>
+<anchor xml:id="_evmc_8hpp_source_1l00642"/>00642 {
+<anchor xml:id="_evmc_8hpp_source_1l00643"/>00643 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_evmc_8hpp_source_1l00644"/><link linkend="_classevmc_1_1VM_1a3746149adadf6eea98726ef56a4a2fac">00644</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1VM_1a3746149adadf6eea98726ef56a4a2fac">VM</link>()&#32;noexcept&#32;=&#32;default;
+<anchor xml:id="_evmc_8hpp_source_1l00645"/>00645 
+<anchor xml:id="_evmc_8hpp_source_1l00647"/><link linkend="_classevmc_1_1VM_1af5cd9f6bcaced56a086d515b4f5faf69">00647</link> &#32;&#32;&#32;&#32;explicit&#32;<link linkend="_classevmc_1_1VM">VM</link>(<link linkend="_structevmc__vm">evmc_vm</link>*&#32;vm)&#32;noexcept&#32;:&#32;m_instance{vm}&#32;{}
+<anchor xml:id="_evmc_8hpp_source_1l00648"/>00648 
+<anchor xml:id="_evmc_8hpp_source_1l00650"/><link linkend="_classevmc_1_1VM_1a6e8e28e22d24f5d6a0c6c3a8eb1346c3">00650</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1VM_1a6e8e28e22d24f5d6a0c6c3a8eb1346c3">~VM</link>()&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00651"/>00651 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00652"/>00652 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(m_instance&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="_evmc_8hpp_source_1l00653"/>00653 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;m_instance-&gt;destroy(m_instance);
+<anchor xml:id="_evmc_8hpp_source_1l00654"/>00654 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00655"/>00655 
+<anchor xml:id="_evmc_8hpp_source_1l00656"/><link linkend="_classevmc_1_1VM_1a18067facc2046fa65ee1b3a8285b4582">00656</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1VM_1a18067facc2046fa65ee1b3a8285b4582">VM</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_classevmc_1_1VM">VM</link>&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_evmc_8hpp_source_1l00657"/><link linkend="_classevmc_1_1VM_1a575a423d60619c9cb3d3f47eeec2b8cc">00657</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1VM">VM</link>&amp;&#32;<link linkend="_classevmc_1_1VM_1a575a423d60619c9cb3d3f47eeec2b8cc">operator=</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_classevmc_1_1VM">VM</link>&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_evmc_8hpp_source_1l00658"/>00658 
+<anchor xml:id="_evmc_8hpp_source_1l00660"/><link linkend="_classevmc_1_1VM_1a95954b9cd734a4d78a66e18457106c77">00660</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1VM_1a95954b9cd734a4d78a66e18457106c77">VM</link>(<link linkend="_classevmc_1_1VM">VM</link>&amp;&amp;&#32;other)&#32;noexcept&#32;:&#32;m_instance{other.m_instance}&#32;{&#32;other.m_instance&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00661"/>00661 
+<anchor xml:id="_evmc_8hpp_source_1l00663"/><link linkend="_classevmc_1_1VM_1a2da09c30242ed78bbd724cc14d261ce8">00663</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1VM">VM</link>&amp;&#32;<link linkend="_classevmc_1_1VM_1a2da09c30242ed78bbd724cc14d261ce8">operator=</link>(<link linkend="_classevmc_1_1VM">VM</link>&amp;&amp;&#32;other)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00664"/>00664 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00665"/>00665 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this-&gt;<link linkend="_classevmc_1_1VM">~VM</link>();
+<anchor xml:id="_evmc_8hpp_source_1l00666"/>00666 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;m_instance&#32;=&#32;other.m_instance;
+<anchor xml:id="_evmc_8hpp_source_1l00667"/>00667 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;other.m_instance&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_evmc_8hpp_source_1l00668"/>00668 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+<anchor xml:id="_evmc_8hpp_source_1l00669"/>00669 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00670"/>00670 
+<anchor xml:id="_evmc_8hpp_source_1l00673"/>00673 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_classevmc_1_1VM">VM</link>(<link linkend="_structevmc__vm">evmc_vm</link>*&#32;vm,
+<anchor xml:id="_evmc_8hpp_source_1l00674"/>00674 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::initializer_list&lt;std::pair&lt;const&#32;char*,&#32;const&#32;char*&gt;&gt;&#32;options)&#32;<emphasis role="keyword">noexcept</emphasis>;
+<anchor xml:id="_evmc_8hpp_source_1l00675"/>00675 
+<anchor xml:id="_evmc_8hpp_source_1l00677"/><link linkend="_classevmc_1_1VM_1a24c7c914fff957be50c1e664357c50dd">00677</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<emphasis role="keyword">operator</emphasis>&#32;bool()&#32;const&#32;noexcept&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_instance&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00678"/>00678 
+<anchor xml:id="_evmc_8hpp_source_1l00680"/><link linkend="_classevmc_1_1VM_1a8cee9f8a5a406b52f2bdd99d6e534c08">00680</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classevmc_1_1VM_1a8cee9f8a5a406b52f2bdd99d6e534c08">is_abi_compatible</link>()&#32;const&#32;noexcept&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_instance-&gt;abi_version&#32;==&#32;<link linkend="_group__EVMC_1gga06fc87d81c62e9abb8790b6e5713c55ba1db9144f8af4e62865f0c003c07a02bc">EVMC_ABI_VERSION</link>;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00681"/>00681 
+<anchor xml:id="_evmc_8hpp_source_1l00683"/><link linkend="_classevmc_1_1VM_1ab5f7c5bce52ba427093eeed24b9b7282">00683</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<emphasis role="keyword">const</emphasis>*&#32;<link linkend="_classevmc_1_1VM_1ab5f7c5bce52ba427093eeed24b9b7282">name</link>()&#32;const&#32;noexcept&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_instance-&gt;name;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00684"/>00684 
+<anchor xml:id="_evmc_8hpp_source_1l00686"/><link linkend="_classevmc_1_1VM_1acc45a833c7ae521726aaed2cc3626b5a">00686</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<emphasis role="keyword">const</emphasis>*&#32;<link linkend="_classevmc_1_1VM_1acc45a833c7ae521726aaed2cc3626b5a">version</link>()&#32;const&#32;noexcept&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_instance-&gt;version;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00687"/>00687 
+<anchor xml:id="_evmc_8hpp_source_1l00689"/><link linkend="_classevmc_1_1VM_1a8ee88b1b96be2a2f47c8ecd7893b8511">00689</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classevmc_1_1VM_1a8ee88b1b96be2a2f47c8ecd7893b8511">has_capability</link>(<link linkend="_group__EVMC_1ga44f9ecb88cf6422a0072936494fd6ac7">evmc_capabilities</link>&#32;capability)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00690"/>00690 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00691"/>00691 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(get_capabilities()&#32;&amp;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><link linkend="_group__EVMC_1ga714bc8ca946adc759403fe072bdd2aa0">evmc_capabilities_flagset</link><emphasis role="keyword">&gt;</emphasis>(capability))&#32;!=&#32;0;
+<anchor xml:id="_evmc_8hpp_source_1l00692"/>00692 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00693"/>00693 
+<anchor xml:id="_evmc_8hpp_source_1l00695"/><link linkend="_classevmc_1_1VM_1ad08fc10da254a640703044ed7b92a814">00695</link> &#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1ga714bc8ca946adc759403fe072bdd2aa0">evmc_capabilities_flagset</link>&#32;<link linkend="_classevmc_1_1VM_1ad08fc10da254a640703044ed7b92a814">get_capabilities</link>()&#32;const&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00696"/>00696 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00697"/>00697 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_instance-&gt;get_capabilities(m_instance);
+<anchor xml:id="_evmc_8hpp_source_1l00698"/>00698 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00699"/>00699 
+<anchor xml:id="_evmc_8hpp_source_1l00701"/><link linkend="_classevmc_1_1VM_1a3e118af16cec04356833a6ce0e9e947f">00701</link> &#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1ga28d9f527bda67277bccccc100e32260a">evmc_set_option_result</link>&#32;<link linkend="_classevmc_1_1VM_1a3e118af16cec04356833a6ce0e9e947f">set_option</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;name[],&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;value[])&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00702"/>00702 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00703"/>00703 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__helpers_1gaee14c6797a91ae328e43b4f4916f6004">evmc_set_option</link>(m_instance,&#32;name,&#32;value);
+<anchor xml:id="_evmc_8hpp_source_1l00704"/>00704 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00705"/>00705 
+<anchor xml:id="_evmc_8hpp_source_1l00707"/><link linkend="_classevmc_1_1VM_1aca5b7630cdd84e7b37ade8a972536caa">00707</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1result">result</link>&#32;<link linkend="_classevmc_1_1VM_1aca5b7630cdd84e7b37ade8a972536caa">execute</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__host__interface">evmc_host_interface</link>&amp;&#32;host,
+<anchor xml:id="_evmc_8hpp_source_1l00708"/>00708 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;ctx,
+<anchor xml:id="_evmc_8hpp_source_1l00709"/>00709 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link>&#32;rev,
+<anchor xml:id="_evmc_8hpp_source_1l00710"/>00710 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__message">evmc_message</link>&amp;&#32;msg,
+<anchor xml:id="_evmc_8hpp_source_1l00711"/>00711 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t*&#32;code,
+<anchor xml:id="_evmc_8hpp_source_1l00712"/>00712 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;code_size)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00713"/>00713 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00714"/>00714 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1result">result</link>{m_instance-&gt;execute(m_instance,&#32;&amp;host,&#32;ctx,&#32;rev,&#32;&amp;msg,&#32;code,&#32;code_size)};
+<anchor xml:id="_evmc_8hpp_source_1l00715"/>00715 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00716"/>00716 
+<anchor xml:id="_evmc_8hpp_source_1l00718"/><link linkend="_classevmc_1_1VM_1a3d3c358f94ce2f0099cb4258fc7567b9">00718</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1result">result</link>&#32;<link linkend="_classevmc_1_1VM_1a3d3c358f94ce2f0099cb4258fc7567b9">execute</link>(<link linkend="_classevmc_1_1Host">Host</link>&amp;&#32;host,
+<anchor xml:id="_evmc_8hpp_source_1l00719"/>00719 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link>&#32;rev,
+<anchor xml:id="_evmc_8hpp_source_1l00720"/>00720 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__message">evmc_message</link>&amp;&#32;msg,
+<anchor xml:id="_evmc_8hpp_source_1l00721"/>00721 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t*&#32;code,
+<anchor xml:id="_evmc_8hpp_source_1l00722"/>00722 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;code_size)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00723"/>00723 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00724"/>00724 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;execute(<link linkend="_classevmc_1_1Host_1afb96540fea288f02d83f01e185a78374">Host::get_interface</link>(),&#32;host.to_context(),&#32;rev,&#32;msg,&#32;code,&#32;code_size);
+<anchor xml:id="_evmc_8hpp_source_1l00725"/>00725 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00726"/>00726 
+<anchor xml:id="_evmc_8hpp_source_1l00735"/><link linkend="_classevmc_1_1VM_1a1ef134cf83d1f9f47d4ea05f905825d5">00735</link> &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1result">result</link>&#32;<link linkend="_classevmc_1_1VM_1a1ef134cf83d1f9f47d4ea05f905825d5">execute</link>(<link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link>&#32;rev,
+<anchor xml:id="_evmc_8hpp_source_1l00736"/>00736 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__message">evmc_message</link>&amp;&#32;msg,
+<anchor xml:id="_evmc_8hpp_source_1l00737"/>00737 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t*&#32;code,
+<anchor xml:id="_evmc_8hpp_source_1l00738"/>00738 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;code_size)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00739"/>00739 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00740"/>00740 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1result">result</link>{
+<anchor xml:id="_evmc_8hpp_source_1l00741"/>00741 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;m_instance-&gt;execute(m_instance,&#32;<emphasis role="keyword">nullptr</emphasis>,&#32;<emphasis role="keyword">nullptr</emphasis>,&#32;rev,&#32;&amp;msg,&#32;code,&#32;code_size)};
+<anchor xml:id="_evmc_8hpp_source_1l00742"/>00742 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00743"/>00743 
+<anchor xml:id="_evmc_8hpp_source_1l00749"/><link linkend="_classevmc_1_1VM_1ab2c7d2d9f55863c5baba06505348d7c6">00749</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc__vm">evmc_vm</link>*&#32;<link linkend="_classevmc_1_1VM_1ab2c7d2d9f55863c5baba06505348d7c6">get_raw_pointer</link>()&#32;const&#32;noexcept&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_instance;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00750"/>00750 
+<anchor xml:id="_evmc_8hpp_source_1l00751"/>00751 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_evmc_8hpp_source_1l00752"/><link linkend="_classevmc_1_1VM_1ae30f64264221f893cbe657e92710079f">00752</link> &#32;&#32;&#32;&#32;<link linkend="_structevmc__vm">evmc_vm</link>*&#32;m_instance&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_evmc_8hpp_source_1l00753"/>00753 };
+<anchor xml:id="_evmc_8hpp_source_1l00754"/>00754 
+<anchor xml:id="_evmc_8hpp_source_1l00755"/><link linkend="_classevmc_1_1VM_1a169703435108680a12c3ed4aeefed574">00755</link> <emphasis role="keyword">inline</emphasis>&#32;<link linkend="_classevmc_1_1VM_1a3746149adadf6eea98726ef56a4a2fac">VM::VM</link>(<link linkend="_structevmc__vm">evmc_vm</link>*&#32;vm,
+<anchor xml:id="_evmc_8hpp_source_1l00756"/>00756 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::initializer_list&lt;std::pair&lt;const&#32;char*,&#32;const&#32;char*&gt;&gt;&#32;options)&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00757"/>00757 &#32;&#32;:&#32;m_instance{vm}
+<anchor xml:id="_evmc_8hpp_source_1l00758"/>00758 {
+<anchor xml:id="_evmc_8hpp_source_1l00759"/>00759 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;This&#32;constructor&#32;is&#32;implemented&#32;outside&#32;of&#32;the&#32;class&#32;definition&#32;to&#32;workaround&#32;a&#32;doxygen&#32;bug.</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00760"/>00760 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;option&#32;:&#32;options)
+<anchor xml:id="_evmc_8hpp_source_1l00761"/>00761 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;set_option(option.first,&#32;option.second);
+<anchor xml:id="_evmc_8hpp_source_1l00762"/>00762 }
+<anchor xml:id="_evmc_8hpp_source_1l00763"/>00763 
+<anchor xml:id="_evmc_8hpp_source_1l00764"/>00764 
+<anchor xml:id="_evmc_8hpp_source_1l00765"/>00765 <emphasis role="keyword">namespace&#32;</emphasis>internal
+<anchor xml:id="_evmc_8hpp_source_1l00766"/>00766 {
+<anchor xml:id="_evmc_8hpp_source_1l00767"/>00767 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;account_exists(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;h,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__address">evmc_address</link>*&#32;addr)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00768"/>00768 {
+<anchor xml:id="_evmc_8hpp_source_1l00769"/>00769 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">Host::from_context</link>(h)-&gt;account_exists(*addr);
+<anchor xml:id="_evmc_8hpp_source_1l00770"/>00770 }
+<anchor xml:id="_evmc_8hpp_source_1l00771"/>00771 
+<anchor xml:id="_evmc_8hpp_source_1l00772"/>00772 <emphasis role="keyword">inline</emphasis>&#32;<link linkend="_structevmc__bytes32">evmc_bytes32</link>&#32;get_storage(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;h,
+<anchor xml:id="_evmc_8hpp_source_1l00773"/>00773 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__address">evmc_address</link>*&#32;addr,
+<anchor xml:id="_evmc_8hpp_source_1l00774"/>00774 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__bytes32">evmc_bytes32</link>*&#32;key)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00775"/>00775 {
+<anchor xml:id="_evmc_8hpp_source_1l00776"/>00776 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">Host::from_context</link>(h)-&gt;get_storage(*addr,&#32;*key);
+<anchor xml:id="_evmc_8hpp_source_1l00777"/>00777 }
+<anchor xml:id="_evmc_8hpp_source_1l00778"/>00778 
+<anchor xml:id="_evmc_8hpp_source_1l00779"/>00779 <emphasis role="keyword">inline</emphasis>&#32;<link linkend="_group__EVMC_1gae012fd6b8e5c23806b507c2d3e9fb1aa">evmc_storage_status</link>&#32;set_storage(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;h,
+<anchor xml:id="_evmc_8hpp_source_1l00780"/>00780 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__address">evmc_address</link>*&#32;addr,
+<anchor xml:id="_evmc_8hpp_source_1l00781"/>00781 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__bytes32">evmc_bytes32</link>*&#32;key,
+<anchor xml:id="_evmc_8hpp_source_1l00782"/>00782 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__bytes32">evmc_bytes32</link>*&#32;value)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00783"/>00783 {
+<anchor xml:id="_evmc_8hpp_source_1l00784"/>00784 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">Host::from_context</link>(h)-&gt;set_storage(*addr,&#32;*key,&#32;*value);
+<anchor xml:id="_evmc_8hpp_source_1l00785"/>00785 }
+<anchor xml:id="_evmc_8hpp_source_1l00786"/>00786 
+<anchor xml:id="_evmc_8hpp_source_1l00787"/>00787 <emphasis role="keyword">inline</emphasis>&#32;<link linkend="_structevmc__bytes32">evmc_uint256be</link>&#32;get_balance(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;h,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__address">evmc_address</link>*&#32;addr)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00788"/>00788 {
+<anchor xml:id="_evmc_8hpp_source_1l00789"/>00789 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">Host::from_context</link>(h)-&gt;get_balance(*addr);
+<anchor xml:id="_evmc_8hpp_source_1l00790"/>00790 }
+<anchor xml:id="_evmc_8hpp_source_1l00791"/>00791 
+<anchor xml:id="_evmc_8hpp_source_1l00792"/>00792 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;get_code_size(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;h,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__address">evmc_address</link>*&#32;addr)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00793"/>00793 {
+<anchor xml:id="_evmc_8hpp_source_1l00794"/>00794 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">Host::from_context</link>(h)-&gt;get_code_size(*addr);
+<anchor xml:id="_evmc_8hpp_source_1l00795"/>00795 }
+<anchor xml:id="_evmc_8hpp_source_1l00796"/>00796 
+<anchor xml:id="_evmc_8hpp_source_1l00797"/>00797 <emphasis role="keyword">inline</emphasis>&#32;<link linkend="_structevmc__bytes32">evmc_bytes32</link>&#32;get_code_hash(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;h,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__address">evmc_address</link>*&#32;addr)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00798"/>00798 {
+<anchor xml:id="_evmc_8hpp_source_1l00799"/>00799 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">Host::from_context</link>(h)-&gt;get_code_hash(*addr);
+<anchor xml:id="_evmc_8hpp_source_1l00800"/>00800 }
+<anchor xml:id="_evmc_8hpp_source_1l00801"/>00801 
+<anchor xml:id="_evmc_8hpp_source_1l00802"/>00802 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;copy_code(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;h,
+<anchor xml:id="_evmc_8hpp_source_1l00803"/>00803 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__address">evmc_address</link>*&#32;addr,
+<anchor xml:id="_evmc_8hpp_source_1l00804"/>00804 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;code_offset,
+<anchor xml:id="_evmc_8hpp_source_1l00805"/>00805 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t*&#32;buffer_data,
+<anchor xml:id="_evmc_8hpp_source_1l00806"/>00806 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;buffer_size)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00807"/>00807 {
+<anchor xml:id="_evmc_8hpp_source_1l00808"/>00808 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">Host::from_context</link>(h)-&gt;copy_code(*addr,&#32;code_offset,&#32;buffer_data,&#32;buffer_size);
+<anchor xml:id="_evmc_8hpp_source_1l00809"/>00809 }
+<anchor xml:id="_evmc_8hpp_source_1l00810"/>00810 
+<anchor xml:id="_evmc_8hpp_source_1l00811"/>00811 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;selfdestruct(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;h,
+<anchor xml:id="_evmc_8hpp_source_1l00812"/>00812 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__address">evmc_address</link>*&#32;addr,
+<anchor xml:id="_evmc_8hpp_source_1l00813"/>00813 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__address">evmc_address</link>*&#32;beneficiary)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00814"/>00814 {
+<anchor xml:id="_evmc_8hpp_source_1l00815"/>00815 &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">Host::from_context</link>(h)-&gt;selfdestruct(*addr,&#32;*beneficiary);
+<anchor xml:id="_evmc_8hpp_source_1l00816"/>00816 }
+<anchor xml:id="_evmc_8hpp_source_1l00817"/>00817 
+<anchor xml:id="_evmc_8hpp_source_1l00818"/>00818 <emphasis role="keyword">inline</emphasis>&#32;<link linkend="_structevmc__result">evmc_result</link>&#32;call(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;h,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__message">evmc_message</link>*&#32;msg)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00819"/>00819 {
+<anchor xml:id="_evmc_8hpp_source_1l00820"/>00820 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">Host::from_context</link>(h)-&gt;call(*msg).release_raw();
+<anchor xml:id="_evmc_8hpp_source_1l00821"/>00821 }
+<anchor xml:id="_evmc_8hpp_source_1l00822"/>00822 
+<anchor xml:id="_evmc_8hpp_source_1l00823"/>00823 <emphasis role="keyword">inline</emphasis>&#32;<link linkend="_structevmc__tx__context">evmc_tx_context</link>&#32;get_tx_context(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;h)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00824"/>00824 {
+<anchor xml:id="_evmc_8hpp_source_1l00825"/>00825 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">Host::from_context</link>(h)-&gt;get_tx_context();
+<anchor xml:id="_evmc_8hpp_source_1l00826"/>00826 }
+<anchor xml:id="_evmc_8hpp_source_1l00827"/>00827 
+<anchor xml:id="_evmc_8hpp_source_1l00828"/>00828 <emphasis role="keyword">inline</emphasis>&#32;<link linkend="_structevmc__bytes32">evmc_bytes32</link>&#32;get_block_hash(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;h,&#32;int64_t&#32;block_number)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00829"/>00829 {
+<anchor xml:id="_evmc_8hpp_source_1l00830"/>00830 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">Host::from_context</link>(h)-&gt;get_block_hash(block_number);
+<anchor xml:id="_evmc_8hpp_source_1l00831"/>00831 }
+<anchor xml:id="_evmc_8hpp_source_1l00832"/>00832 
+<anchor xml:id="_evmc_8hpp_source_1l00833"/>00833 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;emit_log(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;h,
+<anchor xml:id="_evmc_8hpp_source_1l00834"/>00834 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__address">evmc_address</link>*&#32;addr,
+<anchor xml:id="_evmc_8hpp_source_1l00835"/>00835 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t*&#32;data,
+<anchor xml:id="_evmc_8hpp_source_1l00836"/>00836 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;data_size,
+<anchor xml:id="_evmc_8hpp_source_1l00837"/>00837 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__bytes32">evmc_bytes32</link>&#32;topics[],
+<anchor xml:id="_evmc_8hpp_source_1l00838"/>00838 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;num_topics)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00839"/>00839 {
+<anchor xml:id="_evmc_8hpp_source_1l00840"/>00840 &#32;&#32;&#32;&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">Host::from_context</link>(h)-&gt;emit_log(*addr,&#32;data,&#32;data_size,&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keyword">const&#32;</emphasis>bytes32*<emphasis role="keyword">&gt;</emphasis>(topics),
+<anchor xml:id="_evmc_8hpp_source_1l00841"/>00841 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;num_topics);
+<anchor xml:id="_evmc_8hpp_source_1l00842"/>00842 }
+<anchor xml:id="_evmc_8hpp_source_1l00843"/>00843 
+<anchor xml:id="_evmc_8hpp_source_1l00844"/>00844 <emphasis role="keyword">inline</emphasis>&#32;<link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link>&#32;access_account(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;h,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__address">evmc_address</link>*&#32;addr)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00845"/>00845 {
+<anchor xml:id="_evmc_8hpp_source_1l00846"/>00846 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">Host::from_context</link>(h)-&gt;access_account(*addr);
+<anchor xml:id="_evmc_8hpp_source_1l00847"/>00847 }
+<anchor xml:id="_evmc_8hpp_source_1l00848"/>00848 
+<anchor xml:id="_evmc_8hpp_source_1l00849"/>00849 <emphasis role="keyword">inline</emphasis>&#32;<link linkend="_group__EVMC_1ga9f71195f3873f9979d81d7a5e1b3aaf0">evmc_access_status</link>&#32;access_storage(<link linkend="_structevmc__host__context">evmc_host_context</link>*&#32;h,
+<anchor xml:id="_evmc_8hpp_source_1l00850"/>00850 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__address">evmc_address</link>*&#32;addr,
+<anchor xml:id="_evmc_8hpp_source_1l00851"/>00851 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__bytes32">evmc_bytes32</link>*&#32;key)&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00852"/>00852 {
+<anchor xml:id="_evmc_8hpp_source_1l00853"/>00853 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classevmc_1_1Host_1a8f28078b9c8fd003061859ecf31d1bed">Host::from_context</link>(h)-&gt;access_storage(*addr,&#32;*key);
+<anchor xml:id="_evmc_8hpp_source_1l00854"/>00854 }
+<anchor xml:id="_evmc_8hpp_source_1l00855"/>00855 }&#32;&#32;<emphasis role="comment">//&#32;namespace&#32;internal</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00856"/>00856 
+<anchor xml:id="_evmc_8hpp_source_1l00857"/><link linkend="_classevmc_1_1Host_1afb96540fea288f02d83f01e185a78374">00857</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc__host__interface">evmc_host_interface</link>&amp;&#32;<link linkend="_classevmc_1_1Host_1afb96540fea288f02d83f01e185a78374">Host::get_interface</link>()&#32;noexcept
+<anchor xml:id="_evmc_8hpp_source_1l00858"/>00858 {
+<anchor xml:id="_evmc_8hpp_source_1l00859"/>00859 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<link linkend="_structevmc__host__interface">evmc_host_interface</link>&#32;interface{
+<anchor xml:id="_evmc_8hpp_source_1l00860"/>00860 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;::evmc::internal::account_exists,&#32;::evmc::internal::get_storage,
+<anchor xml:id="_evmc_8hpp_source_1l00861"/>00861 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;::evmc::internal::set_storage,&#32;&#32;&#32;&#32;::evmc::internal::get_balance,
+<anchor xml:id="_evmc_8hpp_source_1l00862"/>00862 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;::evmc::internal::get_code_size,&#32;&#32;::evmc::internal::get_code_hash,
+<anchor xml:id="_evmc_8hpp_source_1l00863"/>00863 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;::evmc::internal::copy_code,&#32;&#32;&#32;&#32;&#32;&#32;::evmc::internal::selfdestruct,
+<anchor xml:id="_evmc_8hpp_source_1l00864"/>00864 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;::evmc::internal::call,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;::evmc::internal::get_tx_context,
+<anchor xml:id="_evmc_8hpp_source_1l00865"/>00865 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;::evmc::internal::get_block_hash,&#32;::evmc::internal::emit_log,
+<anchor xml:id="_evmc_8hpp_source_1l00866"/>00866 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;::evmc::internal::access_account,&#32;::evmc::internal::access_storage,
+<anchor xml:id="_evmc_8hpp_source_1l00867"/>00867 &#32;&#32;&#32;&#32;};
+<anchor xml:id="_evmc_8hpp_source_1l00868"/>00868 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;interface;
+<anchor xml:id="_evmc_8hpp_source_1l00869"/>00869 }
+<anchor xml:id="_evmc_8hpp_source_1l00870"/>00870 }&#32;&#32;<emphasis role="comment">//&#32;namespace&#32;evmc</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00871"/>00871 
+<anchor xml:id="_evmc_8hpp_source_1l00872"/>00872 
+<anchor xml:id="_evmc_8hpp_source_1l00877"/><link linkend="_evmc_8hpp_1a8fbdc72590b7f78fb2afa785dd30dc98">00877</link> <emphasis role="keyword">inline</emphasis>&#32;std::ostream&amp;&#32;<link linkend="_evmc_8hpp_1a8fbdc72590b7f78fb2afa785dd30dc98">operator&lt;&lt;</link>(std::ostream&amp;&#32;os,&#32;<link linkend="_group__EVMC_1ga4c0be97f333c050ff45321fcaa34d920">evmc_status_code</link>&#32;status_code)
+<anchor xml:id="_evmc_8hpp_source_1l00878"/>00878 {
+<anchor xml:id="_evmc_8hpp_source_1l00879"/>00879 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;os&#32;&lt;&lt;&#32;<link linkend="_namespaceevmc_1a44c9aad0ac3f324d817e18720a1e37de">evmc::to_string</link>(status_code);
+<anchor xml:id="_evmc_8hpp_source_1l00880"/>00880 }
+<anchor xml:id="_evmc_8hpp_source_1l00881"/>00881 
+<anchor xml:id="_evmc_8hpp_source_1l00886"/><link linkend="_evmc_8hpp_1af12ec97e2945c75365b8ac7cc96495b7">00886</link> <emphasis role="keyword">inline</emphasis>&#32;std::ostream&amp;&#32;<link linkend="_evmc_8hpp_1a8fbdc72590b7f78fb2afa785dd30dc98">operator&lt;&lt;</link>(std::ostream&amp;&#32;os,&#32;<link linkend="_group__EVMC_1gae5759b1590071966ccf6a505b52a0ef7">evmc_revision</link>&#32;rev)
+<anchor xml:id="_evmc_8hpp_source_1l00887"/>00887 {
+<anchor xml:id="_evmc_8hpp_source_1l00888"/>00888 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;os&#32;&lt;&lt;&#32;<link linkend="_namespaceevmc_1a44c9aad0ac3f324d817e18720a1e37de">evmc::to_string</link>(rev);
+<anchor xml:id="_evmc_8hpp_source_1l00889"/>00889 }
+<anchor xml:id="_evmc_8hpp_source_1l00890"/>00890 
+<anchor xml:id="_evmc_8hpp_source_1l00891"/>00891 <emphasis role="keyword">namespace&#32;</emphasis>std
+<anchor xml:id="_evmc_8hpp_source_1l00892"/>00892 {
+<anchor xml:id="_evmc_8hpp_source_1l00894"/>00894 <emphasis role="keyword">template</emphasis>&#32;&lt;&gt;
+<anchor xml:id="_evmc_8hpp_source_1l00895"/>00895 <emphasis role="keyword">struct&#32;</emphasis>hash&lt;<link linkend="_namespaceevmc">evmc</link>::<link linkend="_structevmc_1_1address_1a4efaacdd8a0de3a347b845a5b134bd47">address</link>&gt;
+<anchor xml:id="_evmc_8hpp_source_1l00896"/>00896 {
+<anchor xml:id="_evmc_8hpp_source_1l00898"/>00898 &#32;&#32;&#32;&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;operator()(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1address">evmc::address</link>&amp;&#32;s)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00899"/>00899 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00900"/>00900 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;namespace&#32;</emphasis><link linkend="_namespaceevmc">evmc</link>;
+<anchor xml:id="_evmc_8hpp_source_1l00901"/>00901 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;namespace&#32;</emphasis>fnv;
+<anchor xml:id="_evmc_8hpp_source_1l00902"/>00902 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">size_t</emphasis><emphasis role="keyword">&gt;</emphasis>(<link linkend="_namespaceevmc_1_1fnv_1abd837c95e6df5b1f485f429e3b75050f">fnv1a_by64</link>(
+<anchor xml:id="_evmc_8hpp_source_1l00903"/>00903 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1_1fnv_1abd837c95e6df5b1f485f429e3b75050f">fnv1a_by64</link>(<link linkend="_namespaceevmc_1_1fnv_1abd837c95e6df5b1f485f429e3b75050f">fnv1a_by64</link>(<link linkend="_namespaceevmc_1_1fnv_1a5e866562fb1d26d46ec0bb750e762237">fnv::offset_basis</link>,&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;s.bytes[0])),&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;s.bytes[8])),
+<anchor xml:id="_evmc_8hpp_source_1l00904"/>00904 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1ada9ae3e2b40c36dbea8b6fe8ab70375b">load32le</link>(&amp;s.bytes[16])));
+<anchor xml:id="_evmc_8hpp_source_1l00905"/>00905 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00906"/>00906 };
+<anchor xml:id="_evmc_8hpp_source_1l00907"/>00907 
+<anchor xml:id="_evmc_8hpp_source_1l00909"/>00909 <emphasis role="keyword">template</emphasis>&#32;&lt;&gt;
+<anchor xml:id="_evmc_8hpp_source_1l00910"/>00910 <emphasis role="keyword">struct&#32;</emphasis>hash&lt;<link linkend="_namespaceevmc">evmc</link>::<link linkend="_structevmc_1_1bytes32">bytes32</link>&gt;
+<anchor xml:id="_evmc_8hpp_source_1l00911"/>00911 {
+<anchor xml:id="_evmc_8hpp_source_1l00913"/>00913 &#32;&#32;&#32;&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;operator()(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_structevmc_1_1bytes32">evmc::bytes32</link>&amp;&#32;s)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>
+<anchor xml:id="_evmc_8hpp_source_1l00914"/>00914 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_evmc_8hpp_source_1l00915"/>00915 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;namespace&#32;</emphasis><link linkend="_namespaceevmc">evmc</link>;
+<anchor xml:id="_evmc_8hpp_source_1l00916"/>00916 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;namespace&#32;</emphasis>fnv;
+<anchor xml:id="_evmc_8hpp_source_1l00917"/>00917 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">size_t</emphasis><emphasis role="keyword">&gt;</emphasis>(
+<anchor xml:id="_evmc_8hpp_source_1l00918"/>00918 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1_1fnv_1abd837c95e6df5b1f485f429e3b75050f">fnv1a_by64</link>(<link linkend="_namespaceevmc_1_1fnv_1abd837c95e6df5b1f485f429e3b75050f">fnv1a_by64</link>(<link linkend="_namespaceevmc_1_1fnv_1abd837c95e6df5b1f485f429e3b75050f">fnv1a_by64</link>(<link linkend="_namespaceevmc_1_1fnv_1abd837c95e6df5b1f485f429e3b75050f">fnv1a_by64</link>(<link linkend="_namespaceevmc_1_1fnv_1a5e866562fb1d26d46ec0bb750e762237">fnv::offset_basis</link>,&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;s.bytes[0])),
+<anchor xml:id="_evmc_8hpp_source_1l00919"/>00919 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;s.bytes[8])),
+<anchor xml:id="_evmc_8hpp_source_1l00920"/>00920 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;s.bytes[16])),
+<anchor xml:id="_evmc_8hpp_source_1l00921"/>00921 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceevmc_1acd1275224a4eb5f6a672507d144065df">load64le</link>(&amp;s.bytes[24])));
+<anchor xml:id="_evmc_8hpp_source_1l00922"/>00922 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_evmc_8hpp_source_1l00923"/>00923 };
+<anchor xml:id="_evmc_8hpp_source_1l00924"/>00924 }&#32;&#32;<emphasis role="comment">//&#32;namespace&#32;std</emphasis>
+</programlisting></section>

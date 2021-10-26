@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classevmc_1_1HostInterface.html" title="The EVMC Host interface." alt="" coords="5,56,145,83"/>
+<area shape="rect" id="node2" href="$classevmc_1_1Host.html" title="Abstract class to be used by Host implementations." alt="" coords="216,31,305,57"/>
+<area shape="rect" id="node5" href="$classevmc_1_1HostContext.html" title="Wrapper around EVMC host context / host interface." alt="" coords="193,81,328,108"/>
+<area shape="rect" id="node3" href="$classExampleHost.html" title=" " alt="" coords="393,5,495,32"/>
+<area shape="rect" id="node4" href="$classevmc_1_1MockedHost.html" title="Mocked EVMC Host implementation." alt="" coords="376,56,512,83"/>
+</map>

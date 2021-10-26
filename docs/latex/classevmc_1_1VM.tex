@@ -1,0 +1,476 @@
+\hypertarget{classevmc_1_1VM}{}\doxysection{evmc\+::VM Class Reference}
+\label{classevmc_1_1VM}\index{evmc::VM@{evmc::VM}}
+
+
+The \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance.  
+
+
+
+
+{\ttfamily \#include $<$evmc.\+hpp$>$}
+
+
+
+Collaboration diagram for evmc\+::VM\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{classevmc_1_1VM__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classevmc_1_1VM_a3746149adadf6eea98726ef56a4a2fac}{VM}} () noexcept=default
+\item 
+\mbox{\hyperlink{classevmc_1_1VM_af5cd9f6bcaced56a086d515b4f5faf69}{VM}} (\mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} $\ast$vm) noexcept
+\begin{DoxyCompactList}\small\item\em Converting constructor from \mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevmc_1_1VM_a6e8e28e22d24f5d6a0c6c3a8eb1346c3}{$\sim$\+VM}} () noexcept
+\begin{DoxyCompactList}\small\item\em Destructor responsible for automatically destroying the \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevmc_1_1VM_a18067facc2046fa65ee1b3a8285b4582}{VM}} (const \mbox{\hyperlink{classevmc_1_1VM}{VM}} \&)=delete
+\item 
+\mbox{\hyperlink{classevmc_1_1VM}{VM}} \& \mbox{\hyperlink{classevmc_1_1VM_a575a423d60619c9cb3d3f47eeec2b8cc}{operator=}} (const \mbox{\hyperlink{classevmc_1_1VM}{VM}} \&)=delete
+\item 
+\mbox{\hyperlink{classevmc_1_1VM_a95954b9cd734a4d78a66e18457106c77}{VM}} (\mbox{\hyperlink{classevmc_1_1VM}{VM}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevmc_1_1VM}{VM}} \& \mbox{\hyperlink{classevmc_1_1VM_a2da09c30242ed78bbd724cc14d261ce8}{operator=}} (\mbox{\hyperlink{classevmc_1_1VM}{VM}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Move assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevmc_1_1VM_a169703435108680a12c3ed4aeefed574}{VM}} (\mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} $\ast$vm, std\+::initializer\+\_\+list$<$ std\+::pair$<$ const char $\ast$, const char $\ast$ $>$ $>$ options) noexcept
+\begin{DoxyCompactList}\small\item\em The constructor that captures a \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance and configures the instance with the provided list of options. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevmc_1_1VM_a24c7c914fff957be50c1e664357c50dd}{operator bool}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Checks if contains a valid pointer to the \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classevmc_1_1VM_a8cee9f8a5a406b52f2bdd99d6e534c08}{is\+\_\+abi\+\_\+compatible}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Checks whenever the \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance is ABI compatible with the current EVMC API. \end{DoxyCompactList}\item 
+char const $\ast$ \mbox{\hyperlink{classevmc_1_1VM_ab5f7c5bce52ba427093eeed24b9b7282}{name}} () const noexcept
+\begin{DoxyCompactList}\small\item\em The name of the EVMC \mbox{\hyperlink{classevmc_1_1VM}{VM}} implementation. \end{DoxyCompactList}\item 
+char const $\ast$ \mbox{\hyperlink{classevmc_1_1VM_acc45a833c7ae521726aaed2cc3626b5a}{version}} () const noexcept
+\begin{DoxyCompactList}\small\item\em The version of the EVMC \mbox{\hyperlink{classevmc_1_1VM}{VM}} implementation, e.\+g. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classevmc_1_1VM_a8ee88b1b96be2a2f47c8ecd7893b8511}{has\+\_\+capability}} (\mbox{\hyperlink{group__EVMC_ga44f9ecb88cf6422a0072936494fd6ac7}{evmc\+\_\+capabilities}} capability) const noexcept
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classevmc_1_1VM}{VM}} has the given capability. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__EVMC_ga714bc8ca946adc759403fe072bdd2aa0}{evmc\+\_\+capabilities\+\_\+flagset}} \mbox{\hyperlink{classevmc_1_1VM_ad08fc10da254a640703044ed7b92a814}{get\+\_\+capabilities}} () const noexcept
+\begin{DoxyCompactList}\small\item\em A method returning capabilities supported by the \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__EVMC_ga28d9f527bda67277bccccc100e32260a}{evmc\+\_\+set\+\_\+option\+\_\+result}} \mbox{\hyperlink{classevmc_1_1VM_a3e118af16cec04356833a6ce0e9e947f}{set\+\_\+option}} (const char \mbox{\hyperlink{classevmc_1_1VM_ab5f7c5bce52ba427093eeed24b9b7282}{name}}\mbox{[}$\,$\mbox{]}, const char value\mbox{[}$\,$\mbox{]}) noexcept
+\begin{DoxyCompactList}\small\item\em Sets the option for the \mbox{\hyperlink{classevmc_1_1VM}{VM}}, if the feature is supported by the \mbox{\hyperlink{classevmc_1_1VM}{VM}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevmc_1_1result}{result}} \mbox{\hyperlink{classevmc_1_1VM_aca5b7630cdd84e7b37ade8a972536caa}{execute}} (const \mbox{\hyperlink{structevmc__host__interface}{evmc\+\_\+host\+\_\+interface}} \&host, \mbox{\hyperlink{structevmc__host__context}{evmc\+\_\+host\+\_\+context}} $\ast$ctx, \mbox{\hyperlink{group__EVMC_gae5759b1590071966ccf6a505b52a0ef7}{evmc\+\_\+revision}} rev, const \mbox{\hyperlink{structevmc__message}{evmc\+\_\+message}} \&msg, const uint8\+\_\+t $\ast$code, size\+\_\+t code\+\_\+size) noexcept
+\begin{DoxyCompactList}\small\item\em Executes code in the \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevmc_1_1result}{result}} \mbox{\hyperlink{classevmc_1_1VM_a3d3c358f94ce2f0099cb4258fc7567b9}{execute}} (\mbox{\hyperlink{classevmc_1_1Host}{Host}} \&host, \mbox{\hyperlink{group__EVMC_gae5759b1590071966ccf6a505b52a0ef7}{evmc\+\_\+revision}} rev, const \mbox{\hyperlink{structevmc__message}{evmc\+\_\+message}} \&msg, const uint8\+\_\+t $\ast$code, size\+\_\+t code\+\_\+size) noexcept
+\begin{DoxyCompactList}\small\item\em Convenient variant of the \mbox{\hyperlink{classevmc_1_1VM_aca5b7630cdd84e7b37ade8a972536caa}{VM\+::execute()}} that takes reference to \mbox{\hyperlink{classevmc_1_1Host}{evmc\+::\+Host}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevmc_1_1result}{result}} \mbox{\hyperlink{classevmc_1_1VM_a1ef134cf83d1f9f47d4ea05f905825d5}{execute}} (\mbox{\hyperlink{group__EVMC_gae5759b1590071966ccf6a505b52a0ef7}{evmc\+\_\+revision}} rev, const \mbox{\hyperlink{structevmc__message}{evmc\+\_\+message}} \&msg, const uint8\+\_\+t $\ast$code, size\+\_\+t code\+\_\+size) noexcept
+\begin{DoxyCompactList}\small\item\em Executes code without the \mbox{\hyperlink{classevmc_1_1Host}{Host}} context. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} $\ast$ \mbox{\hyperlink{classevmc_1_1VM_ab2c7d2d9f55863c5baba06505348d7c6}{get\+\_\+raw\+\_\+pointer}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the pointer to C EVMC struct representing the \mbox{\hyperlink{classevmc_1_1VM}{VM}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} $\ast$ \mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\+\_\+instance}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance. 
+
+This is a RAII wrapper for \mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}}, and object of this type automatically destroys the \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance. 
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00641}{641}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classevmc_1_1VM_a3746149adadf6eea98726ef56a4a2fac}\label{classevmc_1_1VM_a3746149adadf6eea98726ef56a4a2fac}} 
+\index{evmc::VM@{evmc::VM}!VM@{VM}}
+\index{VM@{VM}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{VM()}{VM()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily evmc\+::\+VM\+::\+VM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{classevmc_1_1VM_af5cd9f6bcaced56a086d515b4f5faf69}\label{classevmc_1_1VM_af5cd9f6bcaced56a086d515b4f5faf69}} 
+\index{evmc::VM@{evmc::VM}!VM@{VM}}
+\index{VM@{VM}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{VM()}{VM()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily evmc\+::\+VM\+::\+VM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} $\ast$}]{vm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Converting constructor from \mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}}. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00647}{647}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00647}00647 : \mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}\{vm\} \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1VM_a6e8e28e22d24f5d6a0c6c3a8eb1346c3}\label{classevmc_1_1VM_a6e8e28e22d24f5d6a0c6c3a8eb1346c3}} 
+\index{evmc::VM@{evmc::VM}!````~VM@{$\sim$VM}}
+\index{````~VM@{$\sim$VM}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{$\sim$VM()}{~VM()}}
+{\footnotesize\ttfamily evmc\+::\+VM\+::$\sim$\+VM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Destructor responsible for automatically destroying the \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00650}{650}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00651}00651     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00652}00652         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}} != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00653}00653             \mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}-\/>\mbox{\hyperlink{structevmc__vm_ac78933134b4e14ca3dd4139ee061cc6b}{destroy}}(\mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}});}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00654}00654     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1VM_a18067facc2046fa65ee1b3a8285b4582}\label{classevmc_1_1VM_a18067facc2046fa65ee1b3a8285b4582}} 
+\index{evmc::VM@{evmc::VM}!VM@{VM}}
+\index{VM@{VM}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{VM()}{VM()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily evmc\+::\+VM\+::\+VM (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classevmc_1_1VM}{VM}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{classevmc_1_1VM_a95954b9cd734a4d78a66e18457106c77}\label{classevmc_1_1VM_a95954b9cd734a4d78a66e18457106c77}} 
+\index{evmc::VM@{evmc::VM}!VM@{VM}}
+\index{VM@{VM}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{VM()}{VM()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily evmc\+::\+VM\+::\+VM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevmc_1_1VM}{VM}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Move constructor. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00660}{660}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00660}00660 : \mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}\{other.\mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}\} \{ other.\mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}} = \textcolor{keyword}{nullptr}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1VM_a169703435108680a12c3ed4aeefed574}\label{classevmc_1_1VM_a169703435108680a12c3ed4aeefed574}} 
+\index{evmc::VM@{evmc::VM}!VM@{VM}}
+\index{VM@{VM}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{VM()}{VM()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily evmc\+::\+VM\+::\+VM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} $\ast$}]{vm,  }\item[{std\+::initializer\+\_\+list$<$ std\+::pair$<$ const char $\ast$, const char $\ast$ $>$ $>$}]{options }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+The constructor that captures a \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance and configures the instance with the provided list of options. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00755}{755}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00757}00757   : \mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}\{vm\}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00758}00758 \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00759}00759     \textcolor{comment}{// This constructor is implemented outside of the class definition to workaround a doxygen bug.}}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00760}00760     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& option : options)}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00761}00761         \mbox{\hyperlink{classevmc_1_1VM_a3e118af16cec04356833a6ce0e9e947f}{set\_option}}(option.first, option.second);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00762}00762 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classevmc_1_1VM_aca5b7630cdd84e7b37ade8a972536caa}\label{classevmc_1_1VM_aca5b7630cdd84e7b37ade8a972536caa}} 
+\index{evmc::VM@{evmc::VM}!execute@{execute}}
+\index{execute@{execute}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classevmc_1_1result}{result}} evmc\+::\+VM\+::execute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structevmc__host__interface}{evmc\+\_\+host\+\_\+interface}} \&}]{host,  }\item[{\mbox{\hyperlink{structevmc__host__context}{evmc\+\_\+host\+\_\+context}} $\ast$}]{ctx,  }\item[{\mbox{\hyperlink{group__EVMC_gae5759b1590071966ccf6a505b52a0ef7}{evmc\+\_\+revision}}}]{rev,  }\item[{const \mbox{\hyperlink{structevmc__message}{evmc\+\_\+message}} \&}]{msg,  }\item[{const uint8\+\_\+t $\ast$}]{code,  }\item[{size\+\_\+t}]{code\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Executes code in the \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__EVMC_gaed9a4ab5609b55c5e3272d6d37d84ff7}{evmc\+\_\+execute\+\_\+fn}}. 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00707}{707}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00713}00713     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00714}00714         \textcolor{keywordflow}{return} \mbox{\hyperlink{classevmc_1_1result}{result}}\{\mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}-\/>\mbox{\hyperlink{structevmc__vm_a8384d28338f2287a9f9e1508699c53f0}{execute}}(\mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}, \&host, ctx, rev, \&msg, code, code\_size)\};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00715}00715     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1VM_a1ef134cf83d1f9f47d4ea05f905825d5}\label{classevmc_1_1VM_a1ef134cf83d1f9f47d4ea05f905825d5}} 
+\index{evmc::VM@{evmc::VM}!execute@{execute}}
+\index{execute@{execute}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classevmc_1_1result}{result}} evmc\+::\+VM\+::execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__EVMC_gae5759b1590071966ccf6a505b52a0ef7}{evmc\+\_\+revision}}}]{rev,  }\item[{const \mbox{\hyperlink{structevmc__message}{evmc\+\_\+message}} \&}]{msg,  }\item[{const uint8\+\_\+t $\ast$}]{code,  }\item[{size\+\_\+t}]{code\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Executes code without the \mbox{\hyperlink{classevmc_1_1Host}{Host}} context. 
+
+The same as execute(const \mbox{\hyperlink{structevmc__host__interface}{evmc\+\_\+host\+\_\+interface}}\&, evmc\+\_\+host\+\_\+context$\ast$, evmc\+\_\+revision, const \mbox{\hyperlink{structevmc__message}{evmc\+\_\+message}}\&, const uint8\+\_\+t$\ast$, size\+\_\+t), but without providing the \mbox{\hyperlink{classevmc_1_1Host}{Host}} context and interface. This method is for experimental precompiles support where execution is guaranteed not to require any \mbox{\hyperlink{classevmc_1_1Host}{Host}} access. 
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00735}{735}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00739}00739     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00740}00740         \textcolor{keywordflow}{return} \mbox{\hyperlink{classevmc_1_1result}{result}}\{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00741}00741             \mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}-\/>\mbox{\hyperlink{structevmc__vm_a8384d28338f2287a9f9e1508699c53f0}{execute}}(\mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}, \textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr}, rev, \&msg, code, code\_size)\};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00742}00742     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1VM_a3d3c358f94ce2f0099cb4258fc7567b9}\label{classevmc_1_1VM_a3d3c358f94ce2f0099cb4258fc7567b9}} 
+\index{evmc::VM@{evmc::VM}!execute@{execute}}
+\index{execute@{execute}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classevmc_1_1result}{result}} evmc\+::\+VM\+::execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevmc_1_1Host}{Host}} \&}]{host,  }\item[{\mbox{\hyperlink{group__EVMC_gae5759b1590071966ccf6a505b52a0ef7}{evmc\+\_\+revision}}}]{rev,  }\item[{const \mbox{\hyperlink{structevmc__message}{evmc\+\_\+message}} \&}]{msg,  }\item[{const uint8\+\_\+t $\ast$}]{code,  }\item[{size\+\_\+t}]{code\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Convenient variant of the \mbox{\hyperlink{classevmc_1_1VM_aca5b7630cdd84e7b37ade8a972536caa}{VM\+::execute()}} that takes reference to \mbox{\hyperlink{classevmc_1_1Host}{evmc\+::\+Host}} class. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00718}{718}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00723}00723     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00724}00724         \textcolor{keywordflow}{return} \mbox{\hyperlink{classevmc_1_1VM_aca5b7630cdd84e7b37ade8a972536caa}{execute}}(\mbox{\hyperlink{classevmc_1_1Host_afb96540fea288f02d83f01e185a78374}{Host::get\_interface}}(), host.\mbox{\hyperlink{classevmc_1_1Host_abd96a61aa3b45d949cb41cf7778fdf6d}{to\_context}}(), rev, msg, code, code\_size);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00725}00725     \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classevmc_1_1VM_a3d3c358f94ce2f0099cb4258fc7567b9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classevmc_1_1VM_ad08fc10da254a640703044ed7b92a814}\label{classevmc_1_1VM_ad08fc10da254a640703044ed7b92a814}} 
+\index{evmc::VM@{evmc::VM}!get\_capabilities@{get\_capabilities}}
+\index{get\_capabilities@{get\_capabilities}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{get\_capabilities()}{get\_capabilities()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__EVMC_ga714bc8ca946adc759403fe072bdd2aa0}{evmc\+\_\+capabilities\+\_\+flagset}} evmc\+::\+VM\+::get\+\_\+capabilities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+A method returning capabilities supported by the \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance. 
+
+The value returned MAY change when different options are set via the \mbox{\hyperlink{classevmc_1_1VM_a3e118af16cec04356833a6ce0e9e947f}{set\+\_\+option()}} method.
+
+A Client SHOULD only rely on the value returned if it has queried it after it has called the \mbox{\hyperlink{classevmc_1_1VM_a3e118af16cec04356833a6ce0e9e947f}{set\+\_\+option()}}.
+
+This is a mandatory method and MUST NOT be set to NULL. 
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00695}{695}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00696}00696     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00697}00697         \textcolor{keywordflow}{return} \mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}-\/>\mbox{\hyperlink{structevmc__vm_a505d4e584a858c2eea7a026f3a94188b}{get\_capabilities}}(\mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}});}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00698}00698     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1VM_ab2c7d2d9f55863c5baba06505348d7c6}\label{classevmc_1_1VM_ab2c7d2d9f55863c5baba06505348d7c6}} 
+\index{evmc::VM@{evmc::VM}!get\_raw\_pointer@{get\_raw\_pointer}}
+\index{get\_raw\_pointer@{get\_raw\_pointer}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{get\_raw\_pointer()}{get\_raw\_pointer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}} $\ast$ evmc\+::\+VM\+::get\+\_\+raw\+\_\+pointer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the pointer to C EVMC struct representing the \mbox{\hyperlink{classevmc_1_1VM}{VM}}. 
+
+Gives access to the C EVMC \mbox{\hyperlink{classevmc_1_1VM}{VM}} struct to allow advanced interaction with the \mbox{\hyperlink{classevmc_1_1VM}{VM}} not supported by the C++ interface. Use as the last resort. This object still owns the \mbox{\hyperlink{classevmc_1_1VM}{VM}} after returning the pointer. The returned pointer MAY be null. 
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00749}{749}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00749}00749 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1VM_a8ee88b1b96be2a2f47c8ecd7893b8511}\label{classevmc_1_1VM_a8ee88b1b96be2a2f47c8ecd7893b8511}} 
+\index{evmc::VM@{evmc::VM}!has\_capability@{has\_capability}}
+\index{has\_capability@{has\_capability}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{has\_capability()}{has\_capability()}}
+{\footnotesize\ttfamily bool evmc\+::\+VM\+::has\+\_\+capability (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__EVMC_ga44f9ecb88cf6422a0072936494fd6ac7}{evmc\+\_\+capabilities}}}]{capability }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Checks if the \mbox{\hyperlink{classevmc_1_1VM}{VM}} has the given capability. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00689}{689}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00690}00690     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00691}00691         \textcolor{keywordflow}{return} (\mbox{\hyperlink{classevmc_1_1VM_ad08fc10da254a640703044ed7b92a814}{get\_capabilities}}() \& \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{group__EVMC_ga714bc8ca946adc759403fe072bdd2aa0}{evmc\_capabilities\_flagset}}\textcolor{keyword}{>}(capability)) != 0;}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00692}00692     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1VM_a8cee9f8a5a406b52f2bdd99d6e534c08}\label{classevmc_1_1VM_a8cee9f8a5a406b52f2bdd99d6e534c08}} 
+\index{evmc::VM@{evmc::VM}!is\_abi\_compatible@{is\_abi\_compatible}}
+\index{is\_abi\_compatible@{is\_abi\_compatible}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{is\_abi\_compatible()}{is\_abi\_compatible()}}
+{\footnotesize\ttfamily bool evmc\+::\+VM\+::is\+\_\+abi\+\_\+compatible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Checks whenever the \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance is ABI compatible with the current EVMC API. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00680}{680}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00680}00680 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}-\/>\mbox{\hyperlink{structevmc__vm_acccbdf95110faffb4dc85624bb1d99b6}{abi\_version}} == \mbox{\hyperlink{group__EVMC_gga06fc87d81c62e9abb8790b6e5713c55ba1db9144f8af4e62865f0c003c07a02bc}{EVMC\_ABI\_VERSION}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1VM_ab5f7c5bce52ba427093eeed24b9b7282}\label{classevmc_1_1VM_ab5f7c5bce52ba427093eeed24b9b7282}} 
+\index{evmc::VM@{evmc::VM}!name@{name}}
+\index{name@{name}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily char const  $\ast$ evmc\+::\+VM\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+The name of the EVMC \mbox{\hyperlink{classevmc_1_1VM}{VM}} implementation. 
+
+It MUST be a NULL-\/terminated not empty string. The content MUST be UTF-\/8 encoded (this implies ASCII encoding is also allowed). 
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00683}{683}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00683}00683 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}-\/>\mbox{\hyperlink{structevmc__vm_ac29ccc98e89c8cab3ffc5bd51a2afaa8}{name}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1VM_a24c7c914fff957be50c1e664357c50dd}\label{classevmc_1_1VM_a24c7c914fff957be50c1e664357c50dd}} 
+\index{evmc::VM@{evmc::VM}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily evmc\+::\+VM\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Checks if contains a valid pointer to the \mbox{\hyperlink{classevmc_1_1VM}{VM}} instance. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00677}{677}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00677}00677 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}} != \textcolor{keyword}{nullptr}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1VM_a575a423d60619c9cb3d3f47eeec2b8cc}\label{classevmc_1_1VM_a575a423d60619c9cb3d3f47eeec2b8cc}} 
+\index{evmc::VM@{evmc::VM}!operator=@{operator=}}
+\index{operator=@{operator=}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classevmc_1_1VM}{VM}} \& evmc\+::\+VM\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classevmc_1_1VM}{VM}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{classevmc_1_1VM_a2da09c30242ed78bbd724cc14d261ce8}\label{classevmc_1_1VM_a2da09c30242ed78bbd724cc14d261ce8}} 
+\index{evmc::VM@{evmc::VM}!operator=@{operator=}}
+\index{operator=@{operator=}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classevmc_1_1VM}{VM}} \& evmc\+::\+VM\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevmc_1_1VM}{VM}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Move assignment operator. 
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00663}{663}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00664}00664     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00665}00665         this-\/>\mbox{\hyperlink{classevmc_1_1VM_a6e8e28e22d24f5d6a0c6c3a8eb1346c3}{\string~VM}}();}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00666}00666         \mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}} = other.\mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00667}00667         other.\mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00668}00668         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00669}00669     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classevmc_1_1VM_a3e118af16cec04356833a6ce0e9e947f}\label{classevmc_1_1VM_a3e118af16cec04356833a6ce0e9e947f}} 
+\index{evmc::VM@{evmc::VM}!set\_option@{set\_option}}
+\index{set\_option@{set\_option}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{set\_option()}{set\_option()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__EVMC_ga28d9f527bda67277bccccc100e32260a}{evmc\+\_\+set\+\_\+option\+\_\+result}} evmc\+::\+VM\+::set\+\_\+option (\begin{DoxyParamCaption}\item[{const char}]{name\mbox{[}$\,$\mbox{]},  }\item[{const char}]{value\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Sets the option for the \mbox{\hyperlink{classevmc_1_1VM}{VM}}, if the feature is supported by the \mbox{\hyperlink{classevmc_1_1VM}{VM}}. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__EVMC_ga5531cee5b83d76c71b06475454f4633b}{evmc\+\_\+set\+\_\+option\+\_\+fn}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00701}{701}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00702}00702     \{}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00703}00703         \textcolor{keywordflow}{return} \mbox{\hyperlink{group__helpers_gaee14c6797a91ae328e43b4f4916f6004}{evmc\_set\_option}}(\mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}, \mbox{\hyperlink{classevmc_1_1VM_ab5f7c5bce52ba427093eeed24b9b7282}{name}}, value);}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00704}00704     \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{classevmc_1_1VM_a3e118af16cec04356833a6ce0e9e947f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classevmc_1_1VM_acc45a833c7ae521726aaed2cc3626b5a}\label{classevmc_1_1VM_acc45a833c7ae521726aaed2cc3626b5a}} 
+\index{evmc::VM@{evmc::VM}!version@{version}}
+\index{version@{version}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{version()}{version()}}
+{\footnotesize\ttfamily char const  $\ast$ evmc\+::\+VM\+::version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+The version of the EVMC \mbox{\hyperlink{classevmc_1_1VM}{VM}} implementation, e.\+g. 
+
+\char`\"{}1.\+2.\+3b4\char`\"{}.
+
+It MUST be a NULL-\/terminated not empty string. The content MUST be UTF-\/8 encoded (this implies ASCII encoding is also allowed). 
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00686}{686}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classevmc_1_1VM_l00686}00686 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}{m\_instance}}-\/>\mbox{\hyperlink{structevmc__vm_af98936c214ed16f5da05ba3d6a619faa}{version}}; \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}\label{classevmc_1_1VM_ae30f64264221f893cbe657e92710079f}} 
+\index{evmc::VM@{evmc::VM}!m\_instance@{m\_instance}}
+\index{m\_instance@{m\_instance}!evmc::VM@{evmc::VM}}
+\doxysubsubsection{\texorpdfstring{m\_instance}{m\_instance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structevmc__vm}{evmc\+\_\+vm}}$\ast$ evmc\+::\+VM\+::m\+\_\+instance = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{evmc_8hpp_source_l00752}{752}} of file \mbox{\hyperlink{evmc_8hpp_source}{evmc.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/evmc/\mbox{\hyperlink{evmc_8hpp}{evmc.\+hpp}}\end{DoxyCompactItemize}

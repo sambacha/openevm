@@ -1,0 +1,54 @@
+\hypertarget{hex_8hpp}{}\doxysection{include/evmc/hex.hpp File Reference}
+\label{hex_8hpp}\index{include/evmc/hex.hpp@{include/evmc/hex.hpp}}
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$string\+\_\+view$>$}\newline
+{\ttfamily \#include $<$system\+\_\+error$>$}\newline
+Include dependency graph for hex.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hex_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structevmc_1_1hex__error}{evmc\+::hex\+\_\+error}}
+\begin{DoxyCompactList}\small\item\em Hex decoding exception. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceevmc}{evmc}}
+\begin{DoxyCompactList}\small\item\em EVMC C++ API -\/ wrappers and bindings for C++. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceevmc_a092c09f674d9cb5f0ba31d0f86537f4a}{evmc\+::bytes}} = std\+::basic\+\_\+string$<$ uint8\+\_\+t $>$
+\begin{DoxyCompactList}\small\item\em String of uint8\+\_\+t chars. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespaceevmc_a539bc1335390844ee67ae697ec457720}{evmc\+::bytes\+\_\+view}} = std\+::basic\+\_\+string\+\_\+view$<$ uint8\+\_\+t $>$
+\begin{DoxyCompactList}\small\item\em String view of uint8\+\_\+t chars. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4}{evmc\+::hex\+\_\+errc}} \{ \mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4a52e6eb82c226e9bfa738fa47d7e359dd}{evmc\+::invalid\+\_\+hex\+\_\+digit}} = 1
+, \mbox{\hyperlink{namespaceevmc_a37d7a743959a67434404404b257b2fd4aac6aff673f8bde724199fc07cea34f63}{evmc\+::incomplete\+\_\+hex\+\_\+byte\+\_\+pair}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em Hex decoding error codes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::error\+\_\+category \& \mbox{\hyperlink{namespaceevmc_ab7adb84a6060aa244b75958d73752696}{evmc\+::hex\+\_\+category}} () noexcept
+\begin{DoxyCompactList}\small\item\em Obtains a reference to the static error category object for hex errors. \end{DoxyCompactList}\item 
+std\+::error\+\_\+code \mbox{\hyperlink{namespaceevmc_aaf35d1ee5ad04f36c4287e9bafb4bd48}{evmc\+::make\+\_\+error\+\_\+code}} (hex\+\_\+errc errc) noexcept
+\begin{DoxyCompactList}\small\item\em Creates error\+\_\+code object out of a hex error code value. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespaceevmc_a19a82782b528ebd37782eb145cf4152c}{evmc\+::hex}} (uint8\+\_\+t b) noexcept
+\begin{DoxyCompactList}\small\item\em Encode a byte to a hex string. \end{DoxyCompactList}\item 
+std\+::error\+\_\+code \mbox{\hyperlink{namespaceevmc_aad6a175f9f53ee5700cb0c233efba79b}{evmc\+::validate\+\_\+hex}} (std\+::string\+\_\+view hex) noexcept
+\begin{DoxyCompactList}\small\item\em Validates hex encoded string. \end{DoxyCompactList}\item 
+bytes \mbox{\hyperlink{namespaceevmc_a4d4e349e08f3fed84bbd6424208a43cf}{evmc\+::from\+\_\+hex}} (std\+::string\+\_\+view hex)
+\begin{DoxyCompactList}\small\item\em Decodes hex encoded string to bytes. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespaceevmc_adb1773c2909e66879ce13de2a49c5fee}{evmc\+::hex}} (bytes\+\_\+view bs)
+\begin{DoxyCompactList}\small\item\em Encodes bytes as hex string. \end{DoxyCompactList}\end{DoxyCompactItemize}
