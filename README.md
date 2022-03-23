@@ -1,3 +1,98 @@
+# Open Ethereum Virtual Machine
+
+<small><i><a href='github.com/sambacha'>OpenEVM Kwowledgebase </a></i></small>
+
+
+
+
+
+
+## [TOC]
+
++ [The Contract constructor function](#the-contract-constructor-function)
+  + [Skeleton example of a very small constructor function](#skeleton-example-of-a-very-small-constructor-function)
+  + [Compiling the smart contract](#compiling-the-smart-contract)
+  + [Running the contract](#running-the-contract)
+  * [Existing implementation](#existing-implementation)
+- [Limitation](#limitation)
+      - [Address layout](#address-layout)
+      - [Limitations](#limitations)
+      - [The function dispatcher (meta function)](#the-function-dispatcher--meta-function-)
+      - [Moving the function dispatcher to front of the LLVM IR function list](#moving-the-function-dispatcher-to-front-of-the-llvm-ir-function-list)
+- [Functionalities](#functionalities)
+  * [Experimental support of landing pad](#experimental-support-of-landing-pad)
+  * [Experimental support of simulating heap allocations](#experimental-support-of-simulating-heap-allocations)
+  * [Constant table support](#constant-table-support)
+  * [Metadata export](#metadata-export)
+- [Optimizations](#optimizations)
+  * [Support more than 16 local variables](#support-more-than-16-local-variables)
+  * [Instruction scheduling](#instruction-scheduling)
+  * [Improve EVM calling conventions](#improve-evm-calling-conventions)
+  * [Re-materialization of constants](#re-materialization-of-constants)
+  * [EVM LLVM Wiki](#evm-llvm-wiki)
+    + [SHA3 (Keccak)](#sha3--keccak-)
+    + [Address](#address)
+    + [Balance](#balance)
+    + [Origin](#origin)
+    + [Caller](#caller)
+    + [CallValue](#callvalue)
+    + [CallDataLoad](#calldataload)
+    + [CallDataSize](#calldatasize)
+    + [CallDataCopy](#calldatacopy)
+    + [CodeSize](#codesize)
+    + [CodeCopy](#codecopy)
+    + [GasPrice](#gasprice)
+    + [ExtCodeSize](#extcodesize)
+    + [ExtCodeCopy](#extcodecopy)
+    + [ReturnDataSize](#returndatasize)
+    + [ReturnDataCopy](#returndatacopy)
+    + [BlockHash](#blockhash)
+    + [Coinbase](#coinbase)
+    + [Timestamp](#timestamp)
+    + [Number](#number)
+    + [Difficulty](#difficulty)
+    + [GasLimit](#gaslimit)
+    + [StorageLoad](#storageload)
+    + [StorageStore](#storagestore)
+    + [MemSize](#memsize)
+    + [Gas](#gas)
+    + [Log0](#log0)
+    + [Log1](#log1)
+    + [Log2](#log2)
+    + [Log3](#log3)
+    + [Log4](#log4)
+    + [Create](#create)
+    + [Create2](#create2)
+    + [Call](#call)
+    + [CallCode](#callcode)
+    + [DelegateCall](#delegatecall)
+    + [StaticCall](#staticcall)
+    + [Return](#return)
+    + [Revert](#revert)
+    + [SelfDestruct](#selfdestruct)
+    + [Frontend is expected to emit 256bit values LLVM IR](#frontend-is-expected-to-emit-256bit-values-llvm-ir)
+    + [Frontend needs to generate compatible LLVM IR](#frontend-needs-to-generate-compatible-llvm-ir)
+  * [Constructor](#constructor)
+  * [Testing utilities](#testing-utilities)
+  * [How to run testings](#how-to-run-testings)
+  * [How to add new tests](#how-to-add-new-tests)
+  * [TODO lists](#todo-lists)
+      - [Frame Objects](#frame-objects)
+    + [Frame Pointer (or Free Memory Pointer)](#frame-pointer--or-free-memory-pointer-)
+    + [Memory stack](#memory-stack)
+  * [Types of calls](#types-of-calls)
+  * [Internal call conventions](#internal-call-conventions)
+  * [Procedure of a subroutine call](#procedure-of-a-subroutine-call)
+  * [[EIP2315](https://eips.ethereum.org/EIPS/eip-2315) Support: Subroutine calls](#-eip2315--https---eipsethereumorg-eips-eip-2315--support--subroutine-calls)
+    + [To generate a call procedure](#to-generate-a-call-procedure)
+    + [To generate the return](#to-generate-the-return)
+  * [External calls](#external-calls)
+  * [Contract Input Argument Types -- The Solidity convention](#contract-input-argument-types----the-solidity-convention)
+
+
+
+
+
 The project compiles like other LLVM projects. The target's name is `EVM`, but since it is not yet finalized, you have to specify `-DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=EVM` when you compile it.
 
 In short,  you can use the following to build the backend:
@@ -180,7 +275,9 @@ using FunctionListType = SymbolTableList<Function>;
 FunctionListType &FuncList = TheModule->getFunctionList();
 FuncList.remove(dispatcher);
 FuncList.insert(FuncList.begin(), dispatcher);
-```# Functionalities
+```
+
+# Functionalities
 ## Experimental support of landing pad
 Landingpad is used to support exception handling.
 
@@ -212,7 +309,6 @@ When calling a subroutine, The return address is the first argument and resides 
 usual small constants should not stay in stack --- they should be rematerialized whenever it is needed.
 
 
-
 Ethereum Virtual Machine specific operations, such as accessing storage, retrieve block information, etc, are through EVM specific instructions. Solidity language automatically generates necessary EVM-specific instructions under the hood so as to hide the details from Solidity developers. However, as a compiler backend, the input to EVM LLVM is LLVM IR format, which is unable to hold any language specific semantics that is higher than the C language level. So it is up to compiler frontends to lower language specific semantics onto LLVM IR level. 
 
 Intrinsic functions are used to represent EVM-specific semantics in the input LLVM IR. Intrinsic functions are usually higher level representations of architecture-specific instructions. In EVM LLVM, we allow users to leverage EVM-specific instructions that are used to interact with the chain or storage by exposing those EVM instructions in the form of intrinsic functions.
@@ -225,6 +321,8 @@ Intrinsic functions are used to represent EVM-specific semantics in the input LL
 
 ![evm-llvm-green-dragon](https://user-images.githubusercontent.com/450283/63640209-85cb3c00-c66b-11e9-9610-0c339ae66ac7.png)
 
+
+## EVM LLVM Wiki
 
 Welcome to the `evm_llvm` wiki! This project aims at bringing LLVM infrastructure to the EVM world where smart contracts are widely deployed. 
 
@@ -703,7 +801,8 @@ There are two types of calls in an EVM smart contract:
 ## Internal call conventions
 Up to ETH 1.5, there is no link and jump EVM opcode for easy handling of subroutines(even though some [discussions](https://github.com/ethereum/EIPs/issues/2315) are on-going). So we have to manually handle subroutine calls. Here are the calling conventions for an internal calls:
 * current subroutine's frame pointer is saved at stack, at memory location `$fp - 32` where `$fp` is the subroutine call's frame pointer.
-* arguments are all pushed on stack, along with the return address. Argument with smaller index number occupies a stack slot on top of another argument with a larger index number. For example, when we want to do a function call: `func abc(x, y, z)`, here is the arrangement of the arguments:
+* Arguments are all pushed on stack, along with the return address. Argument with smaller index number occupies a stack slot on top of another argument with a larger index number. For example, when we want to do a function call: `func abc(x, y, z)`, here is the arrangement of the arguments:
+
 ```
                +-----------+
                |Return Addr|
