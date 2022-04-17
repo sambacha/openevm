@@ -3,10 +3,6 @@
 <small><i><a href='github.com/sambacha'>OpenEVM Kwowledgebase </a></i></small>
 
 
-
-
-
-
 ## [TOC]
 
 + [The Contract constructor function](#the-contract-constructor-function)
@@ -90,6 +86,64 @@
   * [Contract Input Argument Types -- The Solidity convention](#contract-input-argument-types----the-solidity-convention)
 
 
+# Introduction
+
+The EVM **is a stack machine**. Instructions might use values on the stack as arguments, and push values onto the stack as results. Let’s consider the operation add.
+
+Elements on the **stack** are 32-byte words, and all keys and values in **storage** are 32 bytes. There are over 100 opcodes, divided into categories delineated in multiples of 16.
+
+The EVM is a security oriented virtual machine, designed to permit untrusted code to be executed by a global network of computers.
+
+To do so securely, it imposes the following restrictions:
+
+- Every computational step taken in a program's execution must be paid for up front, thereby preventing Denial-of-Service attacks.
+- Programs may only interact with each other by transmitting a single arbitrary-length byte array; they do not have access to each other's state.
+- Program execution is sandboxed; an EVM program may access and modify its own internal state and may trigger the execution of other EVM programs, but nothing else.
+- Program execution is fully deterministic and produces identical state transitions for any conforming implementation beginning in an identical state.
+
+**Ethereum ABI (Application Binary Interface)**: is the standard way to interact with contracts in the Ethereum ecosystem, both from outside the blockchain and for contract-to-contract interaction. It is a specification for how arguments and function calls should be encoded in the call-data
+
+An EVM compiler doesn’t exactly optimize for bytecode size or speed or memory efficiency. Instead, it optimizes for gas usage, which is an layer of indirection that incentivizes the sort of calculation that the Ethereum blockchain can do efficiently.
+
+Gas costs are set somewhat arbitrarily, and could well change in the future. As costs change, compilers would make different choices.
+
+### EVM Implementations (Ethereum clients)
+
+- go-ethereum (Go)
+- Parity (Rust)
+- EthereumJ (Java)
+
+Some interesting implementations: 
+
+- [eth-isabelle](https://github.com/pirapira/eth-isabelle): theorem provers
+- [sputter](https://github.com/nervous-systems/sputter): implementation in Clojure
+
+
+### Programming Languages that Compile into EVM
+
+- Solidity
+- [LLLL](https://github.com/mmalvarez/eth-isabelle/blob/master/example/LLLL.thy): An LLL-like compiler being implemented in Isabelle/HOL
+- [HAseembly-evm](https://github.com/takenobu-hs/haskell-ethereum-assembly): An EVM assembly implemented as a Haskell DSL  
+```haskell
+    main :: IO ()
+    main = putStrLn $ codegen prog1
+    
+    prog1 :: EvmAsm
+    prog1 = do
+        push1 0x10
+        push1 0x20
+        add
+```
+        
+## Resources
+
+additional refs:  
+
+[EVM - Awesome List](https://github.com/ethereum/wiki/wiki/Ethereum-Virtual-Machine-(EVM)-Awesome-List)  
+
+[CoinCulture - evm-tools](https://github.com/CoinCulture/evm-tools/blob/master/analysis/guide.md)
+
+[Diving into the Ethereum EVM](https://blog.qtum.org/diving-into-the-ethereum-vm-6e8d5d2f3c30)
 
 
 
