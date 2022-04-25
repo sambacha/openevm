@@ -134,6 +134,67 @@ Some interesting implementations:
         push1 0x20
         add
 ```
+
+
+## Context ops (0x30-range)
+The following ops have dynamic gas, and are not charted:
+
+<pre>
+`CALLDATALOAD`,
+`CALLDATACOPY`,
+`CODECOPY`,
+`EXTCODECOPY`,
+`RETURNDATACOPY`,
+</pre>
+
+Note: `BALANCE` should really be called `EXTBALANCE`, since it fetches balance for (potentially) external accounts.
+
+## SHA3 ops (0x20-range)
+The `SHA3` operation has it's own range since it'a dynamically priced operation.
+
+## Storage and execution (0x50 range)
+These are the ops
+<pre>
+`POP`
+`MLOAD`
+`MSTORE`
+`MSTORE8`
+`SLOAD`
+`SSTORE`
+`JUMP`
+`JUMPI`
+`PC`
+`MSIZE`
+`GAS`
+`JUMPDEST`
+</pre>
+However,
+
+-MSTORE and MSTORE8 have an additional cost for expanding memory
+
+SLOAD varies depending on previous value
+JUMP/JUMPI have a hidden cost: they require jumpdest analysis.
+
+## 0xf0 - calling
+Remaining ops are 'special' - both dynamic costs and non-trivial effects, such as starting new call contexts or exiting from call contexts.
+
+<pre>
+`CREATE`
+`CALL`
+`CALLCODE`
+`RETURN`
+`DELEGATECALL`
+`CREATE2`
+`STATICCALL`
+`REVERT`
+`SELFDESTRUCT`
+</pre>
+
+## 0xa0 - Logging
+The LOG opcodes are dynamically priced, depending on the memory size, so we don't have gas/time charts, but here's a time spent-chart:
+
+## 0x60 range
+These are `DUPX`,`SWAPX` and `PUSHX`.
         
 ## Resources
 
@@ -144,21 +205,6 @@ additional refs:
 [CoinCulture - evm-tools](https://github.com/CoinCulture/evm-tools/blob/master/analysis/guide.md)
 
 [Diving into the Ethereum EVM](https://blog.qtum.org/diving-into-the-ethereum-vm-6e8d5d2f3c30)
-
-
-
-The project compiles like other LLVM projects. The target's name is `EVM`, but since it is not yet finalized, you have to specify `-DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=EVM` when you compile it.
-
-In short,  you can use the following to build the backend:
-```
-git clone git@github.com:etclabscore/evm_llvm.git
-cd evm_llvm
-git checkout EVM
-mkdir build && cd build
-cmake -DLLVM_TARGETS_TO_BUILD=EVM -DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=EVM ..
-make -j8
-```
-
 
 
 ### The Contract constructor function
