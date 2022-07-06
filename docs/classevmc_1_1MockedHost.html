@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -37,19 +41,29 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespaceevmc.html">evmc</a></li><li class="navelem"><a class="el" href="classevmc_1_1MockedHost.html">MockedHost</a></li>  </ul>
-</div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classevmc_1_1MockedHost.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classevmc_1_1MockedHost-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">evmc::MockedHost Class Reference</div></div>
 </div><!--header-->
@@ -62,28 +76,13 @@ $(function() {
 <div class="dynheader">
 Inheritance diagram for evmc::MockedHost:</div>
 <div class="dyncontent">
-<div class="center"><img src="classevmc_1_1MockedHost__inherit__graph.png" border="0" usemap="#aevmc_1_1MockedHost_inherit__map" alt="Inheritance graph"/></div>
-<map name="aevmc_1_1MockedHost_inherit__map" id="aevmc_1_1MockedHost_inherit__map">
-<area shape="rect" title="Mocked EVMC Host implementation." alt="" coords="7,155,143,181"/>
-<area shape="rect" href="classevmc_1_1Host.html" title="Abstract class to be used by Host implementations." alt="" coords="31,80,120,107"/>
-<area shape="rect" href="classevmc_1_1HostInterface.html" title="The EVMC Host interface." alt="" coords="5,5,145,32"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for evmc::MockedHost:</div>
-<div class="dyncontent">
-<div class="center"><img src="classevmc_1_1MockedHost__coll__graph.png" border="0" usemap="#aevmc_1_1MockedHost_coll__map" alt="Collaboration graph"/></div>
-<map name="aevmc_1_1MockedHost_coll__map" id="aevmc_1_1MockedHost_coll__map">
-<area shape="rect" title="Mocked EVMC Host implementation." alt="" coords="199,228,335,255"/>
-<area shape="rect" href="classevmc_1_1Host.html" title="Abstract class to be used by Host implementations." alt="" coords="31,139,120,165"/>
-<area shape="rect" href="classevmc_1_1HostInterface.html" title="The EVMC Host interface." alt="" coords="5,5,145,32"/>
-<area shape="rect" href="structevmc__tx__context.html" title="The transaction and block data for execution." alt="" coords="277,139,399,165"/>
-<area shape="rect" href="structevmc__bytes32.html" title="The fixed size array of 32 bytes." alt="" coords="179,5,287,32"/>
-<area shape="rect" href="structevmc_1_1bytes32.html" title="The fixed size array of 32 bytes for storing 256&#45;bit EVM values." alt="" coords="144,139,252,165"/>
-<area shape="rect" href="structevmc__address.html" title="Big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="371,5,481,32"/>
-<area shape="rect" href="structevmc__result.html" title="The EVM code execution result." alt="" coords="434,139,527,165"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+ <div class="center">
+  <img src="classevmc_1_1MockedHost.png" usemap="#evmc::MockedHost_map" alt=""/>
+  <map id="evmc::MockedHost_map" name="evmc::MockedHost_map">
+<area href="classevmc_1_1Host.html" title="Abstract class to be used by Host implementations." alt="evmc::Host" shape="rect" coords="0,56,123,80"/>
+<area href="classevmc_1_1HostInterface.html" title="The EVMC Host interface." alt="evmc::HostInterface" shape="rect" coords="0,0,123,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -142,9 +141,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abd96a61aa3b45d949cb41cf7778fdf6d inherit pub_methods_classevmc_1_1Host"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structevmc__host__context.html">evmc_host_context</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevmc_1_1Host.html#abd96a61aa3b45d949cb41cf7778fdf6d">to_context</a> () noexcept</td></tr>
 <tr class="memdesc:abd96a61aa3b45d949cb41cf7778fdf6d inherit pub_methods_classevmc_1_1Host"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the <a class="el" href="classevmc_1_1Host.html" title="Abstract class to be used by Host implementations.">Host</a> object to the opaque host context pointer.  <a href="classevmc_1_1Host.html#abd96a61aa3b45d949cb41cf7778fdf6d">More...</a><br /></td></tr>
 <tr class="separator:abd96a61aa3b45d949cb41cf7778fdf6d inherit pub_methods_classevmc_1_1Host"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classevmc_1_1HostInterface"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classevmc_1_1HostInterface')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classevmc_1_1HostInterface.html">evmc::HostInterface</a></td></tr>
-<tr class="memitem:a665ab0274f11c55269c08dc8c056d061 inherit pub_methods_classevmc_1_1HostInterface"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevmc_1_1HostInterface.html#a665ab0274f11c55269c08dc8c056d061">~HostInterface</a> () noexcept=default</td></tr>
-<tr class="separator:a665ab0274f11c55269c08dc8c056d061 inherit pub_methods_classevmc_1_1HostInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -184,18 +180,6 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a78ad202959aa8d416faf715ab6f7f687"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevmc_1_1MockedHost.html#a78ad202959aa8d416faf715ab6f7f687">max_recorded_calls</a> = 100</td></tr>
 <tr class="memdesc:a78ad202959aa8d416faf715ab6f7f687"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum number of entries in recorded_calls record.  <a href="classevmc_1_1MockedHost.html#a78ad202959aa8d416faf715ab6f7f687">More...</a><br /></td></tr>
 <tr class="separator:a78ad202959aa8d416faf715ab6f7f687"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a0c00a74cb2326e57a3a6a844432d72e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</a> (const <a class="el" href="structevmc_1_1address.html">address</a> &amp;addr) const</td></tr>
-<tr class="memdesc:a0c00a74cb2326e57a3a6a844432d72e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record an account access.  <a href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1">More...</a><br /></td></tr>
-<tr class="separator:a0c00a74cb2326e57a3a6a844432d72e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a07d9cb06c3f78bbb2323467271709467"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespaceevmc.html#a092c09f674d9cb5f0ba31d0f86537f4a">bytes</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevmc_1_1MockedHost.html#a07d9cb06c3f78bbb2323467271709467">m_recorded_calls_inputs</a></td></tr>
-<tr class="memdesc:a07d9cb06c3f78bbb2323467271709467"><td class="mdescLeft">&#160;</td><td class="mdescRight">The copy of call inputs for the recorded_calls record.  <a href="classevmc_1_1MockedHost.html#a07d9cb06c3f78bbb2323467271709467">More...</a><br /></td></tr>
-<tr class="separator:a07d9cb06c3f78bbb2323467271709467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -258,7 +242,7 @@ mocked_host.access_account(msg.recipient);
 <div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>            std::find(<a class="code hl_variable" href="classevmc_1_1MockedHost.html#aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</a>.begin(), <a class="code hl_variable" href="classevmc_1_1MockedHost.html#aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</a>.end(), addr) !=</div>
 <div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>            <a class="code hl_variable" href="classevmc_1_1MockedHost.html#aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</a>.end();</div>
 <div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        <a class="code hl_function" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</a>(addr);</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        record_account_access(addr);</div>
 <div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        <span class="comment">// Accessing precompiled contracts is always warm.</span></div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>        <span class="keywordflow">if</span> (addr &gt;= 0x0000000000000000000000000000000000000001_address &amp;&amp;</div>
@@ -267,20 +251,10 @@ mocked_host.access_account(msg.recipient);
 <div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span> </div>
 <div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>        <span class="keywordflow">return</span> already_accessed ? <a class="code hl_enumvalue" href="group__EVMC.html#gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994">EVMC_ACCESS_WARM</a> : <a class="code hl_enumvalue" href="group__EVMC.html#gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76">EVMC_ACCESS_COLD</a>;</div>
 <div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    }</div>
-<div class="ttc" id="aclassevmc_1_1MockedHost_html_a0c00a74cb2326e57a3a6a844432d72e1"><div class="ttname"><a href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1">evmc::MockedHost::record_account_access</a></div><div class="ttdeci">void record_account_access(const address &amp;addr) const</div><div class="ttdoc">Record an account access.</div><div class="ttdef"><b>Definition:</b> <a href="mocked__host_8hpp_source.html#l00150">mocked_host.hpp:150</a></div></div>
 <div class="ttc" id="aclassevmc_1_1MockedHost_html_aee945d218d656a7788d4fce5f30db3ca"><div class="ttname"><a href="classevmc_1_1MockedHost.html#aee945d218d656a7788d4fce5f30db3ca">evmc::MockedHost::recorded_account_accesses</a></div><div class="ttdeci">std::vector&lt; address &gt; recorded_account_accesses</div><div class="ttdoc">The record of all account accesses.</div><div class="ttdef"><b>Definition:</b> <a href="mocked__host_8hpp_source.html#l00125">mocked_host.hpp:125</a></div></div>
 <div class="ttc" id="agroup__EVMC_html_gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76"><div class="ttname"><a href="group__EVMC.html#gga9f71195f3873f9979d81d7a5e1b3aaf0a3a719b69a4c3f9d6b9913b47312b5a76">EVMC_ACCESS_COLD</a></div><div class="ttdeci">@ EVMC_ACCESS_COLD</div><div class="ttdoc">The entry hasn't been accessed before – it's the first access.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00662">evmc.h:662</a></div></div>
 <div class="ttc" id="agroup__EVMC_html_gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994"><div class="ttname"><a href="group__EVMC.html#gga9f71195f3873f9979d81d7a5e1b3aaf0a584ba0f1ab5c1e5e8a126fdcdde5d994">EVMC_ACCESS_WARM</a></div><div class="ttdeci">@ EVMC_ACCESS_WARM</div><div class="ttdoc">The entry is already in accessed_addresses or accessed_storage_keys.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00668">evmc.h:667</a></div></div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classevmc_1_1MockedHost_a51f9acf40acec535549d32c7ab079b9e_cgraph.png" border="0" usemap="#aclassevmc_1_1MockedHost_a51f9acf40acec535549d32c7ab079b9e_cgraph" alt=""/></div>
-<map name="aclassevmc_1_1MockedHost_a51f9acf40acec535549d32c7ab079b9e_cgraph" id="aclassevmc_1_1MockedHost_a51f9acf40acec535549d32c7ab079b9e_cgraph">
-<area shape="rect" title="Record an account access." alt="" coords="5,5,189,47"/>
-<area shape="rect" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1" title="Record an account access." alt="" coords="237,5,417,47"/>
-</map>
-</div>
-
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a759d289a03d7ebeac0b727938d9ee521" name="a759d289a03d7ebeac0b727938d9ee521"></a>
@@ -371,19 +345,10 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="mocked__host_8hpp_source.html#l00161">161</a> of file <a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a>.</p>
 <div class="fragment"><div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    {</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <a class="code hl_function" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</a>(addr);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        record_account_access(addr);</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a5bc5bfc2b23104dc5554f87c51383b47">accounts</a>.count(addr) != 0;</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    }</div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classevmc_1_1MockedHost_a53a463e19e4908022137ce53715c2dce_cgraph.png" border="0" usemap="#aclassevmc_1_1MockedHost_a53a463e19e4908022137ce53715c2dce_cgraph" alt=""/></div>
-<map name="aclassevmc_1_1MockedHost_a53a463e19e4908022137ce53715c2dce_cgraph" id="aclassevmc_1_1MockedHost_a53a463e19e4908022137ce53715c2dce_cgraph">
-<area shape="rect" title="Returns true if an account exists (EVMC Host method)." alt="" coords="5,5,195,47"/>
-<area shape="rect" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1" title="Record an account access." alt="" coords="243,5,423,47"/>
-</map>
-</div>
-
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad7f341e9bc49fe73286c65bfc3d56ec3" name="ad7f341e9bc49fe73286c65bfc3d56ec3"></a>
@@ -416,12 +381,12 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="mocked__host_8hpp_source.html#l00281">281</a> of file <a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a>.</p>
 <div class="fragment"><div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    {</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        <a class="code hl_function" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</a>(msg.<a class="code hl_variable" href="structevmc__message.html#a63643daa5f3a30df28d42360a20e39e2">recipient</a>);</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        record_account_access(msg.<a class="code hl_variable" href="structevmc__message.html#a63643daa5f3a30df28d42360a20e39e2">recipient</a>);</div>
 <div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
 <div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classevmc_1_1MockedHost.html#af4487c7cb827ef8ce54da187d109189a">recorded_calls</a>.empty())</div>
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        {</div>
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>            <a class="code hl_variable" href="classevmc_1_1MockedHost.html#af4487c7cb827ef8ce54da187d109189a">recorded_calls</a>.reserve(<a class="code hl_variable" href="classevmc_1_1MockedHost.html#a78ad202959aa8d416faf715ab6f7f687">max_recorded_calls</a>);</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>            <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a07d9cb06c3f78bbb2323467271709467">m_recorded_calls_inputs</a>.reserve(<a class="code hl_variable" href="classevmc_1_1MockedHost.html#a78ad202959aa8d416faf715ab6f7f687">max_recorded_calls</a>);  <span class="comment">// Iterators will not invalidate.</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>            m_recorded_calls_inputs.reserve(<a class="code hl_variable" href="classevmc_1_1MockedHost.html#a78ad202959aa8d416faf715ab6f7f687">max_recorded_calls</a>);  <span class="comment">// Iterators will not invalidate.</span></div>
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        }</div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classevmc_1_1MockedHost.html#af4487c7cb827ef8ce54da187d109189a">recorded_calls</a>.size() &lt; <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a78ad202959aa8d416faf715ab6f7f687">max_recorded_calls</a>)</div>
@@ -430,28 +395,18 @@ Here is the call graph for this function:</div>
 <div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>            <span class="keyword">auto</span>&amp; call_msg = <a class="code hl_variable" href="classevmc_1_1MockedHost.html#af4487c7cb827ef8ce54da187d109189a">recorded_calls</a>.back();</div>
 <div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>            <span class="keywordflow">if</span> (call_msg.input_size &gt; 0)</div>
 <div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>            {</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>                <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a07d9cb06c3f78bbb2323467271709467">m_recorded_calls_inputs</a>.emplace_back(call_msg.input_data, call_msg.input_size);</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; input_copy = <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a07d9cb06c3f78bbb2323467271709467">m_recorded_calls_inputs</a>.back();</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>                m_recorded_calls_inputs.emplace_back(call_msg.input_data, call_msg.input_size);</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; input_copy = m_recorded_calls_inputs.back();</div>
 <div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>                call_msg.input_data = input_copy.data();</div>
 <div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>            }</div>
 <div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>        }</div>
 <div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        <span class="keywordflow">return</span> result{<a class="code hl_variable" href="classevmc_1_1MockedHost.html#a473ec63bcb8b786c5fb1b097cfcfb8c0">call_result</a>};</div>
 <div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    }</div>
-<div class="ttc" id="aclassevmc_1_1MockedHost_html_a07d9cb06c3f78bbb2323467271709467"><div class="ttname"><a href="classevmc_1_1MockedHost.html#a07d9cb06c3f78bbb2323467271709467">evmc::MockedHost::m_recorded_calls_inputs</a></div><div class="ttdeci">std::vector&lt; bytes &gt; m_recorded_calls_inputs</div><div class="ttdoc">The copy of call inputs for the recorded_calls record.</div><div class="ttdef"><b>Definition:</b> <a href="mocked__host_8hpp_source.html#l00146">mocked_host.hpp:146</a></div></div>
 <div class="ttc" id="aclassevmc_1_1MockedHost_html_a473ec63bcb8b786c5fb1b097cfcfb8c0"><div class="ttname"><a href="classevmc_1_1MockedHost.html#a473ec63bcb8b786c5fb1b097cfcfb8c0">evmc::MockedHost::call_result</a></div><div class="ttdeci">evmc_result call_result</div><div class="ttdoc">The call result to be returned by the call() method.</div><div class="ttdef"><b>Definition:</b> <a href="mocked__host_8hpp_source.html#l00119">mocked_host.hpp:119</a></div></div>
 <div class="ttc" id="aclassevmc_1_1MockedHost_html_a78ad202959aa8d416faf715ab6f7f687"><div class="ttname"><a href="classevmc_1_1MockedHost.html#a78ad202959aa8d416faf715ab6f7f687">evmc::MockedHost::max_recorded_calls</a></div><div class="ttdeci">static constexpr auto max_recorded_calls</div><div class="ttdoc">The maximum number of entries in recorded_calls record.</div><div class="ttdef"><b>Definition:</b> <a href="mocked__host_8hpp_source.html#l00136">mocked_host.hpp:136</a></div></div>
 <div class="ttc" id="aclassevmc_1_1MockedHost_html_af4487c7cb827ef8ce54da187d109189a"><div class="ttname"><a href="classevmc_1_1MockedHost.html#af4487c7cb827ef8ce54da187d109189a">evmc::MockedHost::recorded_calls</a></div><div class="ttdeci">std::vector&lt; evmc_message &gt; recorded_calls</div><div class="ttdoc">The record of all call messages requested in the call() method.</div><div class="ttdef"><b>Definition:</b> <a href="mocked__host_8hpp_source.html#l00132">mocked_host.hpp:132</a></div></div>
 <div class="ttc" id="astructevmc__message_html_a63643daa5f3a30df28d42360a20e39e2"><div class="ttname"><a href="structevmc__message.html#a63643daa5f3a30df28d42360a20e39e2">evmc_message::recipient</a></div><div class="ttdeci">evmc_address recipient</div><div class="ttdoc">The recipient of the message.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00132">evmc.h:132</a></div></div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classevmc_1_1MockedHost_ad7f341e9bc49fe73286c65bfc3d56ec3_cgraph.png" border="0" usemap="#aclassevmc_1_1MockedHost_ad7f341e9bc49fe73286c65bfc3d56ec3_cgraph" alt=""/></div>
-<map name="aclassevmc_1_1MockedHost_ad7f341e9bc49fe73286c65bfc3d56ec3_cgraph" id="aclassevmc_1_1MockedHost_ad7f341e9bc49fe73286c65bfc3d56ec3_cgraph">
-<area shape="rect" title="Call/create other contract (EVMC host method)." alt="" coords="5,13,168,39"/>
-<area shape="rect" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1" title="Record an account access." alt="" coords="216,5,396,47"/>
-</map>
-</div>
-
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a2679f00109fab1c027fb789b83a25d20" name="a2679f00109fab1c027fb789b83a25d20"></a>
@@ -506,7 +461,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="mocked__host_8hpp_source.html#l00251">251</a> of file <a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a>.</p>
 <div class="fragment"><div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    {</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <a class="code hl_function" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</a>(addr);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        record_account_access(addr);</div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <span class="keyword">const</span> <span class="keyword">auto</span> it = <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a5bc5bfc2b23104dc5554f87c51383b47">accounts</a>.find(addr);</div>
 <div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keywordflow">if</span> (it == <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a5bc5bfc2b23104dc5554f87c51383b47">accounts</a>.end())</div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>            <span class="keywordflow">return</span> 0;</div>
@@ -522,16 +477,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>            std::copy_n(&amp;code[code_offset], n, buffer_data);</div>
 <div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keywordflow">return</span> n;</div>
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    }</div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classevmc_1_1MockedHost_a2679f00109fab1c027fb789b83a25d20_cgraph.png" border="0" usemap="#aclassevmc_1_1MockedHost_a2679f00109fab1c027fb789b83a25d20_cgraph" alt=""/></div>
-<map name="aclassevmc_1_1MockedHost_a2679f00109fab1c027fb789b83a25d20_cgraph" id="aclassevmc_1_1MockedHost_a2679f00109fab1c027fb789b83a25d20_cgraph">
-<area shape="rect" title="Copy the account&#39;s code to the given buffer (EVMC host method)." alt="" coords="5,13,212,39"/>
-<area shape="rect" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1" title="Record an account access." alt="" coords="260,5,440,47"/>
-</map>
-</div>
-
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a4263c29b321dbecfcbb4357a469a3bee" name="a4263c29b321dbecfcbb4357a469a3bee"></a>
@@ -628,23 +574,14 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="mocked__host_8hpp_source.html#l00220">220</a> of file <a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a>.</p>
 <div class="fragment"><div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    {</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <a class="code hl_function" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</a>(addr);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        record_account_access(addr);</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <span class="keyword">const</span> <span class="keyword">auto</span> it = <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a5bc5bfc2b23104dc5554f87c51383b47">accounts</a>.find(addr);</div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keywordflow">if</span> (it == <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a5bc5bfc2b23104dc5554f87c51383b47">accounts</a>.end())</div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>            <span class="keywordflow">return</span> {};</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="keywordflow">return</span> it-&gt;second.balance;</div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    }</div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classevmc_1_1MockedHost_a401e74178baba9772638e6b4309e9bee_cgraph.png" border="0" usemap="#aclassevmc_1_1MockedHost_a401e74178baba9772638e6b4309e9bee_cgraph" alt=""/></div>
-<map name="aclassevmc_1_1MockedHost_a401e74178baba9772638e6b4309e9bee_cgraph" id="aclassevmc_1_1MockedHost_a401e74178baba9772638e6b4309e9bee_cgraph">
-<area shape="rect" title="Get the account&#39;s balance (EVMC Host method)." alt="" coords="5,5,167,47"/>
-<area shape="rect" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1" title="Record an account access." alt="" coords="215,5,395,47"/>
-</map>
-</div>
-
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ace3ba78141acc06849d3b34382466e36" name="ace3ba78141acc06849d3b34382466e36"></a>
@@ -715,22 +652,13 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="mocked__host_8hpp_source.html#l00241">241</a> of file <a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a>.</p>
 <div class="fragment"><div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    {</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <a class="code hl_function" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</a>(addr);</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        record_account_access(addr);</div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <span class="keyword">const</span> <span class="keyword">auto</span> it = <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a5bc5bfc2b23104dc5554f87c51383b47">accounts</a>.find(addr);</div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <span class="keywordflow">if</span> (it == <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a5bc5bfc2b23104dc5554f87c51383b47">accounts</a>.end())</div>
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>            <span class="keywordflow">return</span> {};</div>
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        <span class="keywordflow">return</span> it-&gt;second.codehash;</div>
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    }</div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classevmc_1_1MockedHost_a776687379553c67540c8c16df9e8f226_cgraph.png" border="0" usemap="#aclassevmc_1_1MockedHost_a776687379553c67540c8c16df9e8f226_cgraph" alt=""/></div>
-<map name="aclassevmc_1_1MockedHost_a776687379553c67540c8c16df9e8f226_cgraph" id="aclassevmc_1_1MockedHost_a776687379553c67540c8c16df9e8f226_cgraph">
-<area shape="rect" title="Get the account&#39;s code hash (EVMC host method)." alt="" coords="5,5,167,47"/>
-<area shape="rect" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1" title="Record an account access." alt="" coords="215,5,395,47"/>
-</map>
-</div>
-
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a0ecf2503e3af4ed98cce8eff45385a33" name="a0ecf2503e3af4ed98cce8eff45385a33"></a>
@@ -763,22 +691,13 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="mocked__host_8hpp_source.html#l00231">231</a> of file <a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a>.</p>
 <div class="fragment"><div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    {</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        <a class="code hl_function" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</a>(addr);</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        record_account_access(addr);</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keyword">const</span> <span class="keyword">auto</span> it = <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a5bc5bfc2b23104dc5554f87c51383b47">accounts</a>.find(addr);</div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        <span class="keywordflow">if</span> (it == <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a5bc5bfc2b23104dc5554f87c51383b47">accounts</a>.end())</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        <span class="keywordflow">return</span> it-&gt;second.code.size();</div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    }</div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classevmc_1_1MockedHost_a0ecf2503e3af4ed98cce8eff45385a33_cgraph.png" border="0" usemap="#aclassevmc_1_1MockedHost_a0ecf2503e3af4ed98cce8eff45385a33_cgraph" alt=""/></div>
-<map name="aclassevmc_1_1MockedHost_a0ecf2503e3af4ed98cce8eff45385a33_cgraph" id="aclassevmc_1_1MockedHost_a0ecf2503e3af4ed98cce8eff45385a33_cgraph">
-<area shape="rect" title="Get the account&#39;s code size (EVMC host method)." alt="" coords="5,5,167,47"/>
-<area shape="rect" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1" title="Record an account access." alt="" coords="215,5,395,47"/>
-</map>
-</div>
-
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a6336919efaf07ad1e9e4f725a86ebdca" name="a6336919efaf07ad1e9e4f725a86ebdca"></a>
@@ -821,7 +740,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="mocked__host_8hpp_source.html#l00168">168</a> of file <a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a>.</p>
 <div class="fragment"><div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    {</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <a class="code hl_function" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</a>(addr);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        record_account_access(addr);</div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keyword">const</span> <span class="keyword">auto</span> account_iter = <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a5bc5bfc2b23104dc5554f87c51383b47">accounts</a>.find(addr);</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordflow">if</span> (account_iter == <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a5bc5bfc2b23104dc5554f87c51383b47">accounts</a>.end())</div>
@@ -832,16 +751,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            <span class="keywordflow">return</span> storage_iter-&gt;second.value;</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordflow">return</span> {};</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    }</div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classevmc_1_1MockedHost_a6336919efaf07ad1e9e4f725a86ebdca_cgraph.png" border="0" usemap="#aclassevmc_1_1MockedHost_a6336919efaf07ad1e9e4f725a86ebdca_cgraph" alt=""/></div>
-<map name="aclassevmc_1_1MockedHost_a6336919efaf07ad1e9e4f725a86ebdca_cgraph" id="aclassevmc_1_1MockedHost_a6336919efaf07ad1e9e4f725a86ebdca_cgraph">
-<area shape="rect" title="Get the account&#39;s storage value at the given key (EVMC Host method)." alt="" coords="5,5,167,47"/>
-<area shape="rect" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1" title="Record an account access." alt="" coords="215,5,395,47"/>
-</map>
-</div>
-
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a45187586bde530ca7beb157467c12733" name="a45187586bde530ca7beb157467c12733"></a>
@@ -874,50 +784,6 @@ Here is the call graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="mocked__host_8hpp_source.html#l00306">306</a> of file <a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a>.</p>
 <div class="fragment"><div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classevmc_1_1MockedHost.html#addf01838d4c15228e746caa0a645a3b1">tx_context</a>; }</div>
 <div class="ttc" id="aclassevmc_1_1MockedHost_html_addf01838d4c15228e746caa0a645a3b1"><div class="ttname"><a href="classevmc_1_1MockedHost.html#addf01838d4c15228e746caa0a645a3b1">evmc::MockedHost::tx_context</a></div><div class="ttdeci">evmc_tx_context tx_context</div><div class="ttdoc">The EVMC transaction context to be returned by get_tx_context().</div><div class="ttdef"><b>Definition:</b> <a href="mocked__host_8hpp_source.html#l00113">mocked_host.hpp:113</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a0c00a74cb2326e57a3a6a844432d72e1" name="a0c00a74cb2326e57a3a6a844432d72e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c00a74cb2326e57a3a6a844432d72e1">&#9670;&nbsp;</a></span>record_account_access()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void evmc::MockedHost::record_account_access </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structevmc_1_1address.html">address</a> &amp;&#160;</td>
-          <td class="paramname"><em>addr</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Record an account access. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">addr</td><td>The address of the accessed account. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="mocked__host_8hpp_source.html#l00150">150</a> of file <a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    {</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classevmc_1_1MockedHost.html#aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</a>.empty())</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            <a class="code hl_variable" href="classevmc_1_1MockedHost.html#aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</a>.reserve(<a class="code hl_variable" href="classevmc_1_1MockedHost.html#a5ab49cfd8bc76f9dab117946a5c12efa">max_recorded_account_accesses</a>);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classevmc_1_1MockedHost.html#aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</a>.size() &lt; <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a5ab49cfd8bc76f9dab117946a5c12efa">max_recorded_account_accesses</a>)</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            <a class="code hl_variable" href="classevmc_1_1MockedHost.html#aee945d218d656a7788d4fce5f30db3ca">recorded_account_accesses</a>.emplace_back(addr);</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    }</div>
-<div class="ttc" id="aclassevmc_1_1MockedHost_html_a5ab49cfd8bc76f9dab117946a5c12efa"><div class="ttname"><a href="classevmc_1_1MockedHost.html#a5ab49cfd8bc76f9dab117946a5c12efa">evmc::MockedHost::max_recorded_account_accesses</a></div><div class="ttdeci">static constexpr auto max_recorded_account_accesses</div><div class="ttdoc">The maximum number of entries in recorded_account_accesses record.</div><div class="ttdef"><b>Definition:</b> <a href="mocked__host_8hpp_source.html#l00129">mocked_host.hpp:129</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -961,20 +827,11 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="mocked__host_8hpp_source.html#l00274">274</a> of file <a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a>.</p>
 <div class="fragment"><div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    {</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        <a class="code hl_function" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</a>(addr);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        record_account_access(addr);</div>
 <div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        <a class="code hl_variable" href="classevmc_1_1MockedHost.html#a0456263e1326f91a27c0e3a0381d967f">recorded_selfdestructs</a>.push_back({addr, beneficiary});</div>
 <div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    }</div>
 <div class="ttc" id="aclassevmc_1_1MockedHost_html_a0456263e1326f91a27c0e3a0381d967f"><div class="ttname"><a href="classevmc_1_1MockedHost.html#a0456263e1326f91a27c0e3a0381d967f">evmc::MockedHost::recorded_selfdestructs</a></div><div class="ttdeci">std::vector&lt; selfdestruct_record &gt; recorded_selfdestructs</div><div class="ttdoc">The record of all SELFDESTRUCTs from the selfdestruct() method.</div><div class="ttdef"><b>Definition:</b> <a href="mocked__host_8hpp_source.html#l00142">mocked_host.hpp:142</a></div></div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classevmc_1_1MockedHost_aa0b0cfd19450eaf220cde06ab1d96858_cgraph.png" border="0" usemap="#aclassevmc_1_1MockedHost_aa0b0cfd19450eaf220cde06ab1d96858_cgraph" alt=""/></div>
-<map name="aclassevmc_1_1MockedHost_aa0b0cfd19450eaf220cde06ab1d96858_cgraph" id="aclassevmc_1_1MockedHost_aa0b0cfd19450eaf220cde06ab1d96858_cgraph">
-<area shape="rect" title="Selfdestruct the account (EVMC host method)." alt="" coords="5,13,216,39"/>
-<area shape="rect" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1" title="Record an account access." alt="" coords="264,5,444,47"/>
-</map>
-</div>
-
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aad63cd61357052ab1fa87e6ff372b3d7" name="aad63cd61357052ab1fa87e6ff372b3d7"></a>
@@ -1023,7 +880,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="mocked__host_8hpp_source.html#l00183">183</a> of file <a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a>.</p>
 <div class="fragment"><div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    {</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <a class="code hl_function" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1">record_account_access</a>(addr);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        record_account_access(addr);</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="comment">// Get the reference to the old value.</span></div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="comment">// This will create the account in case it was not present.</span></div>
@@ -1060,16 +917,7 @@ Here is the call graph for this function:</div>
 <div class="ttc" id="agroup__EVMC_html_ggae012fd6b8e5c23806b507c2d3e9fb1aaad6d527edcbe8a63edad5be80f252330c"><div class="ttname"><a href="group__EVMC.html#ggae012fd6b8e5c23806b507c2d3e9fb1aaad6d527edcbe8a63edad5be80f252330c">EVMC_STORAGE_UNCHANGED</a></div><div class="ttdeci">@ EVMC_STORAGE_UNCHANGED</div><div class="ttdoc">The value of a storage item has been left unchanged: 0 -&gt; 0 and X -&gt; X.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00515">evmc.h:515</a></div></div>
 <div class="ttc" id="agroup__EVMC_html_ggae012fd6b8e5c23806b507c2d3e9fb1aaae5b6ea5ec988f3b3ceb323ce3c0fa53f"><div class="ttname"><a href="group__EVMC.html#ggae012fd6b8e5c23806b507c2d3e9fb1aaae5b6ea5ec988f3b3ceb323ce3c0fa53f">EVMC_STORAGE_DELETED</a></div><div class="ttdeci">@ EVMC_STORAGE_DELETED</div><div class="ttdoc">A storage item has been deleted: X -&gt; 0.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00536">evmc.h:535</a></div></div>
 <div class="ttc" id="agroup__EVMC_html_ggae012fd6b8e5c23806b507c2d3e9fb1aaaf102ce749767d5277923c221089da2c6"><div class="ttname"><a href="group__EVMC.html#ggae012fd6b8e5c23806b507c2d3e9fb1aaaf102ce749767d5277923c221089da2c6">EVMC_STORAGE_MODIFIED</a></div><div class="ttdeci">@ EVMC_STORAGE_MODIFIED</div><div class="ttdoc">The value of a storage item has been modified: X -&gt; Y.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00520">evmc.h:520</a></div></div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classevmc_1_1MockedHost_aad63cd61357052ab1fa87e6ff372b3d7_cgraph.png" border="0" usemap="#aclassevmc_1_1MockedHost_aad63cd61357052ab1fa87e6ff372b3d7_cgraph" alt=""/></div>
-<map name="aclassevmc_1_1MockedHost_aad63cd61357052ab1fa87e6ff372b3d7_cgraph" id="aclassevmc_1_1MockedHost_aad63cd61357052ab1fa87e6ff372b3d7_cgraph">
-<area shape="rect" title="Set the account&#39;s storage value (EVMC Host method)." alt="" coords="5,5,165,47"/>
-<area shape="rect" href="classevmc_1_1MockedHost.html#a0c00a74cb2326e57a3a6a844432d72e1" title="Record an account access." alt="" coords="213,5,393,47"/>
-</map>
-</div>
-
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -1124,32 +972,6 @@ Here is the call graph for this function:</div>
 <p>The call result to be returned by the <a class="el" href="classevmc_1_1MockedHost.html#ad7f341e9bc49fe73286c65bfc3d56ec3" title="Call/create other contract (EVMC host method).">call()</a> method. </p>
 
 <p class="definition">Definition at line <a class="el" href="mocked__host_8hpp_source.html#l00119">119</a> of file <a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a07d9cb06c3f78bbb2323467271709467" name="a07d9cb06c3f78bbb2323467271709467"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07d9cb06c3f78bbb2323467271709467">&#9670;&nbsp;</a></span>m_recorded_calls_inputs</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="namespaceevmc.html#a092c09f674d9cb5f0ba31d0f86537f4a">bytes</a>&gt; evmc::MockedHost::m_recorded_calls_inputs</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The copy of call inputs for the recorded_calls record. </p>
-
-<p class="definition">Definition at line <a class="el" href="mocked__host_8hpp_source.html#l00146">146</a> of file <a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a>.</p>
 
 </div>
 </div>
@@ -1335,9 +1157,13 @@ Here is the call graph for this function:</div>
 <li>include/evmc/<a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 19 2021 13:37:49 for EVMC by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceevmc.html">evmc</a></li><li class="navelem"><a class="el" href="classevmc_1_1MockedHost.html">MockedHost</a></li>
+    <li class="footer">Generated on Wed Jul 6 2022 11:03:34 for EVMC by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -38,6 +42,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('structevmc__host__interface.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
@@ -50,19 +70,6 @@ $(function() {
  <a href="structevmc__host__interface.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="evmc_8h_source.html">evmc.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for evmc_host_interface:</div>
-<div class="dyncontent">
-<div class="center"><img src="structevmc__host__interface__coll__graph.png" border="0" usemap="#aevmc__host__interface_coll__map" alt="Collaboration graph"/></div>
-<map name="aevmc__host__interface_coll__map" id="aevmc__host__interface_coll__map">
-<area shape="rect" title="The Host interface." alt="" coords="177,363,323,389"/>
-<area shape="rect" href="structevmc__host__context.html" title="The opaque data type representing the Host execution context." alt="" coords="5,155,143,181"/>
-<area shape="rect" href="structevmc__bytes32.html" title="The fixed size array of 32 bytes." alt="" coords="177,5,285,32"/>
-<area shape="rect" href="structevmc__tx__context.html" title="The transaction and block data for execution." alt="" coords="313,155,435,181"/>
-<area shape="rect" href="structevmc__result.html" title="The EVM code execution result." alt="" coords="459,155,553,181"/>
-<area shape="rect" href="structevmc__address.html" title="Big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="333,5,442,32"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -371,9 +378,13 @@ Public Attributes</h2></td></tr>
 <li>include/evmc/<a class="el" href="evmc_8h_source.html">evmc.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 19 2021 13:37:49 for EVMC by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="structevmc__host__interface.html">evmc_host_interface</a></li>
+    <li class="footer">Generated on Wed Jul 6 2022 11:03:34 for EVMC by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
+  </ul>
+</div>
 </body>
 </html>

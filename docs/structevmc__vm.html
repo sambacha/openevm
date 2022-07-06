@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -38,6 +42,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('structevmc__vm.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
@@ -50,16 +70,6 @@ $(function() {
  <a href="structevmc__vm.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="evmc_8h_source.html">evmc.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for evmc_vm:</div>
-<div class="dyncontent">
-<div class="center"><img src="structevmc__vm__coll__graph.png" border="0" usemap="#aevmc__vm_coll__map" alt="Collaboration graph"/></div>
-<map name="aevmc__vm_coll__map" id="aevmc__vm_coll__map">
-<area shape="rect" title="The VM instance." alt="" coords="21,193,99,219"/>
-<area shape="rect" href="structevmc__result.html" title="The EVM code execution result." alt="" coords="13,95,107,121"/>
-<area shape="rect" href="structevmc__address.html" title="Big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="5,5,115,32"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -89,7 +99,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p >The VM instance. </p>
 <p >Defines the base struct of the VM implementation. </p>
 
-<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l00979">979</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l00993">993</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="acccbdf95110faffb4dc85624bb1d99b6" name="acccbdf95110faffb4dc85624bb1d99b6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acccbdf95110faffb4dc85624bb1d99b6">&#9670;&nbsp;</a></span>abi_version</h2>
@@ -106,7 +116,7 @@ Public Attributes</h2></td></tr>
 <p>EVMC ABI version implemented by the VM instance. </p>
 <p >Can be used to detect ABI incompatibilities. The EVMC ABI version represented by this file is in <a class="el" href="group__EVMC.html#gga06fc87d81c62e9abb8790b6e5713c55ba1db9144f8af4e62865f0c003c07a02bc" title="The EVMC ABI version number of the interface declared in this file.">EVMC_ABI_VERSION</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l00987">987</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l01001">1001</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
 
 </div>
 </div>
@@ -125,7 +135,7 @@ Public Attributes</h2></td></tr>
 <p>Pointer to function destroying the VM instance. </p>
 <p >This is a mandatory method and MUST NOT be set to NULL. </p>
 
-<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l01010">1010</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l01024">1024</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
 
 </div>
 </div>
@@ -144,7 +154,7 @@ Public Attributes</h2></td></tr>
 <p>Pointer to function executing a code by the VM instance. </p>
 <p >This is a mandatory method and MUST NOT be set to NULL. </p>
 
-<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l01017">1017</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l01031">1031</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
 
 </div>
 </div>
@@ -165,7 +175,7 @@ Public Attributes</h2></td></tr>
 <p >A Client SHOULD only rely on the value returned if it has queried it after it has called the <a class="el" href="structevmc__vm.html#a20fd85c822ba5f3296206fc8fe3e90b2" title="Optional pointer to function modifying VM&#39;s options.">set_option()</a>.</p>
 <p >This is a mandatory method and MUST NOT be set to NULL. </p>
 
-<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l01029">1029</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l01043">1043</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
 
 </div>
 </div>
@@ -184,7 +194,7 @@ Public Attributes</h2></td></tr>
 <p>The name of the EVMC VM implementation. </p>
 <p >It MUST be a NULL-terminated not empty string. The content MUST be UTF-8 encoded (this implies ASCII encoding is also allowed). </p>
 
-<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l00995">995</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l01009">1009</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
 
 </div>
 </div>
@@ -203,7 +213,7 @@ Public Attributes</h2></td></tr>
 <p>Optional pointer to function modifying VM's options. </p>
 <p >If the VM does not support this feature the pointer can be NULL. </p>
 
-<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l01036">1036</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l01050">1050</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
 
 </div>
 </div>
@@ -223,7 +233,7 @@ Public Attributes</h2></td></tr>
 <p >"1.2.3b4".</p>
 <p >It MUST be a NULL-terminated not empty string. The content MUST be UTF-8 encoded (this implies ASCII encoding is also allowed). </p>
 
-<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l01003">1003</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l01017">1017</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
 
 </div>
 </div>
@@ -231,9 +241,13 @@ Public Attributes</h2></td></tr>
 <li>include/evmc/<a class="el" href="evmc_8h_source.html">evmc.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 19 2021 13:37:49 for EVMC by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="structevmc__vm.html">evmc_vm</a></li>
+    <li class="footer">Generated on Wed Jul 6 2022 11:03:34 for EVMC by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
+  </ul>
+</div>
 </body>
 </html>

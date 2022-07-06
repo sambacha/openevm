@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -38,6 +42,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('group__EVMC.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
@@ -79,11 +99,6 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The opaque data type representing the Host execution context.  <a href="structevmc__host__context.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:gab420e51ab90ccc579dce3f6860b69627"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__EVMC.html#gab420e51ab90ccc579dce3f6860b69627">EVMC_DEPRECATED</a></td></tr>
-<tr class="separator:gab420e51ab90ccc579dce3f6860b69627"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:gab19677b7977fc98a8d1182256486c8e9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structevmc__bytes32.html">evmc_bytes32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__EVMC.html#gab19677b7977fc98a8d1182256486c8e9">evmc_bytes32</a></td></tr>
@@ -92,8 +107,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:ga260738d59f9a23d039dc7a290e0c0a3b"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structevmc__bytes32.html">evmc_bytes32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__EVMC.html#ga260738d59f9a23d039dc7a290e0c0a3b">evmc_uint256be</a></td></tr>
 <tr class="memdesc:ga260738d59f9a23d039dc7a290e0c0a3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The alias for <a class="el" href="structevmc__bytes32.html" title="The fixed size array of 32 bytes.">evmc_bytes32</a> to represent a big-endian 256-bit integer.  <a href="group__EVMC.html#ga260738d59f9a23d039dc7a290e0c0a3b">More...</a><br /></td></tr>
 <tr class="separator:ga260738d59f9a23d039dc7a290e0c0a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0a566da7d9e3c337abf4ef4045d8f5c5"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structevmc__address.html">evmc_address</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__EVMC.html#ga0a566da7d9e3c337abf4ef4045d8f5c5">evmc_address</a></td></tr>
-<tr class="memdesc:ga0a566da7d9e3c337abf4ef4045d8f5c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Big-endian 160-bit hash suitable for keeping an Ethereum address.  <a href="group__EVMC.html#ga0a566da7d9e3c337abf4ef4045d8f5c5">More...</a><br /></td></tr>
+<tr class="memitem:ga0a566da7d9e3c337abf4ef4045d8f5c5"><td class="memItemLeft" align="right" valign="top"><a id="ga0a566da7d9e3c337abf4ef4045d8f5c5" name="ga0a566da7d9e3c337abf4ef4045d8f5c5"></a>
+typedef struct <a class="el" href="structevmc__address.html">evmc_address</a>&#160;</td><td class="memItemRight" valign="bottom"><b>evmc_address</b></td></tr>
+<tr class="memdesc:ga0a566da7d9e3c337abf4ef4045d8f5c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Big-endian 160-bit hash suitable for keeping an Ethereum address. <br /></td></tr>
 <tr class="separator:ga0a566da7d9e3c337abf4ef4045d8f5c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7b403c029b5b9ad627ffafb8c41ac84b"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structevmc__tx__context.html">evmc_tx_context</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__EVMC.html#ga7b403c029b5b9ad627ffafb8c41ac84b">evmc_get_tx_context_fn</a>) (struct <a class="el" href="structevmc__host__context.html">evmc_host_context</a> *context)</td></tr>
 <tr class="memdesc:ga7b403c029b5b9ad627ffafb8c41ac84b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get transaction context callback function.  <a href="group__EVMC.html#ga7b403c029b5b9ad627ffafb8c41ac84b">More...</a><br /></td></tr>
@@ -223,9 +239,9 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga9f71195f3873f9979d81d7a5e1b3aaf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access status per EIP-2929: Gas cost increases for state access opcodes.  <a href="group__EVMC.html#ga9f71195f3873f9979d81d7a5e1b3aaf0">More...</a><br /></td></tr>
 <tr class="separator:ga9f71195f3873f9979d81d7a5e1b3aaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga28d9f527bda67277bccccc100e32260a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__EVMC.html#ga28d9f527bda67277bccccc100e32260a">evmc_set_option_result</a> { <a class="el" href="group__EVMC.html#gga28d9f527bda67277bccccc100e32260aa4e458cfd9a8d5da0ed5e93a3d3ad5d3b">EVMC_SET_OPTION_SUCCESS</a> = 0
-, <a class="el" href="group__EVMC.html#gga28d9f527bda67277bccccc100e32260aa462712eea718b1a9088aaaf995bcb80e">EVMC_SET_OPTION_INVALID_NAME</a> = 1
-, <a class="el" href="group__EVMC.html#gga28d9f527bda67277bccccc100e32260aa7be8628edb4ac9b2d195894f112d0924">EVMC_SET_OPTION_INVALID_VALUE</a> = 2
+<tr class="memitem:ga28d9f527bda67277bccccc100e32260a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__EVMC.html#ga28d9f527bda67277bccccc100e32260a">evmc_set_option_result</a> { <b>EVMC_SET_OPTION_SUCCESS</b> = 0
+, <b>EVMC_SET_OPTION_INVALID_NAME</b> = 1
+, <b>EVMC_SET_OPTION_INVALID_VALUE</b> = 2
  }</td></tr>
 <tr class="memdesc:ga28d9f527bda67277bccccc100e32260a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Possible outcomes of evmc_set_option.  <a href="group__EVMC.html#ga28d9f527bda67277bccccc100e32260a">More...</a><br /></td></tr>
 <tr class="separator:ga28d9f527bda67277bccccc100e32260a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -242,10 +258,12 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7af53e0cb0d793d60b5fb07c6b4c3c6ab7">EVMC_BERLIN</a> = 8
 , <a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7acfe86739fa2a0882d49cf19a94d8ee09">EVMC_LONDON</a> = 9
-, <a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7ac79d6325f9e74fd00a6b98eaea3e30a5">EVMC_SHANGHAI</a> = 10
-, <a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a8b67f41f15bc079b8ad40dcd7156f576">EVMC_MAX_REVISION</a> = EVMC_SHANGHAI
+, <a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7adaa40f0a556842b0339aedc61ec332f7">EVMC_PARIS</a> = 10
+, <a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7ac79d6325f9e74fd00a6b98eaea3e30a5">EVMC_SHANGHAI</a> = 11
 , <br />
-&#160;&#160;<a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a0dd8bdd55816359290e8fb8648aeb03e">EVMC_LATEST_STABLE_REVISION</a> = EVMC_LONDON
+&#160;&#160;<a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7ac503f2602c39827e09476616ac785a21">EVMC_CANCUN</a> = 12
+, <a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a8b67f41f15bc079b8ad40dcd7156f576">EVMC_MAX_REVISION</a> = EVMC_CANCUN
+, <a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a0dd8bdd55816359290e8fb8648aeb03e">EVMC_LATEST_STABLE_REVISION</a> = EVMC_LONDON
 <br />
  }</td></tr>
 <tr class="memdesc:gae5759b1590071966ccf6a505b52a0ef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">EVM revision.  <a href="group__EVMC.html#gae5759b1590071966ccf6a505b52a0ef7">More...</a><br /></td></tr>
@@ -265,7 +283,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p >EVMC: Ethereum Client-VM Connector API. </p>
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright 2016-2019 The EVMC Authors. Licensed under the Apache License, Version 2.0.</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright 2016 The EVMC Authors. Licensed under the Apache License, Version 2.0.</dd></dl>
 <h2><a class="anchor" id="autotoc_md1"></a>
 Terms</h2>
 <ol type="1">
@@ -388,22 +406,6 @@ Host</h3>
 
 </div>
 </div>
-<a id="ga0a566da7d9e3c337abf4ef4045d8f5c5" name="ga0a566da7d9e3c337abf4ef4045d8f5c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0a566da7d9e3c337abf4ef4045d8f5c5">&#9670;&nbsp;</a></span>evmc_address</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct <a class="el" href="structevmc__address.html">evmc_address</a> <a class="el" href="structevmc__address.html">evmc_address</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Big-endian 160-bit hash suitable for keeping an Ethereum address. </p>
-
-</div>
-</div>
 <a id="gab19677b7977fc98a8d1182256486c8e9" name="gab19677b7977fc98a8d1182256486c8e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gab19677b7977fc98a8d1182256486c8e9">&#9670;&nbsp;</a></span>evmc_bytes32</h2>
 
@@ -462,7 +464,7 @@ Host</h3>
 <p>Alias for unsigned integer representing a set of bit flags of EVMC capabilities. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__EVMC.html#ga44f9ecb88cf6422a0072936494fd6ac7" title="Possible capabilities of a VM.">evmc_capabilities</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l00960">960</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l00974">974</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
 
 </div>
 </div>
@@ -659,7 +661,7 @@ Host</h3>
 <dl class="section return"><dt>Returns</dt><dd>The supported capabilities of the VM. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__EVMC.html#ga44f9ecb88cf6422a0072936494fd6ac7" title="Possible capabilities of a VM.">evmc_capabilities</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l00971">971</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l00985">985</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
 
 </div>
 </div>
@@ -1028,17 +1030,17 @@ Host</h3>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l00930">930</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
-<div class="fragment"><div class="line"><a id="l00931" name="l00931"></a><span class="lineno">  931</span>{</div>
-<div class="line"><a id="l00935" name="l00935"></a><span class="lineno">  935</span>    <a class="code hl_enumvalue" href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7a36fd3cfe936b9525eed7f88a7b43a2a8">EVMC_CAPABILITY_EVM1</a> = (1u &lt;&lt; 0),</div>
-<div class="line"><a id="l00936" name="l00936"></a><span class="lineno">  936</span> </div>
-<div class="line"><a id="l00940" name="l00940"></a><span class="lineno">  940</span>    <a class="code hl_enumvalue" href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7af1240f950b5b9ca4369bcac424443e54">EVMC_CAPABILITY_EWASM</a> = (1u &lt;&lt; 1),</div>
-<div class="line"><a id="l00941" name="l00941"></a><span class="lineno">  941</span> </div>
-<div class="line"><a id="l00952" name="l00952"></a><span class="lineno">  952</span>    <a class="code hl_enumvalue" href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7a43ea2aa7b099a2d67bc53c118ff3683d">EVMC_CAPABILITY_PRECOMPILES</a> = (1u &lt;&lt; 2)</div>
-<div class="line"><a id="l00953" name="l00953"></a><span class="lineno">  953</span>};</div>
-<div class="ttc" id="agroup__EVMC_html_gga44f9ecb88cf6422a0072936494fd6ac7a36fd3cfe936b9525eed7f88a7b43a2a8"><div class="ttname"><a href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7a36fd3cfe936b9525eed7f88a7b43a2a8">EVMC_CAPABILITY_EVM1</a></div><div class="ttdeci">@ EVMC_CAPABILITY_EVM1</div><div class="ttdoc">The VM is capable of executing EVM1 bytecode.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00935">evmc.h:935</a></div></div>
-<div class="ttc" id="agroup__EVMC_html_gga44f9ecb88cf6422a0072936494fd6ac7a43ea2aa7b099a2d67bc53c118ff3683d"><div class="ttname"><a href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7a43ea2aa7b099a2d67bc53c118ff3683d">EVMC_CAPABILITY_PRECOMPILES</a></div><div class="ttdeci">@ EVMC_CAPABILITY_PRECOMPILES</div><div class="ttdoc">The VM is capable of executing the precompiled contracts defined for the range of code addresses.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00953">evmc.h:952</a></div></div>
-<div class="ttc" id="agroup__EVMC_html_gga44f9ecb88cf6422a0072936494fd6ac7af1240f950b5b9ca4369bcac424443e54"><div class="ttname"><a href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7af1240f950b5b9ca4369bcac424443e54">EVMC_CAPABILITY_EWASM</a></div><div class="ttdeci">@ EVMC_CAPABILITY_EWASM</div><div class="ttdoc">The VM is capable of executing ewasm bytecode.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00940">evmc.h:940</a></div></div>
+<p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l00944">944</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
+<div class="fragment"><div class="line"><a id="l00945" name="l00945"></a><span class="lineno">  945</span>{</div>
+<div class="line"><a id="l00949" name="l00949"></a><span class="lineno">  949</span>    <a class="code hl_enumvalue" href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7a36fd3cfe936b9525eed7f88a7b43a2a8">EVMC_CAPABILITY_EVM1</a> = (1u &lt;&lt; 0),</div>
+<div class="line"><a id="l00950" name="l00950"></a><span class="lineno">  950</span> </div>
+<div class="line"><a id="l00954" name="l00954"></a><span class="lineno">  954</span>    <a class="code hl_enumvalue" href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7af1240f950b5b9ca4369bcac424443e54">EVMC_CAPABILITY_EWASM</a> = (1u &lt;&lt; 1),</div>
+<div class="line"><a id="l00955" name="l00955"></a><span class="lineno">  955</span> </div>
+<div class="line"><a id="l00966" name="l00966"></a><span class="lineno">  966</span>    <a class="code hl_enumvalue" href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7a43ea2aa7b099a2d67bc53c118ff3683d">EVMC_CAPABILITY_PRECOMPILES</a> = (1u &lt;&lt; 2)</div>
+<div class="line"><a id="l00967" name="l00967"></a><span class="lineno">  967</span>};</div>
+<div class="ttc" id="agroup__EVMC_html_gga44f9ecb88cf6422a0072936494fd6ac7a36fd3cfe936b9525eed7f88a7b43a2a8"><div class="ttname"><a href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7a36fd3cfe936b9525eed7f88a7b43a2a8">EVMC_CAPABILITY_EVM1</a></div><div class="ttdeci">@ EVMC_CAPABILITY_EVM1</div><div class="ttdoc">The VM is capable of executing EVM1 bytecode.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00949">evmc.h:949</a></div></div>
+<div class="ttc" id="agroup__EVMC_html_gga44f9ecb88cf6422a0072936494fd6ac7a43ea2aa7b099a2d67bc53c118ff3683d"><div class="ttname"><a href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7a43ea2aa7b099a2d67bc53c118ff3683d">EVMC_CAPABILITY_PRECOMPILES</a></div><div class="ttdeci">@ EVMC_CAPABILITY_PRECOMPILES</div><div class="ttdoc">The VM is capable of executing the precompiled contracts defined for the range of code addresses.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00967">evmc.h:966</a></div></div>
+<div class="ttc" id="agroup__EVMC_html_gga44f9ecb88cf6422a0072936494fd6ac7af1240f950b5b9ca4369bcac424443e54"><div class="ttname"><a href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7af1240f950b5b9ca4369bcac424443e54">EVMC_CAPABILITY_EWASM</a></div><div class="ttdeci">@ EVMC_CAPABILITY_EWASM</div><div class="ttdoc">The VM is capable of executing ewasm bytecode.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00954">evmc.h:954</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1109,13 +1111,19 @@ Host</h3>
 <p ><a href="https://eips.ethereum.org/EIPS/eip-1679">https://eips.ethereum.org/EIPS/eip-1679</a> </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ggae5759b1590071966ccf6a505b52a0ef7af53e0cb0d793d60b5fb07c6b4c3c6ab7" name="ggae5759b1590071966ccf6a505b52a0ef7af53e0cb0d793d60b5fb07c6b4c3c6ab7"></a>EVMC_BERLIN&#160;</td><td class="fielddoc"><p >The Berlin revision. </p>
-<p ><a href="https://github.com/ethereum/eth1.0-specs/blob/master/network-upgrades/mainnet-upgrades/berlin.md">https://github.com/ethereum/eth1.0-specs/blob/master/network-upgrades/mainnet-upgrades/berlin.md</a> </p>
+<p ><a href="https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/berlin.md">https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/berlin.md</a> </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ggae5759b1590071966ccf6a505b52a0ef7acfe86739fa2a0882d49cf19a94d8ee09" name="ggae5759b1590071966ccf6a505b52a0ef7acfe86739fa2a0882d49cf19a94d8ee09"></a>EVMC_LONDON&#160;</td><td class="fielddoc"><p >The London revision. </p>
-<p ><a href="https://github.com/ethereum/eth1.0-specs/blob/master/network-upgrades/mainnet-upgrades/london.md">https://github.com/ethereum/eth1.0-specs/blob/master/network-upgrades/mainnet-upgrades/london.md</a> </p>
+<p ><a href="https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/london.md">https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/london.md</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae5759b1590071966ccf6a505b52a0ef7adaa40f0a556842b0339aedc61ec332f7" name="ggae5759b1590071966ccf6a505b52a0ef7adaa40f0a556842b0339aedc61ec332f7"></a>EVMC_PARIS&#160;</td><td class="fielddoc"><p >The Paris revision (aka The Merge). </p>
+<p ><a href="https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/paris.md">https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/paris.md</a> </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ggae5759b1590071966ccf6a505b52a0ef7ac79d6325f9e74fd00a6b98eaea3e30a5" name="ggae5759b1590071966ccf6a505b52a0ef7ac79d6325f9e74fd00a6b98eaea3e30a5"></a>EVMC_SHANGHAI&#160;</td><td class="fielddoc"><p >The Shanghai revision. </p>
-<p ><a href="https://github.com/ethereum/eth1.0-specs/blob/master/network-upgrades/mainnet-upgrades/shanghai.md">https://github.com/ethereum/eth1.0-specs/blob/master/network-upgrades/mainnet-upgrades/shanghai.md</a> </p>
+<p ><a href="https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/shanghai.md">https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/shanghai.md</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae5759b1590071966ccf6a505b52a0ef7ac503f2602c39827e09476616ac785a21" name="ggae5759b1590071966ccf6a505b52a0ef7ac503f2602c39827e09476616ac785a21"></a>EVMC_CANCUN&#160;</td><td class="fielddoc"><p >The Cancun revision. </p>
+<p >The future next revision after Shanghai. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ggae5759b1590071966ccf6a505b52a0ef7a8b67f41f15bc079b8ad40dcd7156f576" name="ggae5759b1590071966ccf6a505b52a0ef7a8b67f41f15bc079b8ad40dcd7156f576"></a>EVMC_MAX_REVISION&#160;</td><td class="fielddoc"><p >The maximum EVM revision supported. </p>
 </td></tr>
@@ -1146,24 +1154,30 @@ Host</h3>
 <div class="line"><a id="l00874" name="l00874"></a><span class="lineno">  874</span> </div>
 <div class="line"><a id="l00880" name="l00880"></a><span class="lineno">  880</span>    <a class="code hl_enumvalue" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7acfe86739fa2a0882d49cf19a94d8ee09">EVMC_LONDON</a> = 9,</div>
 <div class="line"><a id="l00881" name="l00881"></a><span class="lineno">  881</span> </div>
-<div class="line"><a id="l00887" name="l00887"></a><span class="lineno">  887</span>    <a class="code hl_enumvalue" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7ac79d6325f9e74fd00a6b98eaea3e30a5">EVMC_SHANGHAI</a> = 10,</div>
+<div class="line"><a id="l00887" name="l00887"></a><span class="lineno">  887</span>    <a class="code hl_enumvalue" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7adaa40f0a556842b0339aedc61ec332f7">EVMC_PARIS</a> = 10,</div>
 <div class="line"><a id="l00888" name="l00888"></a><span class="lineno">  888</span> </div>
-<div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span>    <a class="code hl_enumvalue" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a8b67f41f15bc079b8ad40dcd7156f576">EVMC_MAX_REVISION</a> = <a class="code hl_enumvalue" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7ac79d6325f9e74fd00a6b98eaea3e30a5">EVMC_SHANGHAI</a>,</div>
-<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span> </div>
-<div class="line"><a id="l00897" name="l00897"></a><span class="lineno">  897</span>    <a class="code hl_enumvalue" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a0dd8bdd55816359290e8fb8648aeb03e">EVMC_LATEST_STABLE_REVISION</a> = <a class="code hl_enumvalue" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7acfe86739fa2a0882d49cf19a94d8ee09">EVMC_LONDON</a></div>
-<div class="line"><a id="l00898" name="l00898"></a><span class="lineno">  898</span>};</div>
+<div class="line"><a id="l00894" name="l00894"></a><span class="lineno">  894</span>    <a class="code hl_enumvalue" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7ac79d6325f9e74fd00a6b98eaea3e30a5">EVMC_SHANGHAI</a> = 11,</div>
+<div class="line"><a id="l00895" name="l00895"></a><span class="lineno">  895</span> </div>
+<div class="line"><a id="l00901" name="l00901"></a><span class="lineno">  901</span>    <a class="code hl_enumvalue" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7ac503f2602c39827e09476616ac785a21">EVMC_CANCUN</a> = 12,</div>
+<div class="line"><a id="l00902" name="l00902"></a><span class="lineno">  902</span> </div>
+<div class="line"><a id="l00904" name="l00904"></a><span class="lineno">  904</span>    <a class="code hl_enumvalue" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a8b67f41f15bc079b8ad40dcd7156f576">EVMC_MAX_REVISION</a> = <a class="code hl_enumvalue" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7ac503f2602c39827e09476616ac785a21">EVMC_CANCUN</a>,</div>
+<div class="line"><a id="l00905" name="l00905"></a><span class="lineno">  905</span> </div>
+<div class="line"><a id="l00911" name="l00911"></a><span class="lineno">  911</span>    <a class="code hl_enumvalue" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a0dd8bdd55816359290e8fb8648aeb03e">EVMC_LATEST_STABLE_REVISION</a> = <a class="code hl_enumvalue" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7acfe86739fa2a0882d49cf19a94d8ee09">EVMC_LONDON</a></div>
+<div class="line"><a id="l00912" name="l00912"></a><span class="lineno">  912</span>};</div>
 <div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7a04f0bf686d2b1c50612f9a96480f70a9"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a04f0bf686d2b1c50612f9a96480f70a9">EVMC_HOMESTEAD</a></div><div class="ttdeci">@ EVMC_HOMESTEAD</div><div class="ttdoc">The Homestead revision.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00822">evmc.h:822</a></div></div>
-<div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7a0dd8bdd55816359290e8fb8648aeb03e"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a0dd8bdd55816359290e8fb8648aeb03e">EVMC_LATEST_STABLE_REVISION</a></div><div class="ttdeci">@ EVMC_LATEST_STABLE_REVISION</div><div class="ttdoc">The latest known EVM revision with finalized specification.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00898">evmc.h:897</a></div></div>
+<div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7a0dd8bdd55816359290e8fb8648aeb03e"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a0dd8bdd55816359290e8fb8648aeb03e">EVMC_LATEST_STABLE_REVISION</a></div><div class="ttdeci">@ EVMC_LATEST_STABLE_REVISION</div><div class="ttdoc">The latest known EVM revision with finalized specification.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00912">evmc.h:911</a></div></div>
 <div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7a5f0e287935fd0afd65afea34b51dcf8c"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a5f0e287935fd0afd65afea34b51dcf8c">EVMC_ISTANBUL</a></div><div class="ttdeci">@ EVMC_ISTANBUL</div><div class="ttdoc">The Istanbul revision.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00866">evmc.h:866</a></div></div>
 <div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7a622480509359764aa2a258b074812a5f"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a622480509359764aa2a258b074812a5f">EVMC_FRONTIER</a></div><div class="ttdeci">@ EVMC_FRONTIER</div><div class="ttdoc">The Frontier revision.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00815">evmc.h:815</a></div></div>
 <div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7a6d913d4917e87b1fc798b450735acdeb"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a6d913d4917e87b1fc798b450735acdeb">EVMC_PETERSBURG</a></div><div class="ttdeci">@ EVMC_PETERSBURG</div><div class="ttdoc">The Petersburg revision.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00859">evmc.h:859</a></div></div>
 <div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7a7a2ed5cf3d25c8c4a68691721bb969fc"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a7a2ed5cf3d25c8c4a68691721bb969fc">EVMC_CONSTANTINOPLE</a></div><div class="ttdeci">@ EVMC_CONSTANTINOPLE</div><div class="ttdoc">The Constantinople revision.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00850">evmc.h:850</a></div></div>
 <div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7a8305858ab32b80a6eced7bf177d6dee2"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a8305858ab32b80a6eced7bf177d6dee2">EVMC_TANGERINE_WHISTLE</a></div><div class="ttdeci">@ EVMC_TANGERINE_WHISTLE</div><div class="ttdoc">The Tangerine Whistle revision.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00829">evmc.h:829</a></div></div>
-<div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7a8b67f41f15bc079b8ad40dcd7156f576"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a8b67f41f15bc079b8ad40dcd7156f576">EVMC_MAX_REVISION</a></div><div class="ttdeci">@ EVMC_MAX_REVISION</div><div class="ttdoc">The maximum EVM revision supported.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00890">evmc.h:890</a></div></div>
+<div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7a8b67f41f15bc079b8ad40dcd7156f576"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a8b67f41f15bc079b8ad40dcd7156f576">EVMC_MAX_REVISION</a></div><div class="ttdeci">@ EVMC_MAX_REVISION</div><div class="ttdoc">The maximum EVM revision supported.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00904">evmc.h:904</a></div></div>
 <div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7abbbcae1af73ad1efc570b40bb0363879"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7abbbcae1af73ad1efc570b40bb0363879">EVMC_SPURIOUS_DRAGON</a></div><div class="ttdeci">@ EVMC_SPURIOUS_DRAGON</div><div class="ttdoc">The Spurious Dragon revision.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00836">evmc.h:836</a></div></div>
 <div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7ac4b0c9cfb5d408f17255a15e26938ea6"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7ac4b0c9cfb5d408f17255a15e26938ea6">EVMC_BYZANTIUM</a></div><div class="ttdeci">@ EVMC_BYZANTIUM</div><div class="ttdoc">The Byzantium revision.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00843">evmc.h:843</a></div></div>
-<div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7ac79d6325f9e74fd00a6b98eaea3e30a5"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7ac79d6325f9e74fd00a6b98eaea3e30a5">EVMC_SHANGHAI</a></div><div class="ttdeci">@ EVMC_SHANGHAI</div><div class="ttdoc">The Shanghai revision.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00887">evmc.h:887</a></div></div>
+<div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7ac503f2602c39827e09476616ac785a21"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7ac503f2602c39827e09476616ac785a21">EVMC_CANCUN</a></div><div class="ttdeci">@ EVMC_CANCUN</div><div class="ttdoc">The Cancun revision.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00901">evmc.h:901</a></div></div>
+<div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7ac79d6325f9e74fd00a6b98eaea3e30a5"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7ac79d6325f9e74fd00a6b98eaea3e30a5">EVMC_SHANGHAI</a></div><div class="ttdeci">@ EVMC_SHANGHAI</div><div class="ttdoc">The Shanghai revision.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00894">evmc.h:894</a></div></div>
 <div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7acfe86739fa2a0882d49cf19a94d8ee09"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7acfe86739fa2a0882d49cf19a94d8ee09">EVMC_LONDON</a></div><div class="ttdeci">@ EVMC_LONDON</div><div class="ttdoc">The London revision.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00880">evmc.h:880</a></div></div>
+<div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7adaa40f0a556842b0339aedc61ec332f7"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7adaa40f0a556842b0339aedc61ec332f7">EVMC_PARIS</a></div><div class="ttdeci">@ EVMC_PARIS</div><div class="ttdoc">The Paris revision (aka The Merge).</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00887">evmc.h:887</a></div></div>
 <div class="ttc" id="agroup__EVMC_html_ggae5759b1590071966ccf6a505b52a0ef7af53e0cb0d793d60b5fb07c6b4c3c6ab7"><div class="ttname"><a href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7af53e0cb0d793d60b5fb07c6b4c3c6ab7">EVMC_BERLIN</a></div><div class="ttdeci">@ EVMC_BERLIN</div><div class="ttdoc">The Berlin revision.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00873">evmc.h:873</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -1181,21 +1195,13 @@ Host</h3>
 </div><div class="memdoc">
 
 <p>Possible outcomes of evmc_set_option. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga28d9f527bda67277bccccc100e32260aa4e458cfd9a8d5da0ed5e93a3d3ad5d3b" name="gga28d9f527bda67277bccccc100e32260aa4e458cfd9a8d5da0ed5e93a3d3ad5d3b"></a>EVMC_SET_OPTION_SUCCESS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga28d9f527bda67277bccccc100e32260aa462712eea718b1a9088aaaf995bcb80e" name="gga28d9f527bda67277bccccc100e32260aa462712eea718b1a9088aaaf995bcb80e"></a>EVMC_SET_OPTION_INVALID_NAME&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga28d9f527bda67277bccccc100e32260aa7be8628edb4ac9b2d195894f112d0924" name="gga28d9f527bda67277bccccc100e32260aa7be8628edb4ac9b2d195894f112d0924"></a>EVMC_SET_OPTION_INVALID_VALUE&#160;</td><td class="fielddoc"></td></tr>
-</table>
 
 <p class="definition">Definition at line <a class="el" href="evmc_8h_source.html#l00777">777</a> of file <a class="el" href="evmc_8h_source.html">evmc.h</a>.</p>
 <div class="fragment"><div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span>{</div>
-<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>    <a class="code hl_enumvalue" href="group__EVMC.html#gga28d9f527bda67277bccccc100e32260aa4e458cfd9a8d5da0ed5e93a3d3ad5d3b">EVMC_SET_OPTION_SUCCESS</a> = 0,</div>
-<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>    <a class="code hl_enumvalue" href="group__EVMC.html#gga28d9f527bda67277bccccc100e32260aa462712eea718b1a9088aaaf995bcb80e">EVMC_SET_OPTION_INVALID_NAME</a> = 1,</div>
-<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>    <a class="code hl_enumvalue" href="group__EVMC.html#gga28d9f527bda67277bccccc100e32260aa7be8628edb4ac9b2d195894f112d0924">EVMC_SET_OPTION_INVALID_VALUE</a> = 2</div>
+<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>    EVMC_SET_OPTION_SUCCESS = 0,</div>
+<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>    EVMC_SET_OPTION_INVALID_NAME = 1,</div>
+<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>    EVMC_SET_OPTION_INVALID_VALUE = 2</div>
 <div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>};</div>
-<div class="ttc" id="agroup__EVMC_html_gga28d9f527bda67277bccccc100e32260aa462712eea718b1a9088aaaf995bcb80e"><div class="ttname"><a href="group__EVMC.html#gga28d9f527bda67277bccccc100e32260aa462712eea718b1a9088aaaf995bcb80e">EVMC_SET_OPTION_INVALID_NAME</a></div><div class="ttdeci">@ EVMC_SET_OPTION_INVALID_NAME</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00780">evmc.h:780</a></div></div>
-<div class="ttc" id="agroup__EVMC_html_gga28d9f527bda67277bccccc100e32260aa4e458cfd9a8d5da0ed5e93a3d3ad5d3b"><div class="ttname"><a href="group__EVMC.html#gga28d9f527bda67277bccccc100e32260aa4e458cfd9a8d5da0ed5e93a3d3ad5d3b">EVMC_SET_OPTION_SUCCESS</a></div><div class="ttdeci">@ EVMC_SET_OPTION_SUCCESS</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00779">evmc.h:779</a></div></div>
-<div class="ttc" id="agroup__EVMC_html_gga28d9f527bda67277bccccc100e32260aa7be8628edb4ac9b2d195894f112d0924"><div class="ttname"><a href="group__EVMC.html#gga28d9f527bda67277bccccc100e32260aa7be8628edb4ac9b2d195894f112d0924">EVMC_SET_OPTION_INVALID_VALUE</a></div><div class="ttdeci">@ EVMC_SET_OPTION_INVALID_VALUE</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00782">evmc.h:781</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1411,12 +1417,20 @@ Host</h3>
 <dl class="section user"><dt>Binaries naming convention</dt><dd>For VMs distributed as shared libraries, the name of the library SHOULD match the VM name. The convetional library filename prefixes and extensions SHOULD be ignored by the Client. For example, the shared library with the "beta-interpreter" implementation may be named <code>libbeta-interpreter.so</code>.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>The VM instance or NULL indicating instance creation failure. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="example__vm_8cpp_source.html#l00392">392</a> of file <a class="el" href="example__vm_8cpp_source.html">example_vm.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>{</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    <span class="keywordflow">return</span> <span class="keyword">new</span> ExampleVM;</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 19 2021 13:37:49 for EVMC by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Jul 6 2022 11:03:34 for EVMC by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
+  </ul>
+</div>
 </body>
 </html>

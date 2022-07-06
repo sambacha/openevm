@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -37,11 +41,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespaceevmc.html">evmc</a></li><li class="navelem"><a class="el" href="structevmc_1_1MockedAccount.html">MockedAccount</a></li>  </ul>
-</div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('structevmc_1_1MockedAccount.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -55,16 +71,6 @@ $(function() {
  <a href="structevmc_1_1MockedAccount.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for evmc::MockedAccount:</div>
-<div class="dyncontent">
-<div class="center"><img src="structevmc_1_1MockedAccount__coll__graph.png" border="0" usemap="#aevmc_1_1MockedAccount_coll__map" alt="Collaboration graph"/></div>
-<map name="aevmc_1_1MockedAccount_coll__map" id="aevmc_1_1MockedAccount_coll__map">
-<area shape="rect" title="Mocked account." alt="" coords="5,185,161,212"/>
-<area shape="rect" href="structevmc_1_1bytes32.html" title="The fixed size array of 32 bytes for storing 256&#45;bit EVM values." alt="" coords="29,81,137,108"/>
-<area shape="rect" href="structevmc__bytes32.html" title="The fixed size array of 32 bytes." alt="" coords="29,5,137,32"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -127,7 +133,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; <span class="keyword">sizeof</span>(x); ++i)</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <a class="code hl_variable" href="structevmc_1_1MockedAccount.html#a70a90d4df3e2a1b3f37a670835f5179a">balance</a>.<a class="code hl_variable" href="structevmc__bytes32.html#a695eaf3c428daee54ce15c8252edc133">bytes</a>[<span class="keyword">sizeof</span>(<a class="code hl_variable" href="structevmc_1_1MockedAccount.html#a70a90d4df3e2a1b3f37a670835f5179a">balance</a>) - 1 - i] = <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(x &gt;&gt; (8 * i));</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
-<div class="ttc" id="anamespaceevmc_html_a92bc6b73f1ce3a2b2eea018cf902c4da"><div class="ttname"><a href="namespaceevmc.html#a92bc6b73f1ce3a2b2eea018cf902c4da">evmc::uint256be</a></div><div class="ttdeci">bytes32 uint256be</div><div class="ttdoc">The alias for evmc::bytes32 to represent a big-endian 256-bit integer.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8hpp_source.html#l00117">evmc.hpp:117</a></div></div>
+<div class="ttc" id="anamespaceevmc_html_a92bc6b73f1ce3a2b2eea018cf902c4da"><div class="ttname"><a href="namespaceevmc.html#a92bc6b73f1ce3a2b2eea018cf902c4da">evmc::uint256be</a></div><div class="ttdeci">bytes32 uint256be</div><div class="ttdoc">The alias for evmc::bytes32 to represent a big-endian 256-bit integer.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8hpp_source.html#l00127">evmc.hpp:127</a></div></div>
 <div class="ttc" id="astructevmc_1_1MockedAccount_html_a70a90d4df3e2a1b3f37a670835f5179a"><div class="ttname"><a href="structevmc_1_1MockedAccount.html#a70a90d4df3e2a1b3f37a670835f5179a">evmc::MockedAccount::balance</a></div><div class="ttdeci">uint256be balance</div><div class="ttdoc">The account balance.</div><div class="ttdef"><b>Definition:</b> <a href="mocked__host_8hpp_source.html#l00056">mocked_host.hpp:56</a></div></div>
 <div class="ttc" id="astructevmc__bytes32_html_a695eaf3c428daee54ce15c8252edc133"><div class="ttname"><a href="structevmc__bytes32.html#a695eaf3c428daee54ce15c8252edc133">evmc_bytes32::bytes</a></div><div class="ttdeci">uint8_t bytes[32]</div><div class="ttdoc">The 32 bytes.</div><div class="ttdef"><b>Definition:</b> <a href="evmc_8h_source.html#l00059">evmc.h:59</a></div></div>
 </div><!-- fragment -->
@@ -228,9 +234,13 @@ Public Attributes</h2></td></tr>
 <li>include/evmc/<a class="el" href="mocked__host_8hpp_source.html">mocked_host.hpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 19 2021 13:37:49 for EVMC by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceevmc.html">evmc</a></li><li class="navelem"><a class="el" href="structevmc_1_1MockedAccount.html">MockedAccount</a></li>
+    <li class="footer">Generated on Wed Jul 6 2022 11:03:34 for EVMC by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
+  </ul>
+</div>
 </body>
 </html>

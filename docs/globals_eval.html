@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -38,6 +42,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('globals_eval.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <div class="contents">
 &#160;
 
@@ -52,6 +72,7 @@ $(function() {
 <li>EVMC_CALL&#160;:&#160;<a class="el" href="group__EVMC.html#ggab2fa68a92a6828064a61e46060abc634abcf3ae29d9a88ff70b98374fc665694a">evmc.h</a></li>
 <li>EVMC_CALL_DEPTH_EXCEEDED&#160;:&#160;<a class="el" href="group__EVMC.html#gga4c0be97f333c050ff45321fcaa34d920ac139d631ff852379d566c8a60f86ddc0">evmc.h</a></li>
 <li>EVMC_CALLCODE&#160;:&#160;<a class="el" href="group__EVMC.html#ggab2fa68a92a6828064a61e46060abc634ae9c5b431a0c823f368341c9f026642ef">evmc.h</a></li>
+<li>EVMC_CANCUN&#160;:&#160;<a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7ac503f2602c39827e09476616ac785a21">evmc.h</a></li>
 <li>EVMC_CAPABILITY_EVM1&#160;:&#160;<a class="el" href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7a36fd3cfe936b9525eed7f88a7b43a2a8">evmc.h</a></li>
 <li>EVMC_CAPABILITY_EWASM&#160;:&#160;<a class="el" href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7af1240f950b5b9ca4369bcac424443e54">evmc.h</a></li>
 <li>EVMC_CAPABILITY_PRECOMPILES&#160;:&#160;<a class="el" href="group__EVMC.html#gga44f9ecb88cf6422a0072936494fd6ac7a43ea2aa7b099a2d67bc53c118ff3683d">evmc.h</a></li>
@@ -76,18 +97,17 @@ $(function() {
 <li>EVMC_LOADER_INVALID_OPTION_VALUE&#160;:&#160;<a class="el" href="group__loader.html#ggadf193ed1d2d7e9053e9c592fc201bd7dad2625a5c71f0c585cf0493c47c805e1b">loader.h</a></li>
 <li>EVMC_LOADER_SUCCESS&#160;:&#160;<a class="el" href="group__loader.html#ggadf193ed1d2d7e9053e9c592fc201bd7da0cead101d164fef2ac74efd4d6e1ae6d">loader.h</a></li>
 <li>EVMC_LOADER_SYMBOL_NOT_FOUND&#160;:&#160;<a class="el" href="group__loader.html#ggadf193ed1d2d7e9053e9c592fc201bd7da397b783d11709ec470bf5782c377deb2">loader.h</a></li>
+<li>EVMC_LOADER_UNSPECIFIED_ERROR&#160;:&#160;<a class="el" href="group__loader.html#ggadf193ed1d2d7e9053e9c592fc201bd7da2cc1b237858f7df09e7e1bf016b44683">loader.h</a></li>
 <li>EVMC_LOADER_VM_CREATION_FAILURE&#160;:&#160;<a class="el" href="group__loader.html#ggadf193ed1d2d7e9053e9c592fc201bd7da504de7833560037be4d2c620345767f5">loader.h</a></li>
 <li>EVMC_LONDON&#160;:&#160;<a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7acfe86739fa2a0882d49cf19a94d8ee09">evmc.h</a></li>
 <li>EVMC_MAX_REVISION&#160;:&#160;<a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a8b67f41f15bc079b8ad40dcd7156f576">evmc.h</a></li>
 <li>EVMC_OUT_OF_GAS&#160;:&#160;<a class="el" href="group__EVMC.html#gga4c0be97f333c050ff45321fcaa34d920abfc47f75656c996c0b29c0553c00fc18">evmc.h</a></li>
 <li>EVMC_OUT_OF_MEMORY&#160;:&#160;<a class="el" href="group__EVMC.html#gga4c0be97f333c050ff45321fcaa34d920a63aa9b3ac3af61c39c20562509347b86">evmc.h</a></li>
+<li>EVMC_PARIS&#160;:&#160;<a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7adaa40f0a556842b0339aedc61ec332f7">evmc.h</a></li>
 <li>EVMC_PETERSBURG&#160;:&#160;<a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7a6d913d4917e87b1fc798b450735acdeb">evmc.h</a></li>
 <li>EVMC_PRECOMPILE_FAILURE&#160;:&#160;<a class="el" href="group__EVMC.html#gga4c0be97f333c050ff45321fcaa34d920ab960d50047f87925e540bee6230aafb7">evmc.h</a></li>
 <li>EVMC_REJECTED&#160;:&#160;<a class="el" href="group__EVMC.html#gga4c0be97f333c050ff45321fcaa34d920a2f3e0d8777f8d974ead27ae2a6eb2005">evmc.h</a></li>
 <li>EVMC_REVERT&#160;:&#160;<a class="el" href="group__EVMC.html#gga4c0be97f333c050ff45321fcaa34d920aed708e84d49cc1270e54ec20b0ca0a05">evmc.h</a></li>
-<li>EVMC_SET_OPTION_INVALID_NAME&#160;:&#160;<a class="el" href="group__EVMC.html#gga28d9f527bda67277bccccc100e32260aa462712eea718b1a9088aaaf995bcb80e">evmc.h</a></li>
-<li>EVMC_SET_OPTION_INVALID_VALUE&#160;:&#160;<a class="el" href="group__EVMC.html#gga28d9f527bda67277bccccc100e32260aa7be8628edb4ac9b2d195894f112d0924">evmc.h</a></li>
-<li>EVMC_SET_OPTION_SUCCESS&#160;:&#160;<a class="el" href="group__EVMC.html#gga28d9f527bda67277bccccc100e32260aa4e458cfd9a8d5da0ed5e93a3d3ad5d3b">evmc.h</a></li>
 <li>EVMC_SHANGHAI&#160;:&#160;<a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7ac79d6325f9e74fd00a6b98eaea3e30a5">evmc.h</a></li>
 <li>EVMC_SPURIOUS_DRAGON&#160;:&#160;<a class="el" href="group__EVMC.html#ggae5759b1590071966ccf6a505b52a0ef7abbbcae1af73ad1efc570b40bb0363879">evmc.h</a></li>
 <li>EVMC_STACK_OVERFLOW&#160;:&#160;<a class="el" href="group__EVMC.html#gga4c0be97f333c050ff45321fcaa34d920ae1a613949fe1c994a36488b0bc4c86c4">evmc.h</a></li>
@@ -106,9 +126,12 @@ $(function() {
 <li>EVMC_WASM_UNREACHABLE_INSTRUCTION&#160;:&#160;<a class="el" href="group__EVMC.html#gga4c0be97f333c050ff45321fcaa34d920ac99fbd9645011663df070ae3c367eb4e">evmc.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 19 2021 13:37:49 for EVMC by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Jul 6 2022 11:03:34 for EVMC by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
+  </ul>
+</div>
 </body>
 </html>
