@@ -1,4 +1,3 @@
-
 https://github.com/winsvega/solidity/commit/fd3ae0b24a8490ae03f8198af645a51f377cb2da
 
 ```diff
@@ -69,7 +68,7 @@ index 9a0a5d4e34f..f2f5879d983 100644
  	GASLIMIT,			///< get the block's gas limit
 +	CHAINID,			///< get the config's chainid param
 +	SELFBALANCE,		///< get balance of the current account
- 
+
  	POP = 0x50,			///< remove item from stack
  	MLOAD,				///< load word from memory
 diff --git a/libevmasm/SemanticInformation.cpp b/libevmasm/SemanticInformation.cpp
@@ -125,9 +124,9 @@ index 6fb6f7e3e91..3c67e304d58 100644
  	bool hasExtCodeHash() const { return *this >= constantinople(); }
 +	bool hasChainID() const { return *this >= istanbul(); }
 +	bool hasSelfBalance() const { return *this >= istanbul(); }
- 
+
  	bool hasOpcode(dev::eth::Instruction _opcode) const;
- 
+
 diff --git a/libyul/AsmAnalysis.cpp b/libyul/AsmAnalysis.cpp
 index 2622e413a6d..9c62737d8bc 100644
 --- a/libyul/AsmAnalysis.cpp
@@ -202,3 +201,4 @@ index bce4928c1ea..04688a1ae00 100644
  	/// Log of changes / effects. Sholud be structured data in the future.
  	std::vector<std::string> trace;
  	/// This is actually an input parameter that more or less limits the runtime.
+```

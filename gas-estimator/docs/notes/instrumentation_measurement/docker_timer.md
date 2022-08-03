@@ -4,9 +4,7 @@
 
 ### Problem
 
-The timer readings are much more costly in golang when executed on an AWS VM, compared to laptop.
-This turned out to be caused by AWS using its `xen` clock which seems to not do vDSO, resulting in a costly "classic" syscall.
-
+The timer readings are much more costly in golang when executed on an AWS VM, compared to laptop. This turned out to be caused by AWS using its `xen` clock which seems to not do vDSO, resulting in a costly "classic" syscall.
 
 local laptop:
 
@@ -68,13 +66,13 @@ Vulnerability Spectre v2:        Mitigation; Full generic retpoline, IBPB condit
                                  , RSB filling
 Vulnerability Srbds:             Mitigation; Microcode
 Vulnerability Tsx async abort:   Not affected
-Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush 
+Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush
                                  dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_ts
                                  c art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf
                                   pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm p
                                  cid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdra
                                  nd lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb s
-                                 tibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 
+                                 tibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2
                                  smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec x
                                  getbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_c
                                  lear flush_l1d
@@ -116,7 +114,7 @@ Vulnerability Spectre v1:        Mitigation; usercopy/swapgs barriers and __user
 Vulnerability Spectre v2:        Mitigation; Full generic retpoline, STIBP disabled, RSB filling
 Vulnerability Srbds:             Not affected
 Vulnerability Tsx async abort:   Not affected
-Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush 
+Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush
                                  mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology c
                                  puid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_dea
                                  dline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm cpuid_fault invpcid
@@ -127,20 +125,19 @@ Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtr
 
 1. Kudos to MB. This isn't docker, it's the machine (docker on laptop is same as baremetal laptop)
 2. Deep dive `runtimeNano()` call:
-  1. `//go:linkname runtimeNano runtime.nanotime`
-  2. https://cs.opensource.google/go/go/+/master:src/runtime/time_nofake.go;l=20?q=nanotime&ss=go%2Fgo:src%2Fruntime%2F `return nanotime1()`
-  3. which version I'm using? `go version go1.17.1 linux/amd64`
-  4. https://github.com/golang/go/blob/8d09f7c5178b04bade2859d32d0710233a620d4f/src/runtime/sys_linux_amd64.s#L237
-3. Running the clock measurement tool in docker: `sudo docker run --rm -it measurements-geth   bash -c "go get github.com/dterei/gotsc && cd src && go run instrumentation_measurement/clock_resolution_go/main.go"`
-4. The vDSO fallback logic is key.
+3. `//go:linkname runtimeNano runtime.nanotime`
+4. https://cs.opensource.google/go/go/+/master:src/runtime/time_nofake.go;l=20?q=nanotime&ss=go%2Fgo:src%2Fruntime%2F `return nanotime1()`
+5. which version I'm using? `go version go1.17.1 linux/amd64`
+6. https://github.com/golang/go/blob/8d09f7c5178b04bade2859d32d0710233a620d4f/src/runtime/sys_linux_amd64.s#L237
+7. Running the clock measurement tool in docker: `sudo docker run --rm -it measurements-geth bash -c "go get github.com/dterei/gotsc && cd src && go run instrumentation_measurement/clock_resolution_go/main.go"`
+8. The vDSO fallback logic is key.
     - the "traditional syscall" is the `fallback` label in the `nanotime1` assembly
     - this in turn resolves to `SYS_clock_gettime`
     - when we run the `clock_resolution_go/main.go` we can see that our `runtimeNano` is very similar to the `clock_gettime` timer. Also, `time.Now()` still equals 2x `runtimeNano`, because it makes 2 such calls!
-5. from vDSO manpage:
+9. from vDSO manpage:
     - `find arch/$ARCH/ -name '*vdso*.so*' -o -name '*gate*.so*'`
     - didn't follow this but
-6. from the Article 6. BINGO:
-    -
+10. ## from the Article 6. BINGO:
     ```
     # locally
     $ cat /sys/devices/system/clocksource/clocksource0/current_clocksource
@@ -153,7 +150,7 @@ Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtr
     $ sudo docker run --rm -it measurements-geth   bash -c "cat /sys/devices/system/clocksource/clocksource0/current_clocksource"
     xen
     ```
-7. `sudo sh -c "echo tsc >/sys/devices/system/clocksource/clocksource0/current_clocksource"` fixes the problem!
+11. `sudo sh -c "echo tsc >/sys/devices/system/clocksource/clocksource0/current_clocksource"` fixes the problem!
 
 ### Articles
 

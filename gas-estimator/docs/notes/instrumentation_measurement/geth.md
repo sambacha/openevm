@@ -17,7 +17,7 @@ A simple instrumenter (`instrumenter.go`) (to be further developed and research 
     - properly fork and manage the `go-ethereum` dependency
     - investigate the overhead of some operations before entering the interpreter loop happening after `CaptureStart` (see rough notes). Remove these operations and compare measurements. If necessary, implement a fork of `go-ethereum` where the impact is minimized
     - ensure `Tracer` implementation has negligible and even overhead (e.g. make sure it doesn't suddenly allocate stuff after N instructions, or produce other fluctuations)
-    - improve the timing used (`runtimeNano` is used already) according to  [`exploration_timers.Rmd`](/src/analysis/exploration_timers.Rmd)
+    - improve the timing used (`runtimeNano` is used already) according to [`exploration_timers.Rmd`](/src/analysis/exploration_timers.Rmd)
     - (optional) implement an Analysis tool to detect problems with uneven overhead of instrumentation (e.g. every program has Nth instruction exceedingly costly, because our `Tracer` is doing something)
     - (for Stage II) implement a `Tracer` satisfying all the criteria
     - (for Stage II) ensure the `steps%1000` line (see rough notes below) doesn't affect us
@@ -35,57 +35,57 @@ A simple instrumenter (`instrumenter.go`) (to be further developed and research 
     Monotonic clock resolution is 1 nanoseconds
     ```
 3. I tested the overhead of that `clock_gettime` with `time.Since()` (and a trick one: `runtimeNano`):
-   - overhead is 10 times smaller using `time.Since`, and even smaller using `runtimeNano`
-   - investigate: sometimes both overheads are smaller, sometimes both are bigger, up to 3 fold.
-       - it might be worthwhile to measure and record the overhead on every OpCode, in case the overhead suffers from such long-running fluctuations <- yes, we're going to do that
-   - overhead of golang's timers analyzed in [`exploration_timers.Rmd`](/src/analysis/exploration_timers.Rmd)
+    - overhead is 10 times smaller using `time.Since`, and even smaller using `runtimeNano`
+    - investigate: sometimes both overheads are smaller, sometimes both are bigger, up to 3 fold.
+        - it might be worthwhile to measure and record the overhead on every OpCode, in case the overhead suffers from such long-running fluctuations <- yes, we're going to do that
+    - overhead of golang's timers analyzed in [`exploration_timers.Rmd`](/src/analysis/exploration_timers.Rmd)
 
 #### Timer takeaways
 
-- timers have periods of better behavior and worse behavior; we might want to filter out measurements from the "worse periods"
-- `runtimeNano` seems to be the least overhead overall. Switching from `time.Now` to `runtimeNano` allowed us to measure a quickest opcode execution at 52ns, compared to 67ns with `time.Now`. It's enough to look at the code of [`time.Now`](https://golang.org/src/time/time.go) to see how much it does before capturing time.
-- timers seem to require a lot of warm-up
-- we will be monitoring the timers during opcode measurements, the noise introduced by that shouldn't be large
-- more in [`exploration_timers.Rmd`](/src/analysis/exploration_timers.Rmd) or [quick preview of notebook results](https://htmlpreview.github.io/?https://github.com/imapp-pl/gas-cost-estimator/blob/master/src/analysis/exploration_timers.nb.html)
+-   timers have periods of better behavior and worse behavior; we might want to filter out measurements from the "worse periods"
+-   `runtimeNano` seems to be the least overhead overall. Switching from `time.Now` to `runtimeNano` allowed us to measure a quickest opcode execution at 52ns, compared to 67ns with `time.Now`. It's enough to look at the code of [`time.Now`](https://golang.org/src/time/time.go) to see how much it does before capturing time.
+-   timers seem to require a lot of warm-up
+-   we will be monitoring the timers during opcode measurements, the noise introduced by that shouldn't be large
+-   more in [`exploration_timers.Rmd`](/src/analysis/exploration_timers.Rmd) or [quick preview of notebook results](https://htmlpreview.github.io/?https://github.com/imapp-pl/gas-cost-estimator/blob/master/src/analysis/exploration_timers.nb.html)
 
 ### Notes on execution
 
-
 What is being run except EVM excecution, as measured by `CaptureStart`/`End` (everything between `CaptureStart` and beginning of the interpreter main loop, in `master` branch `go-ethereum`):
-- (source: `github.com/ethereum/go-ethereum/core/vm/evm.go:210`, `func (evm *EVM) Call`)
-- check boolean `isPrecompile`
-- get code from the in-memory StateDB
-- `if len(code) == 0`
-- `NewContract` and some assignments
-- `contract.SetCallCode`
-- some getting and setting of evm.interpreter magic in `run`
-- minor checks and assignments at the beginning of `func (in *EVMInterpreter) Run`
-- `mem`, `stack`, `returns`, (`callContext` too?) allocations
-- if we want the first instruction to have a precise measurement (not necessary with current program generation), `CaptureStart` must be [moved](https://github.com/imapp-pl/go-ethereum/tree/wallclock)
+
+-   (source: `github.com/ethereum/go-ethereum/core/vm/evm.go:210`, `func (evm *EVM) Call`)
+-   check boolean `isPrecompile`
+-   get code from the in-memory StateDB
+-   `if len(code) == 0`
+-   `NewContract` and some assignments
+-   `contract.SetCallCode`
+-   some getting and setting of evm.interpreter magic in `run`
+-   minor checks and assignments at the beginning of `func (in *EVMInterpreter) Run`
+-   `mem`, `stack`, `returns`, (`callContext` too?) allocations
+-   if we want the first instruction to have a precise measurement (not necessary with current program generation), `CaptureStart` must be [moved](https://github.com/imapp-pl/go-ethereum/tree/wallclock)
 
 What is going on between `CaptureState`s (every opcode):
-- (normal interpreter operation, but "unfair") `if steps%1000 == 0 && atomic.LoadInt32(&in.evm.abort) != 0` (only if we go over 1000 instructions in programs)
-- `logged, pcCopy, gasCopy = false, pc, contract.Gas` if tracing is on
-- (normal interpreter operations):
-    - `op = contract.GetOp(pc)`
-    - `operation := in.cfg.JumpTable[op]`
-    - `if sLen := stack.len(); sLen < operation.minStack`
-    - `else if sLen > operation.maxStack`
-    - `if in.readOnly && in.evm.chainRules.IsByzantium` (more checks if readOnly is true, **TODO**: make fair)
-    - `if !contract.UseGas(operation.constantGas)` and the inside (static gas cost)
-    - `if operation.memorySize != nil` and inside (memory pre-calculations)
-    - `if operation.dynamicGas != nil` and inside (dynamic gas cost)
-    - `if memorySize > 0` and inside (memory resizing)
-    - `res, err = operation.execute(&pc, in, callContext)`
-    - `if operation.returns` and inside (return value capturing)
-    - `switch {` for final end condition
-- (moved after `execute` in current fork) `in.cfg.Tracer.CaptureState(...)` tracing itself, just before `execute` of an opcode
-- `logged = true` if tracing is on
+
+-   (normal interpreter operation, but "unfair") `if steps%1000 == 0 && atomic.LoadInt32(&in.evm.abort) != 0` (only if we go over 1000 instructions in programs)
+-   `logged, pcCopy, gasCopy = false, pc, contract.Gas` if tracing is on
+-   (normal interpreter operations):
+    -   `op = contract.GetOp(pc)`
+    -   `operation := in.cfg.JumpTable[op]`
+    -   `if sLen := stack.len(); sLen < operation.minStack`
+    -   `else if sLen > operation.maxStack`
+    -   `if in.readOnly && in.evm.chainRules.IsByzantium` (more checks if readOnly is true, **TODO**: make fair)
+    -   `if !contract.UseGas(operation.constantGas)` and the inside (static gas cost)
+    -   `if operation.memorySize != nil` and inside (memory pre-calculations)
+    -   `if operation.dynamicGas != nil` and inside (dynamic gas cost)
+    -   `if memorySize > 0` and inside (memory resizing)
+    -   `res, err = operation.execute(&pc, in, callContext)`
+    -   `if operation.returns` and inside (return value capturing)
+    -   `switch {` for final end condition
+-   (moved after `execute` in current fork) `in.cfg.Tracer.CaptureState(...)` tracing itself, just before `execute` of an opcode
+-   `logged = true` if tracing is on
 
 ### Execution environment
 
 Please see Dockerfile.geth file to learn how to prepare the environment.
-
 
 ### Rough notes
 
@@ -105,5 +105,4 @@ Please see Dockerfile.geth file to learn how to prepare the environment.
         - remember to enable `vm.Config.Debug = true` - it looks like it won't impact anything else
 4. Final `STOP` instruction - where does it come from:
     - most likely `github.com/ethereum/go-ethereum/core/vm/contract.go:163`
-5. (**TODO**) we should, and are able to, measure the impact of calldata input, especially on calldata-specific OPCODEs.
-    `runtime.Execute` allows us to do this via `input`: `func Execute(code, input []byte, cfg *Config)`
+5. (**TODO**) we should, and are able to, measure the impact of calldata input, especially on calldata-specific OPCODEs. `runtime.Execute` allows us to do this via `input`: `func Execute(code, input []byte, cfg *Config)`

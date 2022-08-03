@@ -4,11 +4,9 @@ In order to ensure easy portability and adaptability to various clients and envi
 
 ### `measure_all`
 
-In `measure_all` we measure the individual times of all OPCODEs exectued for a given program.
-We also measure the timer overhead alongside the OPCODE execution measurement.
+In `measure_all` we measure the individual times of all OPCODEs exectued for a given program. We also measure the timer overhead alongside the OPCODE execution measurement.
 
-It turned out to be much better to measure by applying crude modifications to the EVM interpreter code, than to measure via calling a callback (e.g. `Tracer.CaptureState` for `geth`).
-To make this easier and as uniform as possible, follow these guidelines:
+It turned out to be much better to measure by applying crude modifications to the EVM interpreter code, than to measure via calling a callback (e.g. `Tracer.CaptureState` for `geth`). To make this easier and as uniform as possible, follow these guidelines:
 
 1. Measure the entire block of code which constitutes a single interpreter iteration. In particular, measure all code which is repeatedly executed as OPCODEs are interpreted.
 2. Leave all preprocessing out.
@@ -29,9 +27,9 @@ start_time = now()
 while {
     // EVM code
     // OPCODE code etc...
-    
+
     switch some_end_conditions {
-        continue: 
+        continue:
             // EVM code
             end_time = now()
             // measure the timer overhead
@@ -56,7 +54,3 @@ while {
 
 durations.print()
 ```
-
-
-
-

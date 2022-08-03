@@ -6,9 +6,7 @@ Nothing relevant/useful yet
 
 ### Rough notes
 
-1. http://wingtecher.com/themes/WingTecherResearch/assets/papers/saner-evm.pdf - "
-EVM*: From Offline Detection to OnlineReinforcement for Ethereum Virtual Machine"
-    - Not relevant to us, instrumentation for aborting of dangerous txs in the EVM. Not this kind of instrumentation we need.
+1. http://wingtecher.com/themes/WingTecherResearch/assets/papers/saner-evm.pdf - " EVM\*: From Offline Detection to OnlineReinforcement for Ethereum Virtual Machine" - Not relevant to us, instrumentation for aborting of dangerous txs in the EVM. Not this kind of instrumentation we need.
 2. https://www.researchgate.net/publication/331789943_Analysis_of_Ethereum_Smart_Contracts_and_Opcodes - "Analysis of Ethereum Smart Contracts and Opcodes"
     - Not relevant to us, just analysis of frequency of opcodes in the verified contracts (static)
 3. https://ethereum.stackexchange.com/questions/4446/instrumenting-evm - "Instrumenting EVM"

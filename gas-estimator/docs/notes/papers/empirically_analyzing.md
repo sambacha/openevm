@@ -18,6 +18,6 @@ https://arxiv.org/pdf/1905.00553.pdf
 2. includes I/O and focuses on those costs
 3. `aleth`-based same as Broken Metre
 4. similar to our current approach, they trace every EVM instruction
-5. approach to resource contention on the test machine: "We electedto  use  a  noisy  setup  for  Machine  B  as  it  is  representative  ofthe hardware choice used by a consumer user."
+5. approach to resource contention on the test machine: "We electedto use a noisy setup for Machine B as it is representative ofthe hardware choice used by a consumer user."
 6. `BLOCKHASH` is the main offender, but it seems odd that it hasn't been optimized (maybe it has been in more popular node implementations?)
 7. parallel transaction execution is mentioned in Related Work

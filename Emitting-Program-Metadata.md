@@ -1,6 +1,6 @@
-EVM LLVM provides a way to emit program's metadata for various of purposes. For examples, a symbol table that records the jump destinations can be emitted along with the generated binary. 
+EVM LLVM provides a way to emit program's metadata for various of purposes. For examples, a symbol table that records the jump destinations can be emitted along with the generated binary.
 
-Developers can use this utility to emit more program information. 
+Developers can use this utility to emit more program information.
 
 ## Existing implementation
 
@@ -11,7 +11,3 @@ To specify a custom metadata file name if you do not want to use the `EVMMeta.tx
 # Limitation
 
 Existing implementation of EVM metadata emitting is limited to `MachineCode` module/level, which means that if there are any transformations at a higher level such as in the IR level, it will not be shown in the result.
-
-
-
- 

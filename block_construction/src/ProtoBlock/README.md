@@ -1,7 +1,6 @@
 # Block Construction: Proto Block
 
-A proto-block is a block that has been executed but has not been sealed.
-The header is missing the nonce and mixhash, and can still accept extra data.
+A proto-block is a block that has been executed but has not been sealed. The header is missing the nonce and mixhash, and can still accept extra data.
 
 Proto-blocks are produced when transactions are executed, and can be turned into full valid blocks.
 
@@ -10,7 +9,6 @@ A **block header** that has not finished being sealed.
 **toHeader**: Seals the header into a block header
 
 **proto-block body**: is the representation of the intermediate form of a block body before being sealed.
-
 
 ```kotlin
 /* source: https://github.com/apache/incubator-tuweni/blob/main/eth-blockprocessor/src/main/kotlin/org/apache/tuweni/blockprocessor/ProtoBlock.kt */
