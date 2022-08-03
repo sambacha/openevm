@@ -2,6 +2,10 @@
 
 <small><i><a href='github.com/sambacha'>OpenEVM Kwowledgebase </a></i></small>
 
+>**Warning**.     
+> This repo is a hodpodge of collected documents, some may be out of date or incorrect!
+
+
 ## [TOC]
 
 -   [The Contract constructor function](#the-contract-constructor-function)
@@ -102,11 +106,13 @@ An EVM compiler doesn’t exactly optimize for bytecode size or speed or memory 
 
 Gas costs are set somewhat arbitrarily, and could well change in the future. As costs change, compilers would make different choices.
 
-### EVM Implementations (Ethereum clients)
+### EVM Implementations (Ethereum clients) (Execution Layer)
 
 -   go-ethereum (Go)
--   Parity (Rust)
--   EthereumJ (Java)
+-   Akula (Rust)
+-   Erigion(Go)
+-   Hyperledger Besu (Java)
+
 
 Some interesting implementations:
 
