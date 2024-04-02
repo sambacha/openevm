@@ -1,5 +1,0 @@
-<map id="evmc::MockedHost::selfdestruct_record" name="evmc::MockedHost::selfdestruct_record">
-<area shape="rect" id="node1" title="SELFDESTRUCT record." alt="" coords="5,185,216,227"/>
-<area shape="rect" id="node2" href="$structevmc_1_1address.html" title="The big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="56,81,165,108"/>
-<area shape="rect" id="node3" href="$structevmc__address.html" title="Big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="56,5,165,32"/>
-</map>

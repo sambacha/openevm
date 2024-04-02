@@ -1,8 +1,0 @@
-<map id="evmc_host_interface" name="evmc_host_interface">
-<area shape="rect" id="node1" title="The Host interface." alt="" coords="177,363,323,389"/>
-<area shape="rect" id="node2" href="$structevmc__host__context.html" title="The opaque data type representing the Host execution context." alt="" coords="5,155,143,181"/>
-<area shape="rect" id="node3" href="$structevmc__bytes32.html" title="The fixed size array of 32 bytes." alt="" coords="177,5,285,32"/>
-<area shape="rect" id="node6" href="$structevmc__tx__context.html" title="The transaction and block data for execution." alt="" coords="313,155,435,181"/>
-<area shape="rect" id="node4" href="$structevmc__result.html" title="The EVM code execution result." alt="" coords="459,155,553,181"/>
-<area shape="rect" id="node5" href="$structevmc__address.html" title="Big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="333,5,442,32"/>
-</map>

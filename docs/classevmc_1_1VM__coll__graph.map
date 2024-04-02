@@ -1,6 +1,0 @@
-<map id="evmc::VM" name="evmc::VM">
-<area shape="rect" id="node1" title="The VM instance." alt="" coords="19,291,101,317"/>
-<area shape="rect" id="node2" href="$structevmc__vm.html" title="The VM instance." alt="" coords="21,193,99,219"/>
-<area shape="rect" id="node3" href="$structevmc__result.html" title="The EVM code execution result." alt="" coords="13,95,107,121"/>
-<area shape="rect" id="node4" href="$structevmc__address.html" title="Big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="5,5,115,32"/>
-</map>

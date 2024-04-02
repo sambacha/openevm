@@ -1,5 +1,0 @@
-<map id="evmc_tx_context" name="evmc_tx_context">
-<area shape="rect" id="node1" title="The transaction and block data for execution." alt="" coords="65,139,187,165"/>
-<area shape="rect" id="node2" href="$structevmc__bytes32.html" title="The fixed size array of 32 bytes." alt="" coords="5,5,113,32"/>
-<area shape="rect" id="node3" href="$structevmc__address.html" title="Big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="138,5,247,32"/>
-</map>
