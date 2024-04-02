@@ -1,4 +1,0 @@
-<map id="evmc::VM::execute" name="evmc::VM::execute">
-<area shape="rect" id="node1" title="Convenient variant of the VM::execute() that takes reference to evmc::Host class." alt="" coords="5,5,141,32"/>
-<area shape="rect" id="node2" href="$classevmc_1_1Host.html#afb96540fea288f02d83f01e185a78374" title="Provides access to the global host interface." alt="" coords="189,5,363,32"/>
-</map>
