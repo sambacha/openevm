@@ -1,4 +1,0 @@
-<map id="evmc_bytes32" name="evmc_bytes32">
-<area shape="rect" id="node1" title="The fixed size array of 32 bytes." alt="" coords="5,5,113,32"/>
-<area shape="rect" id="node2" href="$structevmc_1_1bytes32.html" title="The fixed size array of 32 bytes for storing 256&#45;bit EVM values." alt="" coords="5,80,113,107"/>
-</map>

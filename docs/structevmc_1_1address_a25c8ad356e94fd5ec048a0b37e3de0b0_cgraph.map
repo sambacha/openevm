@@ -1,4 +1,0 @@
-<map id="evmc::address::operator bool" name="evmc::address::operator bool">
-<area shape="rect" id="node1" title="Explicit operator converting to bool." alt="" coords="5,5,200,32"/>
-<area shape="rect" id="node2" href="$namespaceevmc.html#afc53d0e831bda94fbf31a64d224c8d24" title="Checks if the given address is the zero address." alt="" coords="248,5,352,32"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="evmc_message" name="evmc_message">
-<area shape="rect" id="node1" title="The message describing an EVM call, including a zero&#45;depth calls from a transaction origin." alt="" coords="69,124,185,151"/>
-<area shape="rect" id="node2" href="$structevmc__address.html" title="Big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="5,5,115,32"/>
-<area shape="rect" id="node3" href="$structevmc__bytes32.html" title="The fixed size array of 32 bytes." alt="" coords="139,5,247,32"/>
-</map>

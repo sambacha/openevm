@@ -1,8 +1,0 @@
-<map id="include/evmc/instructions.h" name="include/evmc/instructions.h">
-<area shape="rect" id="node1" title="EVM Instruction Tables." alt="" coords="109,5,292,32"/>
-<area shape="rect" id="node2" href="$evmc_8h.html" title="EVMC: Ethereum Client&#45;VM Connector API." alt="" coords="91,80,191,107"/>
-<area shape="rect" id="node6" href="$utils_8h.html" title="A collection of helper macros to handle some non&#45;portable features of C/C++ compilers." alt="" coords="215,80,307,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,155,81,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="106,155,175,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="200,155,265,181"/>
-</map>

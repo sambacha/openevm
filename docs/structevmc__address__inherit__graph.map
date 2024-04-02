@@ -1,4 +1,0 @@
-<map id="evmc_address" name="evmc_address">
-<area shape="rect" id="node1" title="Big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="5,5,115,32"/>
-<area shape="rect" id="node2" href="$structevmc_1_1address.html" title="The big&#45;endian 160&#45;bit hash suitable for keeping an Ethereum address." alt="" coords="5,80,115,107"/>
-</map>

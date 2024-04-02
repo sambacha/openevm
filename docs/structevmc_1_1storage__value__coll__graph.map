@@ -1,5 +1,0 @@
-<map id="evmc::storage_value" name="evmc::storage_value">
-<area shape="rect" id="node1" title="Extended value (by dirty flag) for account storage." alt="" coords="5,171,151,197"/>
-<area shape="rect" id="node2" href="$structevmc_1_1bytes32.html" title="The fixed size array of 32 bytes for storing 256&#45;bit EVM values." alt="" coords="24,81,132,108"/>
-<area shape="rect" id="node3" href="$structevmc__bytes32.html" title="The fixed size array of 32 bytes." alt="" coords="24,5,132,32"/>
-</map>

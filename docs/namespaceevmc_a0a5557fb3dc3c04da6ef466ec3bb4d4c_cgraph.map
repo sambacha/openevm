@@ -1,5 +1,0 @@
-<map id="evmc::operator&lt;" name="evmc::operator&lt;">
-<area shape="rect" id="node1" title="The &quot;less than&quot; comparison operator for the evmc::address type." alt="" coords="5,31,124,57"/>
-<area shape="rect" id="node2" href="$namespaceevmc.html#a2170432bbbef84b33ce6dda30904068e" title="Loads 32 bits / 4 bytes of data from the given data array in big&#45;endian order." alt="" coords="172,5,288,32"/>
-<area shape="rect" id="node3" href="$namespaceevmc.html#a1a253fea559bb97f713b91903ffc860e" title="Loads 64 bits / 8 bytes of data from the given data array in big&#45;endian order." alt="" coords="172,56,288,83"/>
-</map>

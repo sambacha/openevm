@@ -1,4 +1,0 @@
-<map id="evmc::VM::set_option" name="evmc::VM::set_option">
-<area shape="rect" id="node1" title="Sets the option for the VM, if the feature is supported by the VM." alt="" coords="5,5,156,32"/>
-<area shape="rect" id="node2" href="$group__helpers.html#gaee14c6797a91ae328e43b4f4916f6004" title="Sets the option for the VM, if the feature is supported by the VM." alt="" coords="204,5,327,32"/>
-</map>
