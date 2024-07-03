@@ -1,0 +1,183 @@
+.. py:module:: ethereum.london.vm.instructions.block
+
+Ethereum Virtual Machine (EVM) Block Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM block instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.london.vm.instructions.block.block_hash
+   ethereum.london.vm.instructions.block.coinbase
+   ethereum.london.vm.instructions.block.timestamp
+   ethereum.london.vm.instructions.block.number
+   ethereum.london.vm.instructions.block.difficulty
+   ethereum.london.vm.instructions.block.gas_limit
+   ethereum.london.vm.instructions.block.chain_id
+
+
+
+Module Details
+---------------
+
+block_hash
+~~~~~~~~~~
+
+
+.. function:: block_hash(evm: ethereum.london.vm.Evm) -> None
+   :noindexentry:
+
+   Push the hash of one of the 256 most recent complete blocks onto the
+   stack. The block number to hash is present at the top of the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/london/vm/instructions/block.py
+   :language: python
+   :pyobject: block_hash
+
+coinbase
+~~~~~~~~
+
+
+.. function:: coinbase(evm: ethereum.london.vm.Evm) -> None
+   :noindexentry:
+
+   Push the current block's beneficiary address (address of the block miner)
+   onto the stack.
+
+   Here the current block refers to the block in which the currently
+   executing transaction/call resides.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/london/vm/instructions/block.py
+   :language: python
+   :pyobject: coinbase
+
+timestamp
+~~~~~~~~~
+
+
+.. function:: timestamp(evm: ethereum.london.vm.Evm) -> None
+   :noindexentry:
+
+   Push the current block's timestamp onto the stack. Here the timestamp
+   being referred is actually the unix timestamp in seconds.
+
+   Here the current block refers to the block in which the currently
+   executing transaction/call resides.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/london/vm/instructions/block.py
+   :language: python
+   :pyobject: timestamp
+
+number
+~~~~~~
+
+
+.. function:: number(evm: ethereum.london.vm.Evm) -> None
+   :noindexentry:
+
+   Push the current block's number onto the stack.
+
+   Here the current block refers to the block in which the currently
+   executing transaction/call resides.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/london/vm/instructions/block.py
+   :language: python
+   :pyobject: number
+
+difficulty
+~~~~~~~~~~
+
+
+.. function:: difficulty(evm: ethereum.london.vm.Evm) -> None
+   :noindexentry:
+
+   Push the current block's difficulty onto the stack.
+
+   Here the current block refers to the block in which the currently
+   executing transaction/call resides.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/london/vm/instructions/block.py
+   :language: python
+   :pyobject: difficulty
+
+gas_limit
+~~~~~~~~~
+
+
+.. function:: gas_limit(evm: ethereum.london.vm.Evm) -> None
+   :noindexentry:
+
+   Push the current block's gas limit onto the stack.
+
+   Here the current block refers to the block in which the currently
+   executing transaction/call resides.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/london/vm/instructions/block.py
+   :language: python
+   :pyobject: gas_limit
+
+chain_id
+~~~~~~~~
+
+
+.. function:: chain_id(evm: ethereum.london.vm.Evm) -> None
+   :noindexentry:
+
+   Push the chain id onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/london/vm/instructions/block.py
+   :language: python
+   :pyobject: chain_id

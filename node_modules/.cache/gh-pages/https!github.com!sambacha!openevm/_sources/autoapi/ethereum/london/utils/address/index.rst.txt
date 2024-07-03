@@ -1,0 +1,104 @@
+.. py:module:: ethereum.london.utils.address
+
+Hardfork Utility Functions For Addresses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Address specific functions used in this london version of
+specification.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.london.utils.address.to_address
+   ethereum.london.utils.address.compute_contract_address
+   ethereum.london.utils.address.compute_create2_contract_address
+
+
+
+Module Details
+---------------
+
+to_address
+~~~~~~~~~~
+
+
+.. function:: to_address(data: Union[ethereum.base_types.Uint, ethereum.base_types.U256]) -> ethereum.london.fork_types.Address
+   :noindexentry:
+
+   Convert a Uint or U256 value to a valid address (20 bytes).
+
+   :param data: The string to be converted to bytes.
+
+   :returns: **address** -- The obtained address.
+   :rtype: `Address`
+
+
+
+
+.. undocinclude:: /../src/ethereum/london/utils/address.py
+   :language: python
+   :pyobject: to_address
+
+compute_contract_address
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: compute_contract_address(address: ethereum.london.fork_types.Address, nonce: ethereum.base_types.Uint) -> ethereum.london.fork_types.Address
+   :noindexentry:
+
+   Computes address of the new account that needs to be created.
+
+   :param address: The address of the account that wants to create the new account.
+   :param nonce: The transaction count of the account that wants to create the new
+                 account.
+
+   :returns: **address** -- The computed address of the new account.
+   :rtype: `Address`
+
+
+
+
+.. undocinclude:: /../src/ethereum/london/utils/address.py
+   :language: python
+   :pyobject: compute_contract_address
+
+compute_create2_contract_address
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: compute_create2_contract_address(address: ethereum.london.fork_types.Address, salt: ethereum.base_types.Bytes32, call_data: bytearray) -> ethereum.london.fork_types.Address
+   :noindexentry:
+
+   Computes address of the new account that needs to be created, which is
+   based on the sender address, salt and the call data as well.
+
+   :param address: The address of the account that wants to create the new account.
+   :param salt: Address generation salt.
+   :param call_data: The code of the new account which is to be created.
+
+   :returns: **address** -- The computed address of the new account.
+   :rtype: `ethereum.london.fork_types.Address`
+
+
+
+
+.. undocinclude:: /../src/ethereum/london/utils/address.py
+   :language: python
+   :pyobject: compute_create2_contract_address

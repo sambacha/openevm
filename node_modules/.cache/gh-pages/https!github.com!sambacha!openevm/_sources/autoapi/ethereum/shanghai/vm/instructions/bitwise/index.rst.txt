@@ -1,0 +1,190 @@
+.. py:module:: ethereum.shanghai.vm.instructions.bitwise
+
+Ethereum Virtual Machine (EVM) Bitwise Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM bitwise instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.shanghai.vm.instructions.bitwise.bitwise_and
+   ethereum.shanghai.vm.instructions.bitwise.bitwise_or
+   ethereum.shanghai.vm.instructions.bitwise.bitwise_xor
+   ethereum.shanghai.vm.instructions.bitwise.bitwise_not
+   ethereum.shanghai.vm.instructions.bitwise.get_byte
+   ethereum.shanghai.vm.instructions.bitwise.bitwise_shl
+   ethereum.shanghai.vm.instructions.bitwise.bitwise_shr
+   ethereum.shanghai.vm.instructions.bitwise.bitwise_sar
+
+
+
+Module Details
+---------------
+
+bitwise_and
+~~~~~~~~~~~
+
+
+.. function:: bitwise_and(evm: ethereum.shanghai.vm.Evm) -> None
+   :noindexentry:
+
+   Bitwise AND operation of the top 2 elements of the stack. Pushes the
+   result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/shanghai/vm/instructions/bitwise.py
+   :language: python
+   :pyobject: bitwise_and
+
+bitwise_or
+~~~~~~~~~~
+
+
+.. function:: bitwise_or(evm: ethereum.shanghai.vm.Evm) -> None
+   :noindexentry:
+
+   Bitwise OR operation of the top 2 elements of the stack. Pushes the
+   result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/shanghai/vm/instructions/bitwise.py
+   :language: python
+   :pyobject: bitwise_or
+
+bitwise_xor
+~~~~~~~~~~~
+
+
+.. function:: bitwise_xor(evm: ethereum.shanghai.vm.Evm) -> None
+   :noindexentry:
+
+   Bitwise XOR operation of the top 2 elements of the stack. Pushes the
+   result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/shanghai/vm/instructions/bitwise.py
+   :language: python
+   :pyobject: bitwise_xor
+
+bitwise_not
+~~~~~~~~~~~
+
+
+.. function:: bitwise_not(evm: ethereum.shanghai.vm.Evm) -> None
+   :noindexentry:
+
+   Bitwise NOT operation of the top element of the stack. Pushes the
+   result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/shanghai/vm/instructions/bitwise.py
+   :language: python
+   :pyobject: bitwise_not
+
+get_byte
+~~~~~~~~
+
+
+.. function:: get_byte(evm: ethereum.shanghai.vm.Evm) -> None
+   :noindexentry:
+
+   For a word (defined by next top element of the stack), retrieve the
+   Nth byte (0-indexed and defined by top element of stack) from the
+   left (most significant) to right (least significant).
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/shanghai/vm/instructions/bitwise.py
+   :language: python
+   :pyobject: get_byte
+
+bitwise_shl
+~~~~~~~~~~~
+
+
+.. function:: bitwise_shl(evm: ethereum.shanghai.vm.Evm) -> None
+   :noindexentry:
+
+   Logical shift left (SHL) operation of the top 2 elements of the stack.
+   Pushes the result back on the stack.
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/shanghai/vm/instructions/bitwise.py
+   :language: python
+   :pyobject: bitwise_shl
+
+bitwise_shr
+~~~~~~~~~~~
+
+
+.. function:: bitwise_shr(evm: ethereum.shanghai.vm.Evm) -> None
+   :noindexentry:
+
+   Logical shift right (SHR) operation of the top 2 elements of the stack.
+   Pushes the result back on the stack.
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/shanghai/vm/instructions/bitwise.py
+   :language: python
+   :pyobject: bitwise_shr
+
+bitwise_sar
+~~~~~~~~~~~
+
+
+.. function:: bitwise_sar(evm: ethereum.shanghai.vm.Evm) -> None
+   :noindexentry:
+
+   Arithmetic shift right (SAR) operation of the top 2 elements of the stack.
+   Pushes the result back on the stack.
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/shanghai/vm/instructions/bitwise.py
+   :language: python
+   :pyobject: bitwise_sar

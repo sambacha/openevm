@@ -1,0 +1,51 @@
+.. py:module:: ethereum.arrow_glacier.vm.precompiled_contracts.identity
+
+Ethereum Virtual Machine (EVM) IDENTITY PRECOMPILED CONTRACT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementation of the `IDENTITY` precompiled contract.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.arrow_glacier.vm.precompiled_contracts.identity.identity
+
+
+
+Module Details
+---------------
+
+identity
+~~~~~~~~
+
+
+.. function:: identity(evm: ethereum.arrow_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Writes the message data to output.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/arrow_glacier/vm/precompiled_contracts/identity.py
+   :language: python
+   :pyobject: identity

@@ -1,0 +1,252 @@
+.. py:module:: ethereum.paris.vm.instructions.arithmetic
+
+Ethereum Virtual Machine (EVM) Arithmetic Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM Arithmetic instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.paris.vm.instructions.arithmetic.add
+   ethereum.paris.vm.instructions.arithmetic.sub
+   ethereum.paris.vm.instructions.arithmetic.mul
+   ethereum.paris.vm.instructions.arithmetic.div
+   ethereum.paris.vm.instructions.arithmetic.sdiv
+   ethereum.paris.vm.instructions.arithmetic.mod
+   ethereum.paris.vm.instructions.arithmetic.smod
+   ethereum.paris.vm.instructions.arithmetic.addmod
+   ethereum.paris.vm.instructions.arithmetic.mulmod
+   ethereum.paris.vm.instructions.arithmetic.exp
+   ethereum.paris.vm.instructions.arithmetic.signextend
+
+
+
+Module Details
+---------------
+
+add
+~~~
+
+
+.. function:: add(evm: ethereum.paris.vm.Evm) -> None
+   :noindexentry:
+
+   Adds the top two elements of the stack together, and pushes the result back
+   on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/instructions/arithmetic.py
+   :language: python
+   :pyobject: add
+
+sub
+~~~
+
+
+.. function:: sub(evm: ethereum.paris.vm.Evm) -> None
+   :noindexentry:
+
+   Subtracts the top two elements of the stack, and pushes the result back
+   on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/instructions/arithmetic.py
+   :language: python
+   :pyobject: sub
+
+mul
+~~~
+
+
+.. function:: mul(evm: ethereum.paris.vm.Evm) -> None
+   :noindexentry:
+
+   Multiply the top two elements of the stack, and pushes the result back
+   on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/instructions/arithmetic.py
+   :language: python
+   :pyobject: mul
+
+div
+~~~
+
+
+.. function:: div(evm: ethereum.paris.vm.Evm) -> None
+   :noindexentry:
+
+   Integer division of the top two elements of the stack. Pushes the result
+   back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/instructions/arithmetic.py
+   :language: python
+   :pyobject: div
+
+sdiv
+~~~~
+
+
+.. function:: sdiv(evm: ethereum.paris.vm.Evm) -> None
+   :noindexentry:
+
+   Signed integer division of the top two elements of the stack. Pushes the
+   result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/instructions/arithmetic.py
+   :language: python
+   :pyobject: sdiv
+
+mod
+~~~
+
+
+.. function:: mod(evm: ethereum.paris.vm.Evm) -> None
+   :noindexentry:
+
+   Modulo remainder of the top two elements of the stack. Pushes the result
+   back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/instructions/arithmetic.py
+   :language: python
+   :pyobject: mod
+
+smod
+~~~~
+
+
+.. function:: smod(evm: ethereum.paris.vm.Evm) -> None
+   :noindexentry:
+
+   Signed modulo remainder of the top two elements of the stack. Pushes the
+   result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/instructions/arithmetic.py
+   :language: python
+   :pyobject: smod
+
+addmod
+~~~~~~
+
+
+.. function:: addmod(evm: ethereum.paris.vm.Evm) -> None
+   :noindexentry:
+
+   Modulo addition of the top 2 elements with the 3rd element. Pushes the
+   result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/instructions/arithmetic.py
+   :language: python
+   :pyobject: addmod
+
+mulmod
+~~~~~~
+
+
+.. function:: mulmod(evm: ethereum.paris.vm.Evm) -> None
+   :noindexentry:
+
+   Modulo multiplication of the top 2 elements with the 3rd element. Pushes
+   the result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/instructions/arithmetic.py
+   :language: python
+   :pyobject: mulmod
+
+exp
+~~~
+
+
+.. function:: exp(evm: ethereum.paris.vm.Evm) -> None
+   :noindexentry:
+
+   Exponential operation of the top 2 elements. Pushes the result back on
+   the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/instructions/arithmetic.py
+   :language: python
+   :pyobject: exp
+
+signextend
+~~~~~~~~~~
+
+
+.. function:: signextend(evm: ethereum.paris.vm.Evm) -> None
+   :noindexentry:
+
+   Sign extend operation. In other words, extend a signed number which
+   fits in N bytes to 32 bytes.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/instructions/arithmetic.py
+   :language: python
+   :pyobject: signextend

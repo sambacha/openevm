@@ -1,0 +1,268 @@
+.. py:module:: ethereum.crypto.blake2
+
+The Blake2 Implementation
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.crypto.blake2.Blake2
+   ethereum.crypto.blake2.Blake2b
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.crypto.blake2.spit_le_to_uint
+
+
+
+Module Details
+---------------
+
+spit_le_to_uint
+~~~~~~~~~~~~~~~
+
+
+.. function:: spit_le_to_uint(data: bytes, start: int, num_words: int) -> List[ethereum.base_types.Uint]
+   :noindexentry:
+
+   Extracts 8 byte words from a given data.
+
+   :param data: The data in bytes from which the words need to be extracted
+   :param start: Position to start the extraction
+   :param num_words: The number of words to be extracted
+
+
+
+
+.. undocinclude:: /../src/ethereum/crypto/blake2.py
+   :language: python
+   :pyobject: spit_le_to_uint
+
+Blake2
+~~~~~~
+
+
+Implementation of the BLAKE2 cryptographic hashing algorithm.
+
+Please refer the following document for details:
+https://datatracker.ietf.org/doc/html/rfc7693
+
+
+.. class:: Blake2
+
+   
+
+   .. py:attribute:: w
+         :annotation: :int
+
+      
+
+   
+
+   .. py:attribute:: mask_bits
+         :annotation: :int
+
+      
+
+   
+
+   .. py:attribute:: word_format
+         :annotation: :str
+
+      
+
+   
+
+   .. py:attribute:: R1
+         :annotation: :int
+
+      
+
+   
+
+   .. py:attribute:: R2
+         :annotation: :int
+
+      
+
+   
+
+   .. py:attribute:: R3
+         :annotation: :int
+
+      
+
+   
+
+   .. py:attribute:: R4
+         :annotation: :int
+
+      
+
+   
+
+   .. py:attribute:: sigma
+         :annotation: :Tuple = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], [14, 10, 4, 8, 9, 15, 13, 6, 1, 12, 0,...
+
+      
+
+   
+
+   .. py:attribute:: IV
+         :annotation: :Tuple = [7640891576956012808, 13503953896175478587, 4354685564936845355, 11912009170470909681,...
+
+      
+
+   .. py:method:: max_word() -> int
+      :property:
+
+      Largest value for a given Blake2 flavor.
+
+
+   .. py:method:: w_R1() -> int
+      :property:
+
+      (w - R1) value for a given Blake2 flavor.
+      Used in the function G
+
+
+   .. py:method:: w_R2() -> int
+      :property:
+
+      (w - R2) value for a given Blake2 flavor.
+      Used in the function G
+
+
+   .. py:method:: w_R3() -> int
+      :property:
+
+      (w - R3) value for a given Blake2 flavor.
+      Used in the function G
+
+
+   .. py:method:: w_R4() -> int
+      :property:
+
+      (w - R4) value for a given Blake2 flavor.
+      Used in the function G
+
+
+   .. py:method:: sigma_len() -> int
+      :property:
+
+      Length of the sigma parameter.
+
+
+   .. py:method:: get_blake2_parameters(data: bytes) -> Tuple
+
+      Extract the parameters required in the Blake2 compression function
+      from the provided bytes data.
+
+      :param data: The bytes data that has been passed in the message.
+
+
+   .. py:method:: G(v: List, a: int, b: int, c: int, d: int, x: int, y: int) -> List
+
+      The mixing function used in Blake2
+      https://datatracker.ietf.org/doc/html/rfc7693#section-3.1
+
+      :param v: The working vector to be mixed.
+      :param a: Indexes within v of the words to be mixed.
+      :param b: Indexes within v of the words to be mixed.
+      :param c: Indexes within v of the words to be mixed.
+      :param d: Indexes within v of the words to be mixed.
+      :param x: The two input words for the mixing.
+      :param y: The two input words for the mixing.
+
+
+   .. py:method:: compress(num_rounds: ethereum.base_types.Uint, h: List[ethereum.base_types.Uint], m: List[ethereum.base_types.Uint], t_0: ethereum.base_types.Uint, t_1: ethereum.base_types.Uint, f: bool) -> bytes
+
+      'F Compression' from section 3.2 of RFC 7693:
+      https://tools.ietf.org/html/rfc7693#section-3.2
+
+      :param num_rounds: The number of rounds. A 32-bit unsigned big-endian word
+      :param h: The state vector. 8 unsigned 64-bit little-endian words
+      :param m: The message block vector. 16 unsigned 64-bit little-endian words
+      :param t_0: Offset counters. 2 unsigned 64-bit little-endian words
+      :param t_1: Offset counters. 2 unsigned 64-bit little-endian words
+      :param f: The final block indicator flag. An 8-bit word
+
+
+
+
+Blake2b
+~~~~~~~
+
+
+The Blake2b flavor (64-bits) of Blake2.
+This version is used in the pre-compiled contract.
+
+
+.. class:: Blake2b
+
+   Bases: :py:obj:`Blake2`
+
+   
+
+   .. py:attribute:: w
+         :annotation: :int = 64
+
+      
+
+   
+
+   .. py:attribute:: mask_bits
+         :annotation: :int = 18446744073709551615
+
+      
+
+   
+
+   .. py:attribute:: word_format
+         :annotation: :str = Q
+
+      
+
+   
+
+   .. py:attribute:: R1
+         :annotation: :int = 32
+
+      
+
+   
+
+   .. py:attribute:: R2
+         :annotation: :int = 24
+
+      
+
+   
+
+   .. py:attribute:: R3
+         :annotation: :int = 16
+
+      
+
+   
+
+   .. py:attribute:: R4
+         :annotation: :int = 63
+
+      
+
+

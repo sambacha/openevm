@@ -1,0 +1,78 @@
+.. py:module:: ethereum.homestead.utils.address
+
+Hardfork Utility Functions For Addresses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Address specific functions used in this homestead version of specification.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.homestead.utils.address.to_address
+   ethereum.homestead.utils.address.compute_contract_address
+
+
+
+Module Details
+---------------
+
+to_address
+~~~~~~~~~~
+
+
+.. function:: to_address(data: Union[ethereum.base_types.Uint, ethereum.base_types.U256]) -> ethereum.homestead.fork_types.Address
+   :noindexentry:
+
+   Convert a Uint or U256 value to a valid address (20 bytes).
+
+   :param data: The string to be converted to bytes.
+
+   :returns: **address** -- The obtained address.
+   :rtype: `Address`
+
+
+
+
+.. undocinclude:: /../src/ethereum/homestead/utils/address.py
+   :language: python
+   :pyobject: to_address
+
+compute_contract_address
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: compute_contract_address(address: ethereum.homestead.fork_types.Address, nonce: ethereum.base_types.Uint) -> ethereum.homestead.fork_types.Address
+   :noindexentry:
+
+   Computes address of the new account that needs to be created.
+
+   :param address: The address of the account that wants to create the new account.
+   :param nonce: The transaction count of the account that wants to create the new
+                 account.
+
+   :returns: **address** -- The computed address of the new account.
+   :rtype: `ethereum.homestead.fork_types.Address`
+
+
+
+
+.. undocinclude:: /../src/ethereum/homestead/utils/address.py
+   :language: python
+   :pyobject: compute_contract_address

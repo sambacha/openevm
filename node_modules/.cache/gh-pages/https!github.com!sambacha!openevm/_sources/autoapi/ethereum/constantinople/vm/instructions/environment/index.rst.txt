@@ -1,0 +1,343 @@
+.. py:module:: ethereum.constantinople.vm.instructions.environment
+
+Ethereum Virtual Machine (EVM) Environmental Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM environment related instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.constantinople.vm.instructions.environment.address
+   ethereum.constantinople.vm.instructions.environment.balance
+   ethereum.constantinople.vm.instructions.environment.origin
+   ethereum.constantinople.vm.instructions.environment.caller
+   ethereum.constantinople.vm.instructions.environment.callvalue
+   ethereum.constantinople.vm.instructions.environment.calldataload
+   ethereum.constantinople.vm.instructions.environment.calldatasize
+   ethereum.constantinople.vm.instructions.environment.calldatacopy
+   ethereum.constantinople.vm.instructions.environment.codesize
+   ethereum.constantinople.vm.instructions.environment.codecopy
+   ethereum.constantinople.vm.instructions.environment.gasprice
+   ethereum.constantinople.vm.instructions.environment.extcodesize
+   ethereum.constantinople.vm.instructions.environment.extcodecopy
+   ethereum.constantinople.vm.instructions.environment.returndatasize
+   ethereum.constantinople.vm.instructions.environment.returndatacopy
+   ethereum.constantinople.vm.instructions.environment.extcodehash
+
+
+
+Module Details
+---------------
+
+address
+~~~~~~~
+
+
+.. function:: address(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the address of the current executing account to the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: address
+
+balance
+~~~~~~~
+
+
+.. function:: balance(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the balance of the given account onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: balance
+
+origin
+~~~~~~
+
+
+.. function:: origin(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the address of the original transaction sender to the stack.
+   The origin address can only be an EOA.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: origin
+
+caller
+~~~~~~
+
+
+.. function:: caller(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the address of the caller onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: caller
+
+callvalue
+~~~~~~~~~
+
+
+.. function:: callvalue(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Push the value (in wei) sent with the call onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: callvalue
+
+calldataload
+~~~~~~~~~~~~
+
+
+.. function:: calldataload(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Push a word (32 bytes) of the input data belonging to the current
+   environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: calldataload
+
+calldatasize
+~~~~~~~~~~~~
+
+
+.. function:: calldatasize(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Push the size of input data in current environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: calldatasize
+
+calldatacopy
+~~~~~~~~~~~~
+
+
+.. function:: calldatacopy(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Copy a portion of the input data in current environment to memory.
+
+   This will also expand the memory, in case that the memory is insufficient
+   to store the data.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: calldatacopy
+
+codesize
+~~~~~~~~
+
+
+.. function:: codesize(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Push the size of code running in current environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: codesize
+
+codecopy
+~~~~~~~~
+
+
+.. function:: codecopy(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Copy a portion of the code in current environment to memory.
+
+   This will also expand the memory, in case that the memory is insufficient
+   to store the data.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: codecopy
+
+gasprice
+~~~~~~~~
+
+
+.. function:: gasprice(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Push the gas price used in current environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: gasprice
+
+extcodesize
+~~~~~~~~~~~
+
+
+.. function:: extcodesize(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Push the code size of a given account onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: extcodesize
+
+extcodecopy
+~~~~~~~~~~~
+
+
+.. function:: extcodecopy(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Copy a portion of an account's code to memory.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: extcodecopy
+
+returndatasize
+~~~~~~~~~~~~~~
+
+
+.. function:: returndatasize(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the size of the return data buffer onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: returndatasize
+
+returndatacopy
+~~~~~~~~~~~~~~
+
+
+.. function:: returndatacopy(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Copies data from the return data buffer code to memory
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: returndatacopy
+
+extcodehash
+~~~~~~~~~~~
+
+
+.. function:: extcodehash(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Returns the keccak256 hash of a contract’s bytecode
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/environment.py
+   :language: python
+   :pyobject: extcodehash

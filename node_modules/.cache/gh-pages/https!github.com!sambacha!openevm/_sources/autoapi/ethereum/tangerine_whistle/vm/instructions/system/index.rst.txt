@@ -1,0 +1,163 @@
+.. py:module:: ethereum.tangerine_whistle.vm.instructions.system
+
+Ethereum Virtual Machine (EVM) System Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM system related instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.tangerine_whistle.vm.instructions.system.create
+   ethereum.tangerine_whistle.vm.instructions.system.return_
+   ethereum.tangerine_whistle.vm.instructions.system.generic_call
+   ethereum.tangerine_whistle.vm.instructions.system.call
+   ethereum.tangerine_whistle.vm.instructions.system.callcode
+   ethereum.tangerine_whistle.vm.instructions.system.selfdestruct
+   ethereum.tangerine_whistle.vm.instructions.system.delegatecall
+
+
+
+Module Details
+---------------
+
+create
+~~~~~~
+
+
+.. function:: create(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Creates a new account with associated code.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/system.py
+   :language: python
+   :pyobject: create
+
+return_
+~~~~~~~
+
+
+.. function:: return_(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Halts execution returning output data.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/system.py
+   :language: python
+   :pyobject: return_
+
+generic_call
+~~~~~~~~~~~~
+
+
+.. function:: generic_call(evm: ethereum.tangerine_whistle.vm.Evm, gas: ethereum.base_types.Uint, value: ethereum.base_types.U256, caller: ethereum.tangerine_whistle.fork_types.Address, to: ethereum.tangerine_whistle.fork_types.Address, code_address: ethereum.tangerine_whistle.fork_types.Address, should_transfer_value: bool, memory_input_start_position: ethereum.base_types.U256, memory_input_size: ethereum.base_types.U256, memory_output_start_position: ethereum.base_types.U256, memory_output_size: ethereum.base_types.U256) -> None
+   :noindexentry:
+
+   Perform the core logic of the `CALL*` family of opcodes.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/system.py
+   :language: python
+   :pyobject: generic_call
+
+call
+~~~~
+
+
+.. function:: call(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into an account.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/system.py
+   :language: python
+   :pyobject: call
+
+callcode
+~~~~~~~~
+
+
+.. function:: callcode(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into this account with alternative account’s code.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/system.py
+   :language: python
+   :pyobject: callcode
+
+selfdestruct
+~~~~~~~~~~~~
+
+
+.. function:: selfdestruct(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Halt execution and register account for later deletion.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/system.py
+   :language: python
+   :pyobject: selfdestruct
+
+delegatecall
+~~~~~~~~~~~~
+
+
+.. function:: delegatecall(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into an account.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/system.py
+   :language: python
+   :pyobject: delegatecall

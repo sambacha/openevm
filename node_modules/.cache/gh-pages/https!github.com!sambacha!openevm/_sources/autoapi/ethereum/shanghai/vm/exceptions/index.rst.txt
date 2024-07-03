@@ -1,0 +1,201 @@
+.. py:module:: ethereum.shanghai.vm.exceptions
+
+Ethereum Virtual Machine (EVM) Exceptions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Exceptions which cause the EVM to halt exceptionally.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+ExceptionalHalt
+~~~~~~~~~~~~~~~
+
+
+Indicates that the EVM has experienced an exceptional halt. This causes
+execution to immediately end with all gas being consumed.
+
+
+.. exception:: ExceptionalHalt
+
+
+   Bases: :py:obj:`ethereum.exceptions.EthereumException`
+
+
+
+Revert
+~~~~~~
+
+
+Raised by the `REVERT` opcode.
+
+Unlike other EVM exceptions this does not result in the consumption of all
+gas.
+
+
+.. exception:: Revert
+
+
+   Bases: :py:obj:`ethereum.exceptions.EthereumException`
+
+
+
+StackUnderflowError
+~~~~~~~~~~~~~~~~~~~
+
+
+Occurs when a pop is executed on an empty stack.
+
+
+.. exception:: StackUnderflowError
+
+
+   Bases: :py:obj:`ExceptionalHalt`
+
+
+
+StackOverflowError
+~~~~~~~~~~~~~~~~~~
+
+
+Occurs when a push is executed on a stack at max capacity.
+
+
+.. exception:: StackOverflowError
+
+
+   Bases: :py:obj:`ExceptionalHalt`
+
+
+
+OutOfGasError
+~~~~~~~~~~~~~
+
+
+Occurs when an operation costs more than the amount of gas left in the
+frame.
+
+
+.. exception:: OutOfGasError
+
+
+   Bases: :py:obj:`ExceptionalHalt`
+
+
+
+InvalidOpcode
+~~~~~~~~~~~~~
+
+
+Raised when an invalid opcode is encountered.
+
+
+.. exception:: InvalidOpcode
+
+
+   Bases: :py:obj:`ExceptionalHalt`
+
+
+
+InvalidJumpDestError
+~~~~~~~~~~~~~~~~~~~~
+
+
+Occurs when the destination of a jump operation doesn't meet any of the
+following criteria:
+
+  * The jump destination is less than the length of the code.
+  * The jump destination should have the `JUMPDEST` opcode (0x5B).
+  * The jump destination shouldn't be part of the data corresponding to
+    `PUSH-N` opcodes.
+
+
+.. exception:: InvalidJumpDestError
+
+
+   Bases: :py:obj:`ExceptionalHalt`
+
+
+
+StackDepthLimitError
+~~~~~~~~~~~~~~~~~~~~
+
+
+Raised when the message depth is greater than `1024`
+
+
+.. exception:: StackDepthLimitError
+
+
+   Bases: :py:obj:`ExceptionalHalt`
+
+
+
+WriteInStaticContext
+~~~~~~~~~~~~~~~~~~~~
+
+
+Raised when an attempt is made to modify the state while operating inside
+of a STATICCALL context.
+
+
+.. exception:: WriteInStaticContext
+
+
+   Bases: :py:obj:`ExceptionalHalt`
+
+
+
+OutOfBoundsRead
+~~~~~~~~~~~~~~~
+
+
+Raised when an attempt was made to read data beyond the
+boundaries of the buffer.
+
+
+.. exception:: OutOfBoundsRead
+
+
+   Bases: :py:obj:`ExceptionalHalt`
+
+
+
+InvalidParameter
+~~~~~~~~~~~~~~~~
+
+
+Raised when invalid parameters are passed.
+
+
+.. exception:: InvalidParameter
+
+
+   Bases: :py:obj:`ExceptionalHalt`
+
+
+
+InvalidContractPrefix
+~~~~~~~~~~~~~~~~~~~~~
+
+
+Raised when the new contract code starts with 0xEF.
+
+
+.. exception:: InvalidContractPrefix
+
+
+   Bases: :py:obj:`ExceptionalHalt`
+
+

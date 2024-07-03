@@ -1,0 +1,287 @@
+.. py:module:: ethereum.dao_fork.vm.instructions.environment
+
+Ethereum Virtual Machine (EVM) Environmental Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM environment related instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.dao_fork.vm.instructions.environment.address
+   ethereum.dao_fork.vm.instructions.environment.balance
+   ethereum.dao_fork.vm.instructions.environment.origin
+   ethereum.dao_fork.vm.instructions.environment.caller
+   ethereum.dao_fork.vm.instructions.environment.callvalue
+   ethereum.dao_fork.vm.instructions.environment.calldataload
+   ethereum.dao_fork.vm.instructions.environment.calldatasize
+   ethereum.dao_fork.vm.instructions.environment.calldatacopy
+   ethereum.dao_fork.vm.instructions.environment.codesize
+   ethereum.dao_fork.vm.instructions.environment.codecopy
+   ethereum.dao_fork.vm.instructions.environment.gasprice
+   ethereum.dao_fork.vm.instructions.environment.extcodesize
+   ethereum.dao_fork.vm.instructions.environment.extcodecopy
+
+
+
+Module Details
+---------------
+
+address
+~~~~~~~
+
+
+.. function:: address(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the address of the current executing account to the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/environment.py
+   :language: python
+   :pyobject: address
+
+balance
+~~~~~~~
+
+
+.. function:: balance(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the balance of the given account onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/environment.py
+   :language: python
+   :pyobject: balance
+
+origin
+~~~~~~
+
+
+.. function:: origin(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the address of the original transaction sender to the stack.
+   The origin address can only be an EOA.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/environment.py
+   :language: python
+   :pyobject: origin
+
+caller
+~~~~~~
+
+
+.. function:: caller(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the address of the caller onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/environment.py
+   :language: python
+   :pyobject: caller
+
+callvalue
+~~~~~~~~~
+
+
+.. function:: callvalue(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Push the value (in wei) sent with the call onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/environment.py
+   :language: python
+   :pyobject: callvalue
+
+calldataload
+~~~~~~~~~~~~
+
+
+.. function:: calldataload(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Push a word (32 bytes) of the input data belonging to the current
+   environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/environment.py
+   :language: python
+   :pyobject: calldataload
+
+calldatasize
+~~~~~~~~~~~~
+
+
+.. function:: calldatasize(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Push the size of input data in current environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/environment.py
+   :language: python
+   :pyobject: calldatasize
+
+calldatacopy
+~~~~~~~~~~~~
+
+
+.. function:: calldatacopy(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Copy a portion of the input data in current environment to memory.
+
+   This will also expand the memory, in case that the memory is insufficient
+   to store the data.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/environment.py
+   :language: python
+   :pyobject: calldatacopy
+
+codesize
+~~~~~~~~
+
+
+.. function:: codesize(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Push the size of code running in current environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/environment.py
+   :language: python
+   :pyobject: codesize
+
+codecopy
+~~~~~~~~
+
+
+.. function:: codecopy(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Copy a portion of the code in current environment to memory.
+
+   This will also expand the memory, in case that the memory is insufficient
+   to store the data.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/environment.py
+   :language: python
+   :pyobject: codecopy
+
+gasprice
+~~~~~~~~
+
+
+.. function:: gasprice(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Push the gas price used in current environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/environment.py
+   :language: python
+   :pyobject: gasprice
+
+extcodesize
+~~~~~~~~~~~
+
+
+.. function:: extcodesize(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Push the code size of a given account onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/environment.py
+   :language: python
+   :pyobject: extcodesize
+
+extcodecopy
+~~~~~~~~~~~
+
+
+.. function:: extcodecopy(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Copy a portion of an account's code to memory.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/environment.py
+   :language: python
+   :pyobject: extcodecopy

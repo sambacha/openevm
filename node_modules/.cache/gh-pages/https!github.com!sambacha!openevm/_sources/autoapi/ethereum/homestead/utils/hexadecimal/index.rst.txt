@@ -1,0 +1,99 @@
+.. py:module:: ethereum.homestead.utils.hexadecimal
+
+Utility Functions For Hexadecimal Strings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Hexadecimal utility functions used in this specification, specific to Homestead
+types.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.homestead.utils.hexadecimal.hex_to_root
+   ethereum.homestead.utils.hexadecimal.hex_to_bloom
+   ethereum.homestead.utils.hexadecimal.hex_to_address
+
+
+
+Module Details
+---------------
+
+hex_to_root
+~~~~~~~~~~~
+
+
+.. function:: hex_to_root(hex_string: str) -> ethereum.homestead.fork_types.Root
+   :noindexentry:
+
+   Convert hex string to trie root.
+
+   :param hex_string: The hexadecimal string to be converted to trie root.
+
+   :returns: **root** -- Trie root obtained from the given hexadecimal string.
+   :rtype: `Root`
+
+
+
+
+.. undocinclude:: /../src/ethereum/homestead/utils/hexadecimal.py
+   :language: python
+   :pyobject: hex_to_root
+
+hex_to_bloom
+~~~~~~~~~~~~
+
+
+.. function:: hex_to_bloom(hex_string: str) -> ethereum.homestead.fork_types.Bloom
+   :noindexentry:
+
+   Convert hex string to bloom.
+
+   :param hex_string: The hexadecimal string to be converted to bloom.
+
+   :returns: **bloom** -- Bloom obtained from the given hexadecimal string.
+   :rtype: `Bloom`
+
+
+
+
+.. undocinclude:: /../src/ethereum/homestead/utils/hexadecimal.py
+   :language: python
+   :pyobject: hex_to_bloom
+
+hex_to_address
+~~~~~~~~~~~~~~
+
+
+.. function:: hex_to_address(hex_string: str) -> ethereum.homestead.fork_types.Address
+   :noindexentry:
+
+   Convert hex string to Address (20 bytes).
+
+   :param hex_string: The hexadecimal string to be converted to Address.
+
+   :returns: **address** -- The address obtained from the given hexadecimal string.
+   :rtype: `Address`
+
+
+
+
+.. undocinclude:: /../src/ethereum/homestead/utils/hexadecimal.py
+   :language: python
+   :pyobject: hex_to_address

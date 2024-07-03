@@ -1,0 +1,78 @@
+.. py:module:: ethereum.utils.byte
+
+Utility Functions For Byte Strings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Byte specific utility functions used in this specification.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.utils.byte.left_pad_zero_bytes
+   ethereum.utils.byte.right_pad_zero_bytes
+
+
+
+Module Details
+---------------
+
+left_pad_zero_bytes
+~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: left_pad_zero_bytes(value: ethereum.base_types.Bytes, size: int) -> ethereum.base_types.Bytes
+   :noindexentry:
+
+   Left pad zeroes to `value` if it's length is less than the given `size`.
+
+   :param value: The byte string that needs to be padded.
+   :param size: The number of bytes that need that need to be padded.
+
+   :returns: **left_padded_value** -- left padded byte string of given `size`.
+   :rtype: `ethereum.base_types.Bytes`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/byte.py
+   :language: python
+   :pyobject: left_pad_zero_bytes
+
+right_pad_zero_bytes
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: right_pad_zero_bytes(value: ethereum.base_types.Bytes, size: int) -> ethereum.base_types.Bytes
+   :noindexentry:
+
+   Right pad zeroes to `value` if it's length is less than the given `size`.
+
+   :param value: The byte string that needs to be padded.
+   :param size: The number of bytes that need that need to be padded.
+
+   :returns: **right_padded_value** -- right padded byte string of given `size`.
+   :rtype: `ethereum.base_types.Bytes`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/byte.py
+   :language: python
+   :pyobject: right_pad_zero_bytes

@@ -1,0 +1,146 @@
+.. py:module:: ethereum.arrow_glacier.vm.precompiled_contracts.modexp
+
+Ethereum Virtual Machine (EVM) MODEXP PRECOMPILED CONTRACT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementation of the `MODEXP` precompiled contract.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.arrow_glacier.vm.precompiled_contracts.modexp.modexp
+   ethereum.arrow_glacier.vm.precompiled_contracts.modexp.complexity
+   ethereum.arrow_glacier.vm.precompiled_contracts.modexp.iterations
+   ethereum.arrow_glacier.vm.precompiled_contracts.modexp.gas_cost
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.arrow_glacier.vm.precompiled_contracts.modexp.GQUADDIVISOR
+
+
+Module Details
+---------------
+
+GQUADDIVISOR
+~~~~~~~~~~~~
+
+
+
+.. py:data:: GQUADDIVISOR
+   
+   
+
+.. undocinclude:: /../src/ethereum/arrow_glacier/vm/precompiled_contracts/modexp.py
+   :language: python
+   :lines: 20-20
+
+
+modexp
+~~~~~~
+
+
+.. function:: modexp(evm: ethereum.arrow_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Calculates `(base**exp) % modulus` for arbitary sized `base`, `exp` and.
+   `modulus`. The return value is the same length as the modulus.
+
+
+
+
+.. undocinclude:: /../src/ethereum/arrow_glacier/vm/precompiled_contracts/modexp.py
+   :language: python
+   :pyobject: modexp
+
+complexity
+~~~~~~~~~~
+
+
+.. function:: complexity(base_length: ethereum.base_types.U256, modulus_length: ethereum.base_types.U256) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Estimate the complexity of performing a modular exponentiation.
+
+   :param base_length: Length of the array representing the base integer.
+   :param modulus_length: Length of the array representing the modulus integer.
+
+   :returns: **complexity** -- Complexity of performing the operation.
+   :rtype: `Uint`
+
+
+
+
+.. undocinclude:: /../src/ethereum/arrow_glacier/vm/precompiled_contracts/modexp.py
+   :language: python
+   :pyobject: complexity
+
+iterations
+~~~~~~~~~~
+
+
+.. function:: iterations(exponent_length: ethereum.base_types.U256, exponent_head: ethereum.base_types.Uint) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Calculate the number of iterations required to perform a modular
+   exponentiation.
+
+   :param exponent_length: Length of the array representing the exponent integer.
+   :param exponent_head: First 32 bytes of the exponent (with leading zero padding if it is
+                         shorter than 32 bytes), as an unsigned integer.
+
+   :returns: **iterations** -- Number of iterations.
+   :rtype: `Uint`
+
+
+
+
+.. undocinclude:: /../src/ethereum/arrow_glacier/vm/precompiled_contracts/modexp.py
+   :language: python
+   :pyobject: iterations
+
+gas_cost
+~~~~~~~~
+
+
+.. function:: gas_cost(base_length: ethereum.base_types.U256, modulus_length: ethereum.base_types.U256, exponent_length: ethereum.base_types.U256, exponent_head: ethereum.base_types.Uint) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Calculate the gas cost of performing a modular exponentiation.
+
+   :param base_length: Length of the array representing the base integer.
+   :param modulus_length: Length of the array representing the modulus integer.
+   :param exponent_length: Length of the array representing the exponent integer.
+   :param exponent_head: First 32 bytes of the exponent (with leading zero padding if it is
+                         shorter than 32 bytes), as an unsigned integer.
+
+   :returns: **gas_cost** -- Gas required for performing the operation.
+   :rtype: `Uint`
+
+
+
+
+.. undocinclude:: /../src/ethereum/arrow_glacier/vm/precompiled_contracts/modexp.py
+   :language: python
+   :pyobject: gas_cost

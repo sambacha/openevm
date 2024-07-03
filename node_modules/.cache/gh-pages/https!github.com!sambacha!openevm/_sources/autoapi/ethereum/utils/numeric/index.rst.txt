@@ -1,0 +1,185 @@
+.. py:module:: ethereum.utils.numeric
+
+Utility Functions For Numeric Operations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Numeric operations specific utility functions used in this specification.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.utils.numeric.get_sign
+   ethereum.utils.numeric.ceil32
+   ethereum.utils.numeric.is_prime
+   ethereum.utils.numeric.le_bytes_to_uint32_sequence
+   ethereum.utils.numeric.le_uint32_sequence_to_bytes
+   ethereum.utils.numeric.le_uint32_sequence_to_uint
+
+
+
+Module Details
+---------------
+
+get_sign
+~~~~~~~~
+
+
+.. function:: get_sign(value: int) -> int
+   :noindexentry:
+
+   Determines the sign of a number.
+
+   :param value: The value whose sign is to be determined.
+
+   :returns: **sign** -- The sign of the number (-1 or 0 or 1).
+             The return value is based on math signum function.
+   :rtype: `int`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/numeric.py
+   :language: python
+   :pyobject: get_sign
+
+ceil32
+~~~~~~
+
+
+.. function:: ceil32(value: ethereum.base_types.Uint) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Converts a unsigned integer to the next closest multiple of 32.
+
+   :param value: The value whose ceil32 is to be calculated.
+
+   :returns: **ceil32** -- The same value if it's a perfect multiple of 32
+             else it returns the smallest multiple of 32
+             that is greater than `value`.
+   :rtype: `ethereum.base_types.U256`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/numeric.py
+   :language: python
+   :pyobject: ceil32
+
+is_prime
+~~~~~~~~
+
+
+.. function:: is_prime(number: int) -> bool
+   :noindexentry:
+
+   Checks if `number` is a prime number.
+
+   :param number: The number to check for primality.
+
+   :returns: **is_number_prime** -- Boolean indicating if `number` is prime or not.
+   :rtype: `bool`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/numeric.py
+   :language: python
+   :pyobject: is_prime
+
+le_bytes_to_uint32_sequence
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: le_bytes_to_uint32_sequence(data: bytes) -> Tuple[ethereum.base_types.U32, Ellipsis]
+   :noindexentry:
+
+   Convert little endian byte stream `data` to a little endian U32
+   sequence i.e., the first U32 number of the sequence is the least
+   significant U32 number.
+
+   :param data: The byte stream (little endian) which is to be converted to a U32
+                stream.
+
+   :returns: **uint32_sequence** -- Sequence of U32 numbers obtained from the little endian byte
+             stream.
+   :rtype: `Tuple[U32, ...]`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/numeric.py
+   :language: python
+   :pyobject: le_bytes_to_uint32_sequence
+
+le_uint32_sequence_to_bytes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: le_uint32_sequence_to_bytes(sequence: Sequence[ethereum.base_types.U32]) -> bytes
+   :noindexentry:
+
+   Obtain little endian byte stream from a little endian U32 sequence
+   i.e., the first U32 number of the sequence is the least significant
+   U32 number.
+
+   Note - In this conversion, the most significant byte (byte at the end of
+   the little endian stream) may have leading zeroes. This function doesn't
+   take care of removing these leading zeroes as shown in below example.
+
+   >>> le_uint32_sequence_to_bytes([U32(8)])
+   b'\x08\x00\x00\x00'
+
+
+   :param sequence: The U32 stream (little endian) which is to be converted to a
+                    little endian byte stream.
+
+   :returns: **result** -- The byte stream obtained from the little endian U32 stream.
+   :rtype: `bytes`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/numeric.py
+   :language: python
+   :pyobject: le_uint32_sequence_to_bytes
+
+le_uint32_sequence_to_uint
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: le_uint32_sequence_to_uint(sequence: Sequence[ethereum.base_types.U32]) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Obtain Uint from a U32 sequence assuming that this sequence is little
+   endian i.e., the first U32 number of the sequence is the least
+   significant U32 number.
+
+   :param sequence: The U32 stream (little endian) which is to be converted to a Uint.
+
+   :returns: **value** -- The Uint number obtained from the conversion of the little endian
+             U32 stream.
+   :rtype: `Uint`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/numeric.py
+   :language: python
+   :pyobject: le_uint32_sequence_to_uint

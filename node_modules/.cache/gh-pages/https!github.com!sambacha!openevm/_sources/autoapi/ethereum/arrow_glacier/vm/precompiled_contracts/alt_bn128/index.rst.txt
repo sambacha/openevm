@@ -1,0 +1,89 @@
+.. py:module:: ethereum.arrow_glacier.vm.precompiled_contracts.alt_bn128
+
+Ethereum Virtual Machine (EVM) ALT_BN128 CONTRACTS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementation of the ALT_BN128 precompiled contracts.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.arrow_glacier.vm.precompiled_contracts.alt_bn128.alt_bn128_add
+   ethereum.arrow_glacier.vm.precompiled_contracts.alt_bn128.alt_bn128_mul
+   ethereum.arrow_glacier.vm.precompiled_contracts.alt_bn128.alt_bn128_pairing_check
+
+
+
+Module Details
+---------------
+
+alt_bn128_add
+~~~~~~~~~~~~~
+
+
+.. function:: alt_bn128_add(evm: ethereum.arrow_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   The ALT_BN128 addition precompiled contract.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/arrow_glacier/vm/precompiled_contracts/alt_bn128.py
+   :language: python
+   :pyobject: alt_bn128_add
+
+alt_bn128_mul
+~~~~~~~~~~~~~
+
+
+.. function:: alt_bn128_mul(evm: ethereum.arrow_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   The ALT_BN128 multiplication precompiled contract.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/arrow_glacier/vm/precompiled_contracts/alt_bn128.py
+   :language: python
+   :pyobject: alt_bn128_mul
+
+alt_bn128_pairing_check
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: alt_bn128_pairing_check(evm: ethereum.arrow_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   The ALT_BN128 pairing check precompiled contract.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/arrow_glacier/vm/precompiled_contracts/alt_bn128.py
+   :language: python
+   :pyobject: alt_bn128_pairing_check

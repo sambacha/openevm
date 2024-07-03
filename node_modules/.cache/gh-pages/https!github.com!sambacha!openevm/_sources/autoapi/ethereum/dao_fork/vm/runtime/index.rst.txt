@@ -1,0 +1,62 @@
+.. py:module:: ethereum.dao_fork.vm.runtime
+
+Ethereum Virtual Machine (EVM) Runtime Operations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Runtime related operations used while executing EVM code.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.dao_fork.vm.runtime.get_valid_jump_destinations
+
+
+
+Module Details
+---------------
+
+get_valid_jump_destinations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: get_valid_jump_destinations(code: bytes) -> Set[ethereum.base_types.Uint]
+   :noindexentry:
+
+   Analyze the evm code to obtain the set of valid jump destinations.
+
+   Valid jump destinations are defined as follows:
+       * The jump destination is less than the length of the code.
+       * The jump destination should have the `JUMPDEST` opcode (0x5B).
+       * The jump destination shouldn't be part of the data corresponding to
+         `PUSH-N` opcodes.
+
+   Note - Jump destinations are 0-indexed.
+
+   :param code: The EVM code which is to be executed.
+
+   :returns: **valid_jump_destinations** -- The set of valid jump destinations in the code.
+   :rtype: `Set[Uint]`
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/runtime.py
+   :language: python
+   :pyobject: get_valid_jump_destinations

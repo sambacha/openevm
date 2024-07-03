@@ -1,0 +1,96 @@
+.. py:module:: ethereum.utils.safe_arithmetic
+
+Safe Arithmetic for U256 Integer Type
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Safe arithmetic utility functions for U256 integer type.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.utils.safe_arithmetic.u256_safe_add
+   ethereum.utils.safe_arithmetic.u256_safe_multiply
+
+
+
+Module Details
+---------------
+
+u256_safe_add
+~~~~~~~~~~~~~
+
+
+.. function:: u256_safe_add(*numbers: Union[ethereum.base_types.U256, ethereum.base_types.Uint], exception_type: Optional[Type[BaseException]] = None) -> ethereum.base_types.U256
+   :noindexentry:
+
+   Adds together the given sequence of numbers. If the total sum of the
+   numbers exceeds `U256.MAX_VALUE` then an exception is raised.
+   If `exception_type` = None then the exception raised defaults to the one
+   raised by `U256` when `U256.value > U256.MAX_VALUE`
+   else `exception_type` is raised.
+
+   :param numbers: The sequence of numbers that need to be added together.
+   :param exception_type: The exception that needs to be raised if the sum of the `numbers`
+                          exceeds `U256.MAX_VALUE`.
+
+   :returns: **result** -- The sum of the given sequence of numbers if the total is less than
+             `U256.MAX_VALUE` else an exception is raised.
+             If `exception_type` = None then the exception raised defaults to the
+             one raised by `U256` when `U256.value > U256.MAX_VALUE`
+             else `exception_type` is raised.
+   :rtype: `ethereum.base_types.U256`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/safe_arithmetic.py
+   :language: python
+   :pyobject: u256_safe_add
+
+u256_safe_multiply
+~~~~~~~~~~~~~~~~~~
+
+
+.. function:: u256_safe_multiply(*numbers: Union[ethereum.base_types.U256, ethereum.base_types.Uint], exception_type: Optional[Type[BaseException]] = None) -> ethereum.base_types.U256
+   :noindexentry:
+
+   Multiplies together the given sequence of numbers. If the net product of
+   the numbers exceeds `U256.MAX_VALUE` then an exception is raised.
+   If `exception_type` = None then the exception raised defaults to the one
+   raised by `U256` when `U256.value > U256.MAX_VALUE` else
+   `exception_type` is raised.
+
+   :param numbers: The sequence of numbers that need to be multiplies together.
+   :param exception_type: The exception that needs to be raised if the sum of the `numbers`
+                          exceeds `U256.MAX_VALUE`.
+
+   :returns: **result** -- The multiplication product of the given sequence of numbers if the
+             net product  is less than `U256.MAX_VALUE` else an exception is raised.
+             If `exception_type` = None then the exception raised defaults to the
+             one raised by `U256` when `U256.value > U256.MAX_VALUE`
+             else `exception_type` is raised.
+   :rtype: `ethereum.base_types.U256`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/safe_arithmetic.py
+   :language: python
+   :pyobject: u256_safe_multiply

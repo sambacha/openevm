@@ -1,0 +1,240 @@
+.. py:module:: ethereum.muir_glacier.vm.instructions.system
+
+Ethereum Virtual Machine (EVM) System Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM system related instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.muir_glacier.vm.instructions.system.generic_create
+   ethereum.muir_glacier.vm.instructions.system.create
+   ethereum.muir_glacier.vm.instructions.system.create2
+   ethereum.muir_glacier.vm.instructions.system.return_
+   ethereum.muir_glacier.vm.instructions.system.generic_call
+   ethereum.muir_glacier.vm.instructions.system.call
+   ethereum.muir_glacier.vm.instructions.system.callcode
+   ethereum.muir_glacier.vm.instructions.system.selfdestruct
+   ethereum.muir_glacier.vm.instructions.system.delegatecall
+   ethereum.muir_glacier.vm.instructions.system.staticcall
+   ethereum.muir_glacier.vm.instructions.system.revert
+
+
+
+Module Details
+---------------
+
+generic_create
+~~~~~~~~~~~~~~
+
+
+.. function:: generic_create(evm: ethereum.muir_glacier.vm.Evm, endowment: ethereum.base_types.U256, contract_address: ethereum.muir_glacier.fork_types.Address, memory_start_position: ethereum.base_types.U256, memory_size: ethereum.base_types.U256) -> None
+   :noindexentry:
+
+   Core logic used by the `CREATE*` family of opcodes.
+
+
+
+
+.. undocinclude:: /../src/ethereum/muir_glacier/vm/instructions/system.py
+   :language: python
+   :pyobject: generic_create
+
+create
+~~~~~~
+
+
+.. function:: create(evm: ethereum.muir_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Creates a new account with associated code.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/muir_glacier/vm/instructions/system.py
+   :language: python
+   :pyobject: create
+
+create2
+~~~~~~~
+
+
+.. function:: create2(evm: ethereum.muir_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Creates a new account with associated code.
+
+   It's similar to CREATE opcode except that the address of new account
+   depends on the init_code instead of the nonce of sender.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/muir_glacier/vm/instructions/system.py
+   :language: python
+   :pyobject: create2
+
+return_
+~~~~~~~
+
+
+.. function:: return_(evm: ethereum.muir_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Halts execution returning output data.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/muir_glacier/vm/instructions/system.py
+   :language: python
+   :pyobject: return_
+
+generic_call
+~~~~~~~~~~~~
+
+
+.. function:: generic_call(evm: ethereum.muir_glacier.vm.Evm, gas: ethereum.base_types.Uint, value: ethereum.base_types.U256, caller: ethereum.muir_glacier.fork_types.Address, to: ethereum.muir_glacier.fork_types.Address, code_address: ethereum.muir_glacier.fork_types.Address, should_transfer_value: bool, is_staticcall: bool, memory_input_start_position: ethereum.base_types.U256, memory_input_size: ethereum.base_types.U256, memory_output_start_position: ethereum.base_types.U256, memory_output_size: ethereum.base_types.U256) -> None
+   :noindexentry:
+
+   Perform the core logic of the `CALL*` family of opcodes.
+
+
+
+
+.. undocinclude:: /../src/ethereum/muir_glacier/vm/instructions/system.py
+   :language: python
+   :pyobject: generic_call
+
+call
+~~~~
+
+
+.. function:: call(evm: ethereum.muir_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into an account.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/muir_glacier/vm/instructions/system.py
+   :language: python
+   :pyobject: call
+
+callcode
+~~~~~~~~
+
+
+.. function:: callcode(evm: ethereum.muir_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into this account with alternative account’s code.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/muir_glacier/vm/instructions/system.py
+   :language: python
+   :pyobject: callcode
+
+selfdestruct
+~~~~~~~~~~~~
+
+
+.. function:: selfdestruct(evm: ethereum.muir_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Halt execution and register account for later deletion.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/muir_glacier/vm/instructions/system.py
+   :language: python
+   :pyobject: selfdestruct
+
+delegatecall
+~~~~~~~~~~~~
+
+
+.. function:: delegatecall(evm: ethereum.muir_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into an account.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/muir_glacier/vm/instructions/system.py
+   :language: python
+   :pyobject: delegatecall
+
+staticcall
+~~~~~~~~~~
+
+
+.. function:: staticcall(evm: ethereum.muir_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into an account.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/muir_glacier/vm/instructions/system.py
+   :language: python
+   :pyobject: staticcall
+
+revert
+~~~~~~
+
+
+.. function:: revert(evm: ethereum.muir_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Stop execution and revert state changes, without consuming all provided gas
+   and also has the ability to return a reason
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/muir_glacier/vm/instructions/system.py
+   :language: python
+   :pyobject: revert

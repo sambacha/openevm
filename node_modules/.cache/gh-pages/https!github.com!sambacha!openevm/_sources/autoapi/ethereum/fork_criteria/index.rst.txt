@@ -1,0 +1,190 @@
+.. py:module:: ethereum.fork_criteria
+
+Fork Criteria
+^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Classes for specifying criteria for Mainnet forks.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.fork_criteria.ForkCriteria
+   ethereum.fork_criteria.ByBlockNumber
+   ethereum.fork_criteria.ByTimestamp
+   ethereum.fork_criteria.Unscheduled
+
+
+
+
+Module Details
+---------------
+
+ForkCriteria
+~~~~~~~~~~~~
+
+
+Type that represents the condition required for a fork to occur.
+
+
+.. class:: ForkCriteria
+
+   Bases: :py:obj:`abc.ABC`
+
+   
+
+   .. py:attribute:: BLOCK_NUMBER
+         :annotation: :Final[int] = 0
+
+      
+
+   
+
+   .. py:attribute:: TIMESTAMP
+         :annotation: :Final[int] = 1
+
+      
+
+   
+
+   .. py:attribute:: UNSCHEDULED
+         :annotation: :Final[int] = 2
+
+      
+
+   
+
+   .. py:attribute:: _internal
+         :annotation: :Tuple[int, int]
+
+      
+
+   .. py:method:: __eq__(other: object) -> bool
+
+      Equality for fork criteria.
+
+
+   .. py:method:: __lt__(other: object) -> bool
+
+      Ordering for fork criteria. Block number forks are before timestamp
+      forks and scheduled forks are before unscheduled forks.
+
+
+   .. py:method:: __hash__() -> int
+
+      `ForkCriteria` is hashable, so it can be stored in dictionaries.
+
+
+   .. py:method:: check(block_number: int, timestamp: int) -> bool
+      :abstractmethod:
+
+      Check whether fork criteria have been met.
+
+
+   .. py:method:: __repr__() -> str
+      :abstractmethod:
+
+      String representation of this object.
+
+
+
+
+ByBlockNumber
+~~~~~~~~~~~~~
+
+
+Forks that occur when a specific block number has been reached.
+
+
+.. class:: ByBlockNumber(block_number: int)
+
+
+   Bases: :py:obj:`ForkCriteria`
+
+   
+
+   .. py:attribute:: block_number
+         :annotation: :int
+
+      
+
+   .. py:method:: check(block_number: int, timestamp: int) -> bool
+
+      Check whether the block number has been reached.
+
+
+   .. py:method:: __repr__() -> str
+
+      String representation of this object.
+
+
+
+
+ByTimestamp
+~~~~~~~~~~~
+
+
+Forks that occur when a specific timestamp has been reached.
+
+
+.. class:: ByTimestamp(timestamp: int)
+
+
+   Bases: :py:obj:`ForkCriteria`
+
+   
+
+   .. py:attribute:: timestamp
+         :annotation: :int
+
+      
+
+   .. py:method:: check(block_number: int, timestamp: int) -> bool
+
+      Check whether the timestamp has been reached.
+
+
+   .. py:method:: __repr__() -> str
+
+      String representation of this object.
+
+
+
+
+Unscheduled
+~~~~~~~~~~~
+
+
+Forks that have not been scheduled.
+
+
+.. class:: Unscheduled
+
+
+   Bases: :py:obj:`ForkCriteria`
+
+   .. py:method:: check(block_number: int, timestamp: int) -> bool
+
+      Unscheduled forks never occur.
+
+
+   .. py:method:: __repr__() -> str
+
+      String representation of this object.
+
+
+

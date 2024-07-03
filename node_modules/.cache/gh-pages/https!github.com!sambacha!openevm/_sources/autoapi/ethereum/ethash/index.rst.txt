@@ -1,0 +1,463 @@
+.. py:module:: ethereum.ethash
+
+Ethash Functions
+^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Ethash algorithm related functionalities.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.ethash.epoch
+   ethereum.ethash.cache_size
+   ethereum.ethash.dataset_size
+   ethereum.ethash.generate_seed
+   ethereum.ethash.generate_cache
+   ethereum.ethash.fnv
+   ethereum.ethash.fnv_hash
+   ethereum.ethash.generate_dataset_item
+   ethereum.ethash.generate_dataset
+   ethereum.ethash.hashimoto
+   ethereum.ethash.hashimoto_light
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.ethash.EPOCH_SIZE
+   ethereum.ethash.INITIAL_CACHE_SIZE
+   ethereum.ethash.CACHE_EPOCH_GROWTH_SIZE
+   ethereum.ethash.INITIAL_DATASET_SIZE
+   ethereum.ethash.DATASET_EPOCH_GROWTH_SIZE
+   ethereum.ethash.HASH_BYTES
+   ethereum.ethash.MIX_BYTES
+   ethereum.ethash.CACHE_ROUNDS
+   ethereum.ethash.DATASET_PARENTS
+   ethereum.ethash.HASHIMOTO_ACCESSES
+
+
+Module Details
+---------------
+
+EPOCH_SIZE
+~~~~~~~~~~
+
+
+
+.. py:data:: EPOCH_SIZE
+   
+   
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 26-26
+
+
+INITIAL_CACHE_SIZE
+~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: INITIAL_CACHE_SIZE
+   
+   
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 27-27
+
+
+CACHE_EPOCH_GROWTH_SIZE
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: CACHE_EPOCH_GROWTH_SIZE
+   
+   
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 28-28
+
+
+INITIAL_DATASET_SIZE
+~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: INITIAL_DATASET_SIZE
+   
+   
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 29-29
+
+
+DATASET_EPOCH_GROWTH_SIZE
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: DATASET_EPOCH_GROWTH_SIZE
+   
+   
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 30-30
+
+
+HASH_BYTES
+~~~~~~~~~~
+
+
+
+.. py:data:: HASH_BYTES
+   
+   
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 31-31
+
+
+MIX_BYTES
+~~~~~~~~~
+
+
+
+.. py:data:: MIX_BYTES
+   
+   
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 32-32
+
+
+CACHE_ROUNDS
+~~~~~~~~~~~~
+
+
+
+.. py:data:: CACHE_ROUNDS
+   
+   
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 33-33
+
+
+DATASET_PARENTS
+~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: DATASET_PARENTS
+   
+   
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 34-34
+
+
+HASHIMOTO_ACCESSES
+~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: HASHIMOTO_ACCESSES
+   
+   
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 35-35
+
+
+epoch
+~~~~~
+
+
+.. function:: epoch(block_number: ethereum.base_types.Uint) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Obtain the epoch number to which the block identified by `block_number`
+   belongs.
+
+   :param block_number: The number of the block of interest.
+
+   :returns: **epoch_number** -- The epoch number to which the passed in block belongs.
+   :rtype: `Uint`
+
+
+
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :pyobject: epoch
+
+cache_size
+~~~~~~~~~~
+
+
+.. function:: cache_size(block_number: ethereum.base_types.Uint) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Obtain the cache size (in bytes) of the epoch to which `block_number`
+   belongs.
+
+   :param block_number: The number of the block of interest.
+
+   :returns: **cache_size_bytes** -- The cache size in bytes for the passed in block.
+   :rtype: `Uint`
+
+
+
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :pyobject: cache_size
+
+dataset_size
+~~~~~~~~~~~~
+
+
+.. function:: dataset_size(block_number: ethereum.base_types.Uint) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Obtain the dataset size (in bytes) of the epoch to which `block_number`
+   belongs.
+
+   :param block_number: The number of the block of interest.
+
+   :returns: **dataset_size_bytes** -- The dataset size in bytes for the passed in block.
+   :rtype: `Uint`
+
+
+
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :pyobject: dataset_size
+
+generate_seed
+~~~~~~~~~~~~~
+
+
+.. function:: generate_seed(block_number: ethereum.base_types.Uint) -> ethereum.crypto.hash.Hash32
+   :noindexentry:
+
+   Obtain the cache generation seed for the block identified by
+   `block_number`.
+
+   :param block_number: The number of the block of interest.
+
+   :returns: **seed** -- The cache generation seed for the passed in block.
+   :rtype: `Hash32`
+
+
+
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :pyobject: generate_seed
+
+generate_cache
+~~~~~~~~~~~~~~
+
+
+.. function:: generate_cache(block_number: ethereum.base_types.Uint) -> Tuple[Tuple[ethereum.base_types.U32, Ellipsis], Ellipsis]
+   :noindexentry:
+
+   Generate the cache for the block identified by `block_number`. This cache
+   would later be used to generate the full dataset.
+
+   :param block_number: The number of the block of interest.
+
+   :returns: **cache** -- The cache generated for the passed in block.
+   :rtype: `Tuple[Tuple[U32, ...], ...]`
+
+
+
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :pyobject: generate_cache
+
+fnv
+~~~
+
+
+.. function:: fnv(a: Union[ethereum.base_types.Uint, ethereum.base_types.U32], b: Union[ethereum.base_types.Uint, ethereum.base_types.U32]) -> ethereum.base_types.U32
+   :noindexentry:
+
+   FNV algorithm is inspired by the FNV hash, which in some cases is used
+   as a non-associative substitute for XOR.
+
+   Note that here we multiply the prime with the full 32-bit input, in
+   contrast with the FNV-1 spec which multiplies the prime with
+   one byte (octet) in turn.
+
+   :param a: The first data point.
+   :param b: The second data point.
+
+   :returns: **modified_mix_integers** -- The result of performing fnv on the passed in data points.
+   :rtype: `U32`
+
+
+
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :pyobject: fnv
+
+fnv_hash
+~~~~~~~~
+
+
+.. function:: fnv_hash(mix_integers: Tuple[ethereum.base_types.U32, Ellipsis], data: Tuple[ethereum.base_types.U32, Ellipsis]) -> Tuple[ethereum.base_types.U32, Ellipsis]
+   :noindexentry:
+
+   FNV Hash mixes in data into mix using the ethash fnv method.
+
+   :param mix_integers: Mix data in the form of a sequence of U32.
+   :param data: The data (sequence of U32) to be hashed into the mix.
+
+   :returns: **modified_mix_integers** -- The result of performing the fnv hash on the mix and the passed in
+             data.
+   :rtype: `Tuple[U32, ...]`
+
+
+
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :pyobject: fnv_hash
+
+generate_dataset_item
+~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: generate_dataset_item(cache: Tuple[Tuple[ethereum.base_types.U32, Ellipsis], Ellipsis], index: ethereum.base_types.Uint) -> ethereum.crypto.hash.Hash64
+   :noindexentry:
+
+   Generate a particular dataset item 0-indexed by `index` using `cache`.
+   Each dataset item is a byte stream of 64 bytes or a stream of 16 uint32
+   numbers.
+
+   :param cache: The cache from which a subset of items will be used to generate the
+                 dataset item.
+   :param index: The index of the dataset item to generate.
+
+   :returns: **dataset_item** -- The generated dataset item for passed index.
+   :rtype: `Hash64`
+
+
+
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :pyobject: generate_dataset_item
+
+generate_dataset
+~~~~~~~~~~~~~~~~
+
+
+.. function:: generate_dataset(block_number: ethereum.base_types.Uint) -> Tuple[ethereum.crypto.hash.Hash64, Ellipsis]
+   :noindexentry:
+
+   Generate the full dataset for the block identified by `block_number`.
+
+   This function is present only for demonstration purposes, as it will take
+   a long time to execute.
+
+   :param block_number: The number of the block of interest.
+
+   :returns: **dataset** -- The dataset generated for the passed in block.
+   :rtype: `Tuple[Hash64, ...]`
+
+
+
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :pyobject: generate_dataset
+
+hashimoto
+~~~~~~~~~
+
+
+.. function:: hashimoto(header_hash: ethereum.crypto.hash.Hash32, nonce: ethereum.base_types.Bytes8, dataset_size: ethereum.base_types.Uint, fetch_dataset_item: Callable[[ethereum.base_types.Uint], Tuple[ethereum.base_types.U32, Ellipsis]]) -> Tuple[bytes, ethereum.crypto.hash.Hash32]
+   :noindexentry:
+
+   Obtain the mix digest and the final value for a header, by aggregating
+   data from the full dataset.
+
+   :param header_hash: The PoW valid rlp hash of a header.
+   :param nonce: The propogated nonce for the given block.
+   :param dataset_size: Dataset size for the epoch to which the current block belongs to.
+   :param fetch_dataset_item: The function which will be used to obtain a specific dataset item
+                              from an index.
+
+   :returns: * **mix_digest** (`bytes`) -- The mix digest generated from the header hash and propogated nonce.
+             * **result** (`Hash32`) -- The final result obtained which will be checked for leading zeros (in
+               byte representation) in correspondance with the block difficulty.
+
+
+
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :pyobject: hashimoto
+
+hashimoto_light
+~~~~~~~~~~~~~~~
+
+
+.. function:: hashimoto_light(header_hash: ethereum.crypto.hash.Hash32, nonce: ethereum.base_types.Bytes8, cache: Tuple[Tuple[ethereum.base_types.U32, Ellipsis], Ellipsis], dataset_size: ethereum.base_types.Uint) -> Tuple[bytes, ethereum.crypto.hash.Hash32]
+   :noindexentry:
+
+   Run the hashimoto algorithm by generating dataset item using the cache
+   instead of loading the full dataset into main memory.
+
+   :param header_hash: The PoW valid rlp hash of a header.
+   :param nonce: The propogated nonce for the given block.
+   :param cache: The generated cache for the epoch to which the current block belongs
+                 to.
+   :param dataset_size: Dataset size for the epoch to which the current block belongs to.
+
+   :returns: * **mix_digest** (`bytes`) -- The mix digest generated from the header hash and propogated nonce.
+             * **result** (`Hash32`) -- The final result obtained which will be checked for leading zeros (in
+               byte representation) in correspondance with the block difficulty.
+
+
+
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :pyobject: hashimoto_light

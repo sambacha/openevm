@@ -1,0 +1,133 @@
+.. py:module:: ethereum.dao_fork.vm.instructions.bitwise
+
+Ethereum Virtual Machine (EVM) Bitwise Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM bitwise instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.dao_fork.vm.instructions.bitwise.bitwise_and
+   ethereum.dao_fork.vm.instructions.bitwise.bitwise_or
+   ethereum.dao_fork.vm.instructions.bitwise.bitwise_xor
+   ethereum.dao_fork.vm.instructions.bitwise.bitwise_not
+   ethereum.dao_fork.vm.instructions.bitwise.get_byte
+
+
+
+Module Details
+---------------
+
+bitwise_and
+~~~~~~~~~~~
+
+
+.. function:: bitwise_and(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Bitwise AND operation of the top 2 elements of the stack. Pushes the
+   result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/bitwise.py
+   :language: python
+   :pyobject: bitwise_and
+
+bitwise_or
+~~~~~~~~~~
+
+
+.. function:: bitwise_or(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Bitwise OR operation of the top 2 elements of the stack. Pushes the
+   result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/bitwise.py
+   :language: python
+   :pyobject: bitwise_or
+
+bitwise_xor
+~~~~~~~~~~~
+
+
+.. function:: bitwise_xor(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Bitwise XOR operation of the top 2 elements of the stack. Pushes the
+   result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/bitwise.py
+   :language: python
+   :pyobject: bitwise_xor
+
+bitwise_not
+~~~~~~~~~~~
+
+
+.. function:: bitwise_not(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   Bitwise NOT operation of the top element of the stack. Pushes the
+   result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/bitwise.py
+   :language: python
+   :pyobject: bitwise_not
+
+get_byte
+~~~~~~~~
+
+
+.. function:: get_byte(evm: ethereum.dao_fork.vm.Evm) -> None
+   :noindexentry:
+
+   For a word (defined by next top element of the stack), retrieve the
+   Nth byte (0-indexed and defined by top element of stack) from the
+   left (most significant) to right (least significant).
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/vm/instructions/bitwise.py
+   :language: python
+   :pyobject: get_byte

@@ -1,0 +1,137 @@
+.. py:module:: ethereum.byzantium.vm.instructions.log
+
+Ethereum Virtual Machine (EVM) Logging Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM logging instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.byzantium.vm.instructions.log.log_n
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.byzantium.vm.instructions.log.log0
+   ethereum.byzantium.vm.instructions.log.log1
+   ethereum.byzantium.vm.instructions.log.log2
+   ethereum.byzantium.vm.instructions.log.log3
+   ethereum.byzantium.vm.instructions.log.log4
+
+
+Module Details
+---------------
+
+log_n
+~~~~~
+
+
+.. function:: log_n(evm: ethereum.byzantium.vm.Evm, num_topics: ethereum.base_types.U256) -> None
+   :noindexentry:
+
+   Appends a log entry, having `num_topics` topics, to the evm logs.
+
+   This will also expand the memory if the data (required by the log entry)
+   corresponding to the memory is not accessible.
+
+   :param evm: The current EVM frame.
+   :param num_topics: The number of topics to be included in the log entry.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/log.py
+   :language: python
+   :pyobject: log_n
+
+log0
+~~~~
+
+
+
+.. py:data:: log0
+   
+   
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/log.py
+   :language: python
+   :lines: 84-84
+
+
+log1
+~~~~
+
+
+
+.. py:data:: log1
+   
+   
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/log.py
+   :language: python
+   :lines: 85-85
+
+
+log2
+~~~~
+
+
+
+.. py:data:: log2
+   
+   
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/log.py
+   :language: python
+   :lines: 86-86
+
+
+log3
+~~~~
+
+
+
+.. py:data:: log3
+   
+   
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/log.py
+   :language: python
+   :lines: 87-87
+
+
+log4
+~~~~
+
+
+
+.. py:data:: log4
+   
+   
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/log.py
+   :language: python
+   :lines: 88-88
+

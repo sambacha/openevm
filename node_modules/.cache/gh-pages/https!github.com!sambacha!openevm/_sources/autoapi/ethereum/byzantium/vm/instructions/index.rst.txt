@@ -1,0 +1,1026 @@
+.. py:module:: ethereum.byzantium.vm.instructions
+
+EVM Instruction Encoding (Opcodes)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Machine readable representations of EVM instructions, and a mapping to their
+implementations.
+
+
+.. only:: stage1
+
+   Submodules
+   ----------
+   .. toctree::
+      :titlesonly:
+      :maxdepth: 1
+
+      arithmetic/index.rst
+      bitwise/index.rst
+      block/index.rst
+      comparison/index.rst
+      control_flow/index.rst
+      environment/index.rst
+      keccak/index.rst
+      log/index.rst
+      memory/index.rst
+      stack/index.rst
+      storage/index.rst
+      system/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.byzantium.vm.instructions.Ops
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.byzantium.vm.instructions.op_implementation
+
+
+Package Details
+----------------
+
+Ops
+~~~
+
+
+Enum for EVM Opcodes
+
+
+.. class:: Ops
+
+   Bases: :py:obj:`enum.Enum`
+
+   
+
+   .. py:attribute:: ADD
+         :annotation: = 1
+
+      
+
+   
+
+   .. py:attribute:: MUL
+         :annotation: = 2
+
+      
+
+   
+
+   .. py:attribute:: SUB
+         :annotation: = 3
+
+      
+
+   
+
+   .. py:attribute:: DIV
+         :annotation: = 4
+
+      
+
+   
+
+   .. py:attribute:: SDIV
+         :annotation: = 5
+
+      
+
+   
+
+   .. py:attribute:: MOD
+         :annotation: = 6
+
+      
+
+   
+
+   .. py:attribute:: SMOD
+         :annotation: = 7
+
+      
+
+   
+
+   .. py:attribute:: ADDMOD
+         :annotation: = 8
+
+      
+
+   
+
+   .. py:attribute:: MULMOD
+         :annotation: = 9
+
+      
+
+   
+
+   .. py:attribute:: EXP
+         :annotation: = 10
+
+      
+
+   
+
+   .. py:attribute:: SIGNEXTEND
+         :annotation: = 11
+
+      
+
+   
+
+   .. py:attribute:: LT
+         :annotation: = 16
+
+      
+
+   
+
+   .. py:attribute:: GT
+         :annotation: = 17
+
+      
+
+   
+
+   .. py:attribute:: SLT
+         :annotation: = 18
+
+      
+
+   
+
+   .. py:attribute:: SGT
+         :annotation: = 19
+
+      
+
+   
+
+   .. py:attribute:: EQ
+         :annotation: = 20
+
+      
+
+   
+
+   .. py:attribute:: ISZERO
+         :annotation: = 21
+
+      
+
+   
+
+   .. py:attribute:: AND
+         :annotation: = 22
+
+      
+
+   
+
+   .. py:attribute:: OR
+         :annotation: = 23
+
+      
+
+   
+
+   .. py:attribute:: XOR
+         :annotation: = 24
+
+      
+
+   
+
+   .. py:attribute:: NOT
+         :annotation: = 25
+
+      
+
+   
+
+   .. py:attribute:: BYTE
+         :annotation: = 26
+
+      
+
+   
+
+   .. py:attribute:: KECCAK
+         :annotation: = 32
+
+      
+
+   
+
+   .. py:attribute:: ADDRESS
+         :annotation: = 48
+
+      
+
+   
+
+   .. py:attribute:: BALANCE
+         :annotation: = 49
+
+      
+
+   
+
+   .. py:attribute:: ORIGIN
+         :annotation: = 50
+
+      
+
+   
+
+   .. py:attribute:: CALLER
+         :annotation: = 51
+
+      
+
+   
+
+   .. py:attribute:: CALLVALUE
+         :annotation: = 52
+
+      
+
+   
+
+   .. py:attribute:: CALLDATALOAD
+         :annotation: = 53
+
+      
+
+   
+
+   .. py:attribute:: CALLDATASIZE
+         :annotation: = 54
+
+      
+
+   
+
+   .. py:attribute:: CALLDATACOPY
+         :annotation: = 55
+
+      
+
+   
+
+   .. py:attribute:: CODESIZE
+         :annotation: = 56
+
+      
+
+   
+
+   .. py:attribute:: CODECOPY
+         :annotation: = 57
+
+      
+
+   
+
+   .. py:attribute:: GASPRICE
+         :annotation: = 58
+
+      
+
+   
+
+   .. py:attribute:: EXTCODESIZE
+         :annotation: = 59
+
+      
+
+   
+
+   .. py:attribute:: EXTCODECOPY
+         :annotation: = 60
+
+      
+
+   
+
+   .. py:attribute:: RETURNDATASIZE
+         :annotation: = 61
+
+      
+
+   
+
+   .. py:attribute:: RETURNDATACOPY
+         :annotation: = 62
+
+      
+
+   
+
+   .. py:attribute:: BLOCKHASH
+         :annotation: = 64
+
+      
+
+   
+
+   .. py:attribute:: COINBASE
+         :annotation: = 65
+
+      
+
+   
+
+   .. py:attribute:: TIMESTAMP
+         :annotation: = 66
+
+      
+
+   
+
+   .. py:attribute:: NUMBER
+         :annotation: = 67
+
+      
+
+   
+
+   .. py:attribute:: DIFFICULTY
+         :annotation: = 68
+
+      
+
+   
+
+   .. py:attribute:: GASLIMIT
+         :annotation: = 69
+
+      
+
+   
+
+   .. py:attribute:: STOP
+         :annotation: = 0
+
+      
+
+   
+
+   .. py:attribute:: JUMP
+         :annotation: = 86
+
+      
+
+   
+
+   .. py:attribute:: JUMPI
+         :annotation: = 87
+
+      
+
+   
+
+   .. py:attribute:: PC
+         :annotation: = 88
+
+      
+
+   
+
+   .. py:attribute:: GAS
+         :annotation: = 90
+
+      
+
+   
+
+   .. py:attribute:: JUMPDEST
+         :annotation: = 91
+
+      
+
+   
+
+   .. py:attribute:: SLOAD
+         :annotation: = 84
+
+      
+
+   
+
+   .. py:attribute:: SSTORE
+         :annotation: = 85
+
+      
+
+   
+
+   .. py:attribute:: POP
+         :annotation: = 80
+
+      
+
+   
+
+   .. py:attribute:: PUSH1
+         :annotation: = 96
+
+      
+
+   
+
+   .. py:attribute:: PUSH2
+         :annotation: = 97
+
+      
+
+   
+
+   .. py:attribute:: PUSH3
+         :annotation: = 98
+
+      
+
+   
+
+   .. py:attribute:: PUSH4
+         :annotation: = 99
+
+      
+
+   
+
+   .. py:attribute:: PUSH5
+         :annotation: = 100
+
+      
+
+   
+
+   .. py:attribute:: PUSH6
+         :annotation: = 101
+
+      
+
+   
+
+   .. py:attribute:: PUSH7
+         :annotation: = 102
+
+      
+
+   
+
+   .. py:attribute:: PUSH8
+         :annotation: = 103
+
+      
+
+   
+
+   .. py:attribute:: PUSH9
+         :annotation: = 104
+
+      
+
+   
+
+   .. py:attribute:: PUSH10
+         :annotation: = 105
+
+      
+
+   
+
+   .. py:attribute:: PUSH11
+         :annotation: = 106
+
+      
+
+   
+
+   .. py:attribute:: PUSH12
+         :annotation: = 107
+
+      
+
+   
+
+   .. py:attribute:: PUSH13
+         :annotation: = 108
+
+      
+
+   
+
+   .. py:attribute:: PUSH14
+         :annotation: = 109
+
+      
+
+   
+
+   .. py:attribute:: PUSH15
+         :annotation: = 110
+
+      
+
+   
+
+   .. py:attribute:: PUSH16
+         :annotation: = 111
+
+      
+
+   
+
+   .. py:attribute:: PUSH17
+         :annotation: = 112
+
+      
+
+   
+
+   .. py:attribute:: PUSH18
+         :annotation: = 113
+
+      
+
+   
+
+   .. py:attribute:: PUSH19
+         :annotation: = 114
+
+      
+
+   
+
+   .. py:attribute:: PUSH20
+         :annotation: = 115
+
+      
+
+   
+
+   .. py:attribute:: PUSH21
+         :annotation: = 116
+
+      
+
+   
+
+   .. py:attribute:: PUSH22
+         :annotation: = 117
+
+      
+
+   
+
+   .. py:attribute:: PUSH23
+         :annotation: = 118
+
+      
+
+   
+
+   .. py:attribute:: PUSH24
+         :annotation: = 119
+
+      
+
+   
+
+   .. py:attribute:: PUSH25
+         :annotation: = 120
+
+      
+
+   
+
+   .. py:attribute:: PUSH26
+         :annotation: = 121
+
+      
+
+   
+
+   .. py:attribute:: PUSH27
+         :annotation: = 122
+
+      
+
+   
+
+   .. py:attribute:: PUSH28
+         :annotation: = 123
+
+      
+
+   
+
+   .. py:attribute:: PUSH29
+         :annotation: = 124
+
+      
+
+   
+
+   .. py:attribute:: PUSH30
+         :annotation: = 125
+
+      
+
+   
+
+   .. py:attribute:: PUSH31
+         :annotation: = 126
+
+      
+
+   
+
+   .. py:attribute:: PUSH32
+         :annotation: = 127
+
+      
+
+   
+
+   .. py:attribute:: DUP1
+         :annotation: = 128
+
+      
+
+   
+
+   .. py:attribute:: DUP2
+         :annotation: = 129
+
+      
+
+   
+
+   .. py:attribute:: DUP3
+         :annotation: = 130
+
+      
+
+   
+
+   .. py:attribute:: DUP4
+         :annotation: = 131
+
+      
+
+   
+
+   .. py:attribute:: DUP5
+         :annotation: = 132
+
+      
+
+   
+
+   .. py:attribute:: DUP6
+         :annotation: = 133
+
+      
+
+   
+
+   .. py:attribute:: DUP7
+         :annotation: = 134
+
+      
+
+   
+
+   .. py:attribute:: DUP8
+         :annotation: = 135
+
+      
+
+   
+
+   .. py:attribute:: DUP9
+         :annotation: = 136
+
+      
+
+   
+
+   .. py:attribute:: DUP10
+         :annotation: = 137
+
+      
+
+   
+
+   .. py:attribute:: DUP11
+         :annotation: = 138
+
+      
+
+   
+
+   .. py:attribute:: DUP12
+         :annotation: = 139
+
+      
+
+   
+
+   .. py:attribute:: DUP13
+         :annotation: = 140
+
+      
+
+   
+
+   .. py:attribute:: DUP14
+         :annotation: = 141
+
+      
+
+   
+
+   .. py:attribute:: DUP15
+         :annotation: = 142
+
+      
+
+   
+
+   .. py:attribute:: DUP16
+         :annotation: = 143
+
+      
+
+   
+
+   .. py:attribute:: SWAP1
+         :annotation: = 144
+
+      
+
+   
+
+   .. py:attribute:: SWAP2
+         :annotation: = 145
+
+      
+
+   
+
+   .. py:attribute:: SWAP3
+         :annotation: = 146
+
+      
+
+   
+
+   .. py:attribute:: SWAP4
+         :annotation: = 147
+
+      
+
+   
+
+   .. py:attribute:: SWAP5
+         :annotation: = 148
+
+      
+
+   
+
+   .. py:attribute:: SWAP6
+         :annotation: = 149
+
+      
+
+   
+
+   .. py:attribute:: SWAP7
+         :annotation: = 150
+
+      
+
+   
+
+   .. py:attribute:: SWAP8
+         :annotation: = 151
+
+      
+
+   
+
+   .. py:attribute:: SWAP9
+         :annotation: = 152
+
+      
+
+   
+
+   .. py:attribute:: SWAP10
+         :annotation: = 153
+
+      
+
+   
+
+   .. py:attribute:: SWAP11
+         :annotation: = 154
+
+      
+
+   
+
+   .. py:attribute:: SWAP12
+         :annotation: = 155
+
+      
+
+   
+
+   .. py:attribute:: SWAP13
+         :annotation: = 156
+
+      
+
+   
+
+   .. py:attribute:: SWAP14
+         :annotation: = 157
+
+      
+
+   
+
+   .. py:attribute:: SWAP15
+         :annotation: = 158
+
+      
+
+   
+
+   .. py:attribute:: SWAP16
+         :annotation: = 159
+
+      
+
+   
+
+   .. py:attribute:: MLOAD
+         :annotation: = 81
+
+      
+
+   
+
+   .. py:attribute:: MSTORE
+         :annotation: = 82
+
+      
+
+   
+
+   .. py:attribute:: MSTORE8
+         :annotation: = 83
+
+      
+
+   
+
+   .. py:attribute:: MSIZE
+         :annotation: = 89
+
+      
+
+   
+
+   .. py:attribute:: LOG0
+         :annotation: = 160
+
+      
+
+   
+
+   .. py:attribute:: LOG1
+         :annotation: = 161
+
+      
+
+   
+
+   .. py:attribute:: LOG2
+         :annotation: = 162
+
+      
+
+   
+
+   .. py:attribute:: LOG3
+         :annotation: = 163
+
+      
+
+   
+
+   .. py:attribute:: LOG4
+         :annotation: = 164
+
+      
+
+   
+
+   .. py:attribute:: CREATE
+         :annotation: = 240
+
+      
+
+   
+
+   .. py:attribute:: RETURN
+         :annotation: = 243
+
+      
+
+   
+
+   .. py:attribute:: CALL
+         :annotation: = 241
+
+      
+
+   
+
+   .. py:attribute:: CALLCODE
+         :annotation: = 242
+
+      
+
+   
+
+   .. py:attribute:: DELEGATECALL
+         :annotation: = 244
+
+      
+
+   
+
+   .. py:attribute:: STATICCALL
+         :annotation: = 250
+
+      
+
+   
+
+   .. py:attribute:: REVERT
+         :annotation: = 253
+
+      
+
+   
+
+   .. py:attribute:: SELFDESTRUCT
+         :annotation: = 255
+
+      
+
+
+
+op_implementation
+~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: op_implementation
+   
+   
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/__init__.py
+   :language: python
+   :lines: 203-338
+

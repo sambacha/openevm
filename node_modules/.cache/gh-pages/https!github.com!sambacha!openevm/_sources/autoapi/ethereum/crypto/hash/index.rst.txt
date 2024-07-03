@@ -1,0 +1,113 @@
+.. py:module:: ethereum.crypto.hash
+
+Cryptographic Hash Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Cryptographic hashing functions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.crypto.hash.keccak256
+   ethereum.crypto.hash.keccak512
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.crypto.hash.Hash32
+   ethereum.crypto.hash.Hash64
+
+
+Module Details
+---------------
+
+Hash32
+~~~~~~
+
+
+
+.. py:data:: Hash32
+   
+   
+
+.. undocinclude:: /../src/ethereum/crypto/hash.py
+   :language: python
+   :lines: 19-19
+
+
+Hash64
+~~~~~~
+
+
+
+.. py:data:: Hash64
+   
+   
+
+.. undocinclude:: /../src/ethereum/crypto/hash.py
+   :language: python
+   :lines: 20-20
+
+
+keccak256
+~~~~~~~~~
+
+
+.. function:: keccak256(buffer: ethereum.base_types.Bytes) -> Hash32
+   :noindexentry:
+
+   Computes the keccak256 hash of the input `buffer`.
+
+   :param buffer: Input for the hashing function.
+
+   :returns: **hash** -- Output of the hash function.
+   :rtype: `ethereum.base_types.Hash32`
+
+
+
+
+.. undocinclude:: /../src/ethereum/crypto/hash.py
+   :language: python
+   :pyobject: keccak256
+
+keccak512
+~~~~~~~~~
+
+
+.. function:: keccak512(buffer: ethereum.base_types.Bytes) -> Hash64
+   :noindexentry:
+
+   Computes the keccak512 hash of the input `buffer`.
+
+   :param buffer: Input for the hashing function.
+
+   :returns: **hash** -- Output of the hash function.
+   :rtype: `ethereum.base_types.Hash32`
+
+
+
+
+.. undocinclude:: /../src/ethereum/crypto/hash.py
+   :language: python
+   :pyobject: keccak512

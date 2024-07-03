@@ -1,0 +1,34 @@
+.. py:module:: ethereum.shanghai.vm.precompiled_contracts.mapping
+
+Precompiled Contract Addresses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Mapping of precompiled contracts their implementations.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+PRE_COMPILED_CONTRACTS
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: PRE_COMPILED_CONTRACTS
+   
+   
+
+.. undocinclude:: /../src/ethereum/shanghai/vm/precompiled_contracts/mapping.py
+   :language: python
+   :lines: 36-46
+

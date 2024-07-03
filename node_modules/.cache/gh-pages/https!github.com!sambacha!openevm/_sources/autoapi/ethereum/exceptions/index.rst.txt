@@ -1,0 +1,77 @@
+.. py:module:: ethereum.exceptions
+
+Exceptions
+^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+The Ethereum specification exception classes.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+EthereumException
+~~~~~~~~~~~~~~~~~
+
+
+The base class from which all exceptions thrown by the specification during
+normal operation derive.
+
+
+.. exception:: EthereumException
+
+
+   Bases: :py:obj:`Exception`
+
+
+
+InvalidBlock
+~~~~~~~~~~~~
+
+
+Thrown when a block being processed is found to be invalid.
+
+
+.. exception:: InvalidBlock
+
+
+   Bases: :py:obj:`EthereumException`
+
+
+
+RLPDecodingError
+~~~~~~~~~~~~~~~~
+
+
+Indicates that RLP decoding failed.
+
+
+.. exception:: RLPDecodingError
+
+
+   Bases: :py:obj:`InvalidBlock`
+
+
+
+RLPEncodingError
+~~~~~~~~~~~~~~~~
+
+
+Indicates that RLP encoding failed.
+
+
+.. exception:: RLPEncodingError
+
+
+   Bases: :py:obj:`EthereumException`
+
+

@@ -1,0 +1,163 @@
+.. py:module:: ethereum.istanbul.vm.precompiled_contracts
+
+Precompiled Contract Addresses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Addresses of precompiled contracts and mappings to their
+implementations.
+
+
+.. only:: stage1
+
+   Submodules
+   ----------
+   .. toctree::
+      :titlesonly:
+      :maxdepth: 1
+
+      alt_bn128/index.rst
+      blake2f/index.rst
+      ecrecover/index.rst
+      identity/index.rst
+      mapping/index.rst
+      modexp/index.rst
+      ripemd160/index.rst
+      sha256/index.rst
+
+
+Package Contents
+----------------
+
+
+ECRECOVER_ADDRESS
+~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: ECRECOVER_ADDRESS
+   
+   
+
+.. undocinclude:: /../src/ethereum/istanbul/vm/precompiled_contracts/__init__.py
+   :language: python
+   :lines: 30-30
+
+
+SHA256_ADDRESS
+~~~~~~~~~~~~~~
+
+
+
+.. py:data:: SHA256_ADDRESS
+   
+   
+
+.. undocinclude:: /../src/ethereum/istanbul/vm/precompiled_contracts/__init__.py
+   :language: python
+   :lines: 31-31
+
+
+RIPEMD160_ADDRESS
+~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: RIPEMD160_ADDRESS
+   
+   
+
+.. undocinclude:: /../src/ethereum/istanbul/vm/precompiled_contracts/__init__.py
+   :language: python
+   :lines: 32-32
+
+
+IDENTITY_ADDRESS
+~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: IDENTITY_ADDRESS
+   
+   
+
+.. undocinclude:: /../src/ethereum/istanbul/vm/precompiled_contracts/__init__.py
+   :language: python
+   :lines: 33-33
+
+
+MODEXP_ADDRESS
+~~~~~~~~~~~~~~
+
+
+
+.. py:data:: MODEXP_ADDRESS
+   
+   
+
+.. undocinclude:: /../src/ethereum/istanbul/vm/precompiled_contracts/__init__.py
+   :language: python
+   :lines: 34-34
+
+
+ALT_BN128_ADD_ADDRESS
+~~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: ALT_BN128_ADD_ADDRESS
+   
+   
+
+.. undocinclude:: /../src/ethereum/istanbul/vm/precompiled_contracts/__init__.py
+   :language: python
+   :lines: 35-35
+
+
+ALT_BN128_MUL_ADDRESS
+~~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: ALT_BN128_MUL_ADDRESS
+   
+   
+
+.. undocinclude:: /../src/ethereum/istanbul/vm/precompiled_contracts/__init__.py
+   :language: python
+   :lines: 36-36
+
+
+ALT_BN128_PAIRING_CHECK_ADDRESS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: ALT_BN128_PAIRING_CHECK_ADDRESS
+   
+   
+
+.. undocinclude:: /../src/ethereum/istanbul/vm/precompiled_contracts/__init__.py
+   :language: python
+   :lines: 37-37
+
+
+BLAKE2F_ADDRESS
+~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: BLAKE2F_ADDRESS
+   
+   
+
+.. undocinclude:: /../src/ethereum/istanbul/vm/precompiled_contracts/__init__.py
+   :language: python
+   :lines: 38-38
+

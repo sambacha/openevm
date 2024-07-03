@@ -1,0 +1,513 @@
+.. py:module:: ethereum.tangerine_whistle.trie
+
+State Trie
+^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+The state trie is the structure responsible for storing
+`.fork_types.Account` objects.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.tangerine_whistle.trie.LeafNode
+   ethereum.tangerine_whistle.trie.ExtensionNode
+   ethereum.tangerine_whistle.trie.BranchNode
+   ethereum.tangerine_whistle.trie.Trie
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.tangerine_whistle.trie.encode_internal_node
+   ethereum.tangerine_whistle.trie.encode_node
+   ethereum.tangerine_whistle.trie.copy_trie
+   ethereum.tangerine_whistle.trie.trie_set
+   ethereum.tangerine_whistle.trie.trie_get
+   ethereum.tangerine_whistle.trie.common_prefix_length
+   ethereum.tangerine_whistle.trie.nibble_list_to_compact
+   ethereum.tangerine_whistle.trie.bytes_to_nibble_list
+   ethereum.tangerine_whistle.trie._prepare_trie
+   ethereum.tangerine_whistle.trie.root
+   ethereum.tangerine_whistle.trie.patricialize
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.tangerine_whistle.trie.EMPTY_TRIE_ROOT
+   ethereum.tangerine_whistle.trie.Node
+   ethereum.tangerine_whistle.trie.K
+   ethereum.tangerine_whistle.trie.V
+   ethereum.tangerine_whistle.trie.InternalNode
+
+
+Module Details
+---------------
+
+EMPTY_TRIE_ROOT
+~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: EMPTY_TRIE_ROOT
+   
+   
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :lines: 61-65
+
+
+Node
+~~~~
+
+
+
+.. py:data:: Node
+   
+   
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :lines: 67-67
+
+
+K
+~
+
+
+
+.. py:data:: K
+   
+   
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :lines: 68-68
+
+
+V
+~
+
+
+
+.. py:data:: V
+   
+   
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :lines: 69-78
+
+
+LeafNode
+~~~~~~~~
+
+
+Leaf node in the Merkle Trie
+
+
+.. class:: LeafNode
+
+   
+
+   .. py:attribute:: rest_of_key
+         :annotation: :ethereum.base_types.Bytes
+
+      
+
+   
+
+   .. py:attribute:: value
+         :annotation: :ethereum.rlp.RLP
+
+      
+
+
+
+ExtensionNode
+~~~~~~~~~~~~~
+
+
+Extension node in the Merkle Trie
+
+
+.. class:: ExtensionNode
+
+   
+
+   .. py:attribute:: key_segment
+         :annotation: :ethereum.base_types.Bytes
+
+      
+
+   
+
+   .. py:attribute:: subnode
+         :annotation: :ethereum.rlp.RLP
+
+      
+
+
+
+BranchNode
+~~~~~~~~~~
+
+
+Branch node in the Merkle Trie
+
+
+.. class:: BranchNode
+
+   
+
+   .. py:attribute:: subnodes
+         :annotation: :List[ethereum.rlp.RLP]
+
+      
+
+   
+
+   .. py:attribute:: value
+         :annotation: :ethereum.rlp.RLP
+
+      
+
+
+
+InternalNode
+~~~~~~~~~~~~
+
+
+
+.. py:data:: InternalNode
+   
+   
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :lines: 108-108
+
+
+encode_internal_node
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: encode_internal_node(node: Optional[InternalNode]) -> ethereum.rlp.RLP
+   :noindexentry:
+
+   Encodes a Merkle Trie node into its RLP form. The RLP will then be
+   serialized into a `Bytes` and hashed unless it is less that 32 bytes
+   when serialized.
+
+   This function also accepts `None`, representing the absence of a node,
+   which is encoded to `b""`.
+
+   :param node: The node to encode.
+   :type node: Optional[InternalNode]
+
+   :returns: **encoded** -- The node encoded as RLP.
+   :rtype: `rlp.RLP`
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :pyobject: encode_internal_node
+
+encode_node
+~~~~~~~~~~~
+
+
+.. function:: encode_node(node: Node, storage_root: Optional[ethereum.base_types.Bytes] = None) -> ethereum.base_types.Bytes
+   :noindexentry:
+
+   Encode a Node for storage in the Merkle Trie.
+
+   Currently mostly an unimplemented stub.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :pyobject: encode_node
+
+Trie
+~~~~
+
+
+The Merkle Trie.
+
+
+.. class:: Trie
+
+   Bases: :py:obj:`Generic`\ [\ :py:obj:`K`\ , :py:obj:`V`\ ]
+
+   
+
+   .. py:attribute:: secured
+         :annotation: :bool
+
+      
+
+   
+
+   .. py:attribute:: default
+         :annotation: :V
+
+      
+
+   
+
+   .. py:attribute:: _data
+         :annotation: :Dict[K, V]
+
+      
+
+
+
+copy_trie
+~~~~~~~~~
+
+
+.. function:: copy_trie(trie: Trie[K, V]) -> Trie[K, V]
+   :noindexentry:
+
+   Create a copy of `trie`. Since only frozen objects may be stored in tries,
+   the contents are reused.
+
+   :param trie: Trie to copy.
+   :type trie: `Trie`
+
+   :returns: **new_trie** -- A copy of the trie.
+   :rtype: `Trie[K, V]`
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :pyobject: copy_trie
+
+trie_set
+~~~~~~~~
+
+
+.. function:: trie_set(trie: Trie[K, V], key: K, value: V) -> None
+   :noindexentry:
+
+   Stores an item in a Merkle Trie.
+
+   This method deletes the key if `value == trie.default`, because the Merkle
+   Trie represents the default value by omitting it from the trie.
+
+   :param trie: Trie to store in.
+   :type trie: `Trie`
+   :param key: Key to lookup.
+   :type key: `Bytes`
+   :param value: Node to insert at `key`.
+   :type value: `V`
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :pyobject: trie_set
+
+trie_get
+~~~~~~~~
+
+
+.. function:: trie_get(trie: Trie[K, V], key: K) -> V
+   :noindexentry:
+
+   Gets an item from the Merkle Trie.
+
+   This method returns `trie.default` if the key is missing.
+
+   :param trie: Trie to lookup in.
+   :param key: Key to lookup.
+
+   :returns: **node** -- Node at `key` in the trie.
+   :rtype: `V`
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :pyobject: trie_get
+
+common_prefix_length
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: common_prefix_length(a: Sequence, b: Sequence) -> int
+   :noindexentry:
+
+   Find the longest common prefix of two sequences.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :pyobject: common_prefix_length
+
+nibble_list_to_compact
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: nibble_list_to_compact(x: ethereum.base_types.Bytes, is_leaf: bool) -> ethereum.base_types.Bytes
+   :noindexentry:
+
+   Compresses nibble-list into a standard byte array with a flag.
+
+   A nibble-list is a list of byte values no greater than `15`. The flag is
+   encoded in high nibble of the highest byte. The flag nibble can be broken
+   down into two two-bit flags.
+
+   Highest nibble::
+
+       +---+---+----------+--------+
+       | _ | _ | is_leaf | parity |
+       +---+---+----------+--------+
+         3   2      1         0
+
+
+   The lowest bit of the nibble encodes the parity of the length of the
+   remaining nibbles -- `0` when even and `1` when odd. The second lowest bit
+   is used to distinguish leaf and extension nodes. The other two bits are not
+   used.
+
+   :param x: Array of nibbles.
+   :param is_leaf: True if this is part of a leaf node, or false if it is an extension
+                   node.
+
+   :returns: **compressed** -- Compact byte array.
+   :rtype: `bytearray`
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :pyobject: nibble_list_to_compact
+
+bytes_to_nibble_list
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: bytes_to_nibble_list(bytes_: ethereum.base_types.Bytes) -> ethereum.base_types.Bytes
+   :noindexentry:
+
+   Converts a `Bytes` into to a sequence of nibbles (bytes with value < 16).
+
+   :param bytes_: The `Bytes` to convert.
+
+   :returns: **nibble_list** -- The `Bytes` in nibble-list format.
+   :rtype: `Bytes`
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :pyobject: bytes_to_nibble_list
+
+_prepare_trie
+~~~~~~~~~~~~~
+
+
+.. function:: _prepare_trie(trie: Trie[K, V], get_storage_root: Callable[[ethereum.tangerine_whistle.fork_types.Address], ethereum.tangerine_whistle.fork_types.Root] = None) -> Mapping[ethereum.base_types.Bytes, ethereum.base_types.Bytes]
+   :noindexentry:
+
+   Prepares the trie for root calculation. Removes values that are empty,
+   hashes the keys (if `secured == True`) and encodes all the nodes.
+
+   :param trie: The `Trie` to prepare.
+   :param get_storage_root: Function to get the storage root of an account. Needed to encode
+                            `Account` objects.
+
+   :returns: **out** -- Object with keys mapped to nibble-byte form.
+   :rtype: `Mapping[ethereum.base_types.Bytes, Node]`
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :pyobject: _prepare_trie
+
+root
+~~~~
+
+
+.. function:: root(trie: Trie[K, V], get_storage_root: Callable[[ethereum.tangerine_whistle.fork_types.Address], ethereum.tangerine_whistle.fork_types.Root] = None) -> ethereum.tangerine_whistle.fork_types.Root
+   :noindexentry:
+
+   Computes the root of a modified merkle patricia trie (MPT).
+
+   :param trie: `Trie` to get the root of.
+   :param get_storage_root: Function to get the storage root of an account. Needed to encode
+                            `Account` objects.
+
+   :returns: **root** -- MPT root of the underlying key-value pairs.
+   :rtype: `.fork_types.Root`
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :pyobject: root
+
+patricialize
+~~~~~~~~~~~~
+
+
+.. function:: patricialize(obj: Mapping[ethereum.base_types.Bytes, ethereum.base_types.Bytes], level: ethereum.base_types.Uint) -> Optional[InternalNode]
+   :noindexentry:
+
+   Structural composition function.
+
+   Used to recursively patricialize and merkleize a dictionary. Includes
+   memoization of the tree structure and hashes.
+
+   :param obj: Underlying trie key-value pairs, with keys in nibble-list format.
+   :param level: Current trie level.
+
+   :returns: **node** -- Root node of `obj`.
+   :rtype: `ethereum.base_types.Bytes`
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/trie.py
+   :language: python
+   :pyobject: patricialize

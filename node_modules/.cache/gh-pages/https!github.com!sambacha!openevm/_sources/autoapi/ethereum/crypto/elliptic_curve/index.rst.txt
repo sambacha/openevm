@@ -1,0 +1,200 @@
+.. py:module:: ethereum.crypto.elliptic_curve
+
+Elliptic Curves
+^^^^^^^^^^^^^^^
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.crypto.elliptic_curve.EllipticCurve
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.crypto.elliptic_curve.secp256k1_recover
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.crypto.elliptic_curve.SECP256K1N
+   ethereum.crypto.elliptic_curve.F
+   ethereum.crypto.elliptic_curve.T
+
+
+Module Details
+---------------
+
+SECP256K1N
+~~~~~~~~~~
+
+
+
+.. py:data:: SECP256K1N
+   
+   
+
+.. undocinclude:: /../src/ethereum/crypto/elliptic_curve.py
+   :language: python
+   :lines: 14-14
+
+
+F
+~
+
+
+
+.. py:data:: F
+   
+   
+
+.. undocinclude:: /../src/ethereum/crypto/elliptic_curve.py
+   :language: python
+   :lines: 16-16
+
+
+T
+~
+
+
+
+.. py:data:: T
+   
+   
+
+.. undocinclude:: /../src/ethereum/crypto/elliptic_curve.py
+   :language: python
+   :lines: 17-17
+
+
+secp256k1_recover
+~~~~~~~~~~~~~~~~~
+
+
+.. function:: secp256k1_recover(r: ethereum.base_types.U256, s: ethereum.base_types.U256, v: ethereum.base_types.U256, msg_hash: ethereum.crypto.hash.Hash32) -> ethereum.base_types.Bytes
+   :noindexentry:
+
+   Recovers the public key from a given signature.
+
+   :param r: TODO
+   :param s: TODO
+   :param v: TODO
+   :param msg_hash: Hash of the message being recovered.
+
+   :returns: **public_key** -- Recovered public key.
+   :rtype: `ethereum.base_types.Bytes`
+
+
+
+
+.. undocinclude:: /../src/ethereum/crypto/elliptic_curve.py
+   :language: python
+   :pyobject: secp256k1_recover
+
+EllipticCurve
+~~~~~~~~~~~~~
+
+
+Superclass for integers modulo a prime. Not intended to be used
+directly, but rather to be subclassed.
+
+
+.. class:: EllipticCurve(x: F, y: F)
+
+
+   Bases: :py:obj:`Generic`\ [\ :py:obj:`F`\ ]
+
+   
+
+   .. py:attribute:: __slots__
+         :annotation: = ['x', 'y']
+
+      
+
+   
+
+   .. py:attribute:: FIELD
+         :annotation: :Type[F]
+
+      
+
+   
+
+   .. py:attribute:: A
+         :annotation: :F
+
+      
+
+   
+
+   .. py:attribute:: B
+         :annotation: :F
+
+      
+
+   
+
+   .. py:attribute:: x
+         :annotation: :F
+
+      
+
+   
+
+   .. py:attribute:: y
+         :annotation: :F
+
+      
+
+   .. py:method:: __eq__(other: object) -> bool
+
+      Test two points for equality.
+
+
+   .. py:method:: __str__() -> str
+
+      Stringify a point as its coordinates.
+
+
+   .. py:method:: point_at_infinity() -> T
+      :classmethod:
+
+      Return the point at infinity. This is the identity element of the group
+      operation.
+
+      The point at infinity doesn't actually have coordinates so we use
+      `(0, 0)` (which isn't on the curve) to represent it.
+
+
+   .. py:method:: double() -> T
+
+      Add a point to itself.
+
+
+   .. py:method:: __add__(other: T) -> T
+
+      Add two points together.
+
+
+   .. py:method:: mul_by(n: int) -> T
+
+      Multiply `self` by `n` using the double and add algorithm.
+
+
+

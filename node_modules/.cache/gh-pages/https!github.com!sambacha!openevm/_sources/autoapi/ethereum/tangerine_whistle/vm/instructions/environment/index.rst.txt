@@ -1,0 +1,287 @@
+.. py:module:: ethereum.tangerine_whistle.vm.instructions.environment
+
+Ethereum Virtual Machine (EVM) Environmental Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM environment related instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.tangerine_whistle.vm.instructions.environment.address
+   ethereum.tangerine_whistle.vm.instructions.environment.balance
+   ethereum.tangerine_whistle.vm.instructions.environment.origin
+   ethereum.tangerine_whistle.vm.instructions.environment.caller
+   ethereum.tangerine_whistle.vm.instructions.environment.callvalue
+   ethereum.tangerine_whistle.vm.instructions.environment.calldataload
+   ethereum.tangerine_whistle.vm.instructions.environment.calldatasize
+   ethereum.tangerine_whistle.vm.instructions.environment.calldatacopy
+   ethereum.tangerine_whistle.vm.instructions.environment.codesize
+   ethereum.tangerine_whistle.vm.instructions.environment.codecopy
+   ethereum.tangerine_whistle.vm.instructions.environment.gasprice
+   ethereum.tangerine_whistle.vm.instructions.environment.extcodesize
+   ethereum.tangerine_whistle.vm.instructions.environment.extcodecopy
+
+
+
+Module Details
+---------------
+
+address
+~~~~~~~
+
+
+.. function:: address(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the address of the current executing account to the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/environment.py
+   :language: python
+   :pyobject: address
+
+balance
+~~~~~~~
+
+
+.. function:: balance(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the balance of the given account onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/environment.py
+   :language: python
+   :pyobject: balance
+
+origin
+~~~~~~
+
+
+.. function:: origin(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the address of the original transaction sender to the stack.
+   The origin address can only be an EOA.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/environment.py
+   :language: python
+   :pyobject: origin
+
+caller
+~~~~~~
+
+
+.. function:: caller(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the address of the caller onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/environment.py
+   :language: python
+   :pyobject: caller
+
+callvalue
+~~~~~~~~~
+
+
+.. function:: callvalue(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Push the value (in wei) sent with the call onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/environment.py
+   :language: python
+   :pyobject: callvalue
+
+calldataload
+~~~~~~~~~~~~
+
+
+.. function:: calldataload(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Push a word (32 bytes) of the input data belonging to the current
+   environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/environment.py
+   :language: python
+   :pyobject: calldataload
+
+calldatasize
+~~~~~~~~~~~~
+
+
+.. function:: calldatasize(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Push the size of input data in current environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/environment.py
+   :language: python
+   :pyobject: calldatasize
+
+calldatacopy
+~~~~~~~~~~~~
+
+
+.. function:: calldatacopy(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Copy a portion of the input data in current environment to memory.
+
+   This will also expand the memory, in case that the memory is insufficient
+   to store the data.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/environment.py
+   :language: python
+   :pyobject: calldatacopy
+
+codesize
+~~~~~~~~
+
+
+.. function:: codesize(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Push the size of code running in current environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/environment.py
+   :language: python
+   :pyobject: codesize
+
+codecopy
+~~~~~~~~
+
+
+.. function:: codecopy(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Copy a portion of the code in current environment to memory.
+
+   This will also expand the memory, in case that the memory is insufficient
+   to store the data.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/environment.py
+   :language: python
+   :pyobject: codecopy
+
+gasprice
+~~~~~~~~
+
+
+.. function:: gasprice(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Push the gas price used in current environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/environment.py
+   :language: python
+   :pyobject: gasprice
+
+extcodesize
+~~~~~~~~~~~
+
+
+.. function:: extcodesize(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Push the code size of a given account onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/environment.py
+   :language: python
+   :pyobject: extcodesize
+
+extcodecopy
+~~~~~~~~~~~
+
+
+.. function:: extcodecopy(evm: ethereum.tangerine_whistle.vm.Evm) -> None
+   :noindexentry:
+
+   Copy a portion of an account's code to memory.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/tangerine_whistle/vm/instructions/environment.py
+   :language: python
+   :pyobject: extcodecopy

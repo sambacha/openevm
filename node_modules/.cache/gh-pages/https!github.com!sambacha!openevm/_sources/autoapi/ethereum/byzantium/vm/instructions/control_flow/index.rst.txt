@@ -1,0 +1,153 @@
+.. py:module:: ethereum.byzantium.vm.instructions.control_flow
+
+Ethereum Virtual Machine (EVM) Control Flow Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM control flow instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.byzantium.vm.instructions.control_flow.stop
+   ethereum.byzantium.vm.instructions.control_flow.jump
+   ethereum.byzantium.vm.instructions.control_flow.jumpi
+   ethereum.byzantium.vm.instructions.control_flow.pc
+   ethereum.byzantium.vm.instructions.control_flow.gas_left
+   ethereum.byzantium.vm.instructions.control_flow.jumpdest
+
+
+
+Module Details
+---------------
+
+stop
+~~~~
+
+
+.. function:: stop(evm: ethereum.byzantium.vm.Evm) -> None
+   :noindexentry:
+
+   Stop further execution of EVM code.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/control_flow.py
+   :language: python
+   :pyobject: stop
+
+jump
+~~~~
+
+
+.. function:: jump(evm: ethereum.byzantium.vm.Evm) -> None
+   :noindexentry:
+
+   Alter the program counter to the location specified by the top of the
+   stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/control_flow.py
+   :language: python
+   :pyobject: jump
+
+jumpi
+~~~~~
+
+
+.. function:: jumpi(evm: ethereum.byzantium.vm.Evm) -> None
+   :noindexentry:
+
+   Alter the program counter to the specified location if and only if a
+   condition is true. If the condition is not true, then the program counter
+   would increase only by 1.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/control_flow.py
+   :language: python
+   :pyobject: jumpi
+
+pc
+~~
+
+
+.. function:: pc(evm: ethereum.byzantium.vm.Evm) -> None
+   :noindexentry:
+
+   Push onto the stack the value of the program counter after reaching the
+   current instruction and without increasing it for the next instruction.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/control_flow.py
+   :language: python
+   :pyobject: pc
+
+gas_left
+~~~~~~~~
+
+
+.. function:: gas_left(evm: ethereum.byzantium.vm.Evm) -> None
+   :noindexentry:
+
+   Push the amount of available gas (including the corresponding reduction
+   for the cost of this instruction) onto the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/control_flow.py
+   :language: python
+   :pyobject: gas_left
+
+jumpdest
+~~~~~~~~
+
+
+.. function:: jumpdest(evm: ethereum.byzantium.vm.Evm) -> None
+   :noindexentry:
+
+   Mark a valid destination for jumps. This is a noop, present only
+   to be used by `JUMP` and `JUMPI` opcodes to verify that their jump is
+   valid.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/control_flow.py
+   :language: python
+   :pyobject: jumpdest

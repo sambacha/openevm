@@ -1,0 +1,571 @@
+.. py:module:: ethereum.dao_fork.state
+
+State
+^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+The state contains all information that is preserved between transactions.
+
+It consists of a main account trie and storage tries for each contract.
+
+There is a distinction between an account that does not exist and
+`EMPTY_ACCOUNT`.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.dao_fork.state.State
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.dao_fork.state.close_state
+   ethereum.dao_fork.state.begin_transaction
+   ethereum.dao_fork.state.commit_transaction
+   ethereum.dao_fork.state.rollback_transaction
+   ethereum.dao_fork.state.get_account
+   ethereum.dao_fork.state.get_account_optional
+   ethereum.dao_fork.state.set_account
+   ethereum.dao_fork.state.destroy_account
+   ethereum.dao_fork.state.destroy_storage
+   ethereum.dao_fork.state.get_storage
+   ethereum.dao_fork.state.set_storage
+   ethereum.dao_fork.state.storage_root
+   ethereum.dao_fork.state.state_root
+   ethereum.dao_fork.state.account_exists
+   ethereum.dao_fork.state.account_has_code_or_nonce
+   ethereum.dao_fork.state.modify_state
+   ethereum.dao_fork.state.move_ether
+   ethereum.dao_fork.state.set_account_balance
+   ethereum.dao_fork.state.touch_account
+   ethereum.dao_fork.state.increment_nonce
+   ethereum.dao_fork.state.set_code
+   ethereum.dao_fork.state.create_ether
+
+
+
+Module Details
+---------------
+
+State
+~~~~~
+
+
+Contains all information that is preserved between transactions.
+
+
+.. class:: State
+
+   
+
+   .. py:attribute:: _main_trie
+         :annotation: :ethereum.dao_fork.trie.Trie[ethereum.dao_fork.fork_types.Address, Optional[ethereum.dao_fork.fork_types.Account]]
+
+      
+
+   
+
+   .. py:attribute:: _storage_tries
+         :annotation: :Dict[ethereum.dao_fork.fork_types.Address, ethereum.dao_fork.trie.Trie[ethereum.base_types.Bytes, ethereum.base_types.U256]]
+
+      
+
+   
+
+   .. py:attribute:: _snapshots
+         :annotation: :List[Tuple[ethereum.dao_fork.trie.Trie[ethereum.dao_fork.fork_types.Address, Optional[ethereum.dao_fork.fork_types.Account]], Dict[ethereum.dao_fork.fork_types.Address, ethereum.dao_fork.trie.Trie[ethereum.base_types.Bytes, ethereum.base_types.U256]]]]
+
+      
+
+
+
+close_state
+~~~~~~~~~~~
+
+
+.. function:: close_state(state: State) -> None
+   :noindexentry:
+
+   Free resources held by the state. Used by optimized implementations to
+   release file descriptors.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: close_state
+
+begin_transaction
+~~~~~~~~~~~~~~~~~
+
+
+.. function:: begin_transaction(state: State) -> None
+   :noindexentry:
+
+   Start a state transaction.
+
+   Transactions are entirely implicit and can be nested. It is not possible to
+   calculate the state root during a transaction.
+
+   :param state: The state.
+   :type state: State
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: begin_transaction
+
+commit_transaction
+~~~~~~~~~~~~~~~~~~
+
+
+.. function:: commit_transaction(state: State) -> None
+   :noindexentry:
+
+   Commit a state transaction.
+
+   :param state: The state.
+   :type state: State
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: commit_transaction
+
+rollback_transaction
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: rollback_transaction(state: State) -> None
+   :noindexentry:
+
+   Rollback a state transaction, resetting the state to the point when the
+   corresponding `start_transaction()` call was made.
+
+   :param state: The state.
+   :type state: State
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: rollback_transaction
+
+get_account
+~~~~~~~~~~~
+
+
+.. function:: get_account(state: State, address: ethereum.dao_fork.fork_types.Address) -> ethereum.dao_fork.fork_types.Account
+   :noindexentry:
+
+   Get the `Account` object at an address. Returns `EMPTY_ACCOUNT` if there
+   is no account at the address.
+
+   Use `get_account_optional()` if you care about the difference between a
+   non-existent account and `EMPTY_ACCOUNT`.
+
+   :param state: The state
+   :type state: `State`
+   :param address: Address to lookup.
+   :type address: `Address`
+
+   :returns: **account** -- Account at address.
+   :rtype: `Account`
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: get_account
+
+get_account_optional
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: get_account_optional(state: State, address: ethereum.dao_fork.fork_types.Address) -> Optional[ethereum.dao_fork.fork_types.Account]
+   :noindexentry:
+
+   Get the `Account` object at an address. Returns `None` (rather than
+   `EMPTY_ACCOUNT`) if there is no account at the address.
+
+   :param state: The state
+   :type state: `State`
+   :param address: Address to lookup.
+   :type address: `Address`
+
+   :returns: **account** -- Account at address.
+   :rtype: `Account`
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: get_account_optional
+
+set_account
+~~~~~~~~~~~
+
+
+.. function:: set_account(state: State, address: ethereum.dao_fork.fork_types.Address, account: Optional[ethereum.dao_fork.fork_types.Account]) -> None
+   :noindexentry:
+
+   Set the `Account` object at an address. Setting to `None` deletes
+   the account (but not its storage, see `destroy_account()`).
+
+   :param state: The state
+   :type state: `State`
+   :param address: Address to set.
+   :type address: `Address`
+   :param account: Account to set at address.
+   :type account: `Account`
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: set_account
+
+destroy_account
+~~~~~~~~~~~~~~~
+
+
+.. function:: destroy_account(state: State, address: ethereum.dao_fork.fork_types.Address) -> None
+   :noindexentry:
+
+   Completely remove the account at `address` and all of its storage.
+
+   This function is made available exclusively for the `SELFDESTRUCT`
+   opcode. It is expected that `SELFDESTRUCT` will be disabled in a future
+   hardfork and this function will be removed.
+
+   :param state: The state
+   :type state: `State`
+   :param address: Address of account to destroy.
+   :type address: `Address`
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: destroy_account
+
+destroy_storage
+~~~~~~~~~~~~~~~
+
+
+.. function:: destroy_storage(state: State, address: ethereum.dao_fork.fork_types.Address) -> None
+   :noindexentry:
+
+   Completely remove the storage at `address`.
+
+   :param state: The state
+   :type state: `State`
+   :param address: Address of account whose storage is to be deleted.
+   :type address: `Address`
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: destroy_storage
+
+get_storage
+~~~~~~~~~~~
+
+
+.. function:: get_storage(state: State, address: ethereum.dao_fork.fork_types.Address, key: ethereum.base_types.Bytes) -> ethereum.base_types.U256
+   :noindexentry:
+
+   Get a value at a storage key on an account. Returns `U256(0)` if the
+   storage key has not been set previously.
+
+   :param state: The state
+   :type state: `State`
+   :param address: Address of the account.
+   :type address: `Address`
+   :param key: Key to lookup.
+   :type key: `Bytes`
+
+   :returns: **value** -- Value at the key.
+   :rtype: `U256`
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: get_storage
+
+set_storage
+~~~~~~~~~~~
+
+
+.. function:: set_storage(state: State, address: ethereum.dao_fork.fork_types.Address, key: ethereum.base_types.Bytes, value: ethereum.base_types.U256) -> None
+   :noindexentry:
+
+   Set a value at a storage key on an account. Setting to `U256(0)` deletes
+   the key.
+
+   :param state: The state
+   :type state: `State`
+   :param address: Address of the account.
+   :type address: `Address`
+   :param key: Key to set.
+   :type key: `Bytes`
+   :param value: Value to set at the key.
+   :type value: `U256`
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: set_storage
+
+storage_root
+~~~~~~~~~~~~
+
+
+.. function:: storage_root(state: State, address: ethereum.dao_fork.fork_types.Address) -> ethereum.dao_fork.fork_types.Root
+   :noindexentry:
+
+   Calculate the storage root of an account.
+
+   :param state: The state
+   :param address: Address of the account.
+
+   :returns: **root** -- Storage root of the account.
+   :rtype: `Root`
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: storage_root
+
+state_root
+~~~~~~~~~~
+
+
+.. function:: state_root(state: State) -> ethereum.dao_fork.fork_types.Root
+   :noindexentry:
+
+   Calculate the state root.
+
+   :param state: The current state.
+
+   :returns: **root** -- The state root.
+   :rtype: `Root`
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: state_root
+
+account_exists
+~~~~~~~~~~~~~~
+
+
+.. function:: account_exists(state: State, address: ethereum.dao_fork.fork_types.Address) -> bool
+   :noindexentry:
+
+   Checks if an account exists in the state trie
+
+   :param state: The state
+   :param address: Address of the account that needs to be checked.
+
+   :returns: **account_exists** -- True if account exists in the state trie, False otherwise
+   :rtype: `bool`
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: account_exists
+
+account_has_code_or_nonce
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: account_has_code_or_nonce(state: State, address: ethereum.dao_fork.fork_types.Address) -> bool
+   :noindexentry:
+
+   Checks if an account has non zero nonce or non empty code
+
+   :param state: The state
+   :param address: Address of the account that needs to be checked.
+
+   :returns: **has_code_or_nonce** -- True if if an account has non zero nonce or non empty code,
+             False otherwise.
+   :rtype: `bool`
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: account_has_code_or_nonce
+
+modify_state
+~~~~~~~~~~~~
+
+
+.. function:: modify_state(state: State, address: ethereum.dao_fork.fork_types.Address, f: Callable[[ethereum.dao_fork.fork_types.Account], None]) -> None
+   :noindexentry:
+
+   Modify an `Account` in the `State`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: modify_state
+
+move_ether
+~~~~~~~~~~
+
+
+.. function:: move_ether(state: State, sender_address: ethereum.dao_fork.fork_types.Address, recipient_address: ethereum.dao_fork.fork_types.Address, amount: ethereum.base_types.U256) -> None
+   :noindexentry:
+
+   Move funds between accounts.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: move_ether
+
+set_account_balance
+~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: set_account_balance(state: State, address: ethereum.dao_fork.fork_types.Address, amount: ethereum.base_types.U256) -> None
+   :noindexentry:
+
+   Sets the balance of an account.
+
+   :param state: The current state.
+   :param address: Address of the account whose nonce needs to be incremented.
+   :param amount: The amount that needs to set in balance.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: set_account_balance
+
+touch_account
+~~~~~~~~~~~~~
+
+
+.. function:: touch_account(state: State, address: ethereum.dao_fork.fork_types.Address) -> None
+   :noindexentry:
+
+   Initializes an account to state.
+
+   :param state: The current state.
+   :param address: The address of the account that need to initialised.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: touch_account
+
+increment_nonce
+~~~~~~~~~~~~~~~
+
+
+.. function:: increment_nonce(state: State, address: ethereum.dao_fork.fork_types.Address) -> None
+   :noindexentry:
+
+   Increments the nonce of an account.
+
+   :param state: The current state.
+   :param address: Address of the account whose nonce needs to be incremented.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: increment_nonce
+
+set_code
+~~~~~~~~
+
+
+.. function:: set_code(state: State, address: ethereum.dao_fork.fork_types.Address, code: ethereum.base_types.Bytes) -> None
+   :noindexentry:
+
+   Sets Account code.
+
+   :param state: The current state.
+   :param address: Address of the account whose code needs to be update.
+   :param code: The bytecode that needs to be set.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: set_code
+
+create_ether
+~~~~~~~~~~~~
+
+
+.. function:: create_ether(state: State, address: ethereum.dao_fork.fork_types.Address, amount: ethereum.base_types.U256) -> None
+   :noindexentry:
+
+   Add newly created ether to an account.
+
+   :param state: The current state.
+   :param address: Address of the account to which ether is added.
+   :param amount: The amount of ether to be added to the account of interest.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/state.py
+   :language: python
+   :pyobject: create_ether

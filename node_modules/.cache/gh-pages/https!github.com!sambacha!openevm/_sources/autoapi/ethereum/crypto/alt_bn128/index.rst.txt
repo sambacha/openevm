@@ -1,0 +1,514 @@
+.. py:module:: ethereum.crypto.alt_bn128
+
+The alt_bn128 curve
+^^^^^^^^^^^^^^^^^^^
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.crypto.alt_bn128.BNF
+   ethereum.crypto.alt_bn128.BNP
+   ethereum.crypto.alt_bn128.BNF2
+   ethereum.crypto.alt_bn128.BNP2
+   ethereum.crypto.alt_bn128.BNF12
+   ethereum.crypto.alt_bn128.BNP12
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.crypto.alt_bn128.bnf2_to_bnf12
+   ethereum.crypto.alt_bn128.bnp_to_bnp12
+   ethereum.crypto.alt_bn128.twist
+   ethereum.crypto.alt_bn128.linefunc
+   ethereum.crypto.alt_bn128.miller_loop
+   ethereum.crypto.alt_bn128.pairing
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.crypto.alt_bn128.ALT_BN128_PRIME
+   ethereum.crypto.alt_bn128.ALT_BN128_CURVE_ORDER
+   ethereum.crypto.alt_bn128.ATE_PAIRING_COUNT
+   ethereum.crypto.alt_bn128.ATE_PAIRING_COUNT_BITS
+
+
+Module Details
+---------------
+
+ALT_BN128_PRIME
+~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: ALT_BN128_PRIME
+   
+   
+
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :lines: 8-8
+
+
+ALT_BN128_CURVE_ORDER
+~~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: ALT_BN128_CURVE_ORDER
+   
+   
+
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :lines: 9-9
+
+
+ATE_PAIRING_COUNT
+~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: ATE_PAIRING_COUNT
+   
+   
+
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :lines: 10-10
+
+
+ATE_PAIRING_COUNT_BITS
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: ATE_PAIRING_COUNT_BITS
+   
+   
+
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :lines: 11-11
+
+
+BNF
+~~~
+
+
+The prime field over which the alt_bn128 curve is defined.
+
+
+.. class:: BNF
+
+
+   Bases: :py:obj:`ethereum.crypto.finite_field.PrimeField`
+
+   
+
+   .. py:attribute:: PRIME
+         
+
+      
+
+
+
+BNP
+~~~
+
+
+The alt_bn128 curve.
+
+
+.. class:: BNP(x: F, y: F)
+
+
+   Bases: :py:obj:`ethereum.crypto.elliptic_curve.EllipticCurve`
+
+   
+
+   .. py:attribute:: FIELD
+         
+
+      
+
+   
+
+   .. py:attribute:: A
+         
+
+      
+
+   
+
+   .. py:attribute:: B
+         
+
+      
+
+
+
+BNF2
+~~~~
+
+
+`BNF` extended with a square root of 1 (`i`).
+
+
+.. class:: BNF2
+
+
+   Bases: :py:obj:`ethereum.crypto.finite_field.GaloisField`
+
+   
+
+   .. py:attribute:: PRIME
+         
+
+      
+
+   
+
+   .. py:attribute:: MODULUS
+         :annotation: = [1, 0]
+
+      
+
+   
+
+   .. py:attribute:: i
+         :annotation: :BNF2
+
+      
+
+   
+
+   .. py:attribute:: i_plus_9
+         :annotation: :BNF2
+
+      
+
+
+
+FROBENIUS_COEFFICIENTS
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: BNF2.FROBENIUS_COEFFICIENTS
+   :noindex:
+
+   
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :lines: 44-44
+
+
+i
+~
+
+
+
+.. py:data:: BNF2.i
+   :noindex:
+
+   
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :lines: 47-47
+
+
+i_plus_9
+~~~~~~~~
+
+
+
+.. py:data:: BNF2.i_plus_9
+   :noindex:
+
+   
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :lines: 50-50
+
+
+BNP2
+~~~~
+
+
+A twist of `BNP`. This is actually the same curve as `BNP` under a change
+of variable, but that change of variable is only possible over the larger
+field `BNP12`.
+
+
+.. class:: BNP2(x: F, y: F)
+
+
+   Bases: :py:obj:`ethereum.crypto.elliptic_curve.EllipticCurve`
+
+   
+
+   .. py:attribute:: FIELD
+         
+
+      
+
+   
+
+   .. py:attribute:: A
+         
+
+      
+
+   
+
+   .. py:attribute:: B
+         
+
+      
+
+
+
+BNF12
+~~~~~
+
+
+`BNF2` extended by adding a 6th root of `9 + i` called `w` (omega).
+
+
+.. class:: BNF12
+
+
+   Bases: :py:obj:`ethereum.crypto.finite_field.GaloisField`
+
+   
+
+   .. py:attribute:: PRIME
+         
+
+      
+
+   
+
+   .. py:attribute:: MODULUS
+         
+
+      
+
+   
+
+   .. py:attribute:: w
+         :annotation: :BNF12
+
+      
+
+   
+
+   .. py:attribute:: i_plus_9
+         :annotation: :BNF12
+
+      
+
+   .. py:method:: __mul__(right: BNF12) -> BNF12
+
+      Multiplication special cased for BNF12.
+
+
+
+
+FROBENIUS_COEFFICIENTS
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: BNF12.FROBENIUS_COEFFICIENTS
+   :noindex:
+
+   
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :lines: 97-97
+
+
+w
+~
+
+
+
+.. py:data:: BNF12.w
+   :noindex:
+
+   
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :lines: 100-100
+
+
+i_plus_9
+~~~~~~~~
+
+
+
+.. py:data:: BNF12.i_plus_9
+   :noindex:
+
+   
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :lines: 103-103
+
+
+BNP12
+~~~~~
+
+
+The same curve as `BNP`, but defined over the larger field. This curve has
+both subgroups of order `ALT_BN128_CURVE_ORDER` and allows pairings to be
+computed.
+
+
+.. class:: BNP12(x: F, y: F)
+
+
+   Bases: :py:obj:`ethereum.crypto.elliptic_curve.EllipticCurve`
+
+   
+
+   .. py:attribute:: FIELD
+         
+
+      
+
+   
+
+   .. py:attribute:: A
+         
+
+      
+
+   
+
+   .. py:attribute:: B
+         
+
+      
+
+
+
+bnf2_to_bnf12
+~~~~~~~~~~~~~
+
+
+.. function:: bnf2_to_bnf12(x: BNF2) -> BNF12
+   :noindexentry:
+
+   Lift a field element in `BNF2` to `BNF12`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :pyobject: bnf2_to_bnf12
+
+bnp_to_bnp12
+~~~~~~~~~~~~
+
+
+.. function:: bnp_to_bnp12(p: BNP) -> BNP12
+   :noindexentry:
+
+   Lift a point from `BNP` to `BNP12`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :pyobject: bnp_to_bnp12
+
+twist
+~~~~~
+
+
+.. function:: twist(p: BNP2) -> BNP12
+   :noindexentry:
+
+   Apply to twist to change variables from the curve `BNP2` to `BNP12`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :pyobject: twist
+
+linefunc
+~~~~~~~~
+
+
+.. function:: linefunc(p1: BNP12, p2: BNP12, t: BNP12) -> BNF12
+   :noindexentry:
+
+   Evaluate the function defining the line between points `p1` and `p2` at the
+   point `t`. The mathematical significance of this function is that is has
+   divisor `(p1) + (p2) + (p1 + p2) - 3(O)`.
+
+   Note: Abstract mathematical presentations of Miller's algorithm often
+   specify the divisor `(p1) + (p2) - (p1 + p2) - (O)`. This turns out not to
+   matter.
+
+
+
+
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :pyobject: linefunc
+
+miller_loop
+~~~~~~~~~~~
+
+
+.. function:: miller_loop(q: BNP12, p: BNP12) -> BNF12
+   :noindexentry:
+
+   The core of the pairing algorithm.
+
+
+
+
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :pyobject: miller_loop
+
+pairing
+~~~~~~~
+
+
+.. function:: pairing(q: BNP2, p: BNP) -> BNF12
+   :noindexentry:
+
+   Compute the pairing of `q` and `p`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/crypto/alt_bn128.py
+   :language: python
+   :pyobject: pairing

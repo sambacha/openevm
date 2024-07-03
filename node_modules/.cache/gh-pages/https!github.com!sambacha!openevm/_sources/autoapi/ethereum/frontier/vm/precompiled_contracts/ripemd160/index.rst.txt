@@ -1,0 +1,51 @@
+.. py:module:: ethereum.frontier.vm.precompiled_contracts.ripemd160
+
+Ethereum Virtual Machine (EVM) RIPEMD160 PRECOMPILED CONTRACT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementation of the `RIPEMD160` precompiled contract.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.frontier.vm.precompiled_contracts.ripemd160.ripemd160
+
+
+
+Module Details
+---------------
+
+ripemd160
+~~~~~~~~~
+
+
+.. function:: ripemd160(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Writes the ripemd160 hash to output.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/precompiled_contracts/ripemd160.py
+   :language: python
+   :pyobject: ripemd160

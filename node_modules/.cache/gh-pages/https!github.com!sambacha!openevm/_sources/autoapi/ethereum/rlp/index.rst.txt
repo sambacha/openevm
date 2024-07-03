@@ -1,0 +1,356 @@
+.. py:module:: ethereum.rlp
+
+.. _rlp:
+
+Recursive Length Prefix (RLP) Encoding
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Defines the serialization and deserialization format used throughout Ethereum.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.rlp.encode
+   ethereum.rlp.encode_bytes
+   ethereum.rlp.encode_sequence
+   ethereum.rlp.get_joined_encodings
+   ethereum.rlp.decode
+   ethereum.rlp.decode_to
+   ethereum.rlp._decode_to
+   ethereum.rlp.decode_to_bytes
+   ethereum.rlp.decode_to_sequence
+   ethereum.rlp.decode_joined_encodings
+   ethereum.rlp.decode_item_length
+   ethereum.rlp.rlp_hash
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.rlp.RLP
+   ethereum.rlp.T
+
+
+Module Details
+---------------
+
+RLP
+~~~
+
+
+
+.. py:data:: RLP
+   
+   
+
+.. undocinclude:: /../src/ethereum/rlp.py
+   :language: python
+   :lines: 28-28
+
+
+encode
+~~~~~~
+
+
+.. function:: encode(raw_data: RLP) -> ethereum.base_types.Bytes
+   :noindexentry:
+
+   Encodes `raw_data` into a sequence of bytes using RLP.
+
+   :param raw_data: A `Bytes`, `Uint`, `Uint256` or sequence of `RLP` encodable
+                    objects.
+
+   :returns: **encoded** -- The RLP encoded bytes representing `raw_data`.
+   :rtype: `ethereum.base_types.Bytes`
+
+
+
+
+.. undocinclude:: /../src/ethereum/rlp.py
+   :language: python
+   :pyobject: encode
+
+encode_bytes
+~~~~~~~~~~~~
+
+
+.. function:: encode_bytes(raw_bytes: ethereum.base_types.Bytes) -> ethereum.base_types.Bytes
+   :noindexentry:
+
+   Encodes `raw_bytes`, a sequence of bytes, using RLP.
+
+   :param raw_bytes: Bytes to encode with RLP.
+
+   :returns: **encoded** -- The RLP encoded bytes representing `raw_bytes`.
+   :rtype: `ethereum.base_types.Bytes`
+
+
+
+
+.. undocinclude:: /../src/ethereum/rlp.py
+   :language: python
+   :pyobject: encode_bytes
+
+encode_sequence
+~~~~~~~~~~~~~~~
+
+
+.. function:: encode_sequence(raw_sequence: Sequence[RLP]) -> ethereum.base_types.Bytes
+   :noindexentry:
+
+   Encodes a list of RLP encodable objects (`raw_sequence`) using RLP.
+
+   :param raw_sequence: Sequence of RLP encodable objects.
+
+   :returns: **encoded** -- The RLP encoded bytes representing `raw_sequence`.
+   :rtype: `ethereum.base_types.Bytes`
+
+
+
+
+.. undocinclude:: /../src/ethereum/rlp.py
+   :language: python
+   :pyobject: encode_sequence
+
+get_joined_encodings
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: get_joined_encodings(raw_sequence: Sequence[RLP]) -> ethereum.base_types.Bytes
+   :noindexentry:
+
+   Obtain concatenation of rlp encoding for each item in the sequence
+   raw_sequence.
+
+   :param raw_sequence: Sequence to encode with RLP.
+
+   :returns: **joined_encodings** -- The concatenated RLP encoded bytes for each item in sequence
+             raw_sequence.
+   :rtype: `ethereum.base_types.Bytes`
+
+
+
+
+.. undocinclude:: /../src/ethereum/rlp.py
+   :language: python
+   :pyobject: get_joined_encodings
+
+decode
+~~~~~~
+
+
+.. function:: decode(encoded_data: ethereum.base_types.Bytes) -> RLP
+   :noindexentry:
+
+   Decodes an integer, byte sequence, or list of RLP encodable objects
+   from the byte sequence `encoded_data`, using RLP.
+
+   :param encoded_data: A sequence of bytes, in RLP form.
+
+   :returns: **decoded_data** -- Object decoded from `encoded_data`.
+   :rtype: `RLP`
+
+
+
+
+.. undocinclude:: /../src/ethereum/rlp.py
+   :language: python
+   :pyobject: decode
+
+T
+~
+
+
+
+.. py:data:: T
+   
+   
+
+.. undocinclude:: /../src/ethereum/rlp.py
+   :language: python
+   :lines: 186-186
+
+
+decode_to
+~~~~~~~~~
+
+
+.. function:: decode_to(cls: Type[T], encoded_data: ethereum.base_types.Bytes) -> T
+   :noindexentry:
+
+   Decode the bytes in `encoded_data` to an object of type `cls`. `cls` can be
+   a `Bytes` subclass, a dataclass, `Uint`, `U256` or `Tuple[cls]`.
+
+   :param cls: The type to decode to.
+   :type cls: `Type[T]`
+   :param encoded_data: A sequence of bytes, in RLP form.
+
+   :returns: **decoded_data** -- Object decoded from `encoded_data`.
+   :rtype: `T`
+
+
+
+
+.. undocinclude:: /../src/ethereum/rlp.py
+   :language: python
+   :pyobject: decode_to
+
+_decode_to
+~~~~~~~~~~
+
+
+.. function:: _decode_to(cls: Type[T], raw_rlp: RLP) -> T
+   :noindexentry:
+
+   Decode the rlp structure in `encoded_data` to an object of type `cls`.
+   `cls` can be a `Bytes` subclass, a dataclass, `Uint`, `U256`,
+   `Tuple[cls, ...]`, `Tuple[cls1, cls2]` or `Union[Bytes, cls]`.
+
+   :param cls: The type to decode to.
+   :type cls: `Type[T]`
+   :param raw_rlp: A decoded rlp structure.
+
+   :returns: **decoded_data** -- Object decoded from `encoded_data`.
+   :rtype: `T`
+
+
+
+
+.. undocinclude:: /../src/ethereum/rlp.py
+   :language: python
+   :pyobject: _decode_to
+
+decode_to_bytes
+~~~~~~~~~~~~~~~
+
+
+.. function:: decode_to_bytes(encoded_bytes: ethereum.base_types.Bytes) -> ethereum.base_types.Bytes
+   :noindexentry:
+
+   Decodes a rlp encoded byte stream assuming that the decoded data
+   should be of type `bytes`.
+
+   :param encoded_bytes: RLP encoded byte stream.
+
+   :returns: **decoded** -- RLP decoded Bytes data
+   :rtype: `ethereum.base_types.Bytes`
+
+
+
+
+.. undocinclude:: /../src/ethereum/rlp.py
+   :language: python
+   :pyobject: decode_to_bytes
+
+decode_to_sequence
+~~~~~~~~~~~~~~~~~~
+
+
+.. function:: decode_to_sequence(encoded_sequence: ethereum.base_types.Bytes) -> List[RLP]
+   :noindexentry:
+
+   Decodes a rlp encoded byte stream assuming that the decoded data
+   should be of type `Sequence` of objects.
+
+   :param encoded_sequence: An RLP encoded Sequence.
+
+   :returns: **decoded** -- Sequence of objects decoded from `encoded_sequence`.
+   :rtype: `Sequence[RLP]`
+
+
+
+
+.. undocinclude:: /../src/ethereum/rlp.py
+   :language: python
+   :pyobject: decode_to_sequence
+
+decode_joined_encodings
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: decode_joined_encodings(joined_encodings: ethereum.base_types.Bytes) -> List[RLP]
+   :noindexentry:
+
+   Decodes `joined_encodings`, which is a concatenation of RLP encoded
+   objects.
+
+   :param joined_encodings: concatenation of RLP encoded objects
+
+   :returns: **decoded** -- A list of objects decoded from `joined_encodings`.
+   :rtype: `List[RLP]`
+
+
+
+
+.. undocinclude:: /../src/ethereum/rlp.py
+   :language: python
+   :pyobject: decode_joined_encodings
+
+decode_item_length
+~~~~~~~~~~~~~~~~~~
+
+
+.. function:: decode_item_length(encoded_data: ethereum.base_types.Bytes) -> int
+   :noindexentry:
+
+   Find the length of the rlp encoding for the first object in the
+   encoded sequence.
+   Here `encoded_data` refers to concatenation of rlp encoding for each
+   item in a sequence.
+
+   NOTE - This is a helper function not described in the spec. It was
+   introduced as the spec doesn't discuss about decoding the RLP encoded
+   data.
+
+   :param encoded_data: RLP encoded data for a sequence of objects.
+
+   :returns: **rlp_length**
+   :rtype: `int`
+
+
+
+
+.. undocinclude:: /../src/ethereum/rlp.py
+   :language: python
+   :pyobject: decode_item_length
+
+rlp_hash
+~~~~~~~~
+
+
+.. function:: rlp_hash(data: RLP) -> ethereum.crypto.hash.Hash32
+   :noindexentry:
+
+   Obtain the keccak-256 hash of the rlp encoding of the passed in data.
+
+   :param data: The data for which we need the rlp hash.
+
+   :returns: **hash** -- The rlp hash of the passed in data.
+   :rtype: `Hash32`
+
+
+
+
+.. undocinclude:: /../src/ethereum/rlp.py
+   :language: python
+   :pyobject: rlp_hash

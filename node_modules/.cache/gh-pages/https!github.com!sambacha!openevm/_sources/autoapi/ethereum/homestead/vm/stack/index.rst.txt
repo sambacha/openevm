@@ -1,0 +1,74 @@
+.. py:module:: ethereum.homestead.vm.stack
+
+Ethereum Virtual Machine (EVM) Stack
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementation of the stack operators for the EVM.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.homestead.vm.stack.pop
+   ethereum.homestead.vm.stack.push
+
+
+
+Module Details
+---------------
+
+pop
+~~~
+
+
+.. function:: pop(stack: List[ethereum.base_types.U256]) -> ethereum.base_types.U256
+   :noindexentry:
+
+   Pops the top item off of `stack`.
+
+   :param stack: EVM stack.
+
+   :returns: **value** -- The top element on the stack.
+   :rtype: `U256`
+
+
+
+
+.. undocinclude:: /../src/ethereum/homestead/vm/stack.py
+   :language: python
+   :pyobject: pop
+
+push
+~~~~
+
+
+.. function:: push(stack: List[ethereum.base_types.U256], value: ethereum.base_types.U256) -> None
+   :noindexentry:
+
+   Pushes `value` onto `stack`.
+
+   :param stack: EVM stack.
+   :param value: Item to be pushed onto `stack`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/homestead/vm/stack.py
+   :language: python
+   :pyobject: push

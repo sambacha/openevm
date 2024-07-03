@@ -1,0 +1,54 @@
+.. py:module:: ethereum.london.vm.instructions.keccak
+
+Ethereum Virtual Machine (EVM) Keccak Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM keccak instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.london.vm.instructions.keccak.keccak
+
+
+
+Module Details
+---------------
+
+keccak
+~~~~~~
+
+
+.. function:: keccak(evm: ethereum.london.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes to the stack the Keccak-256 hash of a region of memory.
+
+   This also expands the memory, in case the memory is insufficient to
+   access the data's memory location.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/london/vm/instructions/keccak.py
+   :language: python
+   :pyobject: keccak

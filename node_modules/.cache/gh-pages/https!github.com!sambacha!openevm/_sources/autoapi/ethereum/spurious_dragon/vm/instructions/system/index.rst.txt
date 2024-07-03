@@ -1,0 +1,163 @@
+.. py:module:: ethereum.spurious_dragon.vm.instructions.system
+
+Ethereum Virtual Machine (EVM) System Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM system related instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.spurious_dragon.vm.instructions.system.create
+   ethereum.spurious_dragon.vm.instructions.system.return_
+   ethereum.spurious_dragon.vm.instructions.system.generic_call
+   ethereum.spurious_dragon.vm.instructions.system.call
+   ethereum.spurious_dragon.vm.instructions.system.callcode
+   ethereum.spurious_dragon.vm.instructions.system.selfdestruct
+   ethereum.spurious_dragon.vm.instructions.system.delegatecall
+
+
+
+Module Details
+---------------
+
+create
+~~~~~~
+
+
+.. function:: create(evm: ethereum.spurious_dragon.vm.Evm) -> None
+   :noindexentry:
+
+   Creates a new account with associated code.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/spurious_dragon/vm/instructions/system.py
+   :language: python
+   :pyobject: create
+
+return_
+~~~~~~~
+
+
+.. function:: return_(evm: ethereum.spurious_dragon.vm.Evm) -> None
+   :noindexentry:
+
+   Halts execution returning output data.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/spurious_dragon/vm/instructions/system.py
+   :language: python
+   :pyobject: return_
+
+generic_call
+~~~~~~~~~~~~
+
+
+.. function:: generic_call(evm: ethereum.spurious_dragon.vm.Evm, gas: ethereum.base_types.Uint, value: ethereum.base_types.U256, caller: ethereum.spurious_dragon.fork_types.Address, to: ethereum.spurious_dragon.fork_types.Address, code_address: ethereum.spurious_dragon.fork_types.Address, should_transfer_value: bool, memory_input_start_position: ethereum.base_types.U256, memory_input_size: ethereum.base_types.U256, memory_output_start_position: ethereum.base_types.U256, memory_output_size: ethereum.base_types.U256) -> None
+   :noindexentry:
+
+   Perform the core logic of the `CALL*` family of opcodes.
+
+
+
+
+.. undocinclude:: /../src/ethereum/spurious_dragon/vm/instructions/system.py
+   :language: python
+   :pyobject: generic_call
+
+call
+~~~~
+
+
+.. function:: call(evm: ethereum.spurious_dragon.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into an account.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/spurious_dragon/vm/instructions/system.py
+   :language: python
+   :pyobject: call
+
+callcode
+~~~~~~~~
+
+
+.. function:: callcode(evm: ethereum.spurious_dragon.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into this account with alternative account’s code.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/spurious_dragon/vm/instructions/system.py
+   :language: python
+   :pyobject: callcode
+
+selfdestruct
+~~~~~~~~~~~~
+
+
+.. function:: selfdestruct(evm: ethereum.spurious_dragon.vm.Evm) -> None
+   :noindexentry:
+
+   Halt execution and register account for later deletion.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/spurious_dragon/vm/instructions/system.py
+   :language: python
+   :pyobject: selfdestruct
+
+delegatecall
+~~~~~~~~~~~~
+
+
+.. function:: delegatecall(evm: ethereum.spurious_dragon.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into an account.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/spurious_dragon/vm/instructions/system.py
+   :language: python
+   :pyobject: delegatecall

@@ -1,0 +1,150 @@
+.. py:module:: ethereum.gray_glacier.vm.instructions.comparison
+
+Ethereum Virtual Machine (EVM) Comparison Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM Comparison instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.gray_glacier.vm.instructions.comparison.less_than
+   ethereum.gray_glacier.vm.instructions.comparison.signed_less_than
+   ethereum.gray_glacier.vm.instructions.comparison.greater_than
+   ethereum.gray_glacier.vm.instructions.comparison.signed_greater_than
+   ethereum.gray_glacier.vm.instructions.comparison.equal
+   ethereum.gray_glacier.vm.instructions.comparison.is_zero
+
+
+
+Module Details
+---------------
+
+less_than
+~~~~~~~~~
+
+
+.. function:: less_than(evm: ethereum.gray_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Checks if the top element is less than the next top element. Pushes the
+   result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/gray_glacier/vm/instructions/comparison.py
+   :language: python
+   :pyobject: less_than
+
+signed_less_than
+~~~~~~~~~~~~~~~~
+
+
+.. function:: signed_less_than(evm: ethereum.gray_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Signed less-than comparison.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/gray_glacier/vm/instructions/comparison.py
+   :language: python
+   :pyobject: signed_less_than
+
+greater_than
+~~~~~~~~~~~~
+
+
+.. function:: greater_than(evm: ethereum.gray_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Checks if the top element is greater than the next top element. Pushes
+   the result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/gray_glacier/vm/instructions/comparison.py
+   :language: python
+   :pyobject: greater_than
+
+signed_greater_than
+~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: signed_greater_than(evm: ethereum.gray_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Signed greater-than comparison.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/gray_glacier/vm/instructions/comparison.py
+   :language: python
+   :pyobject: signed_greater_than
+
+equal
+~~~~~
+
+
+.. function:: equal(evm: ethereum.gray_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Checks if the top element is equal to the next top element. Pushes
+   the result back on the stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/gray_glacier/vm/instructions/comparison.py
+   :language: python
+   :pyobject: equal
+
+is_zero
+~~~~~~~
+
+
+.. function:: is_zero(evm: ethereum.gray_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Checks if the top element is equal to 0. Pushes the result back on the
+   stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/gray_glacier/vm/instructions/comparison.py
+   :language: python
+   :pyobject: is_zero

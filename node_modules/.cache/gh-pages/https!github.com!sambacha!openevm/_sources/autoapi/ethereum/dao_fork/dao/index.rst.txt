@@ -1,0 +1,91 @@
+.. py:module:: ethereum.dao_fork.dao
+
+Dao Fork
+^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+The Dao Fork was an irregular state change that moved all Ether from a large
+collection of accounts (The Dao and all its children) to a recovery contract.
+
+The recovery contract was previously created using normal contract deployment.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.dao_fork.dao.apply_dao
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.dao_fork.dao.DAO_ACCOUNTS
+   ethereum.dao_fork.dao.DAO_RECOVERY
+
+
+Module Details
+---------------
+
+DAO_ACCOUNTS
+~~~~~~~~~~~~
+
+
+
+.. py:data:: DAO_ACCOUNTS
+   
+   
+
+.. undocinclude:: /../src/ethereum/dao_fork/dao.py
+   :language: python
+   :lines: 21-141
+
+
+DAO_RECOVERY
+~~~~~~~~~~~~
+
+
+
+.. py:data:: DAO_RECOVERY
+   
+   
+
+.. undocinclude:: /../src/ethereum/dao_fork/dao.py
+   :language: python
+   :lines: 143-143
+
+
+apply_dao
+~~~~~~~~~
+
+
+.. function:: apply_dao(state: ethereum.dao_fork.state.State) -> None
+   :noindexentry:
+
+   Apply the dao fork to the state.
+
+   :param state: State before applying the DAO Fork.
+
+
+
+
+.. undocinclude:: /../src/ethereum/dao_fork/dao.py
+   :language: python
+   :pyobject: apply_dao

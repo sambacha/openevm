@@ -1,0 +1,51 @@
+.. py:module:: ethereum.istanbul.vm.precompiled_contracts.sha256
+
+Ethereum Virtual Machine (EVM) SHA256 PRECOMPILED CONTRACT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementation of the `SHA256` precompiled contract.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.istanbul.vm.precompiled_contracts.sha256.sha256
+
+
+
+Module Details
+---------------
+
+sha256
+~~~~~~
+
+
+.. function:: sha256(evm: ethereum.istanbul.vm.Evm) -> None
+   :noindexentry:
+
+   Writes the sha256 hash to output.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/istanbul/vm/precompiled_contracts/sha256.py
+   :language: python
+   :pyobject: sha256

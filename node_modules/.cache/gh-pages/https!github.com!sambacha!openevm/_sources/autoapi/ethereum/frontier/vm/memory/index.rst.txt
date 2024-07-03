@@ -1,0 +1,101 @@
+.. py:module:: ethereum.frontier.vm.memory
+
+Ethereum Virtual Machine (EVM) Memory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+EVM memory operations.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.frontier.vm.memory.memory_write
+   ethereum.frontier.vm.memory.memory_read_bytes
+   ethereum.frontier.vm.memory.buffer_read
+
+
+
+Module Details
+---------------
+
+memory_write
+~~~~~~~~~~~~
+
+
+.. function:: memory_write(memory: bytearray, start_position: ethereum.base_types.U256, value: ethereum.base_types.Bytes) -> None
+   :noindexentry:
+
+   Writes to memory.
+
+   :param memory: Memory contents of the EVM.
+   :param start_position: Starting pointer to the memory.
+   :param value: Data to write to memory.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/memory.py
+   :language: python
+   :pyobject: memory_write
+
+memory_read_bytes
+~~~~~~~~~~~~~~~~~
+
+
+.. function:: memory_read_bytes(memory: bytearray, start_position: ethereum.base_types.U256, size: ethereum.base_types.U256) -> bytearray
+   :noindexentry:
+
+   Read bytes from memory.
+
+   :param memory: Memory contents of the EVM.
+   :param start_position: Starting pointer to the memory.
+   :param size: Size of the data that needs to be read from `start_position`.
+
+   :returns: Data read from memory.
+   :rtype: data_bytes
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/memory.py
+   :language: python
+   :pyobject: memory_read_bytes
+
+buffer_read
+~~~~~~~~~~~
+
+
+.. function:: buffer_read(buffer: ethereum.base_types.Bytes, start_position: ethereum.base_types.U256, size: ethereum.base_types.U256) -> ethereum.base_types.Bytes
+   :noindexentry:
+
+   Read bytes from a buffer. Padding with zeros if neccesary.
+
+   :param buffer: Memory contents of the EVM.
+   :param start_position: Starting pointer to the memory.
+   :param size: Size of the data that needs to be read from `start_position`.
+
+   :returns: Data read from memory.
+   :rtype: data_bytes
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/memory.py
+   :language: python
+   :pyobject: buffer_read

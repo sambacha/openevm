@@ -1,0 +1,52 @@
+.. py:module:: ethereum.paris.vm.precompiled_contracts.ecrecover
+
+Ethereum Virtual Machine (EVM) ECRECOVER PRECOMPILED CONTRACT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementation of the ECRECOVER precompiled contract.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.paris.vm.precompiled_contracts.ecrecover.ecrecover
+
+
+
+Module Details
+---------------
+
+ecrecover
+~~~~~~~~~
+
+
+.. function:: ecrecover(evm: ethereum.paris.vm.Evm) -> None
+   :noindexentry:
+
+   Decrypts the address using elliptic curve DSA recovery mechanism and writes
+   the address to output.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/precompiled_contracts/ecrecover.py
+   :language: python
+   :pyobject: ecrecover

@@ -1,0 +1,21 @@
+===========
+Comparisons
+===========
+
+.. toctree::
+   :maxdepth: 1
+
+   frontier_homestead.rst
+   homestead_dao_fork.rst
+   dao_fork_tangerine_whistle.rst
+   tangerine_whistle_spurious_dragon.rst
+   spurious_dragon_byzantium.rst
+   byzantium_constantinople.rst
+   constantinople_istanbul.rst
+   istanbul_muir_glacier.rst
+   muir_glacier_berlin.rst
+   berlin_london.rst
+   london_arrow_glacier.rst
+   arrow_glacier_gray_glacier.rst
+   gray_glacier_paris.rst
+   paris_shanghai.rst

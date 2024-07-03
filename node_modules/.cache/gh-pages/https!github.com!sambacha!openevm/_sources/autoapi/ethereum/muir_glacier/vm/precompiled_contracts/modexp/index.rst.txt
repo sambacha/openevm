@@ -1,0 +1,89 @@
+.. py:module:: ethereum.muir_glacier.vm.precompiled_contracts.modexp
+
+Ethereum Virtual Machine (EVM) MODEXP PRECOMPILED CONTRACT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementation of the `MODEXP` precompiled contract.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.muir_glacier.vm.precompiled_contracts.modexp.modexp
+   ethereum.muir_glacier.vm.precompiled_contracts.modexp.get_mult_complexity
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.muir_glacier.vm.precompiled_contracts.modexp.GQUADDIVISOR
+
+
+Module Details
+---------------
+
+GQUADDIVISOR
+~~~~~~~~~~~~
+
+
+
+.. py:data:: GQUADDIVISOR
+   
+   
+
+.. undocinclude:: /../src/ethereum/muir_glacier/vm/precompiled_contracts/modexp.py
+   :language: python
+   :lines: 20-20
+
+
+modexp
+~~~~~~
+
+
+.. function:: modexp(evm: ethereum.muir_glacier.vm.Evm) -> None
+   :noindexentry:
+
+   Calculates `(base**exp) % modulus` for arbitary sized `base`, `exp` and.
+   `modulus`. The return value is the same length as the modulus.
+
+
+
+
+.. undocinclude:: /../src/ethereum/muir_glacier/vm/precompiled_contracts/modexp.py
+   :language: python
+   :pyobject: modexp
+
+get_mult_complexity
+~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: get_mult_complexity(x: ethereum.base_types.Uint) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Estimate the complexity of performing Karatsuba multiplication.
+
+
+
+
+.. undocinclude:: /../src/ethereum/muir_glacier/vm/precompiled_contracts/modexp.py
+   :language: python
+   :pyobject: get_mult_complexity

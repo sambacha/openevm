@@ -1,0 +1,275 @@
+.. py:module:: ethereum.utils.hexadecimal
+
+Utility Functions For Hexadecimal Strings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Hexadecimal strings specific utility functions used in this specification.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.utils.hexadecimal.has_hex_prefix
+   ethereum.utils.hexadecimal.remove_hex_prefix
+   ethereum.utils.hexadecimal.hex_to_bytes
+   ethereum.utils.hexadecimal.hex_to_bytes8
+   ethereum.utils.hexadecimal.hex_to_bytes20
+   ethereum.utils.hexadecimal.hex_to_bytes32
+   ethereum.utils.hexadecimal.hex_to_bytes256
+   ethereum.utils.hexadecimal.hex_to_hash
+   ethereum.utils.hexadecimal.hex_to_uint
+   ethereum.utils.hexadecimal.hex_to_u64
+   ethereum.utils.hexadecimal.hex_to_u256
+
+
+
+Module Details
+---------------
+
+has_hex_prefix
+~~~~~~~~~~~~~~
+
+
+.. function:: has_hex_prefix(hex_string: str) -> bool
+   :noindexentry:
+
+   Check if a hex string starts with hex prefix (0x).
+
+   :param hex_string: The hexadecimal string to be checked for presence of prefix.
+
+   :returns: **has_prefix** -- Boolean indicating whether the hex string has 0x prefix.
+   :rtype: `bool`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/hexadecimal.py
+   :language: python
+   :pyobject: has_hex_prefix
+
+remove_hex_prefix
+~~~~~~~~~~~~~~~~~
+
+
+.. function:: remove_hex_prefix(hex_string: str) -> str
+   :noindexentry:
+
+   Remove 0x prefix from a hex string if present. This function returns the
+   passed hex string if it isn't prefixed with 0x.
+
+   :param hex_string: The hexadecimal string whose prefix is to be removed.
+
+   :returns: **modified_hex_string** -- The hexadecimal string with the 0x prefix removed if present.
+   :rtype: `str`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/hexadecimal.py
+   :language: python
+   :pyobject: remove_hex_prefix
+
+hex_to_bytes
+~~~~~~~~~~~~
+
+
+.. function:: hex_to_bytes(hex_string: str) -> ethereum.base_types.Bytes
+   :noindexentry:
+
+   Convert hex string to bytes.
+
+   :param hex_string: The hexadecimal string to be converted to bytes.
+
+   :returns: **byte_stream** -- Byte stream corresponding to the given hexadecimal string.
+   :rtype: `bytes`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/hexadecimal.py
+   :language: python
+   :pyobject: hex_to_bytes
+
+hex_to_bytes8
+~~~~~~~~~~~~~
+
+
+.. function:: hex_to_bytes8(hex_string: str) -> ethereum.base_types.Bytes8
+   :noindexentry:
+
+   Convert hex string to 8 bytes.
+
+   :param hex_string: The hexadecimal string to be converted to 8 bytes.
+
+   :returns: **8_byte_stream** -- 8-byte stream corresponding to the given hexadecimal string.
+   :rtype: `Bytes8`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/hexadecimal.py
+   :language: python
+   :pyobject: hex_to_bytes8
+
+hex_to_bytes20
+~~~~~~~~~~~~~~
+
+
+.. function:: hex_to_bytes20(hex_string: str) -> ethereum.base_types.Bytes20
+   :noindexentry:
+
+   Convert hex string to 20 bytes.
+
+   :param hex_string: The hexadecimal string to be converted to 20 bytes.
+
+   :returns: **20_byte_stream** -- 20-byte stream corresponding to the given hexadecimal string.
+   :rtype: `Bytes20`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/hexadecimal.py
+   :language: python
+   :pyobject: hex_to_bytes20
+
+hex_to_bytes32
+~~~~~~~~~~~~~~
+
+
+.. function:: hex_to_bytes32(hex_string: str) -> ethereum.base_types.Bytes32
+   :noindexentry:
+
+   Convert hex string to 32 bytes.
+
+   :param hex_string: The hexadecimal string to be converted to 32 bytes.
+
+   :returns: **32_byte_stream** -- 32-byte stream corresponding to the given hexadecimal string.
+   :rtype: `Bytes32`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/hexadecimal.py
+   :language: python
+   :pyobject: hex_to_bytes32
+
+hex_to_bytes256
+~~~~~~~~~~~~~~~
+
+
+.. function:: hex_to_bytes256(hex_string: str) -> ethereum.base_types.Bytes256
+   :noindexentry:
+
+   Convert hex string to 256 bytes.
+
+   :param hex_string: The hexadecimal string to be converted to 256 bytes.
+
+   :returns: **256_byte_stream** -- 256-byte stream corresponding to the given hexadecimal string.
+   :rtype: `Bytes256`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/hexadecimal.py
+   :language: python
+   :pyobject: hex_to_bytes256
+
+hex_to_hash
+~~~~~~~~~~~
+
+
+.. function:: hex_to_hash(hex_string: str) -> ethereum.crypto.hash.Hash32
+   :noindexentry:
+
+   Convert hex string to hash32 (32 bytes).
+
+   :param hex_string: The hexadecimal string to be converted to hash32.
+
+   :returns: **hash** -- 32-byte stream obtained from the given hexadecimal string.
+   :rtype: `Hash32`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/hexadecimal.py
+   :language: python
+   :pyobject: hex_to_hash
+
+hex_to_uint
+~~~~~~~~~~~
+
+
+.. function:: hex_to_uint(hex_string: str) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Convert hex string to Uint.
+
+   :param hex_string: The hexadecimal string to be converted to Uint.
+
+   :returns: **converted** -- The unsigned integer obtained from the given hexadecimal string.
+   :rtype: `Uint`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/hexadecimal.py
+   :language: python
+   :pyobject: hex_to_uint
+
+hex_to_u64
+~~~~~~~~~~
+
+
+.. function:: hex_to_u64(hex_string: str) -> ethereum.base_types.U64
+   :noindexentry:
+
+   Convert hex string to U64.
+
+   :param hex_string: The hexadecimal string to be converted to U256.
+
+   :returns: **converted** -- The U64 integer obtained from the given hexadecimal string.
+   :rtype: `U64`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/hexadecimal.py
+   :language: python
+   :pyobject: hex_to_u64
+
+hex_to_u256
+~~~~~~~~~~~
+
+
+.. function:: hex_to_u256(hex_string: str) -> ethereum.base_types.U256
+   :noindexentry:
+
+   Convert hex string to U256.
+
+   :param hex_string: The hexadecimal string to be converted to U256.
+
+   :returns: **converted** -- The U256 integer obtained from the given hexadecimal string.
+   :rtype: `U256`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/hexadecimal.py
+   :language: python
+   :pyobject: hex_to_u256

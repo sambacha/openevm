@@ -1,0 +1,71 @@
+.. py:module:: ethereum.istanbul.vm.instructions.storage
+
+Ethereum Virtual Machine (EVM) Storage Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM storage related instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.istanbul.vm.instructions.storage.sload
+   ethereum.istanbul.vm.instructions.storage.sstore
+
+
+
+Module Details
+---------------
+
+sload
+~~~~~
+
+
+.. function:: sload(evm: ethereum.istanbul.vm.Evm) -> None
+   :noindexentry:
+
+   Loads to the stack, the value corresponding to a certain key from the
+   storage of the current account.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/istanbul/vm/instructions/storage.py
+   :language: python
+   :pyobject: sload
+
+sstore
+~~~~~~
+
+
+.. function:: sstore(evm: ethereum.istanbul.vm.Evm) -> None
+   :noindexentry:
+
+   Stores a value at a certain key in the current context's storage.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/istanbul/vm/instructions/storage.py
+   :language: python
+   :pyobject: sstore

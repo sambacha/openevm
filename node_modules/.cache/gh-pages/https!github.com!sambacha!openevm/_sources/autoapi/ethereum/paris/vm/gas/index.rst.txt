@@ -1,0 +1,830 @@
+.. py:module:: ethereum.paris.vm.gas
+
+Ethereum Virtual Machine (EVM) Gas
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+EVM gas constants and calculators.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.paris.vm.gas.ExtendMemory
+   ethereum.paris.vm.gas.MessageCallGas
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.paris.vm.gas.charge_gas
+   ethereum.paris.vm.gas.calculate_memory_gas_cost
+   ethereum.paris.vm.gas.calculate_gas_extend_memory
+   ethereum.paris.vm.gas.calculate_message_call_gas
+   ethereum.paris.vm.gas.max_message_call_gas
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.paris.vm.gas.GAS_JUMPDEST
+   ethereum.paris.vm.gas.GAS_BASE
+   ethereum.paris.vm.gas.GAS_VERY_LOW
+   ethereum.paris.vm.gas.GAS_STORAGE_SET
+   ethereum.paris.vm.gas.GAS_STORAGE_UPDATE
+   ethereum.paris.vm.gas.GAS_STORAGE_CLEAR_REFUND
+   ethereum.paris.vm.gas.GAS_LOW
+   ethereum.paris.vm.gas.GAS_MID
+   ethereum.paris.vm.gas.GAS_HIGH
+   ethereum.paris.vm.gas.GAS_EXPONENTIATION
+   ethereum.paris.vm.gas.GAS_EXPONENTIATION_PER_BYTE
+   ethereum.paris.vm.gas.GAS_MEMORY
+   ethereum.paris.vm.gas.GAS_KECCAK256
+   ethereum.paris.vm.gas.GAS_KECCAK256_WORD
+   ethereum.paris.vm.gas.GAS_COPY
+   ethereum.paris.vm.gas.GAS_BLOCK_HASH
+   ethereum.paris.vm.gas.GAS_LOG
+   ethereum.paris.vm.gas.GAS_LOG_DATA
+   ethereum.paris.vm.gas.GAS_LOG_TOPIC
+   ethereum.paris.vm.gas.GAS_CREATE
+   ethereum.paris.vm.gas.GAS_CODE_DEPOSIT
+   ethereum.paris.vm.gas.GAS_ZERO
+   ethereum.paris.vm.gas.GAS_NEW_ACCOUNT
+   ethereum.paris.vm.gas.GAS_CALL_VALUE
+   ethereum.paris.vm.gas.GAS_CALL_STIPEND
+   ethereum.paris.vm.gas.GAS_SELF_DESTRUCT
+   ethereum.paris.vm.gas.GAS_SELF_DESTRUCT_NEW_ACCOUNT
+   ethereum.paris.vm.gas.GAS_ECRECOVER
+   ethereum.paris.vm.gas.GAS_SHA256
+   ethereum.paris.vm.gas.GAS_SHA256_WORD
+   ethereum.paris.vm.gas.GAS_RIPEMD160
+   ethereum.paris.vm.gas.GAS_RIPEMD160_WORD
+   ethereum.paris.vm.gas.GAS_IDENTITY
+   ethereum.paris.vm.gas.GAS_IDENTITY_WORD
+   ethereum.paris.vm.gas.GAS_RETURN_DATA_COPY
+   ethereum.paris.vm.gas.GAS_FAST_STEP
+   ethereum.paris.vm.gas.GAS_BLAKE2_PER_ROUND
+   ethereum.paris.vm.gas.GAS_COLD_SLOAD
+   ethereum.paris.vm.gas.GAS_COLD_ACCOUNT_ACCESS
+   ethereum.paris.vm.gas.GAS_WARM_ACCESS
+
+
+Module Details
+---------------
+
+GAS_JUMPDEST
+~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_JUMPDEST
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 23-23
+
+
+GAS_BASE
+~~~~~~~~
+
+
+
+.. py:data:: GAS_BASE
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 24-24
+
+
+GAS_VERY_LOW
+~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_VERY_LOW
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 25-25
+
+
+GAS_STORAGE_SET
+~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_STORAGE_SET
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 26-26
+
+
+GAS_STORAGE_UPDATE
+~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_STORAGE_UPDATE
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 27-27
+
+
+GAS_STORAGE_CLEAR_REFUND
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_STORAGE_CLEAR_REFUND
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 28-28
+
+
+GAS_LOW
+~~~~~~~
+
+
+
+.. py:data:: GAS_LOW
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 29-29
+
+
+GAS_MID
+~~~~~~~
+
+
+
+.. py:data:: GAS_MID
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 30-30
+
+
+GAS_HIGH
+~~~~~~~~
+
+
+
+.. py:data:: GAS_HIGH
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 31-31
+
+
+GAS_EXPONENTIATION
+~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_EXPONENTIATION
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 32-32
+
+
+GAS_EXPONENTIATION_PER_BYTE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_EXPONENTIATION_PER_BYTE
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 33-33
+
+
+GAS_MEMORY
+~~~~~~~~~~
+
+
+
+.. py:data:: GAS_MEMORY
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 34-34
+
+
+GAS_KECCAK256
+~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_KECCAK256
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 35-35
+
+
+GAS_KECCAK256_WORD
+~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_KECCAK256_WORD
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 36-36
+
+
+GAS_COPY
+~~~~~~~~
+
+
+
+.. py:data:: GAS_COPY
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 37-37
+
+
+GAS_BLOCK_HASH
+~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_BLOCK_HASH
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 38-38
+
+
+GAS_LOG
+~~~~~~~
+
+
+
+.. py:data:: GAS_LOG
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 39-39
+
+
+GAS_LOG_DATA
+~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_LOG_DATA
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 40-40
+
+
+GAS_LOG_TOPIC
+~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_LOG_TOPIC
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 41-41
+
+
+GAS_CREATE
+~~~~~~~~~~
+
+
+
+.. py:data:: GAS_CREATE
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 42-42
+
+
+GAS_CODE_DEPOSIT
+~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_CODE_DEPOSIT
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 43-43
+
+
+GAS_ZERO
+~~~~~~~~
+
+
+
+.. py:data:: GAS_ZERO
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 44-44
+
+
+GAS_NEW_ACCOUNT
+~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_NEW_ACCOUNT
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 45-45
+
+
+GAS_CALL_VALUE
+~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_CALL_VALUE
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 46-46
+
+
+GAS_CALL_STIPEND
+~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_CALL_STIPEND
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 47-47
+
+
+GAS_SELF_DESTRUCT
+~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_SELF_DESTRUCT
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 48-48
+
+
+GAS_SELF_DESTRUCT_NEW_ACCOUNT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_SELF_DESTRUCT_NEW_ACCOUNT
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 49-49
+
+
+GAS_ECRECOVER
+~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_ECRECOVER
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 50-50
+
+
+GAS_SHA256
+~~~~~~~~~~
+
+
+
+.. py:data:: GAS_SHA256
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 51-51
+
+
+GAS_SHA256_WORD
+~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_SHA256_WORD
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 52-52
+
+
+GAS_RIPEMD160
+~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_RIPEMD160
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 53-53
+
+
+GAS_RIPEMD160_WORD
+~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_RIPEMD160_WORD
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 54-54
+
+
+GAS_IDENTITY
+~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_IDENTITY
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 55-55
+
+
+GAS_IDENTITY_WORD
+~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_IDENTITY_WORD
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 56-56
+
+
+GAS_RETURN_DATA_COPY
+~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_RETURN_DATA_COPY
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 57-57
+
+
+GAS_FAST_STEP
+~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_FAST_STEP
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 58-58
+
+
+GAS_BLAKE2_PER_ROUND
+~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_BLAKE2_PER_ROUND
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 59-59
+
+
+GAS_COLD_SLOAD
+~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_COLD_SLOAD
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 60-60
+
+
+GAS_COLD_ACCOUNT_ACCESS
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_COLD_ACCOUNT_ACCESS
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 61-61
+
+
+GAS_WARM_ACCESS
+~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: GAS_WARM_ACCESS
+   
+   
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :lines: 62-62
+
+
+ExtendMemory
+~~~~~~~~~~~~
+
+
+Define the parameters for memory extension in opcodes
+
+`cost`: `ethereum.base_types.Uint`
+    The gas required to perform the extension
+`expand_by`: `ethereum.base_types.Uint`
+    The size by which the memory will be extended
+
+
+.. class:: ExtendMemory
+
+   
+
+   .. py:attribute:: cost
+         :annotation: :ethereum.base_types.Uint
+
+      
+
+   
+
+   .. py:attribute:: expand_by
+         :annotation: :ethereum.base_types.Uint
+
+      
+
+
+
+MessageCallGas
+~~~~~~~~~~~~~~
+
+
+Define the gas cost and stipend for executing the call opcodes.
+
+`cost`: `ethereum.base_types.Uint`
+    The non-refundable portion of gas reserved for executing the
+    call opcode.
+`stipend`: `ethereum.base_types.Uint`
+    The portion of gas available to sub-calls that is refundable
+    if not consumed
+
+
+.. class:: MessageCallGas
+
+   
+
+   .. py:attribute:: cost
+         :annotation: :ethereum.base_types.Uint
+
+      
+
+   
+
+   .. py:attribute:: stipend
+         :annotation: :ethereum.base_types.Uint
+
+      
+
+
+
+charge_gas
+~~~~~~~~~~
+
+
+.. function:: charge_gas(evm: ethereum.paris.vm.Evm, amount: ethereum.base_types.Uint) -> None
+   :noindexentry:
+
+   Subtracts `amount` from `evm.gas_left`.
+
+   :param evm: The current EVM.
+   :param amount: The amount of gas the current operation requires.
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :pyobject: charge_gas
+
+calculate_memory_gas_cost
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: calculate_memory_gas_cost(size_in_bytes: ethereum.base_types.Uint) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Calculates the gas cost for allocating memory
+   to the smallest multiple of 32 bytes,
+   such that the allocated size is at least as big as the given size.
+
+   :param size_in_bytes: The size of the data in bytes.
+
+   :returns: **total_gas_cost** -- The gas cost for storing data in memory.
+   :rtype: `ethereum.base_types.Uint`
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :pyobject: calculate_memory_gas_cost
+
+calculate_gas_extend_memory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: calculate_gas_extend_memory(memory: bytearray, extensions: List[Tuple[ethereum.base_types.U256, ethereum.base_types.U256]]) -> ExtendMemory
+   :noindexentry:
+
+   Calculates the gas amount to extend memory
+
+   :param memory: Memory contents of the EVM.
+   :param extensions: List of extensions to be made to the memory.
+                      Consists of a tuple of start position and size.
+
+   :returns: **extend_memory**
+   :rtype: `ExtendMemory`
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :pyobject: calculate_gas_extend_memory
+
+calculate_message_call_gas
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: calculate_message_call_gas(value: ethereum.base_types.U256, gas: ethereum.base_types.Uint, gas_left: ethereum.base_types.Uint, memory_cost: ethereum.base_types.Uint, extra_gas: ethereum.base_types.Uint, call_stipend: ethereum.base_types.Uint = GAS_CALL_STIPEND) -> MessageCallGas
+   :noindexentry:
+
+   Calculates the MessageCallGas (cost and stipend) for
+   executing call Opcodes.
+
+   :param value: The amount of `ETH` that needs to be transferred.
+   :param gas: The amount of gas provided to the message-call.
+   :param gas_left: The amount of gas left in the current frame.
+   :param memory_cost: The amount needed to extend the memory in the current frame.
+   :param extra_gas: The amount of gas needed for transferring value + creating a new
+                     account inside a message call.
+   :param call_stipend: The amount of stipend provided to a message call to execute code while
+                        transferring value(ETH).
+
+   :returns: **message_call_gas**
+   :rtype: `MessageCallGas`
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :pyobject: calculate_message_call_gas
+
+max_message_call_gas
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: max_message_call_gas(gas: ethereum.base_types.Uint) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Calculates the maximum gas that is allowed for making a message call
+
+   :param gas: The amount of gas provided to the message-call.
+
+   :returns: **max_allowed_message_call_gas** -- The maximum gas allowed for making the message-call.
+   :rtype: `ethereum.base_types.Uint`
+
+
+
+
+.. undocinclude:: /../src/ethereum/paris/vm/gas.py
+   :language: python
+   :pyobject: max_message_call_gas

@@ -1,0 +1,1085 @@
+.. py:module:: ethereum.constantinople.vm.instructions.stack
+
+Ethereum Virtual Machine (EVM) Stack Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM stack related instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.constantinople.vm.instructions.stack.pop
+   ethereum.constantinople.vm.instructions.stack.push_n
+   ethereum.constantinople.vm.instructions.stack.dup_n
+   ethereum.constantinople.vm.instructions.stack.swap_n
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.constantinople.vm.instructions.stack.push1
+   ethereum.constantinople.vm.instructions.stack.push2
+   ethereum.constantinople.vm.instructions.stack.push3
+   ethereum.constantinople.vm.instructions.stack.push4
+   ethereum.constantinople.vm.instructions.stack.push5
+   ethereum.constantinople.vm.instructions.stack.push6
+   ethereum.constantinople.vm.instructions.stack.push7
+   ethereum.constantinople.vm.instructions.stack.push8
+   ethereum.constantinople.vm.instructions.stack.push9
+   ethereum.constantinople.vm.instructions.stack.push10
+   ethereum.constantinople.vm.instructions.stack.push11
+   ethereum.constantinople.vm.instructions.stack.push12
+   ethereum.constantinople.vm.instructions.stack.push13
+   ethereum.constantinople.vm.instructions.stack.push14
+   ethereum.constantinople.vm.instructions.stack.push15
+   ethereum.constantinople.vm.instructions.stack.push16
+   ethereum.constantinople.vm.instructions.stack.push17
+   ethereum.constantinople.vm.instructions.stack.push18
+   ethereum.constantinople.vm.instructions.stack.push19
+   ethereum.constantinople.vm.instructions.stack.push20
+   ethereum.constantinople.vm.instructions.stack.push21
+   ethereum.constantinople.vm.instructions.stack.push22
+   ethereum.constantinople.vm.instructions.stack.push23
+   ethereum.constantinople.vm.instructions.stack.push24
+   ethereum.constantinople.vm.instructions.stack.push25
+   ethereum.constantinople.vm.instructions.stack.push26
+   ethereum.constantinople.vm.instructions.stack.push27
+   ethereum.constantinople.vm.instructions.stack.push28
+   ethereum.constantinople.vm.instructions.stack.push29
+   ethereum.constantinople.vm.instructions.stack.push30
+   ethereum.constantinople.vm.instructions.stack.push31
+   ethereum.constantinople.vm.instructions.stack.push32
+   ethereum.constantinople.vm.instructions.stack.dup1
+   ethereum.constantinople.vm.instructions.stack.dup2
+   ethereum.constantinople.vm.instructions.stack.dup3
+   ethereum.constantinople.vm.instructions.stack.dup4
+   ethereum.constantinople.vm.instructions.stack.dup5
+   ethereum.constantinople.vm.instructions.stack.dup6
+   ethereum.constantinople.vm.instructions.stack.dup7
+   ethereum.constantinople.vm.instructions.stack.dup8
+   ethereum.constantinople.vm.instructions.stack.dup9
+   ethereum.constantinople.vm.instructions.stack.dup10
+   ethereum.constantinople.vm.instructions.stack.dup11
+   ethereum.constantinople.vm.instructions.stack.dup12
+   ethereum.constantinople.vm.instructions.stack.dup13
+   ethereum.constantinople.vm.instructions.stack.dup14
+   ethereum.constantinople.vm.instructions.stack.dup15
+   ethereum.constantinople.vm.instructions.stack.dup16
+   ethereum.constantinople.vm.instructions.stack.swap1
+   ethereum.constantinople.vm.instructions.stack.swap2
+   ethereum.constantinople.vm.instructions.stack.swap3
+   ethereum.constantinople.vm.instructions.stack.swap4
+   ethereum.constantinople.vm.instructions.stack.swap5
+   ethereum.constantinople.vm.instructions.stack.swap6
+   ethereum.constantinople.vm.instructions.stack.swap7
+   ethereum.constantinople.vm.instructions.stack.swap8
+   ethereum.constantinople.vm.instructions.stack.swap9
+   ethereum.constantinople.vm.instructions.stack.swap10
+   ethereum.constantinople.vm.instructions.stack.swap11
+   ethereum.constantinople.vm.instructions.stack.swap12
+   ethereum.constantinople.vm.instructions.stack.swap13
+   ethereum.constantinople.vm.instructions.stack.swap14
+   ethereum.constantinople.vm.instructions.stack.swap15
+   ethereum.constantinople.vm.instructions.stack.swap16
+
+
+Module Details
+---------------
+
+pop
+~~~
+
+
+.. function:: pop(evm: ethereum.constantinople.vm.Evm) -> None
+   :noindexentry:
+
+   Remove item from stack.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :pyobject: pop
+
+push_n
+~~~~~~
+
+
+.. function:: push_n(evm: ethereum.constantinople.vm.Evm, num_bytes: int) -> None
+   :noindexentry:
+
+   Pushes a N-byte immediate onto the stack.
+
+   :param evm: The current EVM frame.
+   :param num_bytes: The number of immediate bytes to be read from the code and pushed to
+                     the stack.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :pyobject: push_n
+
+dup_n
+~~~~~
+
+
+.. function:: dup_n(evm: ethereum.constantinople.vm.Evm, item_number: int) -> None
+   :noindexentry:
+
+   Duplicate the Nth stack item (from top of the stack) to the top of stack.
+
+   :param evm: The current EVM frame.
+   :param item_number: The stack item number (0-indexed from top of stack) to be duplicated
+                       to the top of stack.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :pyobject: dup_n
+
+swap_n
+~~~~~~
+
+
+.. function:: swap_n(evm: ethereum.constantinople.vm.Evm, item_number: int) -> None
+   :noindexentry:
+
+   Swap the top and the `item_number` element of the stack, where
+   the top of the stack is position zero.
+
+   If `item_number` is zero, this function does nothing (which should not be
+   possible, since there is no `SWAP0` instruction).
+
+   :param evm: The current EVM frame.
+   :param item_number: The stack item number (0-indexed from top of stack) to be swapped
+                       with the top of stack element.
+
+
+
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :pyobject: swap_n
+
+push1
+~~~~~
+
+
+
+.. py:data:: push1
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 143-143
+
+
+push2
+~~~~~
+
+
+
+.. py:data:: push2
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 144-144
+
+
+push3
+~~~~~
+
+
+
+.. py:data:: push3
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 145-145
+
+
+push4
+~~~~~
+
+
+
+.. py:data:: push4
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 146-146
+
+
+push5
+~~~~~
+
+
+
+.. py:data:: push5
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 147-147
+
+
+push6
+~~~~~
+
+
+
+.. py:data:: push6
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 148-148
+
+
+push7
+~~~~~
+
+
+
+.. py:data:: push7
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 149-149
+
+
+push8
+~~~~~
+
+
+
+.. py:data:: push8
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 150-150
+
+
+push9
+~~~~~
+
+
+
+.. py:data:: push9
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 151-151
+
+
+push10
+~~~~~~
+
+
+
+.. py:data:: push10
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 152-152
+
+
+push11
+~~~~~~
+
+
+
+.. py:data:: push11
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 153-153
+
+
+push12
+~~~~~~
+
+
+
+.. py:data:: push12
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 154-154
+
+
+push13
+~~~~~~
+
+
+
+.. py:data:: push13
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 155-155
+
+
+push14
+~~~~~~
+
+
+
+.. py:data:: push14
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 156-156
+
+
+push15
+~~~~~~
+
+
+
+.. py:data:: push15
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 157-157
+
+
+push16
+~~~~~~
+
+
+
+.. py:data:: push16
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 158-158
+
+
+push17
+~~~~~~
+
+
+
+.. py:data:: push17
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 159-159
+
+
+push18
+~~~~~~
+
+
+
+.. py:data:: push18
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 160-160
+
+
+push19
+~~~~~~
+
+
+
+.. py:data:: push19
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 161-161
+
+
+push20
+~~~~~~
+
+
+
+.. py:data:: push20
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 162-162
+
+
+push21
+~~~~~~
+
+
+
+.. py:data:: push21
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 163-163
+
+
+push22
+~~~~~~
+
+
+
+.. py:data:: push22
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 164-164
+
+
+push23
+~~~~~~
+
+
+
+.. py:data:: push23
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 165-165
+
+
+push24
+~~~~~~
+
+
+
+.. py:data:: push24
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 166-166
+
+
+push25
+~~~~~~
+
+
+
+.. py:data:: push25
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 167-167
+
+
+push26
+~~~~~~
+
+
+
+.. py:data:: push26
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 168-168
+
+
+push27
+~~~~~~
+
+
+
+.. py:data:: push27
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 169-169
+
+
+push28
+~~~~~~
+
+
+
+.. py:data:: push28
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 170-170
+
+
+push29
+~~~~~~
+
+
+
+.. py:data:: push29
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 171-171
+
+
+push30
+~~~~~~
+
+
+
+.. py:data:: push30
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 172-172
+
+
+push31
+~~~~~~
+
+
+
+.. py:data:: push31
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 173-173
+
+
+push32
+~~~~~~
+
+
+
+.. py:data:: push32
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 174-174
+
+
+dup1
+~~~~
+
+
+
+.. py:data:: dup1
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 176-176
+
+
+dup2
+~~~~
+
+
+
+.. py:data:: dup2
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 177-177
+
+
+dup3
+~~~~
+
+
+
+.. py:data:: dup3
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 178-178
+
+
+dup4
+~~~~
+
+
+
+.. py:data:: dup4
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 179-179
+
+
+dup5
+~~~~
+
+
+
+.. py:data:: dup5
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 180-180
+
+
+dup6
+~~~~
+
+
+
+.. py:data:: dup6
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 181-181
+
+
+dup7
+~~~~
+
+
+
+.. py:data:: dup7
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 182-182
+
+
+dup8
+~~~~
+
+
+
+.. py:data:: dup8
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 183-183
+
+
+dup9
+~~~~
+
+
+
+.. py:data:: dup9
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 184-184
+
+
+dup10
+~~~~~
+
+
+
+.. py:data:: dup10
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 185-185
+
+
+dup11
+~~~~~
+
+
+
+.. py:data:: dup11
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 186-186
+
+
+dup12
+~~~~~
+
+
+
+.. py:data:: dup12
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 187-187
+
+
+dup13
+~~~~~
+
+
+
+.. py:data:: dup13
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 188-188
+
+
+dup14
+~~~~~
+
+
+
+.. py:data:: dup14
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 189-189
+
+
+dup15
+~~~~~
+
+
+
+.. py:data:: dup15
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 190-190
+
+
+dup16
+~~~~~
+
+
+
+.. py:data:: dup16
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 191-191
+
+
+swap1
+~~~~~
+
+
+
+.. py:data:: swap1
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 193-193
+
+
+swap2
+~~~~~
+
+
+
+.. py:data:: swap2
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 194-194
+
+
+swap3
+~~~~~
+
+
+
+.. py:data:: swap3
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 195-195
+
+
+swap4
+~~~~~
+
+
+
+.. py:data:: swap4
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 196-196
+
+
+swap5
+~~~~~
+
+
+
+.. py:data:: swap5
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 197-197
+
+
+swap6
+~~~~~
+
+
+
+.. py:data:: swap6
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 198-198
+
+
+swap7
+~~~~~
+
+
+
+.. py:data:: swap7
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 199-199
+
+
+swap8
+~~~~~
+
+
+
+.. py:data:: swap8
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 200-200
+
+
+swap9
+~~~~~
+
+
+
+.. py:data:: swap9
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 201-201
+
+
+swap10
+~~~~~~
+
+
+
+.. py:data:: swap10
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 202-202
+
+
+swap11
+~~~~~~
+
+
+
+.. py:data:: swap11
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 203-203
+
+
+swap12
+~~~~~~
+
+
+
+.. py:data:: swap12
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 204-204
+
+
+swap13
+~~~~~~
+
+
+
+.. py:data:: swap13
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 205-205
+
+
+swap14
+~~~~~~
+
+
+
+.. py:data:: swap14
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 206-206
+
+
+swap15
+~~~~~~
+
+
+
+.. py:data:: swap15
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 207-207
+
+
+swap16
+~~~~~~
+
+
+
+.. py:data:: swap16
+   
+   
+
+.. undocinclude:: /../src/ethereum/constantinople/vm/instructions/stack.py
+   :language: python
+   :lines: 208-208
+

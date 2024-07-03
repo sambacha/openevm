@@ -1,0 +1,51 @@
+.. py:module:: ethereum.berlin.vm.precompiled_contracts.blake2f
+
+Ethereum Virtual Machine (EVM) Blake2 PRECOMPILED CONTRACT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementation of the `Blake2` precompiled contract.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.berlin.vm.precompiled_contracts.blake2f.blake2f
+
+
+
+Module Details
+---------------
+
+blake2f
+~~~~~~~
+
+
+.. function:: blake2f(evm: ethereum.berlin.vm.Evm) -> None
+   :noindexentry:
+
+   Writes the Blake2 hash to output.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/berlin/vm/precompiled_contracts/blake2f.py
+   :language: python
+   :pyobject: blake2f

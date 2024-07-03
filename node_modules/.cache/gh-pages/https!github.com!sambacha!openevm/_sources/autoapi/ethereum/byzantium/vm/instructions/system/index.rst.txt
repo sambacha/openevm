@@ -1,0 +1,201 @@
+.. py:module:: ethereum.byzantium.vm.instructions.system
+
+Ethereum Virtual Machine (EVM) System Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM system related instructions.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.byzantium.vm.instructions.system.create
+   ethereum.byzantium.vm.instructions.system.return_
+   ethereum.byzantium.vm.instructions.system.generic_call
+   ethereum.byzantium.vm.instructions.system.call
+   ethereum.byzantium.vm.instructions.system.callcode
+   ethereum.byzantium.vm.instructions.system.selfdestruct
+   ethereum.byzantium.vm.instructions.system.delegatecall
+   ethereum.byzantium.vm.instructions.system.staticcall
+   ethereum.byzantium.vm.instructions.system.revert
+
+
+
+Module Details
+---------------
+
+create
+~~~~~~
+
+
+.. function:: create(evm: ethereum.byzantium.vm.Evm) -> None
+   :noindexentry:
+
+   Creates a new account with associated code.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/system.py
+   :language: python
+   :pyobject: create
+
+return_
+~~~~~~~
+
+
+.. function:: return_(evm: ethereum.byzantium.vm.Evm) -> None
+   :noindexentry:
+
+   Halts execution returning output data.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/system.py
+   :language: python
+   :pyobject: return_
+
+generic_call
+~~~~~~~~~~~~
+
+
+.. function:: generic_call(evm: ethereum.byzantium.vm.Evm, gas: ethereum.base_types.Uint, value: ethereum.base_types.U256, caller: ethereum.byzantium.fork_types.Address, to: ethereum.byzantium.fork_types.Address, code_address: ethereum.byzantium.fork_types.Address, should_transfer_value: bool, is_staticcall: bool, memory_input_start_position: ethereum.base_types.U256, memory_input_size: ethereum.base_types.U256, memory_output_start_position: ethereum.base_types.U256, memory_output_size: ethereum.base_types.U256) -> None
+   :noindexentry:
+
+   Perform the core logic of the `CALL*` family of opcodes.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/system.py
+   :language: python
+   :pyobject: generic_call
+
+call
+~~~~
+
+
+.. function:: call(evm: ethereum.byzantium.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into an account.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/system.py
+   :language: python
+   :pyobject: call
+
+callcode
+~~~~~~~~
+
+
+.. function:: callcode(evm: ethereum.byzantium.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into this account with alternative account’s code.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/system.py
+   :language: python
+   :pyobject: callcode
+
+selfdestruct
+~~~~~~~~~~~~
+
+
+.. function:: selfdestruct(evm: ethereum.byzantium.vm.Evm) -> None
+   :noindexentry:
+
+   Halt execution and register account for later deletion.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/system.py
+   :language: python
+   :pyobject: selfdestruct
+
+delegatecall
+~~~~~~~~~~~~
+
+
+.. function:: delegatecall(evm: ethereum.byzantium.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into an account.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/system.py
+   :language: python
+   :pyobject: delegatecall
+
+staticcall
+~~~~~~~~~~
+
+
+.. function:: staticcall(evm: ethereum.byzantium.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into an account.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/system.py
+   :language: python
+   :pyobject: staticcall
+
+revert
+~~~~~~
+
+
+.. function:: revert(evm: ethereum.byzantium.vm.Evm) -> None
+   :noindexentry:
+
+   Stop execution and revert state changes, without consuming all provided gas
+   and also has the ability to return a reason
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/byzantium/vm/instructions/system.py
+   :language: python
+   :pyobject: revert

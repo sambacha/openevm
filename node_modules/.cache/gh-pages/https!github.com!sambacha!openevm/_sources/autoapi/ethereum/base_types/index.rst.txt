@@ -1,0 +1,1101 @@
+.. py:module:: ethereum.base_types
+
+Numeric & Array Types
+^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Integer and array types which are used by—but not unique to—Ethereum.
+
+
+.. only:: stage1
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.base_types.Uint
+   ethereum.base_types.FixedUInt
+   ethereum.base_types.U256
+   ethereum.base_types.U32
+   ethereum.base_types.U64
+   ethereum.base_types.FixedBytes
+   ethereum.base_types.Bytes0
+   ethereum.base_types.Bytes4
+   ethereum.base_types.Bytes8
+   ethereum.base_types.Bytes20
+   ethereum.base_types.Bytes32
+   ethereum.base_types.Bytes64
+   ethereum.base_types.Bytes256
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.base_types._setattr_function
+   ethereum.base_types._delattr_function
+   ethereum.base_types._make_init_function
+   ethereum.base_types.slotted_freezable
+   ethereum.base_types.modify
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.base_types.U8_MAX_VALUE
+   ethereum.base_types.U32_MAX_VALUE
+   ethereum.base_types.U32_CEIL_VALUE
+   ethereum.base_types.U64_MAX_VALUE
+   ethereum.base_types.U255_MAX_VALUE
+   ethereum.base_types.U255_CEIL_VALUE
+   ethereum.base_types.U256_MAX_VALUE
+   ethereum.base_types.U256_CEIL_VALUE
+   ethereum.base_types.T
+   ethereum.base_types.B
+   ethereum.base_types.Bytes
+   ethereum.base_types.S
+
+
+Module Details
+---------------
+
+U8_MAX_VALUE
+~~~~~~~~~~~~
+
+
+
+.. py:data:: U8_MAX_VALUE
+   
+   
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 20-20
+
+
+U32_MAX_VALUE
+~~~~~~~~~~~~~
+
+
+
+.. py:data:: U32_MAX_VALUE
+   
+   
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 21-21
+
+
+U32_CEIL_VALUE
+~~~~~~~~~~~~~~
+
+
+
+.. py:data:: U32_CEIL_VALUE
+   
+   
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 22-22
+
+
+U64_MAX_VALUE
+~~~~~~~~~~~~~
+
+
+
+.. py:data:: U64_MAX_VALUE
+   
+   
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 23-23
+
+
+U255_MAX_VALUE
+~~~~~~~~~~~~~~
+
+
+
+.. py:data:: U255_MAX_VALUE
+   
+   
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 24-24
+
+
+U255_CEIL_VALUE
+~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: U255_CEIL_VALUE
+   
+   
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 25-25
+
+
+U256_MAX_VALUE
+~~~~~~~~~~~~~~
+
+
+
+.. py:data:: U256_MAX_VALUE
+   
+   
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 26-26
+
+
+U256_CEIL_VALUE
+~~~~~~~~~~~~~~~
+
+
+
+.. py:data:: U256_CEIL_VALUE
+   
+   
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 27-27
+
+
+Uint
+~~~~
+
+
+Unsigned positive integer.
+
+
+.. class:: Uint(value: int)
+
+
+   Bases: :py:obj:`int`
+
+   
+
+   .. py:attribute:: __slots__
+         :annotation: = []
+
+      
+
+   .. py:method:: from_be_bytes(buffer: Bytes) -> Uint
+      :classmethod:
+
+      Converts a sequence of bytes into an arbitrarily sized unsigned integer
+      from its big endian representation.
+      :param buffer: Bytes to decode.
+
+      :returns: **self** -- Unsigned integer decoded from `buffer`.
+      :rtype: `Uint`
+
+
+   .. py:method:: from_le_bytes(buffer: Bytes) -> Uint
+      :classmethod:
+
+      Convert a series of little endian bytes to an unsigned integer.
+
+
+   .. py:method:: __radd__(left: int) -> Uint
+
+      Return value+self.
+
+
+   .. py:method:: __add__(right: int) -> Uint
+
+      Return self+value.
+
+
+   .. py:method:: __iadd__(right: int) -> Uint
+
+
+   .. py:method:: __sub__(right: int) -> Uint
+
+      Return self-value.
+
+
+   .. py:method:: __rsub__(left: int) -> Uint
+
+      Return value-self.
+
+
+   .. py:method:: __isub__(right: int) -> Uint
+
+
+   .. py:method:: __mul__(right: int) -> Uint
+
+      Return self*value.
+
+
+   .. py:method:: __rmul__(left: int) -> Uint
+
+      Return value*self.
+
+
+   .. py:method:: __imul__(right: int) -> Uint
+
+
+   .. py:method:: __floordiv__(right: int) -> Uint
+
+      Return self//value.
+
+
+   .. py:method:: __rfloordiv__(left: int) -> Uint
+
+      Return value//self.
+
+
+   .. py:method:: __ifloordiv__(right: int) -> Uint
+
+
+   .. py:method:: __mod__(right: int) -> Uint
+
+      Return self%value.
+
+
+   .. py:method:: __rmod__(left: int) -> Uint
+
+      Return value%self.
+
+
+   .. py:method:: __imod__(right: int) -> Uint
+
+
+   .. py:method:: __divmod__(right: int) -> Tuple[Uint, Uint]
+
+      Return divmod(self, value).
+
+
+   .. py:method:: __rdivmod__(left: int) -> Tuple[Uint, Uint]
+
+      Return divmod(value, self).
+
+
+   .. py:method:: __pow__(right: int, modulo: Optional[int] = None) -> Uint
+
+      Return pow(self, value, mod).
+
+
+   .. py:method:: __rpow__(left: int, modulo: Optional[int] = None) -> Uint
+
+      Return pow(value, self, mod).
+
+
+   .. py:method:: __ipow__(right: int, modulo: Optional[int] = None) -> Uint
+
+
+   .. py:method:: __xor__(right: int) -> Uint
+
+      Return self^value.
+
+
+   .. py:method:: __rxor__(left: int) -> Uint
+
+      Return value^self.
+
+
+   .. py:method:: __ixor__(right: int) -> Uint
+
+
+   .. py:method:: to_be_bytes32() -> Bytes32
+
+      Converts this arbitrarily sized unsigned integer into its big endian
+      representation with exactly 32 bytes.
+      :returns: **big_endian** -- Big endian (most significant bits first) representation.
+      :rtype: `Bytes32`
+
+
+   .. py:method:: to_be_bytes() -> Bytes
+
+      Converts this arbitrarily sized unsigned integer into its big endian
+      representation.
+      :returns: **big_endian** -- Big endian (most significant bits first) representation.
+      :rtype: `Bytes`
+
+
+   .. py:method:: to_le_bytes(number_bytes: int = None) -> Bytes
+
+      Converts this arbitrarily sized unsigned integer into its little endian
+      representation.
+
+      :param number_bytes: Exact number of bytes to return (defaults to the fewest that can
+                           represent this number.)
+
+      :returns: **little_endian** -- Little endian (most significant bits last) representation.
+      :rtype: `Bytes`
+
+
+
+
+T
+~
+
+
+
+.. py:data:: T
+   
+   
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 293-293
+
+
+FixedUInt
+~~~~~~~~~
+
+
+Superclass for fixed size unsigned integers. Not intended to be used
+directly, but rather to be subclassed.
+
+
+.. class:: FixedUInt(value: int)
+
+
+   Bases: :py:obj:`int`
+
+   
+
+   .. py:attribute:: MAX_VALUE
+         :annotation: :ClassVar[FixedUInt]
+
+      
+
+   
+
+   .. py:attribute:: __slots__
+         :annotation: = []
+
+      
+
+   .. py:method:: __radd__(left: int) -> T
+
+      Return value+self.
+
+
+   .. py:method:: __add__(right: int) -> T
+
+      Return self+value.
+
+
+   .. py:method:: wrapping_add(right: int) -> T
+
+      Return a new instance containing `self + right (mod N)`.
+
+      :param right: Other operand for addition.
+
+      :returns: **sum** -- The result of adding `self` and `right`, wrapped.
+      :rtype: T
+
+
+   .. py:method:: __iadd__(right: int) -> T
+
+
+   .. py:method:: __sub__(right: int) -> T
+
+      Return self-value.
+
+
+   .. py:method:: wrapping_sub(right: int) -> T
+
+      Return a new instance containing `self - right (mod N)`.
+
+      :param right: Subtrahend operand for subtraction.
+
+      :returns: **difference** -- The result of subtracting `right` from `self`, wrapped.
+      :rtype: T
+
+
+   .. py:method:: __rsub__(left: int) -> T
+
+      Return value-self.
+
+
+   .. py:method:: __isub__(right: int) -> T
+
+
+   .. py:method:: __mul__(right: int) -> T
+
+      Return self*value.
+
+
+   .. py:method:: wrapping_mul(right: int) -> T
+
+      Return a new instance containing `self * right (mod N)`.
+
+      :param right: Other operand for multiplication.
+
+      :returns: **product** -- The result of multiplying `self` by `right`, wrapped.
+      :rtype: T
+
+
+   .. py:method:: __rmul__(left: int) -> T
+
+      Return value*self.
+
+
+   .. py:method:: __imul__(right: int) -> T
+
+
+   .. py:method:: __floordiv__(right: int) -> T
+
+      Return self//value.
+
+
+   .. py:method:: __rfloordiv__(left: int) -> T
+
+      Return value//self.
+
+
+   .. py:method:: __ifloordiv__(right: int) -> T
+
+
+   .. py:method:: __mod__(right: int) -> T
+
+      Return self%value.
+
+
+   .. py:method:: __rmod__(left: int) -> T
+
+      Return value%self.
+
+
+   .. py:method:: __imod__(right: int) -> T
+
+
+   .. py:method:: __divmod__(right: int) -> Tuple[T, T]
+
+      Return divmod(self, value).
+
+
+   .. py:method:: __rdivmod__(left: int) -> Tuple[T, T]
+
+      Return divmod(value, self).
+
+
+   .. py:method:: __pow__(right: int, modulo: Optional[int] = None) -> T
+
+      Return pow(self, value, mod).
+
+
+   .. py:method:: wrapping_pow(right: int, modulo: Optional[int] = None) -> T
+
+      Return a new instance containing `self ** right (mod modulo)`.
+
+      :param right: Exponent operand.
+      :param modulo: Optional modulus (defaults to `MAX_VALUE + 1`.)
+
+      :returns: **power** -- The result of raising `self` to the power of `right`, wrapped.
+      :rtype: T
+
+
+   .. py:method:: __rpow__(left: int, modulo: Optional[int] = None) -> T
+
+      Return pow(value, self, mod).
+
+
+   .. py:method:: __ipow__(right: int, modulo: Optional[int] = None) -> T
+
+
+   .. py:method:: __and__(right: int) -> T
+
+      Return self&value.
+
+
+   .. py:method:: __or__(right: int) -> T
+
+      Return self|value.
+
+
+   .. py:method:: __xor__(right: int) -> T
+
+      Return self^value.
+
+
+   .. py:method:: __rxor__(left: int) -> T
+
+      Return value^self.
+
+
+   .. py:method:: __ixor__(right: int) -> T
+
+
+   .. py:method:: __invert__() -> T
+
+      ~self
+
+
+   .. py:method:: __rshift__(shift_by: int) -> T
+
+      Return self>>value.
+
+
+   .. py:method:: to_be_bytes() -> Bytes
+
+      Converts this unsigned integer into its big endian representation,
+      omitting leading zero bytes.
+
+      :returns: **big_endian** -- Big endian (most significant bits first) representation.
+      :rtype: `Bytes`
+
+
+
+
+U256
+~~~~
+
+
+Unsigned positive integer, which can represent `0` to `2 ** 256 - 1`,
+inclusive.
+
+
+.. class:: U256(value: int)
+
+
+   Bases: :py:obj:`FixedUInt`
+
+   
+
+   .. py:attribute:: MAX_VALUE
+         :annotation: :ClassVar[U256]
+
+      
+
+   
+
+   .. py:attribute:: __slots__
+         :annotation: = []
+
+      
+
+   .. py:method:: from_be_bytes(buffer: Bytes) -> U256
+      :classmethod:
+
+      Converts a sequence of bytes into an arbitrarily sized unsigned integer
+      from its big endian representation.
+      :param buffer: Bytes to decode.
+
+      :returns: **self** -- Unsigned integer decoded from `buffer`.
+      :rtype: `U256`
+
+
+   .. py:method:: from_signed(value: int) -> U256
+      :classmethod:
+
+      Converts a signed number into a 256-bit unsigned integer.
+      :param value: Signed number
+
+      :returns: **self** -- Unsigned integer obtained from `value`.
+      :rtype: `U256`
+
+
+   .. py:method:: to_be_bytes32() -> Bytes32
+
+      Converts this 256-bit unsigned integer into its big endian
+      representation with exactly 32 bytes.
+      :returns: **big_endian** -- Big endian (most significant bits first) representation.
+      :rtype: `Bytes32`
+
+
+   .. py:method:: to_signed() -> int
+
+      Converts this 256-bit unsigned integer into a signed integer.
+      :returns: **signed_int** -- Signed integer obtained from 256-bit unsigned integer.
+      :rtype: `int`
+
+
+
+
+MAX_VALUE
+~~~~~~~~~
+
+
+
+.. py:data:: U256.MAX_VALUE
+   :noindex:
+
+   
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 734-734
+
+
+U32
+~~~
+
+
+Unsigned positive integer, which can represent `0` to `2 ** 32 - 1`,
+inclusive.
+
+
+.. class:: U32(value: int)
+
+
+   Bases: :py:obj:`FixedUInt`
+
+   
+
+   .. py:attribute:: MAX_VALUE
+         :annotation: :ClassVar[U32]
+
+      
+
+   
+
+   .. py:attribute:: __slots__
+         :annotation: = []
+
+      
+
+   .. py:method:: from_le_bytes(buffer: Bytes) -> U32
+      :classmethod:
+
+      Converts a sequence of bytes into an arbitrarily sized unsigned integer
+      from its little endian representation.
+
+
+   .. py:method:: to_le_bytes4() -> Bytes4
+
+      Converts this fixed sized unsigned integer into its little endian
+      representation, with exactly 4 bytes.
+
+      :returns: **little_endian** -- Little endian (most significant bits last) representation.
+      :rtype: `Bytes4`
+
+
+   .. py:method:: to_le_bytes() -> Bytes
+
+      Converts this fixed sized unsigned integer into its little endian
+      representation, in the fewest bytes possible.
+
+      :returns: **little_endian** -- Little endian (most significant bits last) representation.
+      :rtype: `Bytes`
+
+
+
+
+MAX_VALUE
+~~~~~~~~~
+
+
+
+.. py:data:: U32.MAX_VALUE
+   :noindex:
+
+   
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 786-786
+
+
+U64
+~~~
+
+
+Unsigned positive integer, which can represent `0` to `2 ** 64 - 1`,
+inclusive.
+
+
+.. class:: U64(value: int)
+
+
+   Bases: :py:obj:`FixedUInt`
+
+   
+
+   .. py:attribute:: MAX_VALUE
+         :annotation: :ClassVar[U64]
+
+      
+
+   
+
+   .. py:attribute:: __slots__
+         :annotation: = []
+
+      
+
+   .. py:method:: from_le_bytes(buffer: Bytes) -> U64
+      :classmethod:
+
+      Converts a sequence of bytes into an arbitrarily sized unsigned integer
+      from its little endian representation.
+
+
+   .. py:method:: to_le_bytes8() -> Bytes8
+
+      Converts this fixed sized unsigned integer into its little endian
+      representation, with exactly 8 bytes.
+
+      :returns: **little_endian** -- Little endian (most significant bits last) representation.
+      :rtype: `Bytes8`
+
+
+   .. py:method:: to_le_bytes() -> Bytes
+
+      Converts this fixed sized unsigned integer into its little endian
+      representation, in the fewest bytes possible.
+
+      :returns: **little_endian** -- Little endian (most significant bits last) representation.
+      :rtype: `Bytes`
+
+
+   .. py:method:: from_be_bytes(buffer: Bytes) -> U64
+      :classmethod:
+
+      Converts a sequence of bytes into an unsigned 64 bit integer from its
+      big endian representation.
+
+      :param buffer: Bytes to decode.
+
+      :returns: **self** -- Unsigned integer decoded from `buffer`.
+      :rtype: `U64`
+
+
+
+
+MAX_VALUE
+~~~~~~~~~
+
+
+
+.. py:data:: U64.MAX_VALUE
+   :noindex:
+
+   
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 858-858
+
+
+B
+~
+
+
+
+.. py:data:: B
+   
+   
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 862-862
+
+
+FixedBytes
+~~~~~~~~~~
+
+
+Superclass for fixed sized byte arrays. Not intended to be used directly,
+but should be subclassed.
+
+
+.. class:: FixedBytes
+
+
+   Bases: :py:obj:`bytes`
+
+   
+
+   .. py:attribute:: LENGTH
+         :annotation: :int
+
+      
+
+   
+
+   .. py:attribute:: __slots__
+         :annotation: = []
+
+      
+
+
+
+Bytes0
+~~~~~~
+
+
+Byte array of exactly zero elements.
+
+
+.. class:: Bytes0
+
+
+   Bases: :py:obj:`FixedBytes`
+
+   
+
+   .. py:attribute:: LENGTH
+         :annotation: = 0
+
+      
+
+
+
+Bytes4
+~~~~~~
+
+
+Byte array of exactly four elements.
+
+
+.. class:: Bytes4
+
+
+   Bases: :py:obj:`FixedBytes`
+
+   
+
+   .. py:attribute:: LENGTH
+         :annotation: = 4
+
+      
+
+
+
+Bytes8
+~~~~~~
+
+
+Byte array of exactly eight elements.
+
+
+.. class:: Bytes8
+
+
+   Bases: :py:obj:`FixedBytes`
+
+   
+
+   .. py:attribute:: LENGTH
+         :annotation: = 8
+
+      
+
+
+
+Bytes20
+~~~~~~~
+
+
+Byte array of exactly 20 elements.
+
+
+.. class:: Bytes20
+
+
+   Bases: :py:obj:`FixedBytes`
+
+   
+
+   .. py:attribute:: LENGTH
+         :annotation: = 20
+
+      
+
+
+
+Bytes32
+~~~~~~~
+
+
+Byte array of exactly 32 elements.
+
+
+.. class:: Bytes32
+
+
+   Bases: :py:obj:`FixedBytes`
+
+   
+
+   .. py:attribute:: LENGTH
+         :annotation: = 32
+
+      
+
+
+
+Bytes64
+~~~~~~~
+
+
+Byte array of exactly 64 elements.
+
+
+.. class:: Bytes64
+
+
+   Bases: :py:obj:`FixedBytes`
+
+   
+
+   .. py:attribute:: LENGTH
+         :annotation: = 64
+
+      
+
+
+
+Bytes256
+~~~~~~~~
+
+
+Byte array of exactly 256 elements.
+
+
+.. class:: Bytes256
+
+
+   Bases: :py:obj:`FixedBytes`
+
+   
+
+   .. py:attribute:: LENGTH
+         :annotation: = 256
+
+      
+
+
+
+Bytes
+~~~~~
+
+
+
+.. py:data:: Bytes
+   
+   
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 943-943
+
+
+_setattr_function
+~~~~~~~~~~~~~~~~~
+
+
+.. function:: _setattr_function(self: Any, attr: str, value: Any) -> None
+   :noindexentry:
+
+
+
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :pyobject: _setattr_function
+
+_delattr_function
+~~~~~~~~~~~~~~~~~
+
+
+.. function:: _delattr_function(self: Any, attr: str) -> None
+   :noindexentry:
+
+
+
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :pyobject: _delattr_function
+
+_make_init_function
+~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: _make_init_function(f: Callable) -> Callable
+   :noindexentry:
+
+
+
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :pyobject: _make_init_function
+
+slotted_freezable
+~~~~~~~~~~~~~~~~~
+
+
+.. function:: slotted_freezable(cls: Any) -> Any
+   :noindexentry:
+
+   Monkey patches a dataclass so it can be frozen by setting `_frozen` to
+   `True` and uses `__slots__` for efficiency.
+
+   Instances will be created frozen by default unless you pass `_frozen=False`
+   to `__init__`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :pyobject: slotted_freezable
+
+S
+~
+
+
+
+.. py:data:: S
+   
+   
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 985-985
+
+
+modify
+~~~~~~
+
+
+.. function:: modify(obj: S, f: Callable[[S], None]) -> S
+   :noindexentry:
+
+   Create a mutable copy of `obj` (which must be `@slotted_freezable`) and
+   apply `f` to the copy before freezing it.
+
+   :param obj: Object to copy.
+   :type obj: `S`
+   :param f: Function to apply to `obj`.
+   :type f: `Callable[[S], None]`
+
+   :returns: **new_obj** -- Compact byte array.
+   :rtype: `S`
+
+
+
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :pyobject: modify
