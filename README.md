@@ -1,3 +1,10 @@
+
+> [!NOTE]    
+> [See v1 Site](https://sambacha.github.io/openevm/ethereum.html)
+
+> [!WARNING]
+> [See v2 Site](https://refined-github-html-preview.kidonng.workers.dev/sambacha/openevm/raw/gh-pages/node_modules/.cache/gh-pages/https!github.com!sambacha!openevm/index.html)
+
 ## EVM opcodes vs ewasm methods
 
 These tables compares EVM opcodes with ewasm methods and wasm instructions. The EVM defines 134 opcodes (as of the Byzantium hard fork). Of these 134 opcodes, some represent generic machine instructions (ADD, MUL, ISZERO, XOR, etc.) and the rest are Ethereum-specific operations (SLOAD, SSTORE, GASPRICE, BLOCKHASH, etc.).
